@@ -1,0 +1,57 @@
+@use "/src/assets/styles/scss/variables" as variables;
+.navbar_main .navbar {
+        display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+#navbar-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav .nav_link {
+    color: variables.$tiffany-color;
+    font-family: "Jura Bold", sans-serif;
+    font-size: 20px;
+}
+
+.nav .nav_link:hover {
+    color: variables.$white
+}
+
+.login_signup .login-link {
+  color: white; 
+  padding-right: 22px;
+}
+
+.login_signup {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 20px;
+    font-family: "Jura Bold", sans-serif;
+
+}
+
+.header-name {
+    font-family: "Jura Bold", sans-serif;
+    font-size: 24px;
+}
+
+.logo_name {
+    padding-right: 150px;
+}
+
+.login_signup:hover{
+    color: variables.$white;
+    
+}
+
+
+@media (max-width: 768px) {
+    .nav .nav_link {
+        padding-left: 10px;
+    }
+}
+ 
