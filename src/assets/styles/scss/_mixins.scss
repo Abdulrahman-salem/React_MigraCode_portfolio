@@ -1,0 +1,15 @@
+@use "./variables" as variables;
+
+
+@mixin jura-bold {
+    font-family: variables.$font-family-all;
+    font-weight: 700;
+}
+@mixin jura-medium {
+    font-family: variables.$font-family-all;
+    font-weight: 500;
+}
+@mixin jura {
+    font-family: variables.$font-family-all;
+    font-weight: 400;
+}
