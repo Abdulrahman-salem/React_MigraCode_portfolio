@@ -1,4 +1,4 @@
-
+@use "/src/assets/styles/scss/variables" as variables;
 
 /* Default styles for larger screens (e.g., desktop) */
 .description {
@@ -9,13 +9,17 @@
 }
 
 p {
+  margin-bottom: 50px;
+  margin-top: 50px;
   font-size: 24px;
   font-family: "Jura", sans-serif;
 }
 
 h1 {
-    margin-bottom: 20px;
-    font-family: "Jura Bold";
+  margin-bottom: 20px;
+  font-family: "Jura", sans-serif;
+  font-weight: 700;
+  color: variables.$tiffany;
 }
 
 img {
@@ -25,20 +29,20 @@ img {
 .description .button {
   display: block;
   margin: 0 auto;
-  font-family: "Jura Bold";
 }
+
 
 
 /* Styles for tablets */
 @media (max-width: 768px) {
   .description {
-    flex-direction: column; 
-    text-align: center; 
+    flex-direction: column;
+    text-align: center;
     margin: 20px;
   }
 
   p {
-    font-size: 18px; 
+    font-size: 18px;
   }
 
   .description img {
@@ -50,11 +54,11 @@ img {
 /* Styles for phones */
 @media (max-width: 480px) {
   p {
-    font-size: 16px; 
+    font-size: 16px;
   }
 
- .description img {
-    // height: 200px; 
+  .description img {
+    // height: 200px;
     display: none;
   }
 }

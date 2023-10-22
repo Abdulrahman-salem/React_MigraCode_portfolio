@@ -2,7 +2,6 @@ import React from "react";
 import photo from "../../assets/images/group_photo.jpg"; 
 import group_photo from "../../assets/images/Screenshot_6.png"
 import "./index.scss";
-import { Button } from "react-bootstrap";
 import "../../assets/styles/scss/_fonts.scss";
 
 
@@ -24,10 +23,9 @@ const Description = () => {
             companies and students to foster both labor integration as well as
             social inclusion.
           </p>
-          <Button className="button" variant="secondary">
+          <button className="button">
             Students portfolio
-          </Button>
-          <h1>We are working...</h1>
+          </button>
         </div>
 
         <div className="description_image">

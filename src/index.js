@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import './assets/styles/scss/_typography.scss';
 import './assets/styles/scss/_global.scss';
 import "./assets/styles/scss/_fonts.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,14 +1,12 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
 
 
-// // Style for Headings
-// @font-face {
-//   font-family: 'Jura Bold'; 
-//   src: url('../../fonts/Jura-Bold.ttf') format('ttf'); 
-// }
+// Style for Headings
+@font-face {
+  font-family: 'Jura Bold';
+  font-weight: 700; 
+  src: url('https://fonts.googleapis.com/css2?family=Jura&display=swap') format('ttf'); 
+}
 
 // // Style for Subheadings
 // @font-face {
@@ -16,8 +14,8 @@
 //   src: url('../../fonts/Jura-Medium.ttf') format('ttf'); 
 // }
 
-// //Style for text
-// @font-face {
-//   font-family: 'Jura'; 
-//   src: url('../../fonts/Jura-Regular.ttf') format('ttf'); 
-// }
+//Style for text
+@font-face {
+  font-family: 'Jura'; 
+  src: url('https://fonts.googleapis.com/css2?family=Jura&display=swap') format('ttf'); 
+}
