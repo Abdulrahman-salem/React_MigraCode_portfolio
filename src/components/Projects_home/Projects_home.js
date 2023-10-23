@@ -3,7 +3,7 @@ import "./index.scss";
 import "../../assets/styles/scss/_fonts.scss";
 import screen from "../../assets/images/screenshot_MigraCode_page.png"; 
 
-const Projects_home = () => {
+const ProjectsHome = () => {
   return (
     <>
       <h1>Projects made with love</h1>
@@ -33,4 +33,4 @@ const Projects_home = () => {
   );
 };
 
-export default Projects_home;
+export default ProjectsHome;

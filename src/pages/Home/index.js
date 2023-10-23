@@ -1,7 +1,7 @@
 import "./index.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import Description from "../../components/Description_home/Description_home";
-import Projects_home from "../../components/Projects_home/Projects_home";
+import ProjectsHome from "../../components/Projects_home/Projects_home";
 
 function Home() {
     return (
@@ -11,9 +11,9 @@ function Home() {
         <>
           <NavBar />
           <Description />
-          <Projects_home/>
+          <ProjectsHome/>
         </>
-      </div>
+        </div>
     );
 }
 

@@ -1,5 +1,0 @@
-Here should be component folders.
-
-The name of folders should start with capital letter for example (NavBar) and inside of it index.js file and index.scss file if we need it 
-
-You have example in pages folder
