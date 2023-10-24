@@ -21,12 +21,13 @@ const StudentHome = () => {
       <h1>Our talented students</h1>
       <div className="container_projects">
         <div className="project">
-          <h2>github name: {userData.login}</h2>
-          <h2>github link: {userData.html_url}</h2>
-          <h2>Name: {userData.name}</h2>
-          <h2>Location: {userData.location}</h2>
-          <h2>Name: {userData.name}</h2>
-          <h2>Company: {userData.company}</h2>
+          <p>github name: {userData.login}</p>
+          <p>github link: {userData.html_url}</p>
+          <p>Name: {userData.name}</p>
+          <p>Email: {userData.email}</p>
+          <p>Location: {userData.location}</p>
+          <p>Company: {userData.company}</p>
+          <p>Bio: {userData.bio}</p>
           <img src={userData.avatar_url} alt="project_photo" width="250px" />
         </div>
       </div>
