@@ -1,0 +1,28 @@
+@use "/src/assets/styles/scss/variables" as variables;
+
+h1 {
+    text-align: center;
+}
+
+.project {
+    border: 1px solid variables.$red;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 20px;
+}
+
+.container_projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+.project img  {
+    margin: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

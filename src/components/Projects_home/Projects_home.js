@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./index.scss";
 import "../../assets/styles/scss/_fonts.scss";
 import screen from "../../assets/images/screenshot_MigraCode_page.png"; 
+import axios from "axios";
 
 const ProjectsHome = () => {
+ 
   return (
     <>
       <h1>Projects made with love</h1>
