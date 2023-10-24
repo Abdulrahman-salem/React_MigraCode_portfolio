@@ -1,5 +1,5 @@
 import React from "react";
-import photo from "../../assets/images/group_photo.jpg"; 
+// import photo from "../../assets/images/group_photo.jpg"; 
 import group_photo from "../../assets/images/Screenshot_6.png"
 import "./index.scss";
 import "../../assets/styles/scss/_fonts.scss";
