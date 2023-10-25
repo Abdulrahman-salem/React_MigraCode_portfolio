@@ -4,8 +4,8 @@ import "./index.scss";
 
 const NavBar = () => {
   return (
-    <>
-      <div className="nav_bar">
+    <div className="nav_bar">
+      <main>
         <div className="logo_name">
           <img src={logo} alt="MigraCode Logo" height="60" />
           <div className="header-name" href="/">
@@ -39,8 +39,8 @@ const NavBar = () => {
         <div className="login">
           <button>Log in</button>
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 };
 
