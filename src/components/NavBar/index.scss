@@ -1,18 +1,38 @@
 @use "/src/assets/styles/scss/variables" as variables;
 @use "/src/assets/styles/scss/mixins" as mixins;
- /////Hello
+
+
 .nav_bar {
-  display: flex;
+ 
+  main {
+display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: variables.$black;
   border-bottom: 2px solid variables.$red;
+
+  .logo_name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-name {
+  @include mixins.jura-bold;
+  font-size: 24px;
+  color: variables.$white;
+  margin-left: 20px;
 }
+.logo_name img {
+  margin: 0;
+  height: 60px;
+}
+}
+
+.nav {
 
 .nav_link {
   color: variables.$tiffany;
   @include mixins.jura-bold;
-
   font-size: 20px;
   margin-right: 30px;
   text-decoration: none;
@@ -21,34 +41,31 @@
 .nav .nav_link:hover {
   color: variables.$white;
 }
-
-.header-name {
-  @include mixins.jura-bold;
-  font-size: 24px;
-  color: variables.$white;
-  margin-left: 20px;
-}
-
-.logo_name {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo_name img {
-  margin: 0;
-  height: 60px;
 }
 
 .login {
   margin-right: 20px;
-}
 
-.login:hover {
+  .login:hover {
   color: variables.$white;
 }
 
+button {
+        display: block;
+        margin: 0 auto;
+        background-color: variables.$red;
+        border: 1px solid white;
+        color: variables.$white;
+        border-radius: 15px;
+        padding: 10px;
+        font-size: 15px;
+        @include mixins.jura-medium;
+      }
 
+}
+
+    }
+  }
 
 // @media (max-width: 768px) {
 //   .nav .nav_link {

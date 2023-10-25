@@ -1,28 +1,60 @@
 @use "/src/assets/styles/scss/variables" as variables;
+@use "/src/assets/styles/scss/mixins" as mixins;
 
-h1 {
+.projects {
+  h1 {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    @include mixins.jura-bold;
+    color: variables.$tiffany;
     text-align: center;
-}
+  }
 
-.project {
-    border: 1px solid variables.$red;
-    border-radius: 10px;
-    margin-right: 20px;
-    padding: 20px;
-}
+  main {
+    .container_projects {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
 
-.container_projects {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+      .project {
+        border: 1px solid variables.$red;
+        border-radius: 10px;
+        margin-right: 20px;
+        padding: 20px;
 
-h2, h3 {
-    text-align: center;
-}
+        button {
+          background-color: variables.$red;
+          border: 1px solid white;
+          color: variables.$white;
+          border-radius: 15px;
+          padding: 10px;
+          font-size: 15px;
+          @include mixins.jura-medium;
+        }
 
-.project img  {
-    margin: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+        p {
+          font-size: 16px;
+          @include mixins.jura;
+        }
+
+        h1 {
+          text-align: center;
+          margin: 50px;
+        }
+
+        h2,
+        h3 {
+          text-align: center;
+          @include mixins.jura-medium;
+          color: variables.$tiffany;
+        }
+
+        img {
+          margin: 0px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
 }

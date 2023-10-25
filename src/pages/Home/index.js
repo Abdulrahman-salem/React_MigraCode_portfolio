@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Description from "../../components/Description_home/Description_home";
 import ProjectsHome from "../../components/Projects_home/Projects_home";
 import StudentHome from "../../components/Students_home/Student_home";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
     return (
@@ -14,6 +15,7 @@ function Home() {
           <Description />
           <StudentHome />
           <ProjectsHome/>
+          <Footer/>
         </>
         </div>
     );

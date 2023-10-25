@@ -1,15 +1,14 @@
 import React from "react";
-import photo from "../../assets/images/group_photo.jpg"; 
+// import photo from "../../assets/images/group_photo.jpg"; 
 import group_photo from "../../assets/images/Screenshot_6.png"
 import "./index.scss";
-import "../../assets/styles/scss/_fonts.scss";
 
 
 
 const Description = () => {
   return (
-    <>
-      <div className="description">
+    <div className="description">
+      <main>
         <div className="description_text">
           <h1>
             Connecting Dreams to Code: Explore Our Student Web Developer
@@ -23,16 +22,14 @@ const Description = () => {
             companies and students to foster both labor integration as well as
             social inclusion.
           </p>
-          <button className="button">
-            Students portfolio
-          </button>
+          <button className="button">Students portfolio</button>
         </div>
 
         <div className="description_image">
           <img src={group_photo} alt="group_photo" height="350px" />
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 };
 

@@ -3,63 +3,78 @@
 
 /* Default styles for larger screens (e.g., desktop) */
 .description {
-  display: flex;
+
+  main {
+      display: flex;
   justify-content: space-around;
   margin: 40px;
   align-items: center;
-}
 
-p {
-  margin-bottom: 50px;
-  margin-top: 50px;
-  font-size: 24px;
-  @include mixins.jura;
-}
+    .description_text {
 
-h1 {
-  margin-bottom: 20px;
-  @include mixins.jura-bold;
-  font-weight: 700;
-  color: variables.$tiffany;
-}
+      p {
+        margin-bottom: 50px;
+        margin-top: 50px;
+        font-size: 24px;
+        @include mixins.jura;
+      }
 
-img {
-  margin-left: 30px;
-}
+      h1 {
+        margin-bottom: 20px;
+        @include mixins.jura-bold;
+        font-weight: 700;
+        color: variables.$tiffany;
+      }
 
-.description .button {
-  display: block;
-  margin: 0 auto;
-}
+      button {
+        display: block;
+        margin: 0 auto;
+        background-color: variables.$red;
+        border: 1px solid white;
+        color: variables.$white;
+        border-radius: 15px;
+        padding: 10px;
+        font-size: 15px;
+        @include mixins.jura-medium;
+      }
+    }
 
-
-
-/* Styles for tablets */
-@media (max-width: 768px) {
-  .description {
-    flex-direction: column;
-    text-align: center;
-    margin: 20px;
+      .description_image {
+        img {
+          margin-left: 30px;
+        }
+      }
+    }
   }
 
-  p {
-    font-size: 18px;
-  }
 
-  .description img {
-    display: none;
-    // height: 250px;
-  }
-}
 
-/* Styles for phones */
-@media (max-width: 480px) {
-  p {
-    font-size: 16px;
-  }
+// /* Styles for tablets */
+// @media (max-width: 768px) {
+//   .description {
+//     flex-direction: column;
+//     text-align: center;
+//     margin: 20px;
+//   }
 
-  .description img {
-    // height: 200px;
-    display: none;
-  }
-}
+//   p {
+//     font-size: 18px;
+//   }
+
+//   .description img {
+//     display: none;
+//     // height: 250px;
+//   }
+// }
+
+// /* Styles for phones */
+// @media (max-width: 480px) {
+//   p {
+//     font-size: 16px;
+//   }
+
+//   .description img {
+//     // height: 200px;
+//     display: none;
+//   }
+// }
