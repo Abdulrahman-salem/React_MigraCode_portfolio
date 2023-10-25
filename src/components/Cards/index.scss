@@ -1,0 +1,12 @@
+@use "/src/assets/styles/scss/mixins" as mixins;
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    // background: black;
+    gap: 20px;
+    padding: 20px 0;
+    margin: 20px 0;
+}

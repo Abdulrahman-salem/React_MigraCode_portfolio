@@ -1,0 +1,49 @@
+@use "/src/assets/styles/scss/mixins" as mixins;
+
+.filter {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    & > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 20px;
+        flex-direction: row;
+        border: 1px solid black;
+        border-radius: 50px;
+        width: clamp(50px, 10rem, 50vw);
+
+        & p {
+            padding: 0 15px 0 0;
+            font-size: clamp(14px, 1.8vw, 40px);
+            @include mixins.jura-medium;
+        }
+
+        & img {
+            width: 30px;
+            border-radius: 50px;
+            background: black;
+        }
+    }
+    & .filter-option {
+        border-radius: 15px 0px 0 15px;
+        position: absolute;
+        width: clamp(50px, 16.5rem, 77vw);
+        aspect-ratio: 1/0;
+        right: 0;
+        top: 110%;
+        padding: 10px;
+        background: white;
+        
+        & > * {
+            width: 100%;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 50px;
+            margin-bottom: 5px;
+        }
+    }
+}
