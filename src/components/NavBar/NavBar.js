@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../../assets/images/MigraCode-16.png"; 
 import "./index.scss";
-import "../../assets/styles/scss/_fonts.scss";
 
 const NavBar = () => {
   return (
