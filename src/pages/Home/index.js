@@ -2,7 +2,8 @@ import "./index.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import Description from "../../components/Description_home/Description_home";
 import ProjectsHome from "../../components/Projects_home/Projects_home";
-import StudentsHome from "../../components/Students_home/Students_home";
+
+import StudentsHome2 from "../../components/Students_home2/Students_home2";
 
 
 function Home() {
@@ -14,7 +15,8 @@ function Home() {
           <NavBar />
           <Description />
           <ProjectsHome />
-          <StudentsHome />
+          
+          <StudentsHome2 />
         </>
         </div>
     );
