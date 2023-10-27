@@ -2,25 +2,25 @@
 @use "/src/assets/styles/scss/mixins" as mixins;
 
 
-.nav_bar {
- 
-  main {
-display: flex;
+header {
+ display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: variables.$black;
   border-bottom: 2px solid variables.$red;
 
   .logo_name {
-  display: flex;
+
+  a {  display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;}
 
   .header-name {
   @include mixins.jura-bold;
   font-size: 24px;
   color: variables.$white;
-  margin-left: 20px;
+  margin-left: 10px;
+  text-decoration: underline variables.$black;
 }
 .logo_name img {
   margin: 0;
@@ -65,8 +65,7 @@ button {
 }
 
     }
-  }
-
+  
 // @media (max-width: 768px) {
 //   .nav .nav_link {
 //     padding-left: 10px;

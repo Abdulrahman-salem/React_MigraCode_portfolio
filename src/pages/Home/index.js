@@ -1,9 +1,11 @@
 import "./index.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import Description from "../../components/Description_home/Description_home";
-import ProjectsHome from "../../components/Projects_home/Projects_home";
-import StudentHome from "../../components/Students_home/Student_home";
+// import ProjectsHome from "../../components/Projects_home/Projects_home";
+// import StudentHome from "../../components/Students_home/Student_home";
 import Footer from "../../components/Footer/Footer";
+import Cards from "../../components/Cards";
+import Pagination from "../../components/Pagination";
 
 function Home() {
     return (
@@ -13,8 +15,10 @@ function Home() {
         <>
           <NavBar />
           <Description />
-          <StudentHome />
-          <ProjectsHome/>
+           <Cards/>
+          {/* <Pagination/> */} 
+          {/* <StudentHome />
+          <ProjectsHome/> */}
           <Footer/>
         </>
         </div>
