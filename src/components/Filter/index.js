@@ -9,7 +9,7 @@ function Filter({ children }) {
 
     const handleOpenFilterOption = (e) => {
         // if there is no children don't open the options
-        if (!children.props.children) {
+        if (!children) {
             return;
         }
 
