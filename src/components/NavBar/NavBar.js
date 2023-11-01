@@ -4,7 +4,7 @@ import "./index.scss";
 
 const NavBar = () => {
   return (
-    <header>
+    <section className="navBar">
       <div className="logo_name">
         <a
           target="_blank"
@@ -49,7 +49,7 @@ const NavBar = () => {
       <div className="login">
         <button>Log in</button>
       </div>
-    </header>
+    </section>
   );
 };
 
