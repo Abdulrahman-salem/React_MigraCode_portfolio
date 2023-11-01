@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Project from "./pages/project";
 
+
 function App() {
     return (
       <Routes>

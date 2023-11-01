@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import Card from "../Card";
 import "./index.scss";
 import { Link, Outlet } from "react-router-dom";
@@ -49,6 +50,7 @@ function Cards({ allData, onClickGoTo }) {
                     <Link to={onClickGoTo} state={data} key={index}>
                         <Card cardData={data} />
                     </Link>
+
                 ))}
             </div>
             <Outlet />

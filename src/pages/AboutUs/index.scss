@@ -1,0 +1,32 @@
+@use "/src/assets/styles/scss/mixins" as mixins;
+@use "/src/assets/styles/scss/variables" as variables;
+.AboutUs{
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: variables.$white;
+    }
+    
+    h1 {
+        @include mixins.jura-medium;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+    
+    p {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+}
+
