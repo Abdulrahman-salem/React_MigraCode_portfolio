@@ -10,6 +10,7 @@
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width: clamp(180px, 690vw, 60vw);
+    transition: all 0.5s;
 
     & .card-image {
         width: 100%;
@@ -32,37 +33,36 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            cursor: pointer;
 
-            & .card-projectName {
+            & .card-title {
                 color: variables.$tiffany;
                 @include mixins.jura-bold;
                 transition: all 0.5s;
                 width: max-content;
+                padding-bottom: 12px;
             }
 
-            & .card-personName {
-                color: variables.$tiffany;
-                padding: 15px;
-                @include mixins.jura-bold;
-                transition: all 0.5s;
-                width: max-content;
-                align-self: end;
-            }
-
-            & .card-personName:hover,
-            .card-projectName:hover {
-                cursor: pointer;
-                transform: scale(1.2);
-            }
+            // & .card-title:hover {
+            //     cursor: pointer;
+            //     transform: scale(1.2);
+            // }
         }
 
         & .card-description {
             color: variables.$white;
             @include mixins.jura;
         }
+
+        // & .card-description:hover {
+        //     cursor: default;
+        // }
     }
 }
-
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
 @media (min-width: 585px) {
     .card {
         width: clamp(180px, 40vw, 60vw);
