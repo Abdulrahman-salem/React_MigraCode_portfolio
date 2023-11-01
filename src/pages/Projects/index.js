@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
 import Cards from "../../components/Cards";
@@ -9,12 +9,50 @@ import Footer from "../../components/Footer/Footer";
 
 function Projects() {
     // let URL_PROJECTS;
-    const [allData, setAllData] = useState({});
-    // useEffect(() => {
-    //     getData(URL_PROJECTS).then((data) => {
-    //         console.log(data);
-    //     });
-    // }, []);
+    const [allData, setAllData] = useState([]);
+    useEffect(() => {
+        // getData(URL_PROJECTS).then((data) => {
+        //     console.log(data);
+        // });
+        setAllData([
+            {
+                name: "Project 1",
+                description:
+                    "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
+                project_image_link: require("../../assets/images/Screenshot_6.png"), // Replace with your image URL
+            },
+            {
+                name: "Project 1",
+                description:
+                    "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
+                project_image_link: "https://via.placeholder.com/150", // Replace with your image URL
+            },
+            {
+                name: "Project 1",
+                description:
+                    "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
+                project_image_link: "https://via.placeholder.com/150", // Replace with your image URL
+            },
+            {
+                name: "Project 1",
+                description:
+                    "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
+                project_image_link: "https://via.placeholder.com/150", // Replace with your image URL
+            },
+            {
+                name: "Project 1",
+                description:
+                    "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
+                project_image_link: "https://via.placeholder.com/150", // Replace with your image URL
+            },
+            {
+                name: "Project 1",
+                description:
+                    "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
+                project_image_link: "https://via.placeholder.com/150", // Replace with your image URL
+            },
+        ])
+    }, []);
 
     return (
         <div className="projects">
@@ -40,7 +78,7 @@ function Projects() {
                         </button>
                     </Filter>
 
-                    <Cards allData onClickGoTo={"/project"} />
+                    <Cards allData={allData} onClickGoTo={"/project"} />
                     <LoadMoreButton />
                 </main>
             )}
