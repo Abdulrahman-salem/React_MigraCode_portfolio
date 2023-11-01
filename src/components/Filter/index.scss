@@ -15,6 +15,7 @@
         border: 1px solid black;
         border-radius: 50px;
         width: clamp(50px, 10rem, 50vw);
+        cursor: pointer;
 
         & p {
             padding: 0 15px 0 0;
@@ -29,6 +30,7 @@
         }
     }
     & .filter-option {
+        z-index: 2;
         border-radius: 15px 0px 0 15px;
         position: absolute;
         width: clamp(50px, 16.5rem, 77vw);
@@ -37,13 +39,14 @@
         top: 110%;
         padding: 10px;
         background: white;
-        
+
         & > * {
             width: 100%;
             padding: 10px 20px;
             border: 1px solid black;
             border-radius: 50px;
             margin-bottom: 5px;
+            cursor: pointer;
         }
     }
 }

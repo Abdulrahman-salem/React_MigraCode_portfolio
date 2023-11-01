@@ -1,0 +1,67 @@
+@use "/src/assets/styles/scss/mixins" as mixins;
+@use "/src/assets/styles/scss/variables" as variables;
+
+.LoadMoreButton {
+    button {
+        padding: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: variables.$black;
+        border-radius: 50px;
+        position: relative;
+        border: none;
+        overflow: hidden;
+
+        & .containerLines {
+            width: 100%;
+
+            & > * {
+                border-radius: 5px;
+                width: 100%;
+                border: none;
+                height: 1.5px;
+                background: variables.$tiffany;
+                transition: all 0.5s;
+                position: absolute;
+                width: 40%;
+            }
+
+            & .firstLine {
+                top: 8px;
+                right: 0;
+            }
+            & .lastLine {
+                bottom: 7px;
+                left: 0;
+            }
+        }
+
+        p {
+            // padding: 3px 0;
+            color: variables.$white;
+            font-size: clamp(14px, 1.8vw, 40px);
+            @include mixins.jura-bold;
+        }
+    }
+}
+.LoadMoreButton:hover {
+    & button {
+        & .containerLines {
+            & .firstLine {
+                transform: translateX(-24%);
+                width: 68%;
+                background: #ffffff;
+            }
+            & .lastLine {
+                transform: translateX(24%);
+                width: 68%;
+                background: variables.$white;
+            }
+        }
+        & p {
+            color: variables.$tiffany;
+        }
+    }
+}
