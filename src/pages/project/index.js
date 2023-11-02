@@ -38,7 +38,7 @@ function Project() {
         team_member_roles,
         technologies_used,
     } = state;
-    console.log(state);
+    // console.log(state);
 
     // this function to get roles members and to set it to state
     function teamRoles() {
@@ -113,7 +113,6 @@ function Project() {
 
     return (
         <article className="project">
-            {console.log(isFetching)}
             <header>
                 <p className="name">{name}</p>
                 <nav>
@@ -160,6 +159,7 @@ function Project() {
                         <Link to={product_presentation_link}>
                             <img
                                 src={require("../../assets/images/presentation.png")}
+                                title="product presentation link"
                                 alt="product presentation link"
                                 width={40}
                             />

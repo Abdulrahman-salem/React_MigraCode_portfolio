@@ -1,1 +1,5 @@
-export const URL_FILTER_STUDENT_BY_NAME = 'http://localhost:3001/students?studentFullName=';
+export const URL_STUDENTS = "http://localhost:3001/students";
+export const QUERY_TO_FETCH_NEXT_PAGE_STUDENTs = `offset=`;
+export const QUERY_FILTER_STUDENTs_BY_A_TO_Z = `filterBy=a-z`;
+export const QUERY_FILTER_STUDENTs_BY_Z_TO_A = `filterBy=z-a`;
+export const URL_FILTER_STUDENT_BY_NAME = `${URL_STUDENTS}?studentFullName=`;
