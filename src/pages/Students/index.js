@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
 import Cards from "../../components/Cards";
@@ -104,7 +105,7 @@ function Students() {
                         </button>
                     </Filter>
 
-                    <Cards allData={allData} onClickGoTo={"/project"} />
+                    <Cards allData={allData} onClickGoTo={"/student"} />
                     <LoadMoreButton />
                 </main>
             )}
