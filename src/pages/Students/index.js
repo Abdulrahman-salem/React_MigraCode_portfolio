@@ -15,14 +15,14 @@ function Students() {
         // });
         setAllData([
             {
-                name: "Project 1",
-                description:
+                fullName: "Student 1",
+                comment:
                     "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
-                project_image_link: require("../../assets/images/Screenshot_6.png"),
+                imageUrl: require("../../assets/images/Screenshot_6.png"),
             },
             {
-                name: "OCCycling",
-                description:
+                fullName: "OCCycling",
+                comment:
                     "A platform to manage the free bicycle provision service given by OCC in a refugee camp in Greece to allow them to go to the city",
                 repository_link: "https://github.com/hheiress/OCCycling",
                 live_demo_link: "https://github.com",
@@ -54,34 +54,34 @@ function Students() {
                     "https://docs.google.com/document/d/1SOLHVUsEQX-OH8T2z_OXfwbBM1-DUXOdQWbSjgCI_WM/edit#heading=h.zi8nw4t10oa6",
             },
             {
-                name: "Project 1",
-                description:
+                fullName: "Student 1",
+                comment:
                     "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
-                project_image_link: "https://via.placeholder.com/150",
+                imageUrl: "https://via.placeholder.com/150",
             },
             {
-                name: "Project 1",
-                description:
+                fullName: "Student 1",
+                comment:
                     "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
-                project_image_link: "https://via.placeholder.com/150",
+                imageUrl: "https://via.placeholder.com/150",
             },
             {
-                name: "Project 1",
-                description:
+                fullName: "Student 1",
+                comment:
                     "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
-                project_image_link: "https://via.placeholder.com/150",
+                imageUrl: "https://via.placeholder.com/150",
             },
             {
-                name: "Project 1",
-                description:
+                fullName: "Student 1",
+                comment:
                     "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
-                project_image_link: "https://via.placeholder.com/150",
+                imageUrl: "https://via.placeholder.com/150",
             },
         ]);
     }, []);
 
     return (
-        <div className="projects">
+        <div className="students">
             <header>
                 <NavBar />
             </header>
