@@ -17,6 +17,15 @@
         max-width: 370px;
         aspect-ratio: 3/4;
         height: 200px;
+        height: clamp(200px, 16vw, 40vw);
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    & .default-student-img {
+        max-width: 370px;
+        aspect-ratio: 1/1;
+        height: clamp(150px, 16vw, 40vw);
         object-fit: cover;
         border-radius: 20px;
     }
@@ -52,7 +61,7 @@
         & .card-description {
             color: variables.$white;
             @include mixins.jura;
-            
+
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
@@ -77,5 +86,10 @@
 @media (min-width: 700px) {
     .card {
         width: clamp(180px, 25vw, 60vw);
+    }
+}
+@media (min-width: 1480px) {
+    .card {
+        padding: 30px;
     }
 }
