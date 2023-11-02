@@ -6,6 +6,12 @@ import Filter from "../../components/Filter";
 // import { getData } from "../../adapters/fetch";
 import LoadMoreButton from "../../components/LoadMoreButton";
 import Footer from "../../components/Footer/Footer";
+import {
+    URL_STUDENTS,
+    QUERY_TO_FETCH_NEXT_PAGE_STUDENTS,
+    QUERY_FILTER_STUDENTS_BY_A_TO_Z,
+    QUERY_FILTER_STUDENTS_BY_Z_TO_A,
+} from "../../helpers/constants/endpoints";
 
 function Students() {
     // let URL_PROJECTS;
@@ -14,6 +20,23 @@ function Students() {
         // getData(URL_PROJECTS).then((data) => {
         //     console.log(data);
         // });
+
+        const fetchData = async () => {
+            const url = `${URL_STUDENTS}?${QUERY_TO_FETCH_NEXT_PAGE_STUDENTS}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error("Network response error");
+                }
+                const data = await response.json();
+                setAllData(data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+
         setAllData([
             {
                 fullName: "Student 1",
