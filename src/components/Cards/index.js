@@ -12,7 +12,6 @@ function Cards({ allData, onClickGoTo }) {
                     <Link to={onClickGoTo} state={data} key={index}>
                         <Card cardData={data} />
                     </Link>
-
                 ))}
             </div>
             <Outlet />
