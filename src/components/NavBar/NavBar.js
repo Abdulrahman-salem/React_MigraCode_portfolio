@@ -28,7 +28,7 @@ const NavBar = () => {
         {/* <a className="nav_link" href="#final_projects">
           Final projects
         </a> */}
-        <a className="nav_link" href="#students">
+        <a className="nav_link" href="/students">
           Students & Graduates
         </a>
         <a
