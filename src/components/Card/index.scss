@@ -22,12 +22,19 @@
         border-radius: 20px;
     }
 
-    & .default-student-img {
+    & .default-img {
         max-width: 370px;
         aspect-ratio: 1/1;
-        height: clamp(150px, 16vw, 40vw);
         object-fit: cover;
         border-radius: 20px;
+    }
+
+    & .default-student-img {
+        height: clamp(150px, 16vw, 40vw);
+    }
+
+    & .default-project-img {
+        height: clamp(150px, 14.5vw, 40vw);
     }
 
     & .card-content {
@@ -50,6 +57,7 @@
                 transition: all 0.5s;
                 width: max-content;
                 padding-bottom: 12px;
+                inline-size: fit-content;
             }
 
             // & .card-title:hover {
