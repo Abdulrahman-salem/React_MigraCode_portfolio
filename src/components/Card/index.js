@@ -14,8 +14,8 @@ function Card({ cardData }) {
                 <img
                     className={
                         imageUrl.indexOf("default_person_img") > -1
-                            ? "default-img default-student-img"
-                            : `card-image`
+                            ? "default-img base-img"
+                            : `card-image base-img`
                     }
                     src={imageUrl}
                     alt="Card img"
@@ -26,8 +26,8 @@ function Card({ cardData }) {
                 <img
                     className={
                         project_image_link.indexOf("default_project_img") > -1
-                            ? "default-img default-project-img"
-                            : `card-image`
+                            ? "default-img base-img"
+                            : `card-image base-img`
                     }
                     src={project_image_link}
                     alt="Card img"
