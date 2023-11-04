@@ -29,15 +29,15 @@ function Students() {
                         allData.offSet
                 );
                 if (data) {
-                    data.values.forEach((student) => {
+                    data.items.forEach((student) => {
                         console.log(student);
                         if (student.imageUrl.length === 0) {
                             student.imageUrl =
-                                require("../../assets/images/person_image.svg").default;
+                                require("../../assets/images/default_person_img.svg").default;
                         }
                     });
                     setAllData({
-                        students: [...allData.students, ...data.values],
+                        students: [...allData.students, ...data.items],
                         offSet: data.offSet,
                     });
                 }
