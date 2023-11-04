@@ -11,44 +11,40 @@
     border-radius: 20px;
     width: clamp(180px, 690vw, 60vw);
     transition: all 0.5s;
+    justify-content: space-between;
+
+    & .base-img {
+        max-width: 370px;
+        border-radius: 20px;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        height: clamp(200px, 16vw, 40vw);
+    }
 
     & .card-image {
         width: 100%;
-        max-width: 370px;
         aspect-ratio: 3/4;
         height: 200px;
-        height: clamp(200px, 16vw, 40vw);
-        object-fit: cover;
-        border-radius: 20px;
     }
 
     & .default-img {
-        max-width: 370px;
         aspect-ratio: 1/1;
-        object-fit: cover;
-        border-radius: 20px;
-    }
-
-    & .default-student-img {
-        height: clamp(150px, 16vw, 40vw);
-    }
-
-    & .default-project-img {
-        height: clamp(150px, 14.5vw, 40vw);
     }
 
     & .card-content {
         display: flex;
         flex-direction: column;
         padding: 20px;
+        align-items: center;
+        justify-content: space-around;
+        flex-grow: 1;
 
         & button {
             background: transparent;
             width: 100%;
             border: none;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex: 1 1 0;
             cursor: pointer;
 
             & .card-title {
@@ -58,6 +54,7 @@
                 width: max-content;
                 padding-bottom: 12px;
                 inline-size: fit-content;
+                flex: 1 1 0;
             }
 
             // & .card-title:hover {
@@ -75,6 +72,7 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-align: center;
         }
 
         // & .card-description:hover {
