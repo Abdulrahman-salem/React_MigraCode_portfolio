@@ -28,7 +28,7 @@ const NavBar = () => {
         {/* <a className="nav_link" href="#final_projects">
           Final projects
         </a> */}
-        <a className="nav_link" href="#students">
+        <a className="nav_link" href="/students">
           Students & Graduates
         </a>
         <a
@@ -41,10 +41,10 @@ const NavBar = () => {
         </a>
         {/* <a className="nav_link" href="#portfolio">
           Tips
-        </a>
-        <a className="nav_link" href="#about">
-          About
         </a> */}
+        <a className="nav_link" href="/aboutus">
+          About us
+        </a>
       </div>
       <div className="login">
         <button>Log in</button>

@@ -22,7 +22,7 @@ const Description = () => {
             companies and students to foster both labor integration as well as
             social inclusion.
           </p>
-          <button className="button">Students portfolio</button>
+          <button className="button">Go to projects</button>
         </div>
 
         <div className="description_image">
