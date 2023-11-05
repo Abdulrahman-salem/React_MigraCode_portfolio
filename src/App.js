@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Project from "./pages/project";
 import Students from "./pages/Students";
-import { AdminPage } from "./admin/Admin";
+import { AdminPage } from "./pages/Admin";
 
 function App() {
   return (
