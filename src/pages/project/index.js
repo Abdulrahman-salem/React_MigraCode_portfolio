@@ -3,14 +3,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getData } from "../../adapters/fetch";
 import { URL_FILTER_STUDENT_BY_NAME } from "../../helpers/constants/endpoints";
-import './index.scss'
+import "./index.scss";
 
 function Project() {
-    const [teamLeader, setTeamLeader] = useState([]);
-    const [fullstackDevelopers, setFullstackDevelopers] = useState([]);
-    const [frontendDevelopers, setFrontendDevelopers] = useState([]);
-    const [backendDevelopers, setBackendDevelopers] = useState([]);
-    const [designers, setDesigners] = useState([]);
+    // const [teamLeader, setTeamLeader] = useState([]);
+    // const [fullstackDevelopers, setFullstackDevelopers] = useState([]);
+    // const [frontendDevelopers, setFrontendDevelopers] = useState([]);
+    // const [backendDevelopers, setBackendDevelopers] = useState([]);
+    // const [designers, setDesigners] = useState([]);
+    const [teamMemberRoles, setTeamMemberRoles] = useState({
+        teamLeader: [],
+        fullstackDevelopers: [],
+        frontendDevelopers: [],
+        backendDevelopers: [],
+        designers: [],
+    });
 
     // I used this to disable clicking on buttons until fetching data
     const [isFetching, setIsFetching] = useState(false);
@@ -40,47 +47,48 @@ function Project() {
     } = state;
     // console.log(state);
 
-    // this function to get roles members and to set it to state
-    function teamRoles() {
-        // team leader
-        team_member_roles
-            .filter((role) => role.includes("Team leader"))
-            .map((member) => {
-                const name = member.split(":").pop().trim();
-                return setTeamLeader([...teamLeader, name]);
-            });
-        team_member_roles
-            .filter((role) => role.includes("Frontend developer"))
-            .map((member) => {
-                const name = member.split(":").pop().trim();
-                return setFrontendDevelopers([...frontendDevelopers, name]);
-            });
-        team_member_roles
-            .filter((role) => role.includes("Backend developer"))
-            .map((member) => {
-                const name = member.split(":").pop().trim();
-                return setBackendDevelopers([...backendDevelopers, name]);
-            });
-        team_member_roles
-            .filter((role) => role.includes("Fullstack developer"))
-            .map((member) => {
-                const name = member.split(":").pop().trim();
-                return setFullstackDevelopers([...fullstackDevelopers, name]);
-            });
-        team_member_roles
-            .filter((role) => role.includes("Designer"))
-            .map((member) => {
-                const name = member.split(":").pop().trim();
-                return setDesigners([...designers, name]);
-            });
-        return;
-    }
-
     useEffect(() => {
-        if (team_member_roles?.length > 0) {
-            teamRoles();
-        }
-    }, [state]);
+        // get roles members and to set it to state
+        const updatedRoles = {
+            teamLeader: [],
+            fullstackDevelopers: [],
+            frontendDevelopers: [],
+            backendDevelopers: [],
+            designers: [],
+        };
+
+        team_member_roles.forEach((role) => {
+            const name = role.split(":").pop().trim();
+            if (
+                role.includes("Team leader") &&
+                !updatedRoles.teamLeader.includes(name)
+            ) {
+                updatedRoles.teamLeader.push(name);
+            } else if (
+                role.includes("Frontend developer") &&
+                !updatedRoles.frontendDevelopers.includes(name)
+            ) {
+                updatedRoles.frontendDevelopers.push(name);
+            } else if (
+                role.includes("Backend developer") &&
+                !updatedRoles.backendDevelopers.includes(name)
+            ) {
+                updatedRoles.backendDevelopers.push(name);
+            } else if (
+                role.includes("Fullstack developer") &&
+                !updatedRoles.fullstackDevelopers.includes(name)
+            ) {
+                updatedRoles.fullstackDevelopers.push(name);
+            } else if (
+                role.includes("Designer") &&
+                !updatedRoles.designers.includes(name)
+            ) {
+                updatedRoles.designers.push(name);
+            }
+        });
+
+        setTeamMemberRoles(updatedRoles);
+    }, [team_member_roles]);
 
     const handleGoToStudentProfile = async (e) => {
         if (!isFetching) {
@@ -92,8 +100,8 @@ function Project() {
                 console.log(data);
                 // able to click on buttons
                 setIsFetching(false);
-                if (data.values.length > 0) {
-                    navigate("/", { state: data });
+                if (data.items.length > 0) {
+                    navigate("/student", { state: data });
                 } else {
                     //showing error for some seconds
                     setErrorMessage((prevState) => ({
@@ -209,44 +217,54 @@ function Project() {
                 {team_member_roles ? (
                     <section className="team-member-roles">
                         <h2>team member roles</h2>
-                        {teamLeader?.length > 0 ? (
+                        {teamMemberRoles.teamLeader?.length > 0 ? (
                             <>
                                 <h3>Team leader</h3>
-                                {teamLeader.map((member, index) => (
-                                    <p key={index}>{member}</p>
-                                ))}
+                                {teamMemberRoles.teamLeader.map(
+                                    (member, index) => (
+                                        <p key={index}>{member}</p>
+                                    )
+                                )}
                             </>
                         ) : null}
-                        {fullstackDevelopers?.length > 0 ? (
+                        {teamMemberRoles.fullstackDevelopers?.length > 0 ? (
                             <>
                                 <h3>Fullstack developers</h3>
-                                {fullstackDevelopers.map((member, index) => (
-                                    <p key={index}>{member}</p>
-                                ))}
+                                {teamMemberRoles.fullstackDevelopers.map(
+                                    (member, index) => (
+                                        <p key={index}>{member}</p>
+                                    )
+                                )}
                             </>
                         ) : null}
-                        {frontendDevelopers?.length > 0 ? (
+                        {teamMemberRoles.frontendDevelopers?.length > 0 ? (
                             <>
                                 <h3>Frontend developers</h3>
-                                {frontendDevelopers.map((member, index) => (
-                                    <p key={index}>{member}</p>
-                                ))}
+                                {teamMemberRoles.frontendDevelopers.map(
+                                    (member, index) => (
+                                        <p key={index}>{member}</p>
+                                    )
+                                )}
                             </>
                         ) : null}
-                        {backendDevelopers?.length > 0 ? (
+                        {teamMemberRoles.backendDevelopers?.length > 0 ? (
                             <>
                                 <h3>Backend developers</h3>
-                                {backendDevelopers.map((member, index) => (
-                                    <p key={index}>{member}</p>
-                                ))}
+                                {teamMemberRoles.backendDevelopers.map(
+                                    (member, index) => (
+                                        <p key={index}>{member}</p>
+                                    )
+                                )}
                             </>
                         ) : null}
-                        {designers?.length > 0 ? (
+                        {teamMemberRoles.designers?.length > 0 ? (
                             <>
                                 <h3>Designers</h3>
-                                {designers.map((member, index) => (
-                                    <p key={index}>{member}</p>
-                                ))}
+                                {teamMemberRoles.designers.map(
+                                    (member, index) => (
+                                        <p key={index}>{member}</p>
+                                    )
+                                )}
                             </>
                         ) : null}
                     </section>
