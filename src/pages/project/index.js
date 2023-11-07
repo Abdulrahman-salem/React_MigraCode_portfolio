@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getData } from "../../adapters/fetch";
 import { URL_FILTER_STUDENT_BY_NAME } from "../../helpers/constants/endpoints";
 import "./index.scss";
@@ -123,18 +123,22 @@ function Project() {
             <header>
                 <p className="name">{name}</p>
                 <nav>
-                    {repository_link ? (
-                        <Link to={repository_link}>
-                            <img
-                                src={
-                                    require("../../assets/images/github-142-svgrepo-com.svg")
-                                        .default
-                                }
-                                title="repository link"
-                                alt="repository link"
-                                width={40}
-                            />
-                        </Link>
+                    {repository_link?.length > 0 ? (
+                        <>
+                            {repository_link.map((repository, index) => (
+                                <Link to={repository} key={index}>
+                                    <img
+                                        src={
+                                            require("../../assets/images/github-142-svgrepo-com.svg")
+                                                .default
+                                        }
+                                        title="repository link"
+                                        alt="repository link"
+                                        width={40}
+                                    />
+                                </Link>
+                            ))}
+                        </>
                     ) : null}
                     {trello_link ? (
                         <Link to={trello_link}>
@@ -175,6 +179,9 @@ function Project() {
                 </nav>
             </header>
             <main>
+                <Link to={"/projects"}>
+                    {/* <button>return back</button> */}
+                </Link>
                 {description ? (
                     <section className="description">
                         <h2>description</h2>

@@ -9,6 +9,8 @@ import Footer from "../../components/Footer/Footer";
 import {
     QUERY_FILTER_PROJECTS,
     QUERY_FILTER_PROJECTS_BY_A_TO_Z,
+    QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST,
+    QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST,
     QUERY_FILTER_PROJECTS_BY_Z_TO_A,
     QUERY_TO_FETCH_NEXT_PAGE_PROJECTS,
     URL_PROJECTS,
@@ -109,6 +111,32 @@ function Projects() {
                 });
                 break;
 
+            // case 3
+            case "date-a-z":
+                setQueryFilterData(
+                    QUERY_FILTER_PROJECTS +
+                        "=" +
+                        QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST
+                );
+                await fetchData({
+                    url: `${URL_PROJECTS}?${QUERY_FILTER_PROJECTS}=${QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST}`,
+                    isFetchWithFilter: true,
+                });
+                break;
+                
+            // case 4
+            case "date-z-a":
+                setQueryFilterData(
+                    QUERY_FILTER_PROJECTS +
+                        "=" +
+                        QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST
+                );
+                await fetchData({
+                    url: `${URL_PROJECTS}?${QUERY_FILTER_PROJECTS}=${QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST}`,
+                    isFetchWithFilter: true,
+                });
+                break;
+
             default:
                 break;
         }
@@ -134,6 +162,18 @@ function Projects() {
                             onClick={handleOnClickFilterOption}
                         >
                             Z - A
+                        </button>
+                        <button
+                            value={"date-a-z"}
+                            onClick={handleOnClickFilterOption}
+                        >
+                            Oldest - Newest
+                        </button>
+                        <button
+                            value={"date-z-a"}
+                            onClick={handleOnClickFilterOption}
+                        >
+                            Newest - Oldest
                         </button>
                     </Filter>
 
