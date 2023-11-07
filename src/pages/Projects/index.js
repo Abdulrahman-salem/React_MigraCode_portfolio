@@ -198,10 +198,13 @@ export default Projects;
 //                         "Frontend developer: José Arriaga",
 //                         "Backend developer: Gustavo Rossini",
 //                         "Designer: Diana Dashkovska",
+//                         "Designer: Diana José Arriaga",
 //                     ],
 //                     trello_link: "Trello link 10",
 //                     product_presentation_link:
 //                         "https://docs.google.com/document/d/1SOLHVUsEQX-OH8T2z_OXfwbBM1-DUXOdQWbSjgCI_WM/edit#heading=h.zi8nw4t10oa6",
+//                     date_have_been_done: "30-09-2023",
+//                     migracode_batch: "MAR23-1",
 //                 },
 //                 {
 //                     name: "Project 1",
@@ -226,6 +229,8 @@ export default Projects;
 //                     description:
 //                         "Descriptioasdfasdf asdf asdf asdf asdf asdf asdf asdf weafasd fawef asdf asdf asdf asdf asdf asdf asdf asdf sdafas dfsadf asdf sadf sdn for Project 1",
 //                     project_image_link: "https://via.placeholder.com/150",
+//                     date_have_been_done: "30-09-2023",
+//                     migracode_batch: "MAR23-1",
 //                 },
 //             ],
 //         });
