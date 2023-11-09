@@ -330,6 +330,7 @@ import {
     fetchingProjects,
     endFoFetchingProjects,
 } from "../../redux/projects";
+import Loader from "../../components/Loader";
 
 function Projects() {
     // to read redux projects state
@@ -472,51 +473,55 @@ function Projects() {
             <header>
                 <NavBar />
             </header>
-            {projectsState.projects?.length > 0 && (
-                <main>
-                    <Filter>
-                        <button
-                            value={"a-z"}
-                            onClick={handleOnClickFilterOption}
-                        >
-                            A - Z
-                        </button>
-                        <button
-                            value={"z-a"}
-                            onClick={handleOnClickFilterOption}
-                        >
-                            Z - A
-                        </button>
-                        <button
-                            value={"date-a-z"}
-                            onClick={handleOnClickFilterOption}
-                        >
-                            Oldest - Newest
-                        </button>
-                        <button
-                            value={"date-z-a"}
-                            onClick={handleOnClickFilterOption}
-                        >
-                            Newest - Oldest
-                        </button>
-                    </Filter>
+            <main>
+                {!projectsState.isFetching &&
+                    projectsState.projects?.length > 0 && (
+                        <>
+                            <Filter>
+                                <button
+                                    value={"a-z"}
+                                    onClick={handleOnClickFilterOption}
+                                >
+                                    A - Z
+                                </button>
+                                <button
+                                    value={"z-a"}
+                                    onClick={handleOnClickFilterOption}
+                                >
+                                    Z - A
+                                </button>
+                                <button
+                                    value={"date-a-z"}
+                                    onClick={handleOnClickFilterOption}
+                                >
+                                    Oldest - Newest
+                                </button>
+                                <button
+                                    value={"date-z-a"}
+                                    onClick={handleOnClickFilterOption}
+                                >
+                                    Newest - Oldest
+                                </button>
+                            </Filter>
 
-                    <Cards
-                        allData={projectsState.projects}
-                        onClickGoTo={"/project"}
-                    />
-                    <LoadMoreButton
-                        showLoadMore={projectsState.nextPage}
-                        onClick={handleOnLoadMoreProjects}
-                    />
-                </main>
-            )}
-            {projectsState.projects?.length === 0 && (
-                <p className="onDataMessage">There is no Projects</p>
-            )}
+                            <Cards
+                                allData={projectsState.projects}
+                                onClickGoTo={"/project"}
+                            />
+                            <LoadMoreButton
+                                showLoadMore={projectsState.nextPage}
+                                onClick={handleOnLoadMoreProjects}
+                            />
+                        </>
+                    )}
+                {projectsState.isFetching && <Loader />}
+            </main>
+            {!projectsState.isFetching &&
+                projectsState.projects?.length === 0 && (
+                    <p className="onDataMessage">There is no Projects</p>
+                )}
             <Footer />
         </div>
     );
 }
-
 export default Projects;
