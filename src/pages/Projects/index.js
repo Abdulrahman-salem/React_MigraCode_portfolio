@@ -13,6 +13,7 @@ import {
     QUERY_TO_FETCH_NEXT_PAGE_PROJECTS,
     URL_PROJECTS,
 } from "../../helpers/constants/endpoints";
+import {useProjectContext} from "../../components/ProjectData.js"
 
 function Projects() {
     // this state to know witch filter is used during LoadMore projects
@@ -20,10 +21,13 @@ function Projects() {
     // this state to know on the first fetching projects with filter. It's set to true. so on the first fetch with a filter will set new data to projectData in order not to be added to the old data
     const [firstFetchNewFilter, setFirstFetchNewFilter] = useState(true);
 
-    const [projectData, setProjectData] = useState({
-        projects: [],
-        nextPage: "",
-    });
+    const { projectData, setProjectData } = useProjectContext();
+    console.log(projectData);
+
+    // const [projectData, setProjectData] = useState({
+    //     projects: [],
+    //     nextPage: "",
+    // });
 
     // async function fetchData(url) {
     async function fetchData(fetchRequirement) {
@@ -59,6 +63,8 @@ function Projects() {
             console.log(error.message);
         }
     }
+
+    console.log(projectData);
 
     // first load fetch
     useEffect(() => {

@@ -75,7 +75,7 @@ function StudentHome() {
             console.log(student);
             if (student.imageUrl.length === 0) {
               student.imageUrl =
-                require("../../assets/images/person_image.svg").default;
+                require("../../assets/images/default_person_img.svg").default;
             }
           });
           setAllData({

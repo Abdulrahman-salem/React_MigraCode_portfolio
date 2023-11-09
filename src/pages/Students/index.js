@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
 import Cards from "../../components/Cards";
@@ -12,14 +12,12 @@ import {
     QUERY_FILTER_STUDENTS_BY_A_TO_Z,
     QUERY_FILTER_STUDENTS_BY_Z_TO_A,
 } from "../../helpers/constants/endpoints";
+import {useStudentContext} from "../../components/StudentData"
+
 
 
 function Students() {
-    const [allData, setAllData] = useState({
-        students: [],
-        offSet: "",
-    });
-
+    const { allData, setAllData } = useStudentContext();
     useEffect(() => {
         const fetchData = async () => {
             try {

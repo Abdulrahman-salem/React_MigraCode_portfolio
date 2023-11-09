@@ -14,6 +14,7 @@ const Description = () => {
             Connecting Dreams to Code: Explore Our Student Web Developer
             Portfolios and Projects
           </h1>
+          <img src={group_photo} alt="group_photo" height="350px" />
           <p>
             Migracode acts as a bridge between the demand for skilled people in
             the tech sector and people with a migration background who are eager
@@ -25,9 +26,9 @@ const Description = () => {
           <button className="button">Go to projects</button>
         </div>
 
-        <div className="description_image">
+        {/* <div className="description_image">
           <img src={group_photo} alt="group_photo" height="350px" />
-        </div>
+        </div> */}
       </main>
     </div>
   );
