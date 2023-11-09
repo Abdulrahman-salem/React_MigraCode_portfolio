@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getData } from "../../adapters/fetch";
 import { URL_FILTER_STUDENT_BY_NAME } from "../../helpers/constants/endpoints";
 import "./index.scss";
 
 function Project() {
-    // const [teamLeader, setTeamLeader] = useState([]);
-    // const [fullstackDevelopers, setFullstackDevelopers] = useState([]);
-    // const [frontendDevelopers, setFrontendDevelopers] = useState([]);
-    // const [backendDevelopers, setBackendDevelopers] = useState([]);
-    // const [designers, setDesigners] = useState([]);
     const [teamMemberRoles, setTeamMemberRoles] = useState({
         teamLeader: [],
         fullstackDevelopers: [],
@@ -28,7 +23,8 @@ function Project() {
     // If I didn't get data I will show error message for some seconds
     const [errorMessage, setErrorMessage] = useState({
         message: "",
-        seconds: 2000, // 2 seconds
+        // to change the seconds change also the animation in scss to match the time
+        seconds: 4000, // 4 seconds
     });
 
     const { state } = useLocation();
@@ -44,6 +40,8 @@ function Project() {
         team_member_names,
         team_member_roles,
         technologies_used,
+        date_have_been_done,
+        migracode_batch,
     } = state;
     // console.log(state);
 
@@ -88,6 +86,7 @@ function Project() {
         });
 
         setTeamMemberRoles(updatedRoles);
+        window.scrollTo(0, 0);
     }, [team_member_roles]);
 
     const handleGoToStudentProfile = async (e) => {
@@ -124,18 +123,22 @@ function Project() {
             <header>
                 <p className="name">{name}</p>
                 <nav>
-                    {repository_link ? (
-                        <Link to={repository_link}>
-                            <img
-                                src={
-                                    require("../../assets/images/github-142-svgrepo-com.svg")
-                                        .default
-                                }
-                                title="repository link"
-                                alt="repository link"
-                                width={40}
-                            />
-                        </Link>
+                    {repository_link?.length > 0 ? (
+                        <>
+                            {repository_link.map((repository, index) => (
+                                <Link to={repository} key={index}>
+                                    <img
+                                        src={
+                                            require("../../assets/images/github-142-svgrepo-com.svg")
+                                                .default
+                                        }
+                                        title="repository link"
+                                        alt="repository link"
+                                        width={40}
+                                    />
+                                </Link>
+                            ))}
+                        </>
                     ) : null}
                     {trello_link ? (
                         <Link to={trello_link}>
@@ -176,110 +179,149 @@ function Project() {
                 </nav>
             </header>
             <main>
-                {description ? (
-                    <p className="description">{description}</p>
-                ) : null}
-
-                {technologies_used?.length > 0 ? (
-                    <section className="technology">
-                        <h2>technologies</h2>
-                        <section className="technologies-list">
-                            {technologies_used.map((technology, index) => (
-                                <p key={index}>{technology}</p>
-                            ))}
-                        </section>
-                    </section>
-                ) : null}
-                {instructors_names?.length > 0 ? (
-                    <section className="instructors">
-                        <h2>instructors</h2>
-                        <section className="instructors-list">
-                            {instructors_names.map((instructor, index) => (
-                                <p key={index}>{instructor}</p>
-                            ))}
-                        </section>
-                    </section>
-                ) : null}
-                {team_member_names?.length > 0 ? (
-                    <section className="team-member">
-                        <h2>team member</h2>
-                        {team_member_names.map((member, index) => (
-                            <button
-                                key={index}
-                                onClick={handleGoToStudentProfile}
-                                disabled={isFetching}
-                            >
-                                {member}
-                            </button>
-                        ))}
-                    </section>
-                ) : null}
-                {team_member_roles ? (
-                    <section className="team-member-roles">
-                        <h2>team member roles</h2>
-                        {teamMemberRoles.teamLeader?.length > 0 ? (
-                            <>
-                                <h3>Team leader</h3>
-                                {teamMemberRoles.teamLeader.map(
-                                    (member, index) => (
-                                        <p key={index}>{member}</p>
-                                    )
-                                )}
-                            </>
+                <section className="img-description-section1">
+                {/* <Link to={"/projects"}>
+                    <button>return back</button>
+                </Link> */}
+                    {project_image_link ? (
+                        <img
+                            className="project-image"
+                            src={project_image_link}
+                            alt="screenshot for first page of project"
+                            width={40}
+                        />
+                    ) : null}
+                    <article>
+                        {description ? (
+                            <section className="description">
+                                <h2>description</h2>
+                                <p>{description}</p>
+                            </section>
                         ) : null}
-                        {teamMemberRoles.fullstackDevelopers?.length > 0 ? (
-                            <>
-                                <h3>Fullstack developers</h3>
-                                {teamMemberRoles.fullstackDevelopers.map(
-                                    (member, index) => (
-                                        <p key={index}>{member}</p>
-                                    )
-                                )}
-                            </>
+                        {date_have_been_done ? (
+                            <section className="completed-date">
+                                <p>
+                                    The project was completed on{" "}
+                                    {date_have_been_done}.
+                                </p>
+                            </section>
                         ) : null}
-                        {teamMemberRoles.frontendDevelopers?.length > 0 ? (
-                            <>
-                                <h3>Frontend developers</h3>
-                                {teamMemberRoles.frontendDevelopers.map(
-                                    (member, index) => (
-                                        <p key={index}>{member}</p>
-                                    )
-                                )}
-                            </>
-                        ) : null}
-                        {teamMemberRoles.backendDevelopers?.length > 0 ? (
-                            <>
-                                <h3>Backend developers</h3>
-                                {teamMemberRoles.backendDevelopers.map(
-                                    (member, index) => (
-                                        <p key={index}>{member}</p>
-                                    )
-                                )}
-                            </>
-                        ) : null}
-                        {teamMemberRoles.designers?.length > 0 ? (
-                            <>
-                                <h3>Designers</h3>
-                                {teamMemberRoles.designers.map(
-                                    (member, index) => (
-                                        <p key={index}>{member}</p>
-                                    )
-                                )}
-                            </>
-                        ) : null}
-                    </section>
-                ) : null}
-
-                {project_image_link ? (
-                    <img
-                        className="project-image"
-                        src={project_image_link}
-                        alt="screenshot for first page of project"
-                        width={400}
-                    />
-                ) : null}
+                    </article>
+                </section>
+                <section className="rest-of-context-section2">
+                    {technologies_used?.length > 0 ? (
+                        <article  className="technology">
+                            <h2>technologies</h2>
+                            <article className="technologies-list">
+                                {technologies_used.map((technology, index) => (
+                                    <p key={index}>{technology}</p>
+                                ))}
+                            </article>
+                        </article>
+                    ) : null}
+                    {migracode_batch ? (
+                        <article  className="migracode-batch">
+                            <h2>Migracode batch</h2>
+                            <p>{migracode_batch}</p>
+                        </article>
+                    ) : null}
+    
+                    {instructors_names?.length > 0 ? (
+                        <article  className="instructors">
+                            <h2>instructors</h2>
+                            <section className="instructors-list">
+                                {instructors_names.map((instructor, index) => (
+                                    <p key={index}>{instructor}</p>
+                                ))}
+                            </section>
+                        </article>
+                    ) : null}
+                    {team_member_names?.length > 0 ? (
+                        <article  className="team-member">
+                            <h2>team member</h2>
+                            <section className="team-member-list">
+                                {team_member_names.map((member, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={handleGoToStudentProfile}
+                                        disabled={isFetching}
+                                    >
+                                        {member}
+                                    </button>
+                                ))}
+                            </section>
+                        </article>
+                    ) : null}
+                    {team_member_roles ? (
+                        <article  className="team-member-roles">
+                            <h2>team member roles</h2>
+                            {teamMemberRoles.teamLeader?.length > 0 ? (
+                                <section className="teamLeader">
+                                    <h3>- Team leader:</h3>
+                                    <section className="list-members">
+                                        {teamMemberRoles.teamLeader.map(
+                                            (member, index) => (
+                                                <p key={index}>{member}</p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {teamMemberRoles.fullstackDevelopers?.length > 0 ? (
+                                <section className="fullstackDevelopers">
+                                    <h3>- Fullstack developers:</h3>
+                                    <section className="list-members">
+                                        {teamMemberRoles.fullstackDevelopers.map(
+                                            (member, index) => (
+                                                <p key={index}>{member}</p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {teamMemberRoles.frontendDevelopers?.length > 0 ? (
+                                <section className="frontendDevelopers">
+                                    <h3>- Frontend developers:</h3>
+                                    <section className="list-members">
+                                        {teamMemberRoles.frontendDevelopers.map(
+                                            (member, index) => (
+                                                <p key={index}>{member}</p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {teamMemberRoles.backendDevelopers?.length > 0 ? (
+                                <section className="backendDevelopers">
+                                    <h3>- Backend developers:</h3>
+                                    <section className="list-members">
+                                        {teamMemberRoles.backendDevelopers.map(
+                                            (member, index) => (
+                                                <p key={index}>{member}</p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {teamMemberRoles.designers?.length > 0 ? (
+                                <section className="designers">
+                                    <h3>- Designers:</h3>
+                                    <section className="list-members">
+                                        {teamMemberRoles.designers.map(
+                                            (member, index) => (
+                                                <p key={index}>{member}</p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                        </article>
+                    ) : null}
+                </section>
             </main>
-            {errorMessage.message && <p>{errorMessage.message}</p>}
+            {errorMessage.message && (
+                <p className="errorMessage">{errorMessage.message}</p>
+            )}
         </article>
     );
 }
