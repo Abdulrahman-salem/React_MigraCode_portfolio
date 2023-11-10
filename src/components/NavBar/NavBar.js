@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../../assets/images/MigraCode-16.png"; 
+import logo from "../../assets/images/MigraCode-16.png";
 import "./index.scss";
+import LoginButton from "./LoginButton";
 
 const NavBar = () => {
   return (
@@ -46,9 +47,7 @@ const NavBar = () => {
           About
         </a> */}
       </div>
-      <div className="login">
-        <button>Log in</button>
-      </div>
+      <LoginButton />
     </section>
   );
 };
