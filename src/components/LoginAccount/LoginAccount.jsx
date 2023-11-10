@@ -39,10 +39,12 @@ function LoginAccount(props) {
       // If validation passes, call the onSubmit prop
       onSubmit(username, email, password);
     }
+
+    // TO DO: Display error if validation fails
   };
 
   return (
-    <div className="signup--infomation modal__form" onSubmit={handleSubmit}>
+    <div className="signup--infomation modal__form">
       <div className="mb-3">
         <label htmlFor="inputUserName" className="form-label">
           User's Name*
@@ -111,7 +113,7 @@ function LoginAccount(props) {
           Check me out
         </label>
       </div>
-      <button className="btn btn-send" onClick={onSubmit} type="submit">
+      <button className="btn btn-send" onClick={handleSubmit} type="submit">
         Send
       </button>
     </div>
