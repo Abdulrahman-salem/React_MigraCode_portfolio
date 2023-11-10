@@ -136,7 +136,7 @@ function Students() {
 
             if (data) {
                 console.log(data);
-                data.items.forEach(() => {
+                data.items.forEach((student) => {
                     if (student.imageUrl.length === 0) {
                         student.imageUrl =
                             require("../../assets/images/default_person_img.svg").default;
@@ -146,7 +146,7 @@ function Students() {
                     // firstFetchedStudents to set first fetched students (need help on the data structure)
                     dispatch(
                             firstFetchedStudents({
-                                projects: [...data.items],
+                                students: [...data.items],
                                 nextPage: data.nextpage
                                 ? data.nextpage.toString()
                                 : "",
@@ -157,7 +157,7 @@ function Students() {
                     // fetchMoreStudents to set more fetched students
                     dispatch(
                         fetchMoreStudents({
-                            projects: [...data.items],
+                            students: [...data.items],
                             nextPage: data.nextpage
                                 ? data.nextpage.toString()
                                 : "",
