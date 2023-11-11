@@ -348,7 +348,7 @@ function Projects() {
             const data = await getData(url);
 
             if (data) {
-                console.log(data);
+                // console.log(data);
                 data.items.forEach((project) => {
                     if (project.project_image_link.length === 0) {
                         project.project_image_link =
@@ -398,10 +398,10 @@ function Projects() {
 
     // on click load more btn
     const handleOnLoadMoreProjects = async (e) => {
+        console.log("click", projectsState);
         if (projectsState.nextPage.length === 0) {
             return;
         }
-
         await fetchData({
             url: `${URL_PROJECTS}?${
                 QUERY_TO_FETCH_NEXT_PAGE_PROJECTS + projectsState.nextPage

@@ -2,7 +2,7 @@ import { emptyTypeAnnotation } from "@babel/types";
 import "./index.scss";
 
 function Card({ cardData }) {
-    console.log(cardData);
+    // console.log(cardData);
     // projects
     const { project_image_link, name, description } = cardData;
 
@@ -36,9 +36,9 @@ function Card({ cardData }) {
         ) : null}
 
         <div className="card-content">
-          {/* <button> */}
+          <button>
             <h2 className="card-title">{fullName ? fullName : name}</h2>
-          {/* </button> */}
+          </button>
           <p className="card-description">
             {countryOfBirth ? `Country: ${countryOfBirth}` : description}
           </p>

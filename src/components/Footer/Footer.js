@@ -7,74 +7,79 @@ import instagram from "../../assets/images/instagram-167-svgrepo-com.svg";
 import github from "../../assets/images/github-142-svgrepo-com.svg";
 import meetup from "../../assets/images/meetup-svgrepo-com (1).svg";
 import linkedIn from "../../assets/images/linkedin-rounded-border-svgrepo-com.svg";
-// import youtube from "../../assets/images/twitter-x-seeklogo.com-4.svg";
+import { Link } from "react-router-dom";
+
 
 
 const Footer = () => {
   return (
     <footer>
-      <a
+      <Link
         target="_blank"
         rel="noreferrer noopener"
-        href="https://migracode.openculturalcenter.org/"
+        to="https://migracode.openculturalcenter.org/"
       >
         <div className="logo_name">
-          <img src={logo} alt="MigraCode Logo" height="60" />
+          <img
+            src="https://www.gitbook.com/cdn-cgi/image/width=256,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F666230843-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MRebciU3NcuLgsX3ijf%252Favatar-rectangle-1612180869136.png%3Fgeneration%3D1612180869680419%26alt%3Dmedia"
+            alt="MigraCode Logo"
+            height="50"
+          />
           <h1 className="name">2023 MigraCode, Inc.</h1>
         </div>
-      </a>
+      </Link>
 
       <div className="follow">
-        <a className="link" href="#home">
+        <div className="link" href="#home">
           <img src={email} alt="email_icon" />
           barcelona@migracode.org
-        </a>
-        <a
+        </div>
+        <Link
           className="link"
           target="_blank"
           rel="noreferrer noopener"
-          href="https://github.com/Migracode-Barcelona"
+          to="https://github.com/Migracode-Barcelona"
         >
           <img src={github} alt="github_icon" />
           GitHub
-        </a>
-        <a
+        </Link>
+        <Link
           className="link"
           target="_blank"
           rel="noreferrer noopener"
-          href="https://www.linkedin.com/school/migracode-barcelona/"
+          to="https://www.linkedin.com/school/migracode-barcelona/"
         >
           <img src={linkedIn} alt="LinkedIn_icon" />
           LinkedIn
-        </a>
-        <a
+        </Link>
+        <Link
           className="link"
           target="_blank"
           rel="noreferrer noopener"
-          href="https://www.instagram.com/migracodebarcelona/?hl=en"
+          to="https://www.instagram.com/migracodebarcelona/?hl=en"
         >
           <img src={instagram} alt="Instagram_icon" />
           Instagram
-        </a>
-        <a
+        </Link>
+        <Link
           className="link"
           target="_blank"
           rel="noreferrer noopener"
-          href="https://www.facebook.com/migracode"
+          to="https://www.facebook.com/migracode"
         >
           <img src={facebook} alt="Facebook_icon" />
           Facebook
-        </a>
+        </Link>
         <div className="logo_link">
-          <a
+          <Link
             className="link"
             target="_blank"
             rel="noreferrer noopener"
-            href="https://www.meetup.com/migracode-barcelona/"
+            to="https://www.meetup.com/migracode-barcelona/"
           >
             <img src={meetup} alt="MeetUp_icon" />
             MeetUp
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

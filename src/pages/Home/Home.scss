@@ -75,19 +75,20 @@
     flex-direction: row;
     align-items: center;
 
-        button {
+        .arrow_button {
+            width: 60px;
+            background: black;
+            cursor: pointer;
+            border-radius: 50%; 
+            border: 1px solid black;
 
-          display: block;
-          margin: 0 auto;
-          background-color: variables.$red;
-          border: 1px solid white;
-          color: variables.$white;
-          border-radius: 15px;
-          padding: 10px;
-          font-size: 15px;
-          @include mixins.jura-medium;
-        }
+            img {
+                width: 60px;
+                border-radius: 50%; /* Make the image circular */
+                background: black;
+            }
       }
+    }
       .students_home {
 
         display: flex;
