@@ -17,6 +17,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.1",
     "babel-plugin-macros": "^3.1.0",
+    "install": "^0.13.0",
+    "npm": "^10.2.3",
     "octokit": "^3.1.1",
     "ra-data-json-server": "^4.14.0",
     "react-admin": "^4.14.0",
