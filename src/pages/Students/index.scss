@@ -1,5 +1,9 @@
 .students {
     min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     main {
         display: flex;
         margin: 20px;

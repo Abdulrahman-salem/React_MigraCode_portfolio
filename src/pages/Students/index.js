@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import NavBar from "../../components/NavBar/NavBar";
 // import "./index.scss";
@@ -101,7 +100,7 @@ import Filter from "../../components/Filter";
 import LoadMoreButton from "../../components/LoadMoreButton";
 import Footer from "../../components/Footer/Footer";
 import {
-    
+    URL_STUDENTS,
     QUERY_TO_FETCH_NEXT_PAGE_STUDENTS,
     QUERY_FILTER_STUDENTS,
     QUERY_FILTER_STUDENTS_BY_A_TO_Z,
@@ -109,8 +108,6 @@ import {
     URL_FILTER_STUDENT_BY_NAME,
 
 } from "../../helpers/constants/endpoints";
-import {useStudentContext} from "../../components/StudentData"
-
 import { useDispatch, useSelector } from "react-redux";
 import {
     firstFetchedStudents,
@@ -147,23 +144,19 @@ function Students() {
                 if (actionType === `FIRST_FETCH_DATA`) {
                     // firstFetchedStudents to set first fetched students (need help on the data structure)
                     dispatch(
-                            firstFetchedStudents({
-                                students: [...data.items],
-                                nextPage: data.nextpage
-                                ? data.nextpage.toString()
-                                : "",
-                            queryFilterData,
-                        })
+                      firstFetchedStudents({
+                        students: [...data.items],
+                        offset: data.offset ? data.offset.toString() : "",
+                        queryFilterData,
+                      })
                     );
                 } else if (actionType === `FETCH_MORE_DATA`) {
                     // fetchMoreStudents to set more fetched students
                     dispatch(
-                        fetchMoreStudents({
-                            students: [...data.items],
-                            nextPage: data.nextpage
-                                ? data.nextpage.toString()
-                                : "",
-                        })
+                      fetchMoreStudents({
+                        students: [...data.items],
+                        offset: data.offset ? data.offset.toString() : "",
+                      })
                     );
                 } else {
                     throw new Error(
@@ -187,13 +180,13 @@ function Students() {
 
     // on click load more btn
     const handleOnLoadMoreStudents = async (e) => {
-        if (studentsState.nextPage.length === 0) {
+        if (studentsState.offset.length === 0) {
             return;
         }
 
         await fetchData({
             url: `${URL_STUDENTS}?${
-                QUERY_TO_FETCH_NEXT_PAGE_STUDENTS + studentsState.nextPage
+                QUERY_TO_FETCH_NEXT_PAGE_STUDENTS + studentsState.offset
             }&${studentsState.queryFilterData}`,
             actionType: "FETCH_MORE_DATA",
         });
@@ -284,7 +277,7 @@ function Students() {
                                 onClickGoTo={"/student"}
                             />
                             <LoadMoreButton
-                                showLoadMore={studentsState.nextPage}
+                                showLoadMore={studentsState.offset}
                                 onClick={handleOnLoadMoreStudents}
                             />
                         </>

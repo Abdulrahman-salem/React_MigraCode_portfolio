@@ -10,6 +10,11 @@ import greaterthan from "../../assets/images/greaterthan.svg";
 import {
   QUERY_TO_FETCH_NEXT_PAGE_PROJECTS,
   URL_PROJECTS,
+  NUMBER_OF_PROJECTS_DISPLAYED,
+} from "../../helpers/constants/endpoints";
+import {
+  URL_STUDENTS,
+  QUERY_TO_FETCH_NEXT_PAGE_STUDENTS
 } from "../../helpers/constants/endpoints";
 import { getData } from "../../adapters/fetch";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,8 +24,15 @@ import {
   fetchingProjects,
   endFoFetchingProjects,
 } from "../../redux/projects";
+import {
+  firstFetchedStudents,
+  fetchMoreStudents,
+  fetchingStudents,
+  endFoFetchingStudents,
+} from "../../redux/students";
+import Loader from "../../components/Loader";
 
-const NUMBER_OF_PROJECTS_DISPLAYED = 2;
+
 
 function Home() {
   // to read redux projects state
@@ -30,6 +42,7 @@ function Home() {
   const dispatch = useDispatch();
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
 
   async function fetchData(fetchRequirement) {
     // queryFilterData to load more filtered data
@@ -40,7 +53,7 @@ function Home() {
       const data = await getData(url);
 
       if (data) {
-        console.log(data);
+        // console.log(data);
         data.items.forEach((project) => {
           if (project.project_image_link.length === 0) {
             project.project_image_link =
@@ -109,6 +122,99 @@ function Home() {
     setCurrentIndex(currentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
   };
 
+  const { studentsState } = useSelector((store) => store);
+
+  async function fetchDataStudents(fetchRequirement) {
+    // queryFilterData to load more filtered data
+    const { url, queryFilterData = ``, actionType = `` } = fetchRequirement;
+    // fetchingStudents starting fetching students // loader
+    dispatch(fetchingStudents({}));
+    try {
+      const data = await getData(url);
+
+      if (data) {
+        console.log(data, "students");
+        data.items.forEach((student) => {
+          if (student.imageUrl.length === 0) {
+            student.imageUrl =
+              require("../../assets/images/default_person_img.svg").default;
+          }
+        });
+        if (actionType === `FIRST_FETCH_DATA`) {
+          // firstFetchedStudents to set first fetched students (need help on the data structure)
+          dispatch(
+            firstFetchedStudents({
+              students: [...data.items],
+              offset: data.offset ? data.offset.toString() : "",
+            })
+          );
+        } else if (actionType === `FETCH_MORE_DATA`) {
+          // fetchMoreStudents to set more fetched students
+          dispatch(
+            fetchMoreStudents({
+              students: [...data.items],
+              offset: data.offset ? data.offset.toString() : "",
+            })
+          );
+        } else {
+          throw new Error(`The actionType ${actionType} is not supported`);
+        }
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+    // endFoFetchingStudents end of fetching students // loader
+    dispatch(endFoFetchingStudents());
+  }
+
+  // first load fetch
+  useEffect(() => {
+    if (studentsState.students.length === 0) {
+      fetchDataStudents({ url: URL_STUDENTS, actionType: "FIRST_FETCH_DATA" });
+    }
+  }, []);
+
+  // on click load more btn
+  // const handleOnLoadMoreStudents = async (e) => {
+  //   if (studentsState.offset.length === 0) {
+  //     return;
+  //   }
+
+  //   await fetchDataStudents({
+  //     url: `${URL_STUDENTS}?${
+  //       QUERY_TO_FETCH_NEXT_PAGE_STUDENTS + studentsState.offset}`,
+  //     actionType: "FETCH_MORE_DATA",
+  //   });
+  // };
+
+  const handleShowNextStudents = async (e) => {
+    
+      console.log(studentsState, "click");
+    
+    let nextIndex = currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED;
+    // check if data already exists for next page and display it
+    if (nextIndex < studentsState.students.length) {
+      setCurrentStudentIndex(nextIndex);
+    } else if (studentsState.offset) {
+      await fetchDataStudents({
+        url: `${URL_STUDENTS}?${
+          QUERY_TO_FETCH_NEXT_PAGE_STUDENTS + studentsState.offset
+        }`,
+        actionType: "FETCH_MORE_DATA",
+      });
+
+      setCurrentStudentIndex(nextIndex);
+    }
+  };
+    const handleShowPreviousStudents = async (e) => {
+      setCurrentStudentIndex(
+        currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED
+      );
+    };
+
+
+
+
   return (
     <div className="home">
       <NavBar />
@@ -129,8 +235,10 @@ function Home() {
           </div>
         </div>
         <div className="project_student">
-          {console.log(projectsState.projects)}
-          {console.log(currentIndex)}
+          {console.log(studentsState, "studentState")}
+          {console.log(currentIndex, "currentIndex")}
+          {console.log(currentStudentIndex, "currentStudentIndex")}
+          {console.log("projectState", projectsState)}
           <h1>Projects made with love</h1>
           {projectsState.projects?.length > 0 && (
             <div className="projects_home">
@@ -164,6 +272,35 @@ function Home() {
 
           <h1>Our students</h1>
           <div className="students_home"></div>
+          {studentsState.students?.length > 0 && (
+            <div className="projects_home">
+              {currentStudentIndex > 0 && (
+                <button
+                  className="arrow_button"
+                  onClick={handleShowPreviousStudents}
+                >
+                  <img src={lessthan} alt="pointer" />
+                </button>
+              )}
+              <Cards
+                allData={studentsState.students.slice(
+                  currentStudentIndex,
+                  currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED
+                )}
+                onClickGoTo="/students"
+              />
+              {(studentsState.offset ||
+                currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
+                  studentsState.students.length) && (
+                <button
+                  className="arrow_button"
+                  onClick={handleShowNextStudents}
+                >
+                  <img src={greaterthan} alt="pointer" />
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
       <Footer />

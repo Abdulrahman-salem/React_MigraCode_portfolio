@@ -24,7 +24,6 @@ const projectsStateSlice = createSlice({
         isFetching: false,
         projects: action.payload.projects,
         nextPage: action.payload.nextPage,
-        //   homeData: action.payload.homeData,
         queryFilterData: action.payload.queryFilterData
           ? action.payload.queryFilterData
           : "",
@@ -36,7 +35,6 @@ const projectsStateSlice = createSlice({
         isFetching: false,
         projects: [...state.projects, ...action.payload.projects],
         nextPage: action.payload.nextPage,
-        //   homeData: [...action.payload.homeData],
       };
     },
     endFoFetchingProjects: (state) => {
