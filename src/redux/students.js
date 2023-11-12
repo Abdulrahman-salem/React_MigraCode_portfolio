@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+    students: [],
+    offset: "",
+    queryFilterData: "",
+    isFetching: false,
+};
 
 const studentsStateSlice = createSlice({
     name: "studentsStateSlice",
@@ -10,6 +15,23 @@ const studentsStateSlice = createSlice({
             return {
                 ...state,
                 isFetching: true,
+            };
+        },
+        firstFetchedStudents: (state, action) => {
+            return {
+              ...state,
+              isFetching: false,
+              students: action.payload.students,
+              offset: action.payload.offset,
+              queryFilterData: action.payload.queryFilterData,
+            };
+        },
+        fetchMoreStudents: (state, action) => {
+            return {
+              ...state,
+              isFetching: false,
+              students: [...state.students, ...action.payload.students],
+              offset: action.payload.offset,
             };
         },
         endFoFetchingStudents: (state) => {
@@ -24,7 +46,12 @@ const studentsStateSlice = createSlice({
     },
 });
 
-export const { fetchingStudents, endFoFetchingStudents, resetStudentsState } =
-    studentsStateSlice.actions;
+export const {
+    fetchingStudents,
+    endFoFetchingStudents,
+    resetStudentsState,
+    firstFetchedStudents,
+    fetchMoreStudents,
+} = studentsStateSlice.actions;
 
 export default studentsStateSlice.reducer;

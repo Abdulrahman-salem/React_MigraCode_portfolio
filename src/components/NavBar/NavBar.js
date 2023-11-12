@@ -31,7 +31,7 @@ const NavBar = () => {
       </div>
 
       <div className="nav">
-        <Link className="nav_link" to="/" >
+        <Link className="nav_link" to="/">
           Home
         </Link>
         <Link className="nav_link" to="/projects" onClick={handleResetData}>
@@ -40,7 +40,7 @@ const NavBar = () => {
         {/* <Link className="nav_link" to="#final_projects">
           Final projects
         </Link> */}
-        <Link className="nav_link" to="/students">
+        <Link className="nav_link" to="/students" onClick={handleResetData}>
           Students & Graduates
         </Link>
         <Link

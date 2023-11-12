@@ -5,7 +5,7 @@ export const QUERY_FILTER_STUDENTS = `filterBy`;
 export const QUERY_FILTER_STUDENTS_BY_A_TO_Z = `a-z`;
 export const QUERY_FILTER_STUDENTS_BY_Z_TO_A = `z-a`;
 export const URL_FILTER_STUDENT_BY_NAME = `${URL_STUDENTS}?studentFullName=`;
-// export const QUERY_TO_FETCH_NEXT_2ITEMS_STUDENTS = `limit=2`;
+export const NUMBER_OF_PROJECTS_DISPLAYED = 2;
 
 // projects
 export const URL_PROJECTS = "http://localhost:3003/projects";
@@ -15,4 +15,4 @@ export const QUERY_FILTER_PROJECTS_BY_A_TO_Z = `a-z`;
 export const QUERY_FILTER_PROJECTS_BY_Z_TO_A = `z-a`;
 export const QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST = `date-a-z`;
 export const QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST = `date-z-a`;
-// export const QUERY_TO_FETCH_NEXT_2ITEMS_PROJECTS = `limit=2`;
+
