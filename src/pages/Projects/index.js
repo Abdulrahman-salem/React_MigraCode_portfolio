@@ -305,7 +305,7 @@
 // export default Projects;
 
 ////////////////////////////////////////////////////////////////////////////////
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getData } from "../../adapters/fetch";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
@@ -331,8 +331,14 @@ import {
     endFoFetchingProjects,
 } from "../../redux/projects";
 import Loader from "../../components/Loader";
+import AddMoreCardButton from "../../components/AddMoreCardButton";
+import ContainerFormAddMoreCard from "../../components/ContainerFormAddMoreCard";
+import FormNewProject from "../../components/FormNewProject";
 
 function Projects() {
+    const addMoreCardBtnRef = useRef(null);
+    const [openAddMoreCardButton, setOpenAddMoreCardButton] = useState(false);
+
     // to read redux projects state
     const { projectsState } = useSelector((store) => store);
 
@@ -399,6 +405,8 @@ function Projects() {
 
     // on click load more btn
     const handleOnLoadMoreProjects = async (e) => {
+        const scroll = window.scrollY;
+
         if (projectsState.nextPage.length === 0) {
             return;
         }
@@ -409,6 +417,7 @@ function Projects() {
             }&${projectsState.queryFilterData}`,
             actionType: "FETCH_MORE_DATA",
         });
+        window.scrollTo({ behavior: "auto" }, scroll);
     };
 
     // on click one of the filter options btn
@@ -468,12 +477,41 @@ function Projects() {
         return;
     };
 
+    const handleClickAddMoreCard = (e) => {
+        setOpenAddMoreCardButton(!openAddMoreCardButton);
+    };
+
+    const onSubmitForm = (submittingOptions) => {
+        const { isSubmitted } = submittingOptions;
+        setOpenAddMoreCardButton(!isSubmitted);
+        return;
+    };
     return (
         <div className="projects">
             <header>
                 <NavBar />
             </header>
             <main>
+                <section className="AddCardContainer" ref={addMoreCardBtnRef}>
+                    <AddMoreCardButton onClick={handleClickAddMoreCard} />
+
+                    {openAddMoreCardButton && (
+                        <ContainerFormAddMoreCard>
+                            <button
+                                className="closeFormNewProject"
+                                onClick={() => {
+                                    setOpenAddMoreCardButton(
+                                        !openAddMoreCardButton
+                                    );
+                                }}
+                            >
+                                X
+                            </button>
+                            <FormNewProject onSubmitForm={onSubmitForm} />
+                        </ContainerFormAddMoreCard>
+                    )}
+                </section>
+
                 {!projectsState.isFetching &&
                     projectsState.projects?.length > 0 && (
                         <>
@@ -514,8 +552,8 @@ function Projects() {
                             />
                         </>
                     )}
-                {projectsState.isFetching && <Loader />}
             </main>
+            {projectsState.isFetching && <Loader />}
             {!projectsState.isFetching &&
                 projectsState.projects?.length === 0 && (
                     <p className="onDataMessage">There is no Projects</p>
