@@ -1,19 +1,22 @@
 @use "/src/assets/styles/scss/variables" as variables;
 
 .Loader {
-    background: variables.$background-black;
-    border-radius: 50%;
-    width: 100px;
-    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
 
     .lds-roller {
         display: inline-block;
         position: relative;
         width: 80px;
         height: 80px;
+        background: #000000;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
 
         div {
             animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
