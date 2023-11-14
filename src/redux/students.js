@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     students: [],
-    offSet: "",
+    offset: "",
     queryFilterData: "",
     isFetching: false,
 };
@@ -19,19 +19,19 @@ const studentsStateSlice = createSlice({
         },
         firstFetchedStudents: (state, action) => {
             return {
-                ...state,
-                isFetching: false,
-                students: action.payload.students,
-                offSet: action.payload.offSet,
-                queryFilterData: action.payload.queryFilterData,
+              ...state,
+              isFetching: false,
+              students: action.payload.students,
+              offset: action.payload.offset,
+              queryFilterData: action.payload.queryFilterData,
             };
         },
         fetchMoreStudents: (state, action) => {
             return {
-                ...state,
-                isFetching: false,
-                students: [...state.students, ...action.payload.students],
-                offSet: action.payload.offSet,
+              ...state,
+              isFetching: false,
+              students: [...state.students, ...action.payload.students],
+              offset: action.payload.offset,
             };
         },
         endFoFetchingStudents: (state) => {

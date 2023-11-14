@@ -1,0 +1,144 @@
+@use "/src/assets/styles/scss/variables" as variables;
+@use "/src/assets/styles/scss/mixins" as mixins;
+
+.home {
+  background-image: url("https://img.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg");
+  color: variables.$white;
+  background-size: 100% auto;
+  .main {
+    // background-image: url("https://img.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg");
+    background-size: 100% auto;
+    display: flex;
+    justify-content: space-around;
+
+    h1 {
+      margin-top: 30px;
+      @include mixins.jura-bold;
+      color: variables.$tiffany;
+      text-align: center;
+    }
+    .description {
+      display: flex;
+      justify-content: space-around;
+      width: 35%;
+
+      .description_text {
+        img {
+          margin-left: 30px;
+          width: 80%;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        p {
+          margin-bottom: 50px;
+          margin-top: 50px;
+          font-size: 24px;
+          @include mixins.jura;
+          text-align: center;
+        }
+
+        h1 {
+          margin-bottom: 20px;
+          @include mixins.jura-bold;
+          font-weight: 700;
+          color: variables.$tiffany;
+        }
+
+        button {
+          display: block;
+          margin: 0 auto;
+          background-color: variables.$red;
+          border: 1px solid white;
+          color: variables.$white;
+          border-radius: 15px;
+          padding: 10px;
+          font-size: 15px;
+          @include mixins.jura-medium;
+        }
+      }
+
+      .description_image {
+        img {
+          margin-left: 30px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+    .project_student {
+      .projects_home {
+
+        display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+        .arrow_button {
+            width: 60px;
+            background: black;
+            cursor: pointer;
+            border-radius: 50%; 
+            border: 1px solid black;
+
+            img {
+                width: 60px;
+                border-radius: 50%; /* Make the image circular */
+                background: black;
+            }
+      }
+    }
+      .students_home {
+
+        display: flex;
+        justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+        button {
+
+          display: block;
+          margin: 0 auto;
+          background-color: variables.$red;
+          border: 1px solid white;
+          color: variables.$white;
+          border-radius: 15px;
+          padding: 10px;
+          font-size: 15px;
+          @include mixins.jura-medium;
+        }
+      }
+    }
+  }
+
+  // /* Styles for tablets */
+  // @media (max-width: 768px) {
+  //   .description {
+  //     flex-direction: column;
+  //     text-align: center;
+  //     margin: 20px;
+  //   }
+
+  //   p {
+  //     font-size: 18px;
+  //   }
+
+  //   .description img {
+  //     display: none;
+  //     // height: 250px;
+  //   }
+  // }
+
+  // /* Styles for phones */
+  // @media (max-width: 480px) {
+  //   p {
+  //     font-size: 16px;
+  //   }
+
+  //   .description img {
+  //     // height: 200px;
+  //     display: none;
+  //   }
+  // }
+}
