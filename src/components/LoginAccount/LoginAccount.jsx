@@ -4,17 +4,13 @@ import React, { useState } from "react";
 function LoginAccount(props) {
   const onSubmit = props.onSubmit;
 
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState("");
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
     const newErrors = {};
-
-    if (!username.trim()) {
-      newErrors.username = "Username is required";
-    }
 
     // You can use a regular expression to validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -37,7 +33,7 @@ function LoginAccount(props) {
 
     if (validateForm()) {
       // If validation passes, call the onSubmit prop
-      onSubmit(username, email, password);
+      onSubmit(email, password);
     }
 
     // TO DO: Display error if validation fails
@@ -45,7 +41,7 @@ function LoginAccount(props) {
 
   return (
     <div className="signup--infomation modal__form">
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="inputUserName" className="form-label">
           User's Name*
         </label>
@@ -59,20 +55,6 @@ function LoginAccount(props) {
         {errors.username && (
           <div style={{ color: "red" }}>{errors.username}</div>
         )}
-      </div>
-
-      {/* <div className="mb-3">
-        <label htmlFor="Github" className="form-label">
-          Github Name
-        </label>
-        <input type="text" className="form-control" id="inputGithubName" />
-      </div>
-
-      <div className="mb-3">
-        <label htmlFor="LinkedIn" className="form-label">
-          LinkedIn's Link
-        </label>
-        <input type="text" className="form-control" id="inputLinkedInLink" />
       </div> */}
 
       <div className="mb-3">
@@ -97,7 +79,7 @@ function LoginAccount(props) {
           Password*
         </label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           className="form-control"
           id="inputPassword1"
           value={password}
@@ -108,7 +90,13 @@ function LoginAccount(props) {
         )}
       </div>
       <div className="mb-3 form-check">
-        <input type="checkbox" className="form-check-input" id="check" />
+        <input
+          type="checkbox"
+          className="form-check-input"
+          id="check"
+          checked={showPassword}
+          onChange={() => setShowPassword(!showPassword)}
+        />
         <label className="form-check-label" htmlFor="check">
           Check me out
         </label>
