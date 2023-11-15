@@ -48,11 +48,7 @@
   .login {
     margin-right: 20px;
 
-    &:hover {
-      color: variables.$white;
-    }
-
-    button {
+    .btn--show-modal{
       display: block;
       margin: 0 auto;
       background-color: variables.$red;
@@ -63,6 +59,11 @@
       font-size: 15px;
       @include mixins.jura-medium;
     }
+
+    &:hover {
+      color: variables.$white;
+    }
+
   }
 
   @media only screen and (max-width: 950px) {
@@ -111,5 +112,61 @@
   }
 
   }
+
+
+
+//Modal
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60rem;
+  // background-color: #f3f3f3;
+  padding: 2rem;
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.5s;
+  background-image: url("./Login--background.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.navBar .modal .login .btn--close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  background-color: variables.$red;
+  border: 1px solid white;
+  color: variables.$white;
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-size: 20px;
+  @include mixins.jura-medium;
+}
 
 

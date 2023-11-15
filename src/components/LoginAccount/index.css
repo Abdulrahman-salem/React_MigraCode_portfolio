@@ -20,7 +20,6 @@ code {
   max-width: 60rem;
   background-color: #ffffff;
   padding: 2rem 5rem;
-  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
 }
 
 .heading {
@@ -35,9 +34,9 @@ code {
   font-size: 2rem;
   display: flex;
   flex-direction: column;
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
   padding: 2rem 2rem;
-  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 
 .mb-3 {

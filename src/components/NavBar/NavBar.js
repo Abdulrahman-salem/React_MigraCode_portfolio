@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import logo from "../../assets/images/MigraCode-16.png";
 import "./index.scss";
+import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
 import { resetProjectsState } from "../../redux/projects";
 import { useDispatch } from "react-redux";
@@ -65,10 +66,7 @@ const Navbar = () => {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-
-      <div className="login">
-        <button>Log in</button>
-      </div>
+        <LoginButton />
     </nav>
   );
 };
