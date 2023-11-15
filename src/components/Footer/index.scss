@@ -23,7 +23,7 @@ footer {
       text-decoration: underline variables.$black;
     }
 
-    .logo_name img {
+    .logo {
       margin: 0;
       height: 50px;
     }
@@ -75,8 +75,52 @@ align-items: center;
   }
 }
 
-// @media (max-width: 768px) {
-//   .nav .nav_link {
-//     padding-left: 10px;
-//   }
-// }
+@media (max-width: 800px) {
+
+  footer {
+    .logo_name {
+      height: 30px;
+      .logo {
+    margin: 0;
+    height: 45px;
+}
+    }
+.name {
+  display: none;
+}
+.follow{
+          .link {
+    margin-right: 10px;
+
+    .text_link{
+      display: none;
+    }
+          }
+
+  }
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .footer-allpages {
+    .logo_name {
+      height: 30px;
+      .logo {
+    margin: 0;
+    height: 45px;
+}
+    }
+
+.follow{
+          .link {
+    margin-right: 10px;
+
+    .text_link{
+      display: none;
+    }
+          }
+
+  }
+  }
+}

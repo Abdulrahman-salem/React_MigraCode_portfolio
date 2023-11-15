@@ -31,12 +31,18 @@ import {
   endFoFetchingStudents,
 } from "../../redux/students";
 import Loader from "../../components/Loader";
+import { resetProjectsState } from "../../redux/projects";
+import { Link } from "react-router-dom";
 
 
 
 function Home() {
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
+
+    const handleResetData = () => {
+      dispatch(resetProjectsState());
+    };
 
   // to set redux state
   const dispatch = useDispatch();
@@ -218,11 +224,11 @@ function Home() {
   return (
     <div className="home">
       <NavBar />
+      <h1 className="main_title">MigraCode Portfolio</h1>
       <div className="main">
         <div className="description">
+          <h1 className="title">Our mission</h1>
           <div className="description_text">
-            <h1>Migracode</h1>
-            <img src={group_photo} alt="group_photo" height="350px" />
             <p>
               Migracode acts as a bridge between the demand for skilled people
               in the tech sector and people with a migration background who are
@@ -231,74 +237,89 @@ function Home() {
               community of companies and students to foster both labor
               integration as well as social inclusion.
             </p>
-            <button className="button">Go to projects</button>
+            <img src={group_photo} alt="group_photo" />
+            <button className="button">Official website</button>
           </div>
         </div>
+        {console.log(projectsState)}
         <div className="project_student">
-          {console.log(studentsState, "studentState")}
-          {console.log(currentIndex, "currentIndex")}
-          {console.log(currentStudentIndex, "currentStudentIndex")}
-          {console.log("projectState", projectsState)}
-          <h1>Projects made with love</h1>
           {projectsState.projects?.length > 0 && (
             <div className="projects_home">
-              {currentIndex > 0 && (
-                <button
-                  className="arrow_button"
-                  onClick={handleShowPreviousProjects}
-                >
-                  <img src={lessthan} alt="pointer" />
-                </button>
-              )}
-              <Cards
-                allData={projectsState.projects.slice(
-                  currentIndex,
-                  currentIndex + NUMBER_OF_PROJECTS_DISPLAYED
-                )}
-                onClickGoTo="/projects"
-              />
-              {(projectsState.nextPage ||
-                currentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
-                  projectsState.projects.length) && (
-                <button
-                  className="arrow_button"
-                  onClick={handleShowNextProjects}
-                >
-                  <img src={greaterthan} alt="pointer" />
-                </button>
-              )}
+              <Link className="title" to="/projects" onClick={handleResetData}>
+                Projects made with love
+              </Link>
+              <div className="card_buttons">
+                <div className="navigation_button">
+                  {currentIndex > 0 && (
+                    <button
+                      className="arrow_button"
+                      onClick={handleShowPreviousProjects}
+                    >
+                      <img src={lessthan} alt="pointer" />
+                    </button>
+                  )}
+                </div>
+                <Cards
+                  allData={projectsState.projects.slice(
+                    currentIndex,
+                    currentIndex + NUMBER_OF_PROJECTS_DISPLAYED
+                  )}
+                  onClickGoTo="/project"
+                />
+                {/* <div className="buttons"> */}
+                <div className="navigation_button">
+                  {(projectsState.nextPage ||
+                    currentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
+                      projectsState.projects.length) && (
+                    <button
+                      className="arrow_button"
+                      onClick={handleShowNextProjects}
+                    >
+                      <img src={greaterthan} alt="pointer" />
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
           )}
-
-          <h1>Our students</h1>
-          <div className="students_home"></div>
           {studentsState.students?.length > 0 && (
-            <div className="projects_home">
-              {currentStudentIndex > 0 && (
-                <button
-                  className="arrow_button"
-                  onClick={handleShowPreviousStudents}
-                >
-                  <img src={lessthan} alt="pointer" />
-                </button>
-              )}
-              <Cards
-                allData={studentsState.students.slice(
-                  currentStudentIndex,
-                  currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED
-                )}
-                onClickGoTo="/students"
-              />
-              {(studentsState.offset ||
-                currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
-                  studentsState.students.length) && (
-                <button
-                  className="arrow_button"
-                  onClick={handleShowNextStudents}
-                >
-                  <img src={greaterthan} alt="pointer" />
-                </button>
-              )}
+            <div className="students_home">
+              <Link className="title" to="/students" onClick={handleResetData}>
+                Our talented students
+              </Link>
+              <div className="card_buttons">
+                <div className="navigation_button">
+                  {currentStudentIndex > 0 && (
+                    <button
+                      className="arrow_button"
+                      onClick={handleShowPreviousStudents}
+                    >
+                      <img src={lessthan} alt="pointer" />
+                    </button>
+                  )}
+                </div>
+                <Cards
+                  allData={studentsState.students.slice(
+                    currentStudentIndex,
+                    currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED
+                  )}
+                  onClickGoTo="/student"
+                />
+                <div className="buttons">
+                  <div className="navigation_button">
+                    {(studentsState.offset ||
+                      currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
+                        studentsState.students.length) && (
+                      <button
+                        className="arrow_button"
+                        onClick={handleShowNextStudents}
+                      >
+                        <img src={greaterthan} alt="pointer" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
