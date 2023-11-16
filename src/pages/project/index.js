@@ -100,7 +100,13 @@ function Project() {
                 // able to click on buttons
                 setIsFetching(false);
                 if (data.items.length > 0) {
-                    navigate("/student", { state: data });
+                    data.items.forEach((student) => {
+                        if (student.imageUrl.length === 0) {
+                            student.imageUrl =
+                                require("../../assets/images/default_person_img.svg").default;
+                        }
+                    });
+                    navigate("/student", { state: data.items[0] });
                 } else {
                     //showing error for some seconds
                     setErrorMessage((prevState) => ({

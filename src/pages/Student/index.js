@@ -130,8 +130,8 @@ function Student() {
         {projects && projects.length > 0 && (
           <div className="projects">
             <p className="project-header">Projects</p>
-            {projects.map((project) => (
-              <div className="project-main" key={project.id}>
+            {projects.map((project, index) => (
+              <div className="project-main" key={index}>
                 {project.project_image_link && (
                   <img
                     className="project-img"
@@ -142,8 +142,8 @@ function Student() {
                 <p className="project-name">{project.name}</p>
                 {project.technologies_used && (
                   <div className="project-languages-container">
-                    {project.technologies_used.map((technology) => (
-                      <p className="project-languages">{technology}</p>
+                    {project.technologies_used.map((technology, index) => (
+                      <p className="project-languages" key={index}>{technology}</p>
                     ))}
                   </div>
                 )}
