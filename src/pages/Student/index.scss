@@ -1,0 +1,462 @@
+body {
+    color: white;
+}
+.student {
+    .background-img {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 8rem 11rem;
+        background-image: url(https://img5.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg);
+        background-size: 100% 100%;
+        gap: 3em;
+        justify-content: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        header {
+            .section1 {
+                display: flex;
+                justify-content: space-between;
+                /* border: 1px solid white; */
+                padding: 12px 0px;
+                font-size: 28px;
+                .name {
+                    a {
+                        .web-name {
+                            height: 58px;
+                            width: 156px;
+                        }
+                    }
+                }
+                .social-media {
+                    gap: 20px;
+                    display: flex;
+                    align-items: center;
+                }
+                .social {
+                    width: 35px;
+                    height: 30px;
+                    color: white;
+                }
+            }
+            .main-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                // height: 70vh;
+                .section2 {
+                    padding: 100px 25px 0px;
+                    .main-p {
+                        font-size: 70px;
+                        line-height: 1;
+                        letter-spacing: 2px;
+                        color: white;
+                        font-family: 'Oswald', sans-serif;
+                        span {
+                            text-decoration: underline 4px solid #00f1d9;
+                            font-family: 'Oswald', sans-serif;
+                        }
+                    }
+                    .second-p {
+                        font-size: 21px;
+                        padding: 40px 0px;
+                        font-family: 'Oswald', sans-serif;
+                    }
+                    .contact-me-btn {
+                        padding: 15px;
+                        background-color: rgba(255, 255, 255, 0);
+                        border: 1px solid white;
+                        font-size: 22px;
+                        color: white;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: 0.5s;
+                        font-family: 'Oswald', sans-serif;
+                    }
+                    .contact-me-btn:hover {
+                        background-color: rgb(255, 255, 255);
+                        color: black;
+                        transition: 0.5s;
+                    }
+                }
+                .profile-img {
+                    border-radius: 45px;
+                    padding-top: 15px;
+                    // -webkit-filter: grayscale(100%);
+                    // filter: grayscale(100%);
+                    filter:contrast(1.3) brightness(1);
+                    mix-blend-mode: luminosity;
+                    width: 35%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////
+
+    main {
+        padding: 130px 123px;
+        display: flex;
+        flex-direction: column;
+        gap: 20vh;
+        align-items: center;
+        background-color: #000000f0;
+
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            // grid-template-rows: 1fr 1fr;
+            /* border: 1px solid white; */
+            padding: 80px 123px;
+            text-align: center;
+            row-gap: 40px;
+            border-top: 4px solid #02f1d1;
+            border-bottom: 4px solid #02f1d1;
+            gap: 100px;
+            .languages {
+                font-size: 45px;
+            }
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 1.5em;
+            .project-header {
+                font-size: 50px;
+                font-family: 'Oswald', sans-serif;
+                grid-column: 1/-1;
+            }
+            .project-main {
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                .project-languages-container {
+                    display: flex;
+                    gap: 20px;
+                }
+                .project-img {
+                    width: 90%;
+                    /* height: 65%; */
+                }
+                .project-name {
+                    font-size: 50px;
+                }
+                .project-languages {
+                    font-size: 20px;
+                    /* color: #888888; */
+                    color: #02f1d1;
+                    word-spacing: 15px;
+                }
+            }
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////
+
+    .profile-footer {
+        // border: 1px solid white;
+        padding: 0px 155px;
+        background-image: url(https://img5.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg);
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 0;
+        flex-direction: column;
+        display: flex;
+        border-top: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            // padding: 50px 128px 68px 191px;
+            padding: 60px 0px 70px 0px;
+            // border: 1px solid white;
+            .contact-info {
+                .contact-header {
+                    font-size: 100px;
+                    letter-spacing: 3px;
+                }
+                .contact-details {
+                    padding-top: 25px;
+                }
+            }
+            .container {
+                padding-top: 54px;
+                .contact-box {
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+                        .field {
+                            padding: 5px 250px 10px 5px;
+                            background: transparent;
+                            border: none;
+                            border-bottom: 2px solid white;
+                            outline: none;
+                            font-size: 18px;
+                            font-family: "Oswald", sans-serif;
+                            color: white;
+                        }
+                        .send-btn {
+                            text-align: center;
+                            padding: 9px 0px;
+                            margin-left: 285px;
+                            background-color: #ffffff00;
+                            color: white;
+                            border: 1px;
+                            border-bottom: 3px solid #00e2cb;
+                            transition: 0.5s;
+                            border-top-left-radius: 10px;
+                            border-top-right-radius: 10px;
+                            cursor: pointer;
+                        }
+                        .send-btn:hover {
+                            transition: 0.5s;
+                            background-color: rgba(255, 255, 255, 0.126);
+                            border-top-left-radius: 10px;
+                            border-top-right-radius: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        .footer-media {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0px;
+            border-top: 3px solid white;
+            .name {
+                .web-name {
+                    height: 58px;
+                    width: 156px;
+                }
+            }
+            .social-media {
+                gap: 15px;
+                display: flex;
+            }
+            .social-footer {
+                width: 35px;
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------
+
+@media only screen and (min-width: 1045px) and (max-width: 1333px) {
+    .student .background-img header .main-header .section2 .main-p {
+        font-size: 54px;
+    }
+    .student .background-img {
+        padding: 3rem 6rem 11rem;
+    }
+    .student .background-img header .main-header .section2 .second-p {
+        font-size: 18px;
+    }
+
+    .student .profile-footer {
+        padding: 0px 60px;
+    }
+    .student .profile-footer .contact .container .contact-box form .field {
+        padding: 5px 165px 10px 5px;
+    }
+    .student .profile-footer .contact .container .contact-box form .send-btn {
+        margin-left: 240px;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+@media only screen and (min-width: 910px) and (max-width: 1045px) {
+    .student .background-img header .main-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+    .student .background-img header .main-header .section2 {
+        padding: 50px 25px 0px;
+    }
+    .student .background-img header .main-header .section2 .second-p {
+        padding: 60px 0px 40px;
+    }
+
+    .student main {
+        padding: 130px 45px;
+    }
+    .student main .skills {
+        padding: 80px 0px;
+    }
+    .student .background-img header .main-header .section2 .main-p {
+        font-size: 60px;
+    }
+    .student .background-img header .main-header .profile-img {
+        width: 43%;
+    }
+
+
+    .student .profile-footer .contact {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .student .profile-footer {
+        padding: 0px 45px;
+    }
+    .student .profile-footer .contact .container .contact-box form .field {
+        padding: 5px 60px 10px 5px;
+    }
+    .student .profile-footer .contact .container .contact-box form .send-btn {
+        margin-left: 160px;
+    }
+}
+
+// ------------------------------------------------------------
+
+@media only screen and (min-width: 200px) and (max-width: 910px) {
+    .student .background-img header .main-header .section2 .main-p {
+        font-size: 50px;
+    }
+    .student .background-img header .main-header .section2 .second-p {
+        font-size: 16px;
+    }
+    .student .background-img {
+        padding: 3rem 2rem 11rem;
+    }
+    .student .background-img header .main-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+    .student .background-img header .main-header .section2 {
+        padding: 50px 25px 0px;
+    }
+    .student .background-img header .main-header .section2 .second-p {
+        padding: 60px 0px 40px;
+    }
+
+    .student main {
+        padding: 130px 45px;
+    }
+    .student main .skills {
+        padding: 80px 0px;
+    }
+    .student main .skills .languages {
+        font-size: 32px;
+        gap: 50px;
+    }
+    // .student main .projects .project-main {
+    //     grid-column: 3/1;
+    // }
+
+    .student .profile-footer .contact {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .student .profile-footer .contact .contact-info .contact-header {
+        font-size: 80px;
+        letter-spacing: 3px;
+    }
+    .student .profile-footer {
+        padding: 0px 45px;
+    }
+    .student .profile-footer .contact .container .contact-box form .field {
+        padding: 5px 100px 10px 5px;
+    }
+    .student .profile-footer .contact .container .contact-box form .send-btn {
+        margin-left: 160px;
+    }
+}
+
+// -----------------------------------------------------
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+    .student .background-img header .main-header .profile-img {
+        width: 55%;
+    }
+    .student .background-img header .section1 {
+        padding: 12px 15px 50px;
+    }
+    .student .background-img {
+        padding: 3rem 0rem 11rem;
+    }
+    .student .background-img header .main-header .section2 .main-p {
+        font-size: 38px;
+    }
+}
+
+// ---------------------------------------------------------
+
+@media only screen and (min-width: 200px) and (max-width: 425px) {
+    .student .background-img header .section1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .student .background-img header .main-header .profile-img {
+        width: 70%;
+    }
+    .student .background-img {
+        padding: 3rem 0rem 11rem;
+    }
+    .student .background-img header .main-header .section2 .main-p {
+        font-size: 26px;
+    }
+    .student .background-img header .main-header .section2 .second-p {
+        font-size: 13px;
+        padding: 40px 0px 40px;
+    }
+    .student main {
+        padding: 130px 10px;
+    }
+    .student main .skills {
+        padding: 40px 65px;
+    }
+    .student main .projects .project-header {
+        font-size: 40px;
+    }
+    .student .profile-footer .contact .contact-info .contact-header {
+        font-size: 80px;
+        letter-spacing: -3px;
+    }
+    .student .profile-footer .contact .contact-info .contact-details {
+        font-size: 12px;
+    }
+    .student .profile-footer .contact .container .contact-box form .field {
+        padding: 5px 70px 10px 5px;
+        font-size: 15px;
+    }
+    .student .profile-footer .footer-media {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+// -----------------------------------------------------
+@media only screen and (min-width: 200px) and (max-width: 635px) {
+    .student main .skills {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 90px;
+    }
+}
+@media only screen and (min-width: 200px) and (max-width: 358px) {
+    .student main .skills {
+        padding: 40px 31px;
+    }
+}
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+    .student main .projects {
+        grid-template-columns: 1fr;
+    }
+}
