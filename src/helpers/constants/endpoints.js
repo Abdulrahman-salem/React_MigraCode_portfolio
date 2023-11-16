@@ -16,3 +16,6 @@ export const QUERY_FILTER_PROJECTS_BY_Z_TO_A = `z-a`;
 export const QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST = `date-a-z`;
 export const QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST = `date-z-a`;
 
+// Official MigraCode website
+export const LINK_OFFICIAL_MIGRACODE_WEBSITE =
+  "https://migracode.openculturalcenter.org/";
