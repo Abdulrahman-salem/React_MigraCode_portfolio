@@ -1,9 +1,174 @@
+@use "/src/assets/styles/scss/mixins" as mixins;
+@use "/src/assets/styles/scss/variables" as variables;
+
 .newProjectForm {
     color: #b300ff;
+    color: white;
     position: absolute;
-    // padding: 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 98%;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+
+    &>section {
+        max-width: calc(50% - 20px);
+        width: calc(50% - 20px);
+    }
+}
+
+.newProjectForm {
+    // max-width: 800px;
+    // margin: 0 auto;
+    // padding: 20px;
+    // background-color: #f4f4f4;
+    // border-radius: 8px;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    .css-1nmdiq5-menu {
+        background: black;
+        box-shadow: inset 0px 0px 10px red;
+    }
+
+    .css-d7l1ni-option {
+        background: #12cab240;
+        margin: 10px;
+        max-width: 100%;
+        width: auto;
+    }
+
+    .css-10wo9uf-option {
+        margin: 10px;
+        max-width: 100%;
+        width: auto;
+    }
+
+    section {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+
+            input,
+            textarea,
+            select {
+                width: 100%;
+                padding: 8px;
+                // border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                background: transparent;
+                color: white;
+                border: 0;
+                border-bottom: 1px solid white;
+                max-width: 100%;
+
+                &:focus {
+                    outline: none;
+                    color: #12cab2;
+                    border-bottom: 1px solid #12cab2;
+                    // border-color: #12cab2;
+                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                }
+            }
+
+            .input_date_have_been_done {
+                color: white;
+                font-size: 1rem;
+
+                &::-webkit-datetime-edit-text {
+                    padding: 0 1rem;
+                }
+
+                &::-webkit-datetime-edit-month-field {
+                    text-transform: uppercase;
+                }
+
+                &::-webkit-datetime-edit-day-field {
+                    text-transform: uppercase;
+                }
+
+                &::-webkit-datetime-edit-year-field {
+                    text-transform: uppercase;
+                }
+
+                &::-webkit-inner-spin-button {
+                    display: none;
+                }
+
+                &::-webkit-calendar-picker-indicator {
+                    border-radius: 5px;
+                    background-color: white;
+                }
+
+                &:focus {
+                    color: #12cab2;
+
+                    &::-webkit-calendar-picker-indicator {
+                        background-color: #12cab2;
+                    }
+                }
+            }
+
+            //   input.input_date_have_been_done::-webkit-calendar-picker-indicator
+
+            button {
+                margin-left: 10px;
+                cursor: pointer;
+                background-color: #dc3545;
+                color: #fff;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: #c82333;
+                }
+            }
+        }
+
+        .preview-image {
+            display: flex;
+            flex-direction: column;
+            color: red;
+            font-weight: 700;
+            font-size: large;
+
+            img {
+                max-width: 100%;
+                max-height: 250px;
+                /* aspect-ratio: 16/9; */
+                margin: 10px;
+                align-self: center;
+                // background: #12cab224;
+                box-shadow: 0 0 15px rgba(18, 202, 178, 0.1411764706);
+            }
+        }
+    }
+
+    input[type="submit"] {
+        cursor: pointer;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 18px;
+        margin-top: 20px;
+        width: 70%;
+
+        &:hover {
+            background-color: #218838;
+        }
+    }
 }

@@ -407,438 +407,446 @@ function FormNewProject({ onSubmitForm }) {
             autoComplete="off"
             onSubmit={handleonsubmit}
         >
-            {/* Project name */}
-            <section className="project_name_section">
-                <h2>Project name: </h2>
-                <label htmlFor="name">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Project name"
-                        maxLength={120}
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.name",
+            <section>
+                {/* Project name */}
+                <section className="project_name_section">
+                    <h2>Project name: </h2>
+                    <label htmlFor="name">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Project name"
+                            maxLength={120}
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.name",
+                                });
+                            }}
+                        />
+                    </label>
+                </section>
+    
+                {/* Date have been done */}
+                <section className="date_have_been_done_section">
+                    <h2>Date have been done : </h2>
+                    <label htmlFor="date_have_been_done">
+                        <input
+                            className="input_date_have_been_done"
+                            type="date"
+                            name="date_have_been_done"
+                            pattern="/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/"
+                            placeholder="YYYY-MM-DD"
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.dateHaveBeenDone",
+                                });
+                            }}
+                        ></input>
+                    </label>
+                </section>
+    
+                {/* Migracode batch  */}
+                <section className="migracode_batch_section">
+                    <h2>Migracode batch : </h2>
+                    <label htmlFor="migracode_batch">
+                        <input
+                            type="text"
+                            name="migracode_batch"
+                            placeholder="migracode batch"
+                            maxLength={60}
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.migracodeBatch",
+                                });
+                            }}
+                        />
+                    </label>
+                </section>
+    
+                {/* Technologies */}
+                <section className="technologiesUsed_section">
+                    <h2>Technologies :</h2>
+                    <label htmlFor="technologiesUsed">
+                        <Select
+                            isMulti
+                            options={technologyOptions}
+                            isClearable={true}
+                            isSearchable={true}
+                            // isDisabled={false}
+                            name="technologiesUsed"
+                            placeholder="technology"
+                            components={animatedOptionsComponents}
+                            onKeyDown={preventEnterKey}
+                        />
+                    </label>
+                </section>
+    
+                <section className="instructors_names_section">
+                    <h2>Instructor name :</h2>
+                    {inputsInstructorsNames.map((input, index) => {
+                        return (
+                            <label htmlFor="instructors_names" key={index}>
+                                <input
+                                    // key={index}
+                                    type="text"
+                                    name="instructors_names"
+                                    placeholder="Instructor name"
+                                    onChange={(e) => {
+                                        return handleOnChangeInput({
+                                            e: e,
+                                            id: input.id,
+                                            nameOfState: "inputsInstructorsNames",
+                                        });
+                                    }}
+                                    onKeyDown={preventEnterKey}
+                                />
+                                {index > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={(e) =>
+                                            handleDeleteInput(
+                                                e,
+                                                input.id,
+                                                "inputsInstructorsNames"
+                                            )
+                                        }
+                                        title="Delete"
+                                    >
+                                        X
+                                    </button>
+                                )}
+                            </label>
+                        );
+                    })}
+                    <button
+                        onClick={(e) => {
+                            handleAddMoreInput(e, {
+                                nameOfState: "inputsInstructorsNames",
+                                value: "",
+                                index: inputsInstructorsNames?.length,
                             });
                         }}
-                    />
-                </label>
-            </section>
-
-            {/* Description */}
-            <section className="description_section">
-                <h2>Description : </h2>
-                <label htmlFor="description">
-                    <textarea
-                        name="description"
-                        placeholder="Description"
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.description",
+                    >
+                        Add more instructor
+                    </button>
+                </section>
+    
+                {/* Team members names */}
+                <section className="team_members_names_section">
+                    <h2>Team members names :</h2>
+                    {inputsTeamNames.map((input, index) => {
+                        return (
+                            <label htmlFor="team_members_names" key={index}>
+                                <input
+                                    // key={index}
+                                    type="text"
+                                    name="team_members_names"
+                                    placeholder="Team member name"
+                                    onChange={(e) => {
+                                        return handleOnChangeInput({
+                                            e: e,
+                                            id: input.id,
+                                            nameOfState: "inputsTeamNames",
+                                        });
+                                    }}
+                                    onKeyDown={preventEnterKey}
+                                />
+                                {index > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={(e) =>
+                                            handleDeleteInput(
+                                                e,
+                                                input.id,
+                                                "inputsTeamNames"
+                                            )
+                                        }
+                                        title="Delete"
+                                    >
+                                        X
+                                    </button>
+                                )}
+                            </label>
+                        );
+                    })}
+                    <button
+                        onClick={(e) => {
+                            handleAddMoreInput(e, {
+                                nameOfState: "inputsTeamNames",
+                                value: "",
+                                index: inputsTeamNames?.length,
                             });
                         }}
-                    ></textarea>
-                </label>
-            </section>
-
-            {/* Image */}
-            <section className="image_section">
-                <h2>Image : </h2>
-                <label htmlFor="image">
-                    <input
-                        type="file"
-                        accept="image/*"
-                        name="image"
-                        placeholder="Image file"
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.projectImage",
-                            });
-                        }}
-                    ></input>
-                </label>
-                {formState.projectImage && (
-                    <div className="preview-image">
-                        <h2>Preview:</h2>
-                        <img src={formState.projectImage} alt="Preview" />
-                    </div>
-                )}
-                {errorMessages.projectImage?.length > 0 && (
-                    <div className="preview-image">
-                        <h2>{errorMessages.projectImage}</h2>
-                    </div>
-                )}
-            </section>
-
-            {/* Date have been done */}
-            <section className="date_have_been_done_section">
-                <h2>Date have been done : </h2>
-                <label htmlFor="date_have_been_done">
-                    <input
-                        type="date"
-                        name="date_have_been_done"
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.dateHaveBeenDone",
-                            });
-                        }}
-                    ></input>
-                </label>
-            </section>
-
-            {/* Migracode batch  */}
-            <section className="migracode_batch_section">
-                <h2>Migracode batch : </h2>
-                <label htmlFor="migracode_batch">
-                    <input
-                        type="text"
-                        name="migracode_batch"
-                        placeholder="migracode batch"
-                        maxLength={60}
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.migracodeBatch",
-                            });
-                        }}
-                    />
-                </label>
-            </section>
-
-            {/* Technologies */}
-            <section className="technologiesUsed_section">
-                <h2>Technologies :</h2>
-                <label htmlFor="technologiesUsed">
-                    <Select
-                        isMulti
-                        options={technologyOptions}
-                        isClearable={true}
-                        isSearchable={true}
-                        // isDisabled={false}
-                        name="technologiesUsed"
-                        placeholder="technology"
-                        components={animatedOptionsComponents}
-                        onKeyDown={preventEnterKey}
-                    />
-                </label>
-            </section>
-
-            <section className="instructors_names_section">
-                <h2>Instructor name :</h2>
-                {inputsInstructorsNames.map((input, index) => {
-                    return (
-                        <label htmlFor="instructors_names" key={index}>
-                            <input
-                                // key={index}
-                                type="text"
-                                name="instructors_names"
-                                placeholder="Instructor name"
-                                onChange={(e) => {
-                                    return handleOnChangeInput({
-                                        e: e,
-                                        id: input.id,
-                                        nameOfState: "inputsInstructorsNames",
-                                    });
-                                }}
+                    >
+                        Add more team member
+                    </button>
+                </section>
+    
+                {/* Team members role */}
+                <section className="team_members_role_section">
+                    <h2>Team members role :</h2>
+                    {/* Team leader */}
+                    <section>
+                        <h3>Team leader :</h3>
+                        <label htmlFor="team_members_role_for_teamLeader">
+                            <Select
+                                options={team_member_role_options}
+                                isClearable={true}
+                                isSearchable={true}
+                                isDisabled={!isTeamMemberExist}
+                                name="team_members_role_for_teamLeader"
+                                placeholder="Team leader"
+                                components={animatedOptionsComponents}
                                 onKeyDown={preventEnterKey}
                             />
-                            {index > 0 && (
-                                <button
-                                    type="button"
-                                    onClick={(e) =>
-                                        handleDeleteInput(
-                                            e,
-                                            input.id,
-                                            "inputsInstructorsNames"
-                                        )
-                                    }
-                                    title="Delete"
-                                >
-                                    X
-                                </button>
-                            )}
                         </label>
-                    );
-                })}
-                <button
-                    onClick={(e) => {
-                        handleAddMoreInput(e, {
-                            nameOfState: "inputsInstructorsNames",
-                            value: "",
-                            index: inputsInstructorsNames?.length,
-                        });
-                    }}
-                >
-                    Add more instructor
-                </button>
-            </section>
-
-            {/* Team members names */}
-            <section className="team_members_names_section">
-                <h2>Team members names :</h2>
-                {inputsTeamNames.map((input, index) => {
-                    return (
-                        <label htmlFor="team_members_names" key={index}>
-                            <input
-                                // key={index}
-                                type="text"
-                                name="team_members_names"
-                                placeholder="Team member name"
-                                onChange={(e) => {
-                                    return handleOnChangeInput({
-                                        e: e,
-                                        id: input.id,
-                                        nameOfState: "inputsTeamNames",
-                                    });
-                                }}
+                    </section>
+    
+                    {/* Fullstack developers */}
+                    <section>
+                        <h3>Fullstack developers :</h3>
+                        <label htmlFor="team_members_role_for_fullstackDevelopers">
+                            <Select
+                                isMulti
+                                options={team_member_role_options}
+                                isClearable={true}
+                                isSearchable={true}
+                                isDisabled={!isTeamMemberExist}
+                                name="team_members_role_for_fullstackDevelopers"
+                                placeholder="Fullstack developers"
+                                components={animatedOptionsComponents}
                                 onKeyDown={preventEnterKey}
                             />
-                            {index > 0 && (
-                                <button
-                                    type="button"
-                                    onClick={(e) =>
-                                        handleDeleteInput(
-                                            e,
-                                            input.id,
-                                            "inputsTeamNames"
-                                        )
-                                    }
-                                    title="Delete"
-                                >
-                                    X
-                                </button>
-                            )}
                         </label>
-                    );
-                })}
-                <button
-                    onClick={(e) => {
-                        handleAddMoreInput(e, {
-                            nameOfState: "inputsTeamNames",
-                            value: "",
-                            index: inputsTeamNames?.length,
-                        });
-                    }}
-                >
-                    Add more team member
-                </button>
-            </section>
-
-            {/* Team members role */}
-            <section className="team_members_role_section">
-                <h2>Team members role :</h2>
-                {/* Team leader */}
-                <section>
-                    <h3>Team leader :</h3>
-                    <label htmlFor="team_members_role_for_teamLeader">
-                        <Select
-                            options={team_member_role_options}
-                            isClearable={true}
-                            isSearchable={true}
-                            isDisabled={!isTeamMemberExist}
-                            name="team_members_role_for_teamLeader"
-                            placeholder="Team leader"
-                            components={animatedOptionsComponents}
-                            onKeyDown={preventEnterKey}
-                        />
-                    </label>
-                </section>
-
-                {/* Fullstack developers */}
-                <section>
-                    <h3>Fullstack developers :</h3>
-                    <label htmlFor="team_members_role_for_fullstackDevelopers">
-                        <Select
-                            isMulti
-                            options={team_member_role_options}
-                            isClearable={true}
-                            isSearchable={true}
-                            isDisabled={!isTeamMemberExist}
-                            name="team_members_role_for_fullstackDevelopers"
-                            placeholder="Fullstack developers"
-                            components={animatedOptionsComponents}
-                            onKeyDown={preventEnterKey}
-                        />
-                    </label>
-                </section>
-
-                {/* Backend developers */}
-                <section>
-                    <h3>Backend developers :</h3>
-                    <label htmlFor="team_members_role_for_backendDevelopers">
-                        <Select
-                            isMulti
-                            options={team_member_role_options}
-                            isClearable={true}
-                            isSearchable={true}
-                            isDisabled={!isTeamMemberExist}
-                            name="team_members_role_for_backendDevelopers"
-                            placeholder="Backend developers"
-                            components={animatedOptionsComponents}
-                            onKeyDown={preventEnterKey}
-                        />
-                    </label>
-                </section>
-
-                {/* Frontend developers */}
-                <section>
-                    <h3>Frontend developers :</h3>
-                    <label htmlFor="team_members_role_for_frontendDevelopers">
-                        <Select
-                            isMulti
-                            options={team_member_role_options}
-                            isClearable={true}
-                            isSearchable={true}
-                            isDisabled={!isTeamMemberExist}
-                            name="team_members_role_for_frontendDevelopers"
-                            placeholder="Frontend developers"
-                            components={animatedOptionsComponents}
-                            onKeyDown={preventEnterKey}
-                        />
-                    </label>
-                </section>
-
-                {/* Designers */}
-                <section>
-                    <h3>Designers :</h3>
-                    <label htmlFor="team_members_role_for_designers">
-                        <Select
-                            isMulti
-                            options={team_member_role_options}
-                            isClearable={true}
-                            isSearchable={true}
-                            isDisabled={!isTeamMemberExist}
-                            name="team_members_role_for_designers"
-                            placeholder="Designers"
-                            components={animatedOptionsComponents}
-                            onKeyDown={preventEnterKey}
-                        />
-                    </label>
-                </section>
-            </section>
-
-            {/* Repositories links */}
-            <section className="repositories_links_section">
-                <h2>Repositories links :</h2>
-                <label htmlFor="repositories_links" />
-                {inputsRepositoriesLinks.map((input, index) => {
-                    return (
-                        <label htmlFor="repositories_links" key={index}>
-                            <input
-                                // key={index}
-                                type="url"
-                                name="repositories_links"
-                                placeholder="Repository link"
-                                onChange={(e) => {
-                                    return handleOnChangeInput({
-                                        e: e,
-                                        id: input.id,
-                                        nameOfState: "inputsRepositoriesLinks",
-                                    });
-                                }}
+                    </section>
+    
+                    {/* Backend developers */}
+                    <section>
+                        <h3>Backend developers :</h3>
+                        <label htmlFor="team_members_role_for_backendDevelopers">
+                            <Select
+                                isMulti
+                                options={team_member_role_options}
+                                isClearable={true}
+                                isSearchable={true}
+                                isDisabled={!isTeamMemberExist}
+                                name="team_members_role_for_backendDevelopers"
+                                placeholder="Backend developers"
+                                components={animatedOptionsComponents}
                                 onKeyDown={preventEnterKey}
                             />
-                            {index > 0 && (
-                                <button
-                                    type="button"
-                                    onClick={(e) =>
-                                        handleDeleteInput(
-                                            e,
-                                            input.id,
-                                            "inputsRepositoriesLinks"
-                                        )
-                                    }
-                                    title="Delete"
-                                >
-                                    X
-                                </button>
-                            )}
                         </label>
-                    );
-                })}
-                <button
-                    onClick={(e) => {
-                        handleAddMoreInput(e, {
-                            nameOfState: "inputsRepositoriesLinks",
-                            value: "",
-                            index: inputsRepositoriesLinks?.length,
-                        });
-                    }}
-                >
-                    Add more Repository link
-                </button>
-            </section>
-
-            {/* Live demo link */}
-            <section className="live_demo_link_section">
-                <h2>Live demo link : </h2>
-                <label htmlFor="live_demo_link">
-                    <input
-                        type="url"
-                        name="live_demo_link"
-                        placeholder="Live demo link"
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.liveDemoLink",
+                    </section>
+    
+                    {/* Frontend developers */}
+                    <section>
+                        <h3>Frontend developers :</h3>
+                        <label htmlFor="team_members_role_for_frontendDevelopers">
+                            <Select
+                                isMulti
+                                options={team_member_role_options}
+                                isClearable={true}
+                                isSearchable={true}
+                                isDisabled={!isTeamMemberExist}
+                                name="team_members_role_for_frontendDevelopers"
+                                placeholder="Frontend developers"
+                                components={animatedOptionsComponents}
+                                onKeyDown={preventEnterKey}
+                            />
+                        </label>
+                    </section>
+    
+                    {/* Designers */}
+                    <section>
+                        <h3>Designers :</h3>
+                        <label htmlFor="team_members_role_for_designers">
+                            <Select
+                                isMulti
+                                options={team_member_role_options}
+                                isClearable={true}
+                                isSearchable={true}
+                                isDisabled={!isTeamMemberExist}
+                                name="team_members_role_for_designers"
+                                placeholder="Designers"
+                                components={animatedOptionsComponents}
+                                onKeyDown={preventEnterKey}
+                            />
+                        </label>
+                    </section>
+                </section>
+    
+                {/* Repositories links */}
+                <section className="repositories_links_section">
+                    <h2>Repositories links :</h2>
+                    <label htmlFor="repositories_links" />
+                    {inputsRepositoriesLinks.map((input, index) => {
+                        return (
+                            <label htmlFor="repositories_links" key={index}>
+                                <input
+                                    // key={index}
+                                    type="url"
+                                    name="repositories_links"
+                                    placeholder="Repository link"
+                                    onChange={(e) => {
+                                        return handleOnChangeInput({
+                                            e: e,
+                                            id: input.id,
+                                            nameOfState: "inputsRepositoriesLinks",
+                                        });
+                                    }}
+                                    onKeyDown={preventEnterKey}
+                                />
+                                {index > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={(e) =>
+                                            handleDeleteInput(
+                                                e,
+                                                input.id,
+                                                "inputsRepositoriesLinks"
+                                            )
+                                        }
+                                        title="Delete"
+                                    >
+                                        X
+                                    </button>
+                                )}
+                            </label>
+                        );
+                    })}
+                    <button
+                        onClick={(e) => {
+                            handleAddMoreInput(e, {
+                                nameOfState: "inputsRepositoriesLinks",
+                                value: "",
+                                index: inputsRepositoriesLinks?.length,
                             });
                         }}
-                    ></input>
-                </label>
+                    >
+                        Add more Repository link
+                    </button>
+                </section>
+    
+                {/* Live demo link */}
+                <section className="live_demo_link_section">
+                    <h2>Live demo link : </h2>
+                    <label htmlFor="live_demo_link">
+                        <input
+                            type="url"
+                            name="live_demo_link"
+                            placeholder="Live demo link"
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.liveDemoLink",
+                                });
+                            }}
+                        ></input>
+                    </label>
+                </section>
+    
+                {/* Trello link */}
+                <section className="trello_link_section">
+                    <h2>Trello link : </h2>
+                    <label htmlFor="trello_link">
+                        <input
+                            type="url"
+                            name="trello_link"
+                            placeholder="Trello link"
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.trelloLink",
+                                });
+                            }}
+                        ></input>
+                    </label>
+                </section>
+    
+                {/* Product presentation */}
+                <section className="product_presentation_section">
+                    <h2>Product presentation : </h2>
+                    <label htmlFor="product_presentation">
+                        <input
+                            type="file"
+                            accept="application/pdf"
+                            name="product_presentation"
+                            placeholder="product_presentation"
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.product_presentation",
+                                });
+                            }}
+                        ></input>
+                        {errorMessages.product_presentation?.length > 0 && (
+                            <div className="preview-image">
+                                <h2>{errorMessages.product_presentation}</h2>
+                            </div>
+                        )}
+                    </label>
+                </section>
             </section>
 
-            {/* Trello link */}
-            <section className="trello_link_section">
-                <h2>Trello link : </h2>
-                <label htmlFor="trello_link">
-                    <input
-                        type="url"
-                        name="trello_link"
-                        placeholder="Trello link"
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.trelloLink",
-                            });
-                        }}
-                    ></input>
-                </label>
-            </section>
-
-            {/* Product presentation */}
-            <section className="product_presentation_section">
-                <h2>Product presentation : </h2>
-                <label htmlFor="product_presentation">
-                    <input
-                        type="file"
-                        accept="application/pdf"
-                        name="product_presentation"
-                        placeholder="product_presentation"
-                        onKeyDown={preventEnterKey}
-                        onChange={(e) => {
-                            return handleOnChangeInput({
-                                e: e,
-                                nameOfState: "formState.product_presentation",
-                            });
-                        }}
-                    ></input>
-                    {errorMessages.product_presentation?.length > 0 && (
+            <section>
+                {/* Image */}
+                <section className="image_section">
+                    <h2>Image : </h2>
+                    {formState.projectImage && (
                         <div className="preview-image">
-                            <h2>{errorMessages.product_presentation}</h2>
+                            <img src={formState.projectImage} alt="Preview" />
                         </div>
                     )}
-                </label>
+                    <label htmlFor="image">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            name="image"
+                            placeholder="Image file"
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.projectImage",
+                                });
+                            }}
+                        ></input>
+                    </label>
+                    
+                    {errorMessages.projectImage?.length > 0 && (
+                        <div className="preview-image">
+                            <h2>{errorMessages.projectImage}</h2>
+                        </div>
+                    )}
+                </section>
+
+                {/* Description */}
+                <section className="description_section">
+                    <h2>Description : </h2>
+                    <label htmlFor="description">
+                        <textarea
+                            name="description"
+                            placeholder="Description"
+                            onKeyDown={preventEnterKey}
+                            onChange={(e) => {
+                                return handleOnChangeInput({
+                                    e: e,
+                                    nameOfState: "formState.description",
+                                });
+                            }}
+                        ></textarea>
+                    </label>
+                </section>
+                
             </section>
 
             <input type="submit" />

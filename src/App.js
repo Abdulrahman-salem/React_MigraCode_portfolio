@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import { AdminPage } from "./pages/Admin";
+// import { AdminPage } from "./pages/Admin";
 import Projects from "./pages/Projects";
 import Project from "./pages/project";
 import Students from "./pages/Students";
@@ -67,7 +67,7 @@ function App() {
       <Route path="/project" element={<Project />} />
       <Route path="/students" element={<Students />} />
       <Route path="/student" element={<Student />} />
-      <Route path="/admin/*" element={<AdminPage />} />
+      {/* <Route path="/admin/*" element={<AdminPage />} /> */}
     </Routes>
   );
 }
