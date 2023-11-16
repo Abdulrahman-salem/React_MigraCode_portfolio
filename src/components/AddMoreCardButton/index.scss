@@ -1,0 +1,15 @@
+.addMoreCardButton {
+    width: clamp(50px, 3rem, 50vw);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.addMoreCardButton:hover {
+    transform: rotateZ(360deg) scale(1.1);
+}

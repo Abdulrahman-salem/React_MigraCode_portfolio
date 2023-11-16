@@ -28,6 +28,32 @@
     }
   }
 
+  a {  display: flex;
+  justify-content: space-between;
+  align-items: center;}
+
+  .header-name {
+  @include mixins.jura-bold;
+  font-size: 24px;
+  color: variables.$white;
+  margin-left: 10px;
+  text-decoration: underline variables.$black;
+}
+.logo_name img {
+  margin: 0;
+  height: 50px;
+}
+}
+
+    .nav {
+        .nav_link {
+            color: variables.$tiffany;
+            @include mixins.jura-bold;
+            font-size: 20px;
+            margin-right: 30px;
+            text-decoration: none;
+        }
+
   .nav {
     .nav_link {
       color: variables.$tiffany;

@@ -3,15 +3,21 @@
 
 /* Default styles for larger screens (e.g., desktop) */
 .description {
-
   main {
-      display: flex;
-  justify-content: space-around;
-  margin: 40px;
-  align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+    align-items: center;
+    width: 30%;
 
     .description_text {
-
+            img {
+        margin-left: 30px;
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
       p {
         margin-bottom: 50px;
         margin-top: 50px;
@@ -39,15 +45,16 @@
       }
     }
 
-      .description_image {
-        img {
-          margin-left: 30px;
-        }
+    .description_image {
+      img {
+        margin-left: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
-
-
+}
 
 // /* Styles for tablets */
 // @media (max-width: 768px) {
