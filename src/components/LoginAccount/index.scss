@@ -1,16 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-}
-
-body {
-  margin: 0;
-  font-family: "Jura", sans-serif;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -34,9 +21,14 @@ code {
   font-size: 2rem;
   display: flex;
   flex-direction: column;
-  /* background-color: #f3f3f3; */
   padding: 2rem 2rem;
   color: #ffffff;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Jura", sans-serif;
 }
 
 .mb-3 {
