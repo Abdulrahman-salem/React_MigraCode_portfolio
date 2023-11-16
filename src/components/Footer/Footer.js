@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer-allpages">
       <Link
         target="_blank"
         rel="noreferrer noopener"
@@ -21,19 +21,24 @@ const Footer = () => {
       >
         <div className="logo_name">
           <img
+            className="logo"
             src="https://www.gitbook.com/cdn-cgi/image/width=256,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F666230843-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MRebciU3NcuLgsX3ijf%252Favatar-rectangle-1612180869136.png%3Fgeneration%3D1612180869680419%26alt%3Dmedia"
             alt="MigraCode Logo"
-            height="50"
           />
           <h1 className="name">2023 MigraCode, Inc.</h1>
         </div>
       </Link>
 
       <div className="follow">
-        <div className="link" href="#home">
+        <Link
+          className="link"
+          target="_blank"
+          rel="noreferrer noopener"
+          to="https://migracode.openculturalcenter.org/"
+        >
           <img src={email} alt="email_icon" />
-          barcelona@migracode.org
-        </div>
+          <p className="text_link">barcelona@migracode.org</p>
+        </Link>
         <Link
           className="link"
           target="_blank"
@@ -41,7 +46,7 @@ const Footer = () => {
           to="https://github.com/Migracode-Barcelona"
         >
           <img src={github} alt="github_icon" />
-          GitHub
+          <p className="text_link">GitHub</p>
         </Link>
         <Link
           className="link"
@@ -50,7 +55,7 @@ const Footer = () => {
           to="https://www.linkedin.com/school/migracode-barcelona/"
         >
           <img src={linkedIn} alt="LinkedIn_icon" />
-          LinkedIn
+          <p className="text_link">LinkedIn</p>
         </Link>
         <Link
           className="link"
@@ -59,7 +64,7 @@ const Footer = () => {
           to="https://www.instagram.com/migracodebarcelona/?hl=en"
         >
           <img src={instagram} alt="Instagram_icon" />
-          Instagram
+          <p className="text_link">Instagram</p>
         </Link>
         <Link
           className="link"
@@ -68,7 +73,7 @@ const Footer = () => {
           to="https://www.facebook.com/migracode"
         >
           <img src={facebook} alt="Facebook_icon" />
-          Facebook
+          <p className="text_link">Facebook</p>
         </Link>
         <div className="logo_link">
           <Link
@@ -78,7 +83,7 @@ const Footer = () => {
             to="https://www.meetup.com/migracode-barcelona/"
           >
             <img src={meetup} alt="MeetUp_icon" />
-            MeetUp
+            <p className="text_link">MeetUp</p>
           </Link>
         </div>
       </div>

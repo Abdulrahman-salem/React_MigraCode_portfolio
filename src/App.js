@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects";
 import Project from "./pages/project";
 import Students from "./pages/Students";
+import Student from "./pages/Student";
 
 // import React, { useEffect } from "react";
 // import { getData } from "./adapters/fetch";
@@ -65,6 +66,7 @@ function App() {
       <Route path="/projects" element={<Projects />} />
       <Route path="/project" element={<Project />} />
       <Route path="/students" element={<Students />} />
+      <Route path="/student" element={<Student />} />
       {/* <Route path="/admin/*" element={<AdminPage />} /> */}
     </Routes>
   );
