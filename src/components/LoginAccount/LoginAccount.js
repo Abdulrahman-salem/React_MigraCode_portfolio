@@ -1,4 +1,4 @@
-import "./index.css";
+import "./index.scss";
 import React, { useState } from "react";
 
 function LoginAccount(props) {
