@@ -401,7 +401,7 @@ function Projects() {
         if (projectsState.projects.length === 0) {
             fetchData({ url: URL_PROJECTS, actionType: "FIRST_FETCH_DATA" });
         }
-    }, []);
+    }, [projectsState.projects]);
 
     // on click load more btn
     const handleOnLoadMoreProjects = async (e) => {
@@ -554,12 +554,12 @@ function Projects() {
                             />
                         </>
                     )}
-            </main>
-            {projectsState.isFetching && <Loader />}
             {!projectsState.isFetching &&
                 projectsState.projects?.length === 0 && (
                     <p className="onDataMessage">There is no Projects</p>
                 )}
+            </main>
+            {projectsState.isFetching && <Loader />}
             <Footer />
         </div>
     );

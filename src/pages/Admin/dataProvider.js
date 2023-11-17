@@ -1,5 +1,5 @@
-import jsonServerProvider from "ra-data-json-server";
+// import jsonServerProvider from "ra-data-json-server";
 
-export const dataProvider = jsonServerProvider(
-  "https://jsonplaceholder.typicode.com" // TO DO: make variable
-);
+// export const dataProvider = jsonServerProvider(
+//   "https://jsonplaceholder.typicode.com" // TO DO: make variable
+// );
