@@ -24,8 +24,11 @@ function Student() {
 
   const projects = [
     {
-      project_image_link: require("../../assets/images/Screenshot_6.png"),
-      name: "hello",
+      // project_image_link: require("../../assets/images/Screenshot_6.png"),
+      // name: "hello",
+      project_image_link:
+        "https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode/blob/master/src/assets/images/Portfolio.png?raw=true",
+      name: "Migracode",
       technologies_used: ["html", "js", "scss", "react"],
     },
   ];
