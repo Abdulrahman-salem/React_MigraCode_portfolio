@@ -180,19 +180,6 @@ function Home() {
     }
   }, []);
 
-  // on click load more btn
-  // const handleOnLoadMoreStudents = async (e) => {
-  //   if (studentsState.offset.length === 0) {
-  //     return;
-  //   }
-
-  //   await fetchDataStudents({
-  //     url: `${URL_STUDENTS}?${
-  //       QUERY_TO_FETCH_NEXT_PAGE_STUDENTS + studentsState.offset}`,
-  //     actionType: "FETCH_MORE_DATA",
-  //   });
-  // };
-
   const handleShowNextStudents = async (e) => {
     
       console.log(studentsState, "click");
