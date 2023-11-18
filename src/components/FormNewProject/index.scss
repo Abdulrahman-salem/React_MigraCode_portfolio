@@ -12,40 +12,23 @@
     justify-content: space-evenly;
     gap: 20px;
 
-    &>section {
+    & > section {
         max-width: calc(50% - 20px);
         width: calc(50% - 20px);
     }
-}
-
-.newProjectForm {
-    // max-width: 800px;
-    // margin: 0 auto;
-    // padding: 20px;
-    // background-color: #f4f4f4;
-    // border-radius: 8px;
-    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
     h2 {
+        font-size: clamp(18px, 5vw, 24px);
         margin-bottom: 10px;
     }
-
-    .css-1nmdiq5-menu {
-        background: black;
-        box-shadow: inset 0px 0px 10px red;
-    }
-
-    .css-d7l1ni-option {
-        background: #12cab240;
-        margin: 10px;
-        max-width: 100%;
-        width: auto;
-    }
-
-    .css-10wo9uf-option {
-        margin: 10px;
-        max-width: 100%;
-        width: auto;
+    button {
+        background-color: #10c7af;
+        /* color: white; */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 700;
     }
 
     section {
@@ -120,8 +103,6 @@
                 }
             }
 
-            //   input.input_date_have_been_done::-webkit-calendar-picker-indicator
-
             button {
                 margin-left: 10px;
                 cursor: pointer;
@@ -130,9 +111,28 @@
                 border: none;
                 padding: 5px 10px;
                 border-radius: 4px;
+                height: 86%;
+                aspect-ratio: 1/1;
 
                 &:hover {
                     background-color: #c82333;
+                }
+            }
+        }
+        .team_members_names_section,
+        .instructors_names_section,
+        .repositories_links_section {
+            label {
+                position: relative;
+                // background: #b300ff;
+                > input {
+                    padding-right: 40px;
+                }
+                > button {
+                    position: absolute;
+                    margin: 0;
+                    top: 2px;
+                    right: 2px;
                 }
             }
         }
@@ -169,6 +169,85 @@
 
         &:hover {
             background-color: #218838;
+        }
+    }
+
+    // styling react selector
+    .css-1nmdiq5-menu {
+        background: black;
+        box-shadow: inset 0px 0px 10px red;
+    }
+    .css-d7l1ni-option {
+        background: #12cab240;
+        margin: 10px;
+        max-width: 100%;
+        width: auto;
+    }
+    .css-d7l1ni-option:active {
+        background-color: #323232;
+    }
+    .css-10wo9uf-option {
+        margin: 10px;
+        max-width: 100%;
+        width: auto;
+    }
+    .css-10wo9uf-option:active {
+        background-color: #001836;
+    }
+    
+    .css-16xfy0z-control {
+        background: transparent;
+    }
+    .css-13cymwt-control {
+        background: #ffffff45;
+        .css-1jqq78o-placeholder {
+            color: white;
+        }
+    }
+    .css-t3ipsp-control {
+        background: transparent;
+    }
+    .css-166bipr-Input {
+        color: #12cab2;
+    }
+    .css-1dimb5e-singleValue {
+        color: #12cab2;
+        color: white;
+    }
+    .css-wsp0cs-MultiValueGeneric {
+        // background: black;
+        // color: white;
+        background: white;
+        color: black;
+        font-weight: 700;
+        width: calc;
+    }
+    .css-12a83d4-MultiValueRemove {
+        background: #dc3545;
+        svg {
+            // background: #FFBDAD;
+        }
+    }
+    .css-12a83d4-MultiValueRemove:hover {
+        background: #ffbdad;
+        svg {
+            background: transparent;
+        }
+    }
+    .css-1p3m7a8-multiValue {
+        box-shadow: 0 0 5px red;
+    }
+    // end of styling react selector
+}
+@media (max-width: 678px) {
+    .newProjectForm {
+        flex-direction: column;
+        align-items: center;
+        & > section {
+            // max-width: calc(50% - 20px);
+            // width: calc(50% - 20px);
+            max-width: 100%;
+            width: 100%;
         }
     }
 }
