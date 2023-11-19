@@ -40,7 +40,9 @@
         gap: clamp(3px, 2.2vw, 30px);
         padding: clamp(15px, 2vw, 25px);
         padding: 25px 8% clamp(15px, 5vw, 60px);
-        box-shadow: 0px 0px 25px 8px black, 0 0 10px 0px #f50000,
+        box-shadow:
+            0px 0px 25px 8px black,
+            0 0 10px 0px #f50000,
             inset 0px 0 10px 0px #15d4be;
         color: white;
         border-radius: 20px;
@@ -81,9 +83,25 @@
                 justify-content: center;
             }
             .list-members {
-                padding: 20px;
+                padding: clamp(0.1em, 1.5vw, 4em);
                 column-gap: clamp(0.5em, 5vw, 4em);
                 margin-left: clamp(10px, 5vw, 40px);
+                font-weight: 700;
+                border-radius: 5px;
+                background: darkslategrey;
+                justify-content: flex-start;
+                row-gap: clamp(5px, 1vw, 20px);
+                flex-direction: column;
+
+                p {
+                    background: black;
+                    padding: 5px;
+                    border-radius: 5px;
+                    flex: 1 0 0;
+                    display: flex;
+                    align-items: center;
+                    padding:5px clamp(0.1em, 2.5vw, 20px);
+                }
             }
 
             .team-member-list > button {
@@ -109,6 +127,7 @@
             text-transform: uppercase;
             padding-bottom: 10px;
             @include mixins.jura-bold;
+            font-size: clamp(18px, 10vw, 24px);
         }
 
         > section > :not(h2) {
