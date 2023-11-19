@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import "./index.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LINK_OFFICIAL_MIGRACODE_WEBSITE } from "../../helpers/constants/endpoints";
@@ -20,12 +22,30 @@ function Student() {
     // id,
     skills = [],
   } = state;
+
+   const { projectsState } = useSelector((store) => store);
   // const { projects } = state;
+
+  // const { projectsState1 } = useLocation();
+  // console.log(projectsState);
+  //   const {
+  //     name,
+  //     description,
+  //     project_image_link,
+  //     live_demo_link,
+  //     product_presentation_link,
+  //     repository_link,
+  //     trello_link,
+  //     instructors_names,
+  //     team_member_names,
+  //     team_member_roles,
+  //     technologies_used,
+  //     date_have_been_done,
+  //     migracode_batch,
+  //   } = state;
 
   const projects = [
     {
-      // project_image_link: require("../../assets/images/Screenshot_6.png"),
-      // name: "hello",
       project_image_link:
         "https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode/blob/master/src/assets/images/Portfolio.png?raw=true",
       name: "Migracode",
