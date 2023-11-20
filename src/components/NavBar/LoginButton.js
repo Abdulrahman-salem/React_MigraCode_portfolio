@@ -56,7 +56,10 @@ const LoginButton = () => {
 
   return (
     <div className="login">
-      <button className="btn--show-modal" onClick={handleButtonClicked}>
+      <button
+        className="btn--show-modal"
+        onClick={jwt ? undefined : handleButtonClicked}
+      >
         {jwt ? "Logged in" : "Log in"}
       </button>
 

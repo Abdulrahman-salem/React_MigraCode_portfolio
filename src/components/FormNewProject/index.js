@@ -167,13 +167,25 @@ function FormNewProject({ onSubmitForm }) {
         //
         else if (nameOfState === "formState.name") {
             return setFormState({ ...formState, name: newValue });
-        } else if (nameOfState === "formState.description") {
+        }
+
+        //
+        else if (nameOfState === "formState.description") {
             return setFormState({ ...formState, description: newValue });
-        } else if (nameOfState === "formState.liveDemoLink") {
+        }
+
+        //
+        else if (nameOfState === "formState.liveDemoLink") {
             return setFormState({ ...formState, liveDemoLink: newValue });
-        } else if (nameOfState === "formState.trelloLink") {
+        }
+
+        //
+        else if (nameOfState === "formState.trelloLink") {
             return setFormState({ ...formState, trelloLink: newValue });
-        } else if (nameOfState === "formState.migracodeBatch") {
+        }
+        
+        //
+        else if (nameOfState === "formState.migracodeBatch") {
             return setFormState({ ...formState, migracodeBatch: newValue });
         }
 
@@ -191,7 +203,13 @@ function FormNewProject({ onSubmitForm }) {
                 });
             }
         });
-    }, [inputsTeamNames]);
+    }, [
+        inputsTeamNames,
+        formState,
+        inputsInstructorsNames,
+        errorMessages,
+        inputsRepositoriesLinks,
+    ]);
 
     const technologyOptions = [
         { value: "HTML1", label: "HTML2" },
@@ -208,8 +226,8 @@ function FormNewProject({ onSubmitForm }) {
 
         // check for which state to set the input
         if (nameOfState === "inputsTeamNames") {
-            return setInputsTeamNames([
-                ...inputsTeamNames,
+            return setInputsTeamNames((prev) => [
+                ...prev,
                 { id: index, value: value },
             ]);
         }
@@ -221,7 +239,8 @@ function FormNewProject({ onSubmitForm }) {
         }
         if (nameOfState === "inputsRepositoriesLinks") {
             console.log(index);
-            if (index === 2) return;
+            if (index === 2)
+                return alert("Can't add more than two repositories");
             return setInputsRepositoriesLinks([
                 ...inputsRepositoriesLinks,
                 { id: index, value: value },
@@ -427,7 +446,7 @@ function FormNewProject({ onSubmitForm }) {
                         />
                     </label>
                 </section>
-    
+
                 {/* Date have been done */}
                 <section className="date_have_been_done_section">
                     <h2>Date have been done : </h2>
@@ -448,7 +467,7 @@ function FormNewProject({ onSubmitForm }) {
                         ></input>
                     </label>
                 </section>
-    
+
                 {/* Migracode batch  */}
                 <section className="migracode_batch_section">
                     <h2>Migracode batch : </h2>
@@ -468,7 +487,7 @@ function FormNewProject({ onSubmitForm }) {
                         />
                     </label>
                 </section>
-    
+
                 {/* Technologies */}
                 <section className="technologiesUsed_section">
                     <h2>Technologies :</h2>
@@ -486,7 +505,7 @@ function FormNewProject({ onSubmitForm }) {
                         />
                     </label>
                 </section>
-    
+
                 <section className="instructors_names_section">
                     <h2>Instructor name :</h2>
                     {inputsInstructorsNames.map((input, index) => {
@@ -501,7 +520,8 @@ function FormNewProject({ onSubmitForm }) {
                                         return handleOnChangeInput({
                                             e: e,
                                             id: input.id,
-                                            nameOfState: "inputsInstructorsNames",
+                                            nameOfState:
+                                                "inputsInstructorsNames",
                                         });
                                     }}
                                     onKeyDown={preventEnterKey}
@@ -536,7 +556,7 @@ function FormNewProject({ onSubmitForm }) {
                         Add more instructor
                     </button>
                 </section>
-    
+
                 {/* Team members names */}
                 <section className="team_members_names_section">
                     <h2>Team members names :</h2>
@@ -587,7 +607,7 @@ function FormNewProject({ onSubmitForm }) {
                         Add more team member
                     </button>
                 </section>
-    
+
                 {/* Team members role */}
                 <section className="team_members_role_section">
                     <h2>Team members role :</h2>
@@ -607,7 +627,7 @@ function FormNewProject({ onSubmitForm }) {
                             />
                         </label>
                     </section>
-    
+
                     {/* Fullstack developers */}
                     <section>
                         <h3>Fullstack developers :</h3>
@@ -625,7 +645,7 @@ function FormNewProject({ onSubmitForm }) {
                             />
                         </label>
                     </section>
-    
+
                     {/* Backend developers */}
                     <section>
                         <h3>Backend developers :</h3>
@@ -643,7 +663,7 @@ function FormNewProject({ onSubmitForm }) {
                             />
                         </label>
                     </section>
-    
+
                     {/* Frontend developers */}
                     <section>
                         <h3>Frontend developers :</h3>
@@ -661,7 +681,7 @@ function FormNewProject({ onSubmitForm }) {
                             />
                         </label>
                     </section>
-    
+
                     {/* Designers */}
                     <section>
                         <h3>Designers :</h3>
@@ -680,7 +700,7 @@ function FormNewProject({ onSubmitForm }) {
                         </label>
                     </section>
                 </section>
-    
+
                 {/* Repositories links */}
                 <section className="repositories_links_section">
                     <h2>Repositories links :</h2>
@@ -697,7 +717,8 @@ function FormNewProject({ onSubmitForm }) {
                                         return handleOnChangeInput({
                                             e: e,
                                             id: input.id,
-                                            nameOfState: "inputsRepositoriesLinks",
+                                            nameOfState:
+                                                "inputsRepositoriesLinks",
                                         });
                                     }}
                                     onKeyDown={preventEnterKey}
@@ -732,7 +753,7 @@ function FormNewProject({ onSubmitForm }) {
                         Add more Repository link
                     </button>
                 </section>
-    
+
                 {/* Live demo link */}
                 <section className="live_demo_link_section">
                     <h2>Live demo link : </h2>
@@ -751,7 +772,7 @@ function FormNewProject({ onSubmitForm }) {
                         ></input>
                     </label>
                 </section>
-    
+
                 {/* Trello link */}
                 <section className="trello_link_section">
                     <h2>Trello link : </h2>
@@ -770,7 +791,7 @@ function FormNewProject({ onSubmitForm }) {
                         ></input>
                     </label>
                 </section>
-    
+
                 {/* Product presentation */}
                 <section className="product_presentation_section">
                     <h2>Product presentation : </h2>
@@ -784,7 +805,8 @@ function FormNewProject({ onSubmitForm }) {
                             onChange={(e) => {
                                 return handleOnChangeInput({
                                     e: e,
-                                    nameOfState: "formState.product_presentation",
+                                    nameOfState:
+                                        "formState.product_presentation",
                                 });
                             }}
                         ></input>
@@ -821,7 +843,7 @@ function FormNewProject({ onSubmitForm }) {
                             }}
                         ></input>
                     </label>
-                    
+
                     {errorMessages.projectImage?.length > 0 && (
                         <div className="preview-image">
                             <h2>{errorMessages.projectImage}</h2>
@@ -846,7 +868,6 @@ function FormNewProject({ onSubmitForm }) {
                         ></textarea>
                     </label>
                 </section>
-                
             </section>
 
             <input type="submit" />

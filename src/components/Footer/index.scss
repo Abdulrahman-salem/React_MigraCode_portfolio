@@ -1,7 +1,7 @@
 @use "/src/assets/styles/scss/variables" as variables;
 @use "/src/assets/styles/scss/mixins" as mixins;
 
-footer {
+.footer-allpages{
   display: flex;
   align-items: center;
   justify-content: space-between;

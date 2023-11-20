@@ -1,6 +1,5 @@
 @use "/src/assets/styles/scss/mixins" as mixins;
 @use "/src/assets/styles/scss/variables" as variables;
-
 .card {
     display: flex;
     flex-direction: column;
@@ -12,7 +11,6 @@
     width: clamp(180px, 690vw, 60vw);
     transition: all 0.5s;
     justify-content: space-between;
-
     & .base-img {
         max-width: 370px;
         border-radius: 20px;
@@ -20,17 +18,21 @@
         aspect-ratio: 1/1;
         height: clamp(200px, 12vw, 40vw);
     }
-
+    & .student-image {
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        border-radius: 100px;
+    margin-top: 20px;
+    }
     & .card-image {
         width: 100%;
         aspect-ratio: 3/4;
         height: 200px;
     }
-
     & .default-img {
         aspect-ratio: 1/1;
     }
-
     & .card-content {
         display: flex;
         flex-direction: column;
@@ -38,7 +40,6 @@
         align-items: center;
         justify-content: space-around;
         flex-grow: 1;
-
         & button {
             background: transparent;
             width: 100%;
@@ -46,7 +47,6 @@
             display: flex;
             flex: 1 1 0;
             cursor: pointer;
-
             & .card-title {
                 color: variables.$tiffany;
                 @include mixins.jura-bold;
@@ -56,17 +56,14 @@
                 inline-size: fit-content;
                 flex: 1 1 0;
             }
-
             // & .card-title:hover {
             //     cursor: pointer;
             //     transform: scale(1.2);
             // }
         }
-
         & .card-description {
             color: variables.$white;
             @include mixins.jura;
-
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
@@ -74,7 +71,6 @@
             text-overflow: ellipsis;
             text-align: center;
         }
-
         // & .card-description:hover {
         //     cursor: default;
         // }
@@ -99,3 +95,108 @@
         padding: 30px;
     }
 }
+
+
+
+
+// @use "/src/assets/styles/scss/mixins" as mixins;
+// @use "/src/assets/styles/scss/variables" as variables;
+
+// .card {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     background: variables.$black;
+//     overflow: hidden;
+//     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+//     border-radius: 20px;
+//     width: clamp(180px, 690vw, 60vw);
+//     transition: all 0.5s;
+//     justify-content: space-between;
+
+//     & .base-img {
+//         max-width: 370px;
+//         border-radius: 20px;
+//         object-fit: cover;
+//         aspect-ratio: 1/1;
+//         height: clamp(200px, 12vw, 40vw);
+//     }
+
+//     & .card-image {
+//         width: 100%;
+//         aspect-ratio: 3/4;
+//         height: 200px;
+//     }
+
+//     & .default-img {
+//         aspect-ratio: 1/1;
+//     }
+
+//     & .card-content {
+//         display: flex;
+//         flex-direction: column;
+//         padding: 20px;
+//         align-items: center;
+//         justify-content: space-around;
+//         flex-grow: 1;
+
+//         & button {
+//             background: transparent;
+//             width: 100%;
+//             border: none;
+//             display: flex;
+//             flex: 1 1 0;
+//             cursor: pointer;
+
+//             & .card-title {
+//                 color: variables.$tiffany;
+//                 @include mixins.jura-bold;
+//                 transition: all 0.5s;
+//                 width: max-content;
+//                 padding-bottom: 12px;
+//                 inline-size: fit-content;
+//                 flex: 1 1 0;
+//             }
+
+//             // & .card-title:hover {
+//             //     cursor: pointer;
+//             //     transform: scale(1.2);
+//             // }
+//         }
+
+//         & .card-description {
+//             color: variables.$white;
+//             @include mixins.jura;
+
+//             display: -webkit-box;
+//             -webkit-line-clamp: 4;
+//             -webkit-box-orient: vertical;
+//             overflow: hidden;
+//             text-overflow: ellipsis;
+//             text-align: center;
+//         }
+
+//         // & .card-description:hover {
+//         //     cursor: default;
+//         // }
+//     }
+// }
+// .card:hover {
+//     cursor: pointer;
+//     transform: scale(1.05);
+// }
+// @media (min-width: 585px) {
+//     .card {
+//         width: clamp(180px, 40vw, 60vw);
+//     }
+// }
+// @media (min-width: 700px) {
+//     .card {
+//         width: clamp(180px, 25vw, 60vw);
+//     }
+// }
+// @media (min-width: 1480px) {
+//     .card {
+//         padding: 30px;
+//     }
+// }
