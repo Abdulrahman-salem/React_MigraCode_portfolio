@@ -23,12 +23,7 @@ function Student() {
     skills = [],
   } = state;
 
-  //  const { projectsState } = useSelector((store) => store);
-
-   
-
-
-  // const projects = [
+   // const projects = [
   //   {
   //     project_image_link:
   //       "https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode/blob/master/src/assets/images/Portfolio.png?raw=true",
