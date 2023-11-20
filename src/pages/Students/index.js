@@ -109,7 +109,7 @@ import {
 
 } from "../../helpers/constants/endpoints";
 import { useDispatch, useSelector } from "react-redux";
-import {
+import students, {
     firstFetchedStudents,
     fetchMoreStudents,
     fetchingStudents,
@@ -242,54 +242,44 @@ function Students() {
     };
 
     return (
-        <div className="students">
-            <header>
-                <NavBar />
-            </header>
-            <main>
-                {!studentsState.isFetching &&
-                    studentsState.students?.length > 0 && (
-                        <>
-                            <Filter>
-                                <button
-                                    value={"a-z"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    A - Z
-                                </button>
-                                <button
-                                    value={"z-a"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Z - A
-                                </button>
-                                <button
-                                    value={"name"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Name
-                                </button>
-          
-                            </Filter>
+      <div className="students">
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          {!studentsState.isFetching && studentsState.students?.length > 0 && (
+            <>
+              <Filter>
+                <button value={"a-z"} onClick={handleOnClickFilterOption}>
+                  A - Z
+                </button>
+                <button value={"z-a"} onClick={handleOnClickFilterOption}>
+                  Z - A
+                </button>
+                <button value={"name"} onClick={handleOnClickFilterOption}>
+                  Name
+                </button>
+              </Filter>
 
-                            <Cards
-                                allData={studentsState.students}
-                                onClickGoTo={"/student"}
-                            />
-                            <LoadMoreButton
-                                showLoadMore={studentsState.offset}
-                                onClick={handleOnLoadMoreStudents}
-                            />
-                        </>
-                    )}
-                {studentsState.isFetching && <Loader />}
-            </main>
-            {!studentsState.isFetching &&
-                studentsState.students?.length === 0 && (
-                    <p className="onDataMessage">There is no Students</p>
-                )}
-            <Footer />
-        </div>
+              <Cards
+                allData={studentsState.students}
+                onClickGoTo={`/student/`}
+              />
+
+              {console.log("studentsState", studentsState)}
+              <LoadMoreButton
+                showLoadMore={studentsState.offset}
+                onClick={handleOnLoadMoreStudents}
+              />
+            </>
+          )}
+          {studentsState.isFetching && <Loader />}
+        </main>
+        {!studentsState.isFetching && studentsState.students?.length === 0 && (
+          <p className="onDataMessage">There is no Students</p>
+        )}
+        <Footer />
+      </div>
     );
 }
 export default Students;
