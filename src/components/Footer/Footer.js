@@ -34,7 +34,7 @@ const Footer = () => {
           className="link"
           target="_blank"
           rel="noreferrer noopener"
-          to="https://migracode.openculturalcenter.org/"
+          to="mailto:barcelona@migracode.org"
         >
           <img src={email} alt="email_icon" />
           <p className="text_link">barcelona@migracode.org</p>

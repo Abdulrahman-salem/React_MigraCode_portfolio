@@ -1,4 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import "./index.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LINK_OFFICIAL_MIGRACODE_WEBSITE } from "../../helpers/constants/endpoints";
@@ -20,18 +22,42 @@ function Student() {
     // id,
     skills = [],
   } = state;
-  // const { projects } = state;
 
-  const projects = [
-    {
-      // project_image_link: require("../../assets/images/Screenshot_6.png"),
-      // name: "hello",
-      project_image_link:
-        "https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode/blob/master/src/assets/images/Portfolio.png?raw=true",
-      name: "Migracode",
-      technologies_used: ["html", "js", "scss", "react"],
-    },
-  ];
+   // const projects = [
+  //   {
+  //     project_image_link:
+  //       "https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode/blob/master/src/assets/images/Portfolio.png?raw=true",
+  //     name: "Migracode",
+  //     technologies_used: ["html", "js", "scss", "react"],
+  //   },
+  // ];
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    // Assuming you have an API endpoint to fetch student data
+    const fetchStudentData = async () => {
+      try {
+
+
+        // Make a fetch request to your API endpoint for projects data
+        const projectsResponse = await fetch(
+          `http://localhost:3001/student/${fullName}`
+        );
+        console.log(fullName)
+        const projectsData = await projectsResponse.json();
+
+        // Update the state with the fetched projects data
+        setProjects(projectsData.projects);
+        console.log(projectsData.projects);
+      } catch (error) {
+        
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchStudentData();
+  }, []);
 
   const handleNavigateToContact = () => {
     contactSection.current?.scrollIntoView({ behavior: "smooth" });
@@ -143,10 +169,15 @@ function Student() {
                   />
                 )}
                 <p className="project-name">{project.name}</p>
+                <p>{project.description}</p>
+                <Link>
+                {project.repository_link}</Link>
                 {project.technologies_used && (
                   <div className="project-languages-container">
                     {project.technologies_used.map((technology, index) => (
-                      <p className="project-languages" key={index}>{technology}</p>
+                      <p className="project-languages" key={index}>
+                        {technology}
+                      </p>
                     ))}
                   </div>
                 )}

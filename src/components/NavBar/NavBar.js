@@ -61,9 +61,9 @@ const Navbar = () => {
         >
           Official website
         </a>
-        <Link to="/aboutus" className="nav-link">
+        {/* <Link to="/aboutus" className="nav-link">
           About us
-        </Link>
+        </Link> */}
       </div>
 
       <div className="burger-icon" onClick={toggleMobileMenu}>
