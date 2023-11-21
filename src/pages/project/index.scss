@@ -2,176 +2,191 @@
 @use "/src/assets/styles/scss/variables" as variables;
 
 .project {
-    min-height: 100dvh;
+  min-height: 100dvh;
+  position: relative;
+  transition: all 0.5s;
+
+  header,
+  main {
+    display: flex;
+  }
+  header {
+    background: variables.$black;
+    color: variables.$white;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(15px, 2vw, 25px) clamp(10px, 2vw, 25px);
+    & p,
+    & nav {
+      padding: 0 clamp(0px, 1.5vw, 20px);
+    }
+    p {
+      @include mixins.jura-bold;
+      font-size: clamp(15px, 2.5vw, 40vw);
+    }
+    nav {
+      display: flex;
+      gap: clamp(3px, 2.2vw, 30px);
+      a {
+        img {
+          width: clamp(20px, 2.5vw, 70px);
+        }
+      }
+    }
+  }
+
+  .delete {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 10px;
+
+    .delete_button {
+      cursor: pointer;
+      border: 1px solid black;
+
+      padding: 5px;
+      font-size: 18px;
+      border-radius: 50px;
+    }
+  }
+
+  main {
+    margin: 25px clamp(1rem, 6vw, 80%);
+    background: black;
+    gap: clamp(3px, 2.2vw, 30px);
+    padding: clamp(15px, 2vw, 25px);
+    padding: 25px 8% clamp(15px, 5vw, 60px);
+    box-shadow: 0px 0px 25px 8px black, 0 0 10px 0px #f50000,
+      inset 0px 0 10px 0px #15d4be;
+    color: white;
+    border-radius: 20px;
     position: relative;
-    transition: all 0.5s;
+    flex-direction: row;
+    align-items: flex-start;
 
-    header,
-    main {
-        display: flex;
+    & > * {
+      display: flex;
+      gap: 2rem;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 40px;
     }
-    header {
-        background: variables.$black;
-        color: variables.$white;
-        align-items: center;
-        justify-content: space-between;
-        padding: clamp(15px, 2vw, 25px) clamp(10px, 2vw, 25px);
-        & p,
-        & nav {
-            padding: 0 clamp(0px, 1.5vw, 20px);
-        }
-        p {
-            @include mixins.jura-bold;
-            font-size: clamp(15px, 2.5vw, 40vw);
-        }
-        nav {
-            display: flex;
-            gap: clamp(3px, 2.2vw, 30px);
-            a {
-                img {
-                    width: clamp(20px, 2.5vw, 70px);
-                }
-            }
-        }
-    }
-    main {
-        margin: 25px clamp(1rem, 6vw, 80%);
-        background: black;
-        gap: clamp(3px, 2.2vw, 30px);
-        padding: clamp(15px, 2vw, 25px);
-        padding: 25px 8% clamp(15px, 5vw, 60px);
-        box-shadow:
-            0px 0px 25px 8px black,
-            0 0 10px 0px #f50000,
-            inset 0px 0 10px 0px #15d4be;
-        color: white;
-        border-radius: 20px;
-        position: relative;
-        flex-direction: row;
-        align-items: flex-start;
-
-        & > * {
-            display: flex;
-            gap: 2rem;
-            flex-direction: column;
-            width: 100%;
-            margin-top: 40px;
-        }
-        .img-description-section1 {
-            flex: 1 1 0px;
-            img {
-                width: 100%;
-            }
-            .completed-date {
-                margin-top: 20px;
-            }
-        }
-        .rest-of-context-section2 {
-            flex: 1 0 0;
-
-            .technologies-list,
-            .team-member-list,
-            .team-member-roles > section > .list-members {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .technologies-list {
-                gap: clamp(0.5em, 1.2vw, 4em);
-            }
-            .team-member-list {
-                gap: clamp(0.5em, 1.5vw, 4em);
-                justify-content: center;
-            }
-            .list-members {
-                padding: clamp(0.1em, 1.5vw, 4em);
-                column-gap: clamp(0.5em, 5vw, 4em);
-                margin-left: clamp(10px, 5vw, 40px);
-                font-weight: 700;
-                border-radius: 5px;
-                background: darkslategrey;
-                justify-content: flex-start;
-                row-gap: clamp(5px, 1vw, 20px);
-                flex-direction: column;
-
-                p {
-                    background: black;
-                    padding: 5px;
-                    border-radius: 5px;
-                    flex: 1 0 0;
-                    display: flex;
-                    align-items: center;
-                    padding:5px clamp(0.1em, 2.5vw, 20px);
-                }
-            }
-
-            .team-member-list > button {
-                @include mixins.jura-bold;
-                padding: 5px clamp(10px, 5vw, 40px);
-                font-size: clamp(16px, 1.5vw, 40px);
-                border-radius: 52px;
-                transition: all 0.5s;
-                border: none;
-                cursor: pointer;
-            }
-
-            .team-member-list > button:hover {
-                color: variables.$tiffany;
-                transform: scale(1.2);
-                background: variables.$black;
-                border: 1px solid variables.$tiffany;
-                box-shadow: inset 0 0 8px 2px variables.$red;
-                z-index: 1;
-            }
-        }
-        * > h2 {
-            text-transform: uppercase;
-            padding-bottom: 10px;
-            @include mixins.jura-bold;
-            font-size: clamp(18px, 10vw, 24px);
-        }
-
-        > section > :not(h2) {
-            line-height: 2;
-        }
-    }
-    .errorMessage {
-        position: fixed;
+    .img-description-section1 {
+      flex: 1 1 0px;
+      img {
         width: 100%;
-        color: variables.$red;
-        z-index: 999;
-        font-size: clamp(24px, 3vw, 80px);
-        height: 100dvh;
-        background: variables.$black;
-        display: grid;
-        place-items: center;
-        transition: all 0.5s;
-        animation: showAndCloseError 4s alternate linear;
-        top: 0;
-        padding: 0 30px;
+      }
+      .completed-date {
+        margin-top: 20px;
+      }
     }
+    .rest-of-context-section2 {
+      flex: 1 0 0;
+
+      .technologies-list,
+      .team-member-list,
+      .team-member-roles > section > .list-members {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .technologies-list {
+        gap: clamp(0.5em, 1.2vw, 4em);
+      }
+      .team-member-list {
+        gap: clamp(0.5em, 1.5vw, 4em);
+        justify-content: center;
+      }
+      .list-members {
+        padding: clamp(0.1em, 1.5vw, 4em);
+        column-gap: clamp(0.5em, 5vw, 4em);
+        margin-left: clamp(10px, 5vw, 40px);
+        font-weight: 700;
+        border-radius: 5px;
+        background: darkslategrey;
+        justify-content: flex-start;
+        row-gap: clamp(5px, 1vw, 20px);
+        flex-direction: column;
+
+        p {
+          background: black;
+          padding: 5px;
+          border-radius: 5px;
+          flex: 1 0 0;
+          display: flex;
+          align-items: center;
+          padding: 5px clamp(0.1em, 2.5vw, 20px);
+        }
+      }
+
+      .team-member-list > button {
+        @include mixins.jura-bold;
+        padding: 5px clamp(10px, 5vw, 40px);
+        font-size: clamp(16px, 1.5vw, 40px);
+        border-radius: 52px;
+        transition: all 0.5s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .team-member-list > button:hover {
+        color: variables.$tiffany;
+        transform: scale(1.2);
+        background: variables.$black;
+        border: 1px solid variables.$tiffany;
+        box-shadow: inset 0 0 8px 2px variables.$red;
+        z-index: 1;
+      }
+    }
+    * > h2 {
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      @include mixins.jura-bold;
+      font-size: clamp(18px, 10vw, 24px);
+    }
+
+    > section > :not(h2) {
+      line-height: 2;
+    }
+  }
+  .errorMessage {
+    position: fixed;
+    width: 100%;
+    color: variables.$red;
+    z-index: 999;
+    font-size: clamp(24px, 3vw, 80px);
+    height: 100dvh;
+    background: variables.$black;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s;
+    animation: showAndCloseError 4s alternate linear;
+    top: 0;
+    padding: 0 30px;
+  }
 }
 @keyframes showAndCloseError {
-    0% {
-        opacity: 0;
-        transform: translateY(-100dvh);
-    }
-    30% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    90% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100dvh);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-100dvh);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100dvh);
+  }
 }
 @media (max-width: 650px) {
-    .project {
-        main {
-            flex-direction: column;
-        }
+  .project {
+    main {
+      flex-direction: column;
     }
+  }
 }
