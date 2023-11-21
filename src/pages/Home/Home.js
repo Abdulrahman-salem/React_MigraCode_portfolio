@@ -102,7 +102,7 @@ function Home() {
         actionType: "FIRST_FETCH_DATA",
       });
     }
-  }, []);
+  }, [projectsState.projects]);
 
   // on click load more btn
   const handleShowNextProjects = async (e) => {
@@ -178,7 +178,7 @@ function Home() {
     if (studentsState.students.length === 0) {
       fetchDataStudents({ url: URL_STUDENTS, actionType: "FIRST_FETCH_DATA" });
     }
-  }, []);
+  }, [studentsState.students]);
 
   // on click load more btn
   // const handleOnLoadMoreStudents = async (e) => {

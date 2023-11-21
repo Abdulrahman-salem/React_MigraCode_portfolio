@@ -106,7 +106,6 @@ import {
     QUERY_FILTER_STUDENTS_BY_A_TO_Z,
     QUERY_FILTER_STUDENTS_BY_Z_TO_A,
     URL_FILTER_STUDENT_BY_NAME,
-
 } from "../../helpers/constants/endpoints";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -144,19 +143,19 @@ function Students() {
                 if (actionType === `FIRST_FETCH_DATA`) {
                     // firstFetchedStudents to set first fetched students (need help on the data structure)
                     dispatch(
-                      firstFetchedStudents({
-                        students: [...data.items],
-                        offset: data.offset ? data.offset.toString() : "",
-                        queryFilterData,
-                      })
+                        firstFetchedStudents({
+                            students: [...data.items],
+                            offset: data.offset ? data.offset.toString() : "",
+                            queryFilterData,
+                        })
                     );
                 } else if (actionType === `FETCH_MORE_DATA`) {
                     // fetchMoreStudents to set more fetched students
                     dispatch(
-                      fetchMoreStudents({
-                        students: [...data.items],
-                        offset: data.offset ? data.offset.toString() : "",
-                      })
+                        fetchMoreStudents({
+                            students: [...data.items],
+                            offset: data.offset ? data.offset.toString() : "",
+                        })
                     );
                 } else {
                     throw new Error(
@@ -176,7 +175,7 @@ function Students() {
         if (studentsState.students.length === 0) {
             fetchData({ url: URL_STUDENTS, actionType: "FIRST_FETCH_DATA" }); // talk to Abdu about it
         }
-    }, []);
+    }, [studentsState.students]);
 
     // on click load more btn
     const handleOnLoadMoreStudents = async (e) => {
@@ -231,10 +230,6 @@ function Students() {
                 });
                 break;
 
- 
-
-
-
             default:
                 break;
         }
@@ -282,12 +277,13 @@ function Students() {
                             />
                         </>
                     )}
-                {studentsState.isFetching && <Loader />}
+                {!studentsState.isFetching &&
+                    studentsState.students?.length === 0 && (
+                        <p className="onDataMessage">There is no Students</p>
+                    )}
             </main>
-            {!studentsState.isFetching &&
-                studentsState.students?.length === 0 && (
-                    <p className="onDataMessage">There is no Students</p>
-                )}
+            {studentsState.isFetching && <Loader />}
+            {/* <Loader /> */}
             <Footer />
         </div>
     );

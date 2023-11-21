@@ -49,15 +49,15 @@ function Project() {
         date_have_been_done,
         migracode_batch,
     } = state;
-    // console.log(state);
+    console.log(state);
 
     useEffect(() => {
         if (
-            team_leader ||
-            fullstack_developers ||
-            frontend_developers ||
-            backend_developers ||
-            designers
+            team_leader?.length > 0 ||
+            fullstack_developers?.length > 0 ||
+            frontend_developers?.length > 0 ||
+            backend_developers?.length > 0 ||
+            designers?.length > 0
         ) {
             setIs_Team_member_roles_exists(true);
         }
@@ -153,7 +153,7 @@ function Project() {
             <header>
                 <p className="name">{name}</p>
                 <nav>
-                    {repository_link?.length > 0 ? (
+                    {repository_link && repository_link[0]?.length > 0 ? (
                         <>
                             {repository_link.map((repository, index) => (
                                 <Link to={repository} key={index}>
@@ -213,7 +213,7 @@ function Project() {
                     {/* <Link to={"/projects"}>
                     <button>return back</button>
                 </Link> */}
-                    {project_image_link ? (
+                    {project_image_link && project_image_link?.length > 0 ? (
                         <img
                             className="project-image"
                             src={project_image_link}
@@ -249,24 +249,24 @@ function Project() {
                             </article>
                         </article>
                     ) : null}
-                    {migracode_batch ? (
+                    {migracode_batch?.length > 0 ? (
                         <article className="migracode-batch">
                             <h2>Migracode batch</h2>
                             <p>{migracode_batch}</p>
                         </article>
                     ) : null}
 
-                    {instructors_names?.length > 0 ? (
+                    {instructors_names[0]?.length > 0 ? (
                         <article className="instructors">
                             <h2>instructors</h2>
-                            <section className="instructors-list">
+                            <ul className="instructors-list">
                                 {instructors_names.map((instructor, index) => (
-                                    <p key={index}>{instructor}</p>
+                                    <li key={index}>{instructor}</li>
                                 ))}
-                            </section>
+                            </ul>
                         </article>
                     ) : null}
-                    {team_member_names?.length > 0 ? (
+                    {team_member_names && team_member_names[0]?.length > 0 ? (
                         <article className="team-member">
                             <h2>team member</h2>
                             <section className="team-member-list">
@@ -299,7 +299,8 @@ function Project() {
                                     </section>
                                 </section>
                             ) : null}
-                            {fullstack_developers?.length > 0 ? (
+                            {fullstack_developers &&
+                            fullstack_developers?.length > 0 ? (
                                 <section className="fullstackDevelopers">
                                     <h3>- Fullstack developers:</h3>
                                     <section className="list-members">
@@ -315,7 +316,8 @@ function Project() {
                                     </section>
                                 </section>
                             ) : null}
-                            {frontend_developers?.length > 0 ? (
+                            {frontend_developers &&
+                            frontend_developers?.length > 0 ? (
                                 <section className="frontendDevelopers">
                                     <h3>- Frontend developers:</h3>
                                     <section className="list-members">
@@ -331,7 +333,8 @@ function Project() {
                                     </section>
                                 </section>
                             ) : null}
-                            {backend_developers?.length > 0 ? (
+                            {backend_developers &&
+                            backend_developers?.length > 0 ? (
                                 <section className="backendDevelopers">
                                     <h3>- Backend developers:</h3>
                                     <section className="list-members">
@@ -347,7 +350,7 @@ function Project() {
                                     </section>
                                 </section>
                             ) : null}
-                            {designers?.length > 0 ? (
+                            {designers && designers?.length > 0 ? (
                                 <section className="designers">
                                     <h3>- Designers:</h3>
                                     <section className="list-members">
@@ -365,7 +368,7 @@ function Project() {
                     ) : null}
                 </section>
             </main>
-            {errorMessage.message && (
+            {errorMessage.message.length > 0 && (
                 <p className="errorMessage">{errorMessage.message}</p>
             )}
         </article>

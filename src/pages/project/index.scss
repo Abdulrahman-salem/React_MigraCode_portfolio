@@ -82,6 +82,7 @@
                 gap: clamp(0.5em, 1.5vw, 4em);
                 justify-content: center;
             }
+            
             .list-members {
                 padding: clamp(0.1em, 1.5vw, 4em);
                 column-gap: clamp(0.5em, 5vw, 4em);
@@ -121,6 +122,9 @@
                 border: 1px solid variables.$tiffany;
                 box-shadow: inset 0 0 8px 2px variables.$red;
                 z-index: 1;
+            }
+            .instructors-list{
+                margin-left: 20px;
             }
         }
         * > h2 {
