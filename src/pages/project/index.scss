@@ -84,29 +84,30 @@
     .rest-of-context-section2 {
       flex: 1 0 0;
 
-      .technologies-list,
-      .team-member-list,
-      .team-member-roles > section > .list-members {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .technologies-list {
-        gap: clamp(0.5em, 1.2vw, 4em);
-      }
-      .team-member-list {
-        gap: clamp(0.5em, 1.5vw, 4em);
-        justify-content: center;
-      }
-      .list-members {
-        padding: clamp(0.1em, 1.5vw, 4em);
-        column-gap: clamp(0.5em, 5vw, 4em);
-        margin-left: clamp(10px, 5vw, 40px);
-        font-weight: 700;
-        border-radius: 5px;
-        background: darkslategrey;
-        justify-content: flex-start;
-        row-gap: clamp(5px, 1vw, 20px);
-        flex-direction: column;
+            .technologies-list,
+            .team-member-list,
+            .team-member-roles > section > .list-members {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .technologies-list {
+                gap: clamp(0.5em, 1.2vw, 4em);
+            }
+            .team-member-list {
+                gap: clamp(0.5em, 1.5vw, 4em);
+                justify-content: center;
+            }
+            
+            .list-members {
+                padding: clamp(0.1em, 1.5vw, 4em);
+                column-gap: clamp(0.5em, 5vw, 4em);
+                margin-left: clamp(10px, 5vw, 40px);
+                font-weight: 700;
+                border-radius: 5px;
+                background: darkslategrey;
+                justify-content: flex-start;
+                row-gap: clamp(5px, 1vw, 20px);
+                flex-direction: column;
 
         p {
           background: black;
@@ -129,21 +130,24 @@
         cursor: pointer;
       }
 
-      .team-member-list > button:hover {
-        color: variables.$tiffany;
-        transform: scale(1.2);
-        background: variables.$black;
-        border: 1px solid variables.$tiffany;
-        box-shadow: inset 0 0 8px 2px variables.$red;
-        z-index: 1;
-      }
-    }
-    * > h2 {
-      text-transform: uppercase;
-      padding-bottom: 10px;
-      @include mixins.jura-bold;
-      font-size: clamp(18px, 10vw, 24px);
-    }
+            .team-member-list > button:hover {
+                color: variables.$tiffany;
+                transform: scale(1.2);
+                background: variables.$black;
+                border: 1px solid variables.$tiffany;
+                box-shadow: inset 0 0 8px 2px variables.$red;
+                z-index: 1;
+            }
+            .instructors-list{
+                margin-left: 20px;
+            }
+        }
+        * > h2 {
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            @include mixins.jura-bold;
+            font-size: clamp(18px, 10vw, 24px);
+        }
 
     > section > :not(h2) {
       line-height: 2;

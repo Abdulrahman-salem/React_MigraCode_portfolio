@@ -3,10 +3,14 @@ import "./index.scss";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import { useEffect } from "react";
+import { getData } from "../../adapters/fetch";
 
 function FormNewProject({ onSubmitForm }) {
     const animatedOptionsComponents = makeAnimated();
     const [isTeamMemberExist, setIsTeamMemberExist] = useState(false);
+
+    // check img validation on submit
+    const [isImgValid, setIsImgValid] = useState(false);
 
     const [errorMessages, setErrorMessages] = useState({
         projectImage: "",
@@ -39,7 +43,7 @@ function FormNewProject({ onSubmitForm }) {
         description: "",
         repositoryLink: [""],
         liveDemoLink: "",
-        projectImage: null,
+        projectImageLink: "",
         technologiesUsed: [""],
         instructorsNames: [""],
         teamMembersNames: [],
@@ -49,13 +53,13 @@ function FormNewProject({ onSubmitForm }) {
         team_members_role_for_backendDevelopers: [],
         team_members_role_for_designers: [],
         trelloLink: "",
-        productPresentation: null,
-        dateHaveBeenDone: "",
+        productPresentation: "",
+        dateHaveBeenDone: null,
         migracodeBatch: "",
     });
 
     // input change
-    const handleOnChangeInput = (details) => {
+    const handleOnChangeInput = async (details) => {
         const { e, nameOfState, id } = details;
         // console.log(e.target.value, id);
         // console.log(e);
@@ -96,72 +100,27 @@ function FormNewProject({ onSubmitForm }) {
 
         // formState
         else if (nameOfState === "formState.projectImage") {
-            const file = e.target.files[0];
-            const type = file?.type;
-            const acceptedImageTypes = [
-                "image/jpeg",
-                "image/png",
-                "image/gif",
-                "image/svg+xml",
-                "image/webp",
-            ];
+            const img = new Image();
+            img.src = newValue;
 
-            if (type && acceptedImageTypes.includes(type)) {
-                const reader = new FileReader();
+            img.onload = () => {
+                // Image is valid
+                setIsImgValid(true);
+            };
 
-                reader.onloadend = () => {
-                    setErrorMessages((prevMessages) => ({
-                        ...prevMessages,
-                        projectImage: "",
-                    }));
-                    setFormState({
-                        ...formState,
-                        projectImage: reader.result,
-                    });
-                };
-
-                reader.readAsDataURL(file);
-            } else {
-                console.error("The image type is not supported");
-                setErrorMessages((prevMessages) => ({
-                    ...prevMessages,
-                    projectImage: "The image type is not supported",
-                }));
-                setFormState({ ...formState, projectImage: null });
-            }
-            return;
+            img.onerror = () => {
+                // Image is not valid
+                setIsImgValid(false);
+            };
+            return setFormState({ ...formState, projectImageLink: newValue });
         }
 
         //
         else if (nameOfState === "formState.product_presentation") {
-            const file = e.target.files[0];
-            const acceptedProductPresentationTypes = ["application/pdf"];
-
-            if (file && acceptedProductPresentationTypes.includes(file.type)) {
-                const reader = new FileReader();
-
-                reader.onloadend = () => {
-                    setErrorMessages((prevMessages) => ({
-                        ...prevMessages,
-                        product_presentation: "",
-                    }));
-                    setFormState({
-                        ...formState,
-                        productPresentation: reader.result,
-                    });
-                };
-
-                reader.readAsDataURL(file);
-            } else {
-                console.error("The Product Presentation type is not supported");
-                setErrorMessages((prevMessages) => ({
-                    ...prevMessages,
-                    product_presentation:
-                        "The Product Presentation type is not supported",
-                }));
-                setFormState({ ...formState, productPresentation: null });
-            }
-            return;
+            return setFormState({
+                ...formState,
+                productPresentation: newValue,
+            });
         }
 
         //
@@ -183,7 +142,7 @@ function FormNewProject({ onSubmitForm }) {
         else if (nameOfState === "formState.trelloLink") {
             return setFormState({ ...formState, trelloLink: newValue });
         }
-        
+
         //
         else if (nameOfState === "formState.migracodeBatch") {
             return setFormState({ ...formState, migracodeBatch: newValue });
@@ -209,6 +168,7 @@ function FormNewProject({ onSubmitForm }) {
         inputsInstructorsNames,
         errorMessages,
         inputsRepositoriesLinks,
+        isImgValid,
     ]);
 
     const technologyOptions = [
@@ -396,22 +356,68 @@ function FormNewProject({ onSubmitForm }) {
             return repositoryLink.push(inputs.value);
         });
 
-        console.log({
-            ...formState,
-            repositoryLink: repositoryLink,
-            instructorsNames: instructorsNames,
-            teamMembersNames: teamMembersNames,
-            technologiesUsed: technologiesUsed,
-            team_members_role_for_teamLeader: team_members_role_for_teamLeader,
-            team_members_role_for_fullstackDevelopers:
-                team_members_role_for_fullstackDevelopers,
-            team_members_role_for_frontendDevelopers:
-                team_members_role_for_frontendDevelopers,
-            team_members_role_for_backendDevelopers:
-                team_members_role_for_backendDevelopers,
-            team_members_role_for_designers: team_members_role_for_designers,
+        // img validation
+        const checkImageValidity = () => {
+            const img = new Image();
+            img.src = formState.projectImageLink;
+
+            img.onload = () => {
+                // Image is valid
+                setIsImgValid(true);
+            };
+
+            img.onerror = () => {
+                // Image is not valid
+                setIsImgValid(false);
+            };
+        };
+        if (formState.projectImageLink) {
+            console.log(formState.projectImageLink);
+            // checkImageValidity();
+            
+            if (!isImgValid) {
+                return alert("Image is not valid");
+            }
+        }
+
+        // console.log({
+        //     ...formState,
+        //     repositoryLink: repositoryLink,
+        //     instructorsNames: instructorsNames,
+        //     teamMembersNames: teamMembersNames,
+        //     technologiesUsed: technologiesUsed,
+        //     team_members_role_for_teamLeader: team_members_role_for_teamLeader,
+        //     team_members_role_for_fullstackDevelopers:
+        //         team_members_role_for_fullstackDevelopers,
+        //     team_members_role_for_frontendDevelopers:
+        //         team_members_role_for_frontendDevelopers,
+        //     team_members_role_for_backendDevelopers:
+        //         team_members_role_for_backendDevelopers,
+        //     team_members_role_for_designers: team_members_role_for_designers,
+        // });
+        onSubmitForm({
+            isSubmitted: true,
+            formData: {
+                // ...formState,
+                name: formState.name,
+                description: formState.description,
+                repository_link: repositoryLink,
+                live_demo_link: formState.liveDemoLink,
+                project_image_link: formState.projectImageLink,
+                technologies_used: technologiesUsed,
+                instructors_names: instructorsNames,
+                team_member_names: teamMembersNames,
+                team_leader: team_members_role_for_teamLeader,
+                fullstack_developers: team_members_role_for_fullstackDevelopers,
+                frontend_developers: team_members_role_for_frontendDevelopers,
+                backend_developers: team_members_role_for_backendDevelopers,
+                designers: team_members_role_for_designers,
+                trello_link: formState.trelloLink,
+                product_presentation_link: formState.productPresentation,
+                date_have_been_done: formState.dateHaveBeenDone,
+                migracode_batch: formState.migracodeBatch,
+            },
         });
-        onSubmitForm({ isSubmitted: true });
     };
 
     const preventEnterKey = (e) => {
@@ -429,13 +435,14 @@ function FormNewProject({ onSubmitForm }) {
             <section>
                 {/* Project name */}
                 <section className="project_name_section">
-                    <h2>Project name: </h2>
+                    <h2>Project name: *</h2>
                     <label htmlFor="name">
                         <input
                             type="text"
                             name="name"
                             placeholder="Project name"
                             maxLength={120}
+                            required
                             onKeyDown={preventEnterKey}
                             onChange={(e) => {
                                 return handleOnChangeInput({
@@ -797,9 +804,8 @@ function FormNewProject({ onSubmitForm }) {
                     <h2>Product presentation : </h2>
                     <label htmlFor="product_presentation">
                         <input
-                            type="file"
-                            accept="application/pdf"
-                            name="product_presentation"
+                            type="url"
+                            name="Product presentation link"
                             placeholder="product_presentation"
                             onKeyDown={preventEnterKey}
                             onChange={(e) => {
@@ -810,11 +816,6 @@ function FormNewProject({ onSubmitForm }) {
                                 });
                             }}
                         ></input>
-                        {errorMessages.product_presentation?.length > 0 && (
-                            <div className="preview-image">
-                                <h2>{errorMessages.product_presentation}</h2>
-                            </div>
-                        )}
                     </label>
                 </section>
             </section>
@@ -823,17 +824,16 @@ function FormNewProject({ onSubmitForm }) {
                 {/* Image */}
                 <section className="image_section">
                     <h2>Image : </h2>
-                    {formState.projectImage && (
+                    {formState.projectImageLink && (
                         <div className="preview-image">
-                            <img src={formState.projectImage} alt="Preview" />
+                            <img src={formState.projectImageLink} alt="Preview" />
                         </div>
                     )}
                     <label htmlFor="image">
                         <input
-                            type="file"
-                            accept="image/*"
+                            type="url"
                             name="image"
-                            placeholder="Image file"
+                            placeholder="Image Link"
                             onKeyDown={preventEnterKey}
                             onChange={(e) => {
                                 return handleOnChangeInput({
@@ -843,12 +843,6 @@ function FormNewProject({ onSubmitForm }) {
                             }}
                         ></input>
                     </label>
-
-                    {errorMessages.projectImage?.length > 0 && (
-                        <div className="preview-image">
-                            <h2>{errorMessages.projectImage}</h2>
-                        </div>
-                    )}
                 </section>
 
                 {/* Description */}

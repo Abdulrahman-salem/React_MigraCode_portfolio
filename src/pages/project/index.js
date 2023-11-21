@@ -62,11 +62,11 @@ function Project() {
 
   useEffect(() => {
     if (
-      team_leader ||
-      fullstack_developers ||
-      frontend_developers ||
-      backend_developers ||
-      designers
+      team_leader?.length > 0 ||
+      fullstack_developers?.length > 0 ||
+      frontend_developers?.length > 0 ||
+      backend_developers?.length > 0 ||
+      designers?.length > 0
     ) {
       setIs_Team_member_roles_exists(true);
     }
@@ -185,7 +185,7 @@ function Project() {
       <header>
         <p className="name">{name}</p>
         <nav>
-          {repository_link?.length > 0 ? (
+          {repository_link && repository_link[0]?.length > 0 ? (
             <>
               {repository_link.map((repository, index) => (
                 <Link to={repository} key={index}>
@@ -247,149 +247,166 @@ function Project() {
           {/* <Link to={"/projects"}>
                     <button>return back</button>
                 </Link> */}
-          {project_image_link ? (
-            <img
-              className="project-image"
-              src={project_image_link}
-              alt="screenshot for first page of project"
-              width={40}
-            />
-          ) : null}
-          <article>
-            {description ? (
-              <section className="description">
-                <h2>description</h2>
-                <p>{description}</p>
-              </section>
-            ) : null}
-            {date_have_been_done ? (
-              <section className="completed-date">
-                <p>The project was completed on {date_have_been_done}.</p>
-              </section>
-            ) : null}
-          </article>
-        </section>
-        <section className="rest-of-context-section2">
-          {technologies_used?.length > 0 ? (
-            <article className="technology">
-              <h2>technologies</h2>
-              <article className="technologies-list">
-                {technologies_used.map((technology, index) => (
-                  <p key={index}>{technology}</p>
-                ))}
-              </article>
-            </article>
-          ) : null}
-          {migracode_batch ? (
-            <article className="migracode-batch">
-              <h2>Migracode batch</h2>
-              <p>{migracode_batch}</p>
-            </article>
-          ) : null}
+                    {project_image_link && project_image_link?.length > 0 ? (
+                        <img
+                            className="project-image"
+                            src={project_image_link}
+                            alt="screenshot for first page of project"
+                            width={40}
+                        />
+                    ) : null}
+                    <article>
+                        {description ? (
+                            <section className="description">
+                                <h2>description</h2>
+                                <p>{description}</p>
+                            </section>
+                        ) : null}
+                        {date_have_been_done ? (
+                            <section className="completed-date">
+                                <p>
+                                    The project was completed on{" "}
+                                    {date_have_been_done}.
+                                </p>
+                            </section>
+                        ) : null}
+                    </article>
+                </section>
+                <section className="rest-of-context-section2">
+                    {technologies_used?.length > 0 ? (
+                        <article className="technology">
+                            <h2>technologies</h2>
+                            <article className="technologies-list">
+                                {technologies_used.map((technology, index) => (
+                                    <p key={index}>{technology}</p>
+                                ))}
+                            </article>
+                        </article>
+                    ) : null}
+                    {migracode_batch?.length > 0 ? (
+                        <article className="migracode-batch">
+                            <h2>Migracode batch</h2>
+                            <p>{migracode_batch}</p>
+                        </article>
+                    ) : null}
 
-          {instructors_names?.length > 0 ? (
-            <article className="instructors">
-              <h2>instructors</h2>
-              <section className="instructors-list">
-                {instructors_names.map((instructor, index) => (
-                  <p key={index}>{instructor}</p>
-                ))}
-              </section>
-            </article>
-          ) : null}
-          {team_member_names?.length > 0 ? (
-            <article className="team-member">
-              <h2>team member</h2>
-              <section className="team-member-list">
-                {team_member_names.map((member, index) => (
-                  <button
-                    key={index}
-                    onClick={handleGoToStudentProfile}
-                    disabled={isFetching}
-                  >
-                    {member}
-                  </button>
-                ))}
-              </section>
-            </article>
-          ) : null}
-          {is_Team_member_roles_exists ? (
-            <article className="team-member-roles">
-              <h2>team member roles</h2>
-              {team_leader?.length > 0 ? (
-                <section className="teamLeader">
-                  <h3>- Team leader:</h3>
-                  <section className="list-members">
-                    {team_leader.map((member, index) => (
-                      <p key={index}>
-                        {team_leader.length > 1 && index + 1 + ". "}
-                        {member}
-                      </p>
-                    ))}
-                  </section>
+                    {instructors_names[0]?.length > 0 ? (
+                        <article className="instructors">
+                            <h2>instructors</h2>
+                            <ul className="instructors-list">
+                                {instructors_names.map((instructor, index) => (
+                                    <li key={index}>{instructor}</li>
+                                ))}
+                            </ul>
+                        </article>
+                    ) : null}
+                    {team_member_names && team_member_names[0]?.length > 0 ? (
+                        <article className="team-member">
+                            <h2>team member</h2>
+                            <section className="team-member-list">
+                                {team_member_names.map((member, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={handleGoToStudentProfile}
+                                        disabled={isFetching}
+                                    >
+                                        {member}
+                                    </button>
+                                ))}
+                            </section>
+                        </article>
+                    ) : null}
+                    {is_Team_member_roles_exists ? (
+                        <article className="team-member-roles">
+                            <h2>team member roles</h2>
+                            {team_leader?.length > 0 ? (
+                                <section className="teamLeader">
+                                    <h3>- Team leader:</h3>
+                                    <section className="list-members">
+                                        {team_leader.map((member, index) => (
+                                            <p key={index}>
+                                                {team_leader.length > 1 &&
+                                                    index + 1 + ". "}
+                                                {member}
+                                            </p>
+                                        ))}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {fullstack_developers &&
+                            fullstack_developers?.length > 0 ? (
+                                <section className="fullstackDevelopers">
+                                    <h3>- Fullstack developers:</h3>
+                                    <section className="list-members">
+                                        {fullstack_developers.map(
+                                            (member, index) => (
+                                                <p key={index}>
+                                                    {fullstack_developers.length >
+                                                        1 && index + 1 + ". "}
+                                                    {member}
+                                                </p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {frontend_developers &&
+                            frontend_developers?.length > 0 ? (
+                                <section className="frontendDevelopers">
+                                    <h3>- Frontend developers:</h3>
+                                    <section className="list-members">
+                                        {frontend_developers.map(
+                                            (member, index) => (
+                                                <p key={index}>
+                                                    {frontend_developers.length >
+                                                        1 && index + 1 + ". "}
+                                                    {member}
+                                                </p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {backend_developers &&
+                            backend_developers?.length > 0 ? (
+                                <section className="backendDevelopers">
+                                    <h3>- Backend developers:</h3>
+                                    <section className="list-members">
+                                        {backend_developers.map(
+                                            (member, index) => (
+                                                <p key={index}>
+                                                    {backend_developers.length >
+                                                        1 && index + 1 + ". "}
+                                                    {member}
+                                                </p>
+                                            )
+                                        )}
+                                    </section>
+                                </section>
+                            ) : null}
+                            {designers && designers?.length > 0 ? (
+                                <section className="designers">
+                                    <h3>- Designers:</h3>
+                                    <section className="list-members">
+                                        {designers.map((member, index) => (
+                                            <p key={index}>
+                                                {designers.length > 1 &&
+                                                    index + 1 + ". "}
+                                                {member}
+                                            </p>
+                                        ))}
+                                    </section>
+                                </section>
+                            ) : null}
+                        </article>
+                    ) : null}
                 </section>
-              ) : null}
-              {fullstack_developers?.length > 0 ? (
-                <section className="fullstackDevelopers">
-                  <h3>- Fullstack developers:</h3>
-                  <section className="list-members">
-                    {fullstack_developers.map((member, index) => (
-                      <p key={index}>
-                        {fullstack_developers.length > 1 && index + 1 + ". "}
-                        {member}
-                      </p>
-                    ))}
-                  </section>
-                </section>
-              ) : null}
-              {frontend_developers?.length > 0 ? (
-                <section className="frontendDevelopers">
-                  <h3>- Frontend developers:</h3>
-                  <section className="list-members">
-                    {frontend_developers.map((member, index) => (
-                      <p key={index}>
-                        {frontend_developers.length > 1 && index + 1 + ". "}
-                        {member}
-                      </p>
-                    ))}
-                  </section>
-                </section>
-              ) : null}
-              {backend_developers?.length > 0 ? (
-                <section className="backendDevelopers">
-                  <h3>- Backend developers:</h3>
-                  <section className="list-members">
-                    {backend_developers.map((member, index) => (
-                      <p key={index}>
-                        {backend_developers.length > 1 && index + 1 + ". "}
-                        {member}
-                      </p>
-                    ))}
-                  </section>
-                </section>
-              ) : null}
-              {designers?.length > 0 ? (
-                <section className="designers">
-                  <h3>- Designers:</h3>
-                  <section className="list-members">
-                    {designers.map((member, index) => (
-                      <p key={index}>
-                        {designers.length > 1 && index + 1 + ". "}
-                        {member}
-                      </p>
-                    ))}
-                  </section>
-                </section>
-              ) : null}
-            </article>
-          ) : null}
-        </section>
-      </main>
-      {errorMessage.message && (
-        <p className="errorMessage">{errorMessage.message}</p>
-      )}
-    </article>
-  );
+            </main>
+            {errorMessage.message.length > 0 && (
+                <p className="errorMessage">{errorMessage.message}</p>
+            )}
+        </article>
+    );
 }
 
 export default Project;
