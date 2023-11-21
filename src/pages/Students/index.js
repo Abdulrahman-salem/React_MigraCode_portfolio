@@ -239,9 +239,7 @@ function Students() {
                 <button value={"z-a"} onClick={handleOnClickFilterOption}>
                   Z - A
                 </button>
-                <button value={"name"} onClick={handleOnClickFilterOption}>
-                  Name
-                </button>
+
               </Filter>
 
               <Cards
