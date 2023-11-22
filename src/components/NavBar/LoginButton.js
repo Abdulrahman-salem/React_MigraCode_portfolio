@@ -3,7 +3,7 @@ import { JwtContext } from "../JwtContext";
 import LoginAccount from "../LoginAccount/LoginAccount";
 import "./index.scss";
 
-const LoginButton = () => {
+const LoginButton = ({ onLogin = undefined }) => {
   const [clicked, setClicked] = useState(false);
   const handleButtonClicked = (value = true) => {
     setClicked(value);
@@ -37,6 +37,8 @@ const LoginButton = () => {
       // Update the state to trigger a re-render or use the token as needed
       setCurrentUserJwt(currentUserJwt);
 
+      onLogin();
+
       // Optionally, close the modal or perform other actions
     } catch (error) {
       console.error("Login error:", error.message);
@@ -50,7 +52,6 @@ const LoginButton = () => {
   };
 
   const modalClass = clicked ? "modal" : "modal hidden";
-
   const overlayClass = clicked ? "overlay" : "'overlay hidden";
 
   return (
