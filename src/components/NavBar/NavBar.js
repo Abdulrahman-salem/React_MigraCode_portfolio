@@ -5,13 +5,18 @@ import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
 import { resetProjectsState } from "../../redux/projects";
 import { useDispatch } from "react-redux";
+import { resetStudentsState } from "../../redux/students";
 
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleResetData = () => {
+  const handleResetStudentsData = () => {
+    dispatch(resetStudentsState());
+  };
+
+  const handleResetProjectsData = () => {
     dispatch(resetProjectsState());
   };
 
@@ -39,13 +44,13 @@ const Navbar = () => {
           to="/projects"
           className="nav-link"
           onClick={() => {
-            handleResetData();
+            handleResetProjectsData();
             toggleMobileMenu();
           }}
         >
           Projects
         </Link>
-        <Link to="/students" className="nav-link" onClick={handleResetData}>
+        <Link to="/students" className="nav-link" onClick={handleResetStudentsData}>
           Students & Graduates
         </Link>
         <a
@@ -56,9 +61,9 @@ const Navbar = () => {
         >
           Official website
         </a>
-        <Link to="/aboutus" className="nav-link">
+        {/* <Link to="/aboutus" className="nav-link">
           About us
-        </Link>
+        </Link> */}
       </div>
 
       <div className="burger-icon" onClick={toggleMobileMenu}>

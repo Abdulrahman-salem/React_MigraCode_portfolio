@@ -4,7 +4,7 @@ import "./index.scss";
 import { Link, Outlet } from "react-router-dom";
 
 function Cards({ allData, onClickGoTo }) {
-    console.log(allData);
+    // console.log(allData);
 
     return (
         <>
