@@ -1,3 +1,6 @@
+//portfolio
+export const URL_PORTFOLIO = "http://localhost:3001/student";
+
 // students
 export const URL_STUDENTS = "http://localhost:3001/students";
 export const QUERY_TO_FETCH_NEXT_PAGE_STUDENTS = `offset=`;
