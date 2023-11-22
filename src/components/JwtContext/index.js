@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const UserContext = createContext();
+const JwtContext = createContext();
 
-export default UserContext;
+export { JwtContext };

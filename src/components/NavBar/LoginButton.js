@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import JwtContext from "../JwtContext";
+import { JwtContext } from "../JwtContext";
 import LoginAccount from "../LoginAccount/LoginAccount";
 import "./index.scss";
 
