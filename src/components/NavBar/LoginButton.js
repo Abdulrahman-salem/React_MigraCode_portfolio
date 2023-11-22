@@ -11,7 +11,8 @@ const LoginButton = () => {
   const cookie = document.cookie
     .split(";")
     .find((cookie) => cookie.trim().startsWith("login=")); // replace with logic for checking login cookie
-  const initialJwt = cookie ? "replace me with cookie value" : null;
+  const cookieValue = cookie ? cookie?.split("=")[1] : null;
+  const initialJwt = cookie ? cookieValue : null;
 
   const [jwt, setJwt] = useState(initialJwt);
 
@@ -50,6 +51,11 @@ const LoginButton = () => {
     }
   };
 
+  const handleLogout = async () => {
+    setJwt(null);
+    document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  };
+
   const modalClass = clicked ? "modal" : "modal hidden";
 
   const overlayClass = clicked ? "overlay" : "'overlay hidden";
@@ -58,9 +64,9 @@ const LoginButton = () => {
     <div className="login">
       <button
         className="btn--show-modal"
-        onClick={jwt ? undefined : handleButtonClicked}
+        onClick={jwt ? handleLogout : handleButtonClicked}
       >
-        {jwt ? "Logged in" : "Log in"}
+        {jwt ? "Logout" : "Log in"}
       </button>
 
       <div className={modalClass}>
