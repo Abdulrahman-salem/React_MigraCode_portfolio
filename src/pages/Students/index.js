@@ -218,18 +218,6 @@ function Students() {
                 });
                 break;
 
-            // case 3
-            case "name":
-                await fetchData({
-                    url: `${URL_STUDENTS}?${QUERY_FILTER_STUDENTS}=${URL_FILTER_STUDENT_BY_NAME}`,
-                    queryFilterData:
-                        QUERY_FILTER_STUDENTS +
-                        "=" +
-                        URL_FILTER_STUDENT_BY_NAME,
-                    actionType: "FIRST_FETCH_DATA",
-                });
-                break;
-
             default:
                 break;
         }
@@ -251,9 +239,7 @@ function Students() {
                 <button value={"z-a"} onClick={handleOnClickFilterOption}>
                   Z - A
                 </button>
-                <button value={"name"} onClick={handleOnClickFilterOption}>
-                  Name
-                </button>
+
               </Filter>
 
               <Cards
