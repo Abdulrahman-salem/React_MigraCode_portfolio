@@ -305,7 +305,7 @@
 // export default Projects;
 
 ////////////////////////////////////////////////////////////////////////////////
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { getData, postData } from "../../adapters/fetch";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
@@ -341,6 +341,11 @@ function Projects() {
     const [openAddMoreCardButton, setOpenAddMoreCardButton] = useState(false);
     const [statusScrollY, setStatusScrollY] = useState(0);
 
+    // const { logInState } = useSelector((store) => store);
+
+    // useEffect(() => {
+    //     console.log(logInState.isLoggedIn);
+    // }, [logInState.isLoggedIn]);
 
     // to read redux projects state
     const { projectsState } = useSelector((store) => store);
@@ -407,7 +412,7 @@ function Projects() {
     }, [projectsState.projects]);
 
     useEffect(() => {
-        console.log(statusScrollY);
+        // console.log(statusScrollY);
         setTimeout(() => {
             window.scrollTo(0, statusScrollY);
         }, 500);
@@ -497,8 +502,30 @@ function Projects() {
 
         setOpenAddMoreCardButton(!isSubmitted);
 
+        let token = "";
+        const cookies = document.cookie.split(";");
+        cookies.map((cookie) => {
+            const [name, value] = cookie.split("=");
+            if (name.trim() === "login") {
+                // console.log(value);
+                if (value.trim()) {
+                    token = value;
+                }
+            }
+        });
+
+        if (!token) {
+            return alert(
+                "you don't have access to add new project. Please login first!"
+            );
+        }
         try {
-            const data = await postData(URL_NEW_PROJECT, formData);
+            const headers = {
+                "Content-Type": "application/json",
+                token: token,
+            };
+            const bodyData = formData;
+            const data = await postData(URL_NEW_PROJECT, headers, bodyData);
 
             if (data) {
                 console.log(data);
@@ -517,6 +544,7 @@ function Projects() {
                 <NavBar />
             </header>
             <main>
+                {/* {logInState.isLoggedIn && ( */}
                 <section className="AddCardContainer" ref={addMoreCardBtnRef}>
                     <AddMoreCardButton onClick={handleClickAddMoreCard} />
 
@@ -536,6 +564,7 @@ function Projects() {
                         </ContainerFormAddMoreCard>
                     )}
                 </section>
+                {/* )} */}
 
                 {!projectsState.isFetching &&
                     projectsState.projects?.length > 0 && (
