@@ -7,6 +7,7 @@ import Projects from "./pages/Projects";
 import Project from "./pages/project";
 import Students from "./pages/Students";
 import Student from "./pages/Student";
+import Login from "./pages/Login";
 
 function App() {
   const cookie = document.cookie
@@ -25,6 +26,8 @@ function App() {
         <Route path="/project" element={<Project />} />
         <Route path="/students" element={<Students />} />
         <Route path="/student" element={<Student />} />
+        <Route path="/login" element={<Login />} />
+
         {/* <Route path="/admin/*" element={<AdminPage />} /> */}
       </Routes>
     </JwtContext.Provider>

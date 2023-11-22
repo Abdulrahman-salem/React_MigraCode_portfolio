@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import logo from "../../assets/images/MigraCode-16.png";
 import "./index.scss";
 import LoginButton from "./LoginButton";
@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { resetProjectsState } from "../../redux/projects";
 import { useDispatch } from "react-redux";
 import { resetStudentsState } from "../../redux/students";
-
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -50,7 +49,11 @@ const Navbar = () => {
         >
           Projects
         </Link>
-        <Link to="/students" className="nav-link" onClick={handleResetStudentsData}>
+        <Link
+          to="/students"
+          className="nav-link"
+          onClick={handleResetStudentsData}
+        >
           Students & Graduates
         </Link>
         <a
@@ -71,10 +74,10 @@ const Navbar = () => {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-        <LoginButton />
+
+      {/* <LoginButton /> */}
     </nav>
   );
 };
 
 export default Navbar;
-
