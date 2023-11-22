@@ -11,7 +11,7 @@ import Student from "./pages/Student";
 function App() {
   const cookie = document.cookie
     .split(";")
-    .find((cookie) => cookie.trim().startsWith("login=")); // replace with logic for checking login cookie
+    .find((cookie) => cookie.trim().startsWith("login="));
   const jwt = cookie ? cookie?.split("=")[1] : null;
 
   const [currentUserJwt, setCurrentUserJwt] = useState(jwt);
