@@ -30,12 +30,10 @@ export const updateData = async (url, bodyData) => {
     });
 };
 
-export const postData = async (url, bodyData) => {
+export const postData = async (url, headers, bodyData) => {
     return urlAndOptionsToFetchData(url, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify(bodyData),
     });
 };
