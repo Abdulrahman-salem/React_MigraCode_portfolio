@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { deleteData, getData } from "../../adapters/fetch";
@@ -7,16 +7,12 @@ import { URL_PROJECTS } from "../../helpers/constants/endpoints";
 import { resetProjectsState } from "../../redux/projects";
 import "./index.scss";
 import { useDispatch } from "react-redux";
+import { JwtContext } from "../../components/JwtContext";
 
 function Project() {
   const dispatch = useDispatch();
-  // const [teamMemberRoles, setTeamMemberRoles] = useState({
-  //   teamLeader: [],
-  //   fullstackDevelopers: [],
-  //   frontendDevelopers: [],
-  //   backendDevelopers: [],
-  //   designers: [],
-  // });
+  const { currentUserJwt } = useContext(JwtContext);
+
 
   const handleResetData = () => {
     dispatch(resetProjectsState());
@@ -208,14 +204,14 @@ function Project() {
           ) : null}
         </nav>
       </header>
-      <section className="delete">
+      {currentUserJwt?.length > 0 && <section className="delete">
         <button
           className="delete_button"
           onClick={() => handleDeleteProject(id)}
         >
           Delete project
         </button>
-      </section>
+      </section>}
       <main>
         <section className="img-description-section1">
           {/* <Link to={"/projects"}>

@@ -35,11 +35,9 @@ function Projects() {
   const [openAddMoreCardButton, setOpenAddMoreCardButton] = useState(false);
   const [statusScrollY, setStatusScrollY] = useState(0);
 
-  // const { logInState } = useSelector((store) => store);
-
-  // useEffect(() => {
-  //     console.log(logInState.isLoggedIn);
-  // }, [logInState.isLoggedIn]);
+  // token
+  const { currentUserJwt } = useContext(JwtContext);
+//   console.log(`Hi I am projects page and jwt is ${currentUserJwt}`);
 
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
@@ -47,9 +45,6 @@ function Projects() {
   // to set redux state
   const dispatch = useDispatch();
   // console.log(projectsState);
-
-  const { currentUserJwt } = useContext(JwtContext);
-  console.log(`Hi I am projects page and jwt is ${currentUserJwt}`);
 
     async function fetchData(fetchRequirement) {
         // queryFilterData to load more filtered data
@@ -243,7 +238,7 @@ function Projects() {
                 <NavBar />
             </header>
             <main>
-                {/* {logInState.isLoggedIn && ( */}
+                {currentUserJwt?.length > 0 && (
                 <section className="AddCardContainer" ref={addMoreCardBtnRef}>
                     <AddMoreCardButton onClick={handleClickAddMoreCard} />
 
@@ -263,7 +258,7 @@ function Projects() {
                         </ContainerFormAddMoreCard>
                     )}
                 </section>
-                {/* )} */}
+                )}
 
                 {!projectsState.isFetching &&
                     projectsState.projects?.length > 0 && (
