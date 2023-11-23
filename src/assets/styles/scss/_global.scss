@@ -6,7 +6,6 @@
 }
 
 body {
-    // background: variables.$background-color-body;
-    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(27 27 27) 100%);
+    background: variables.$background-color-body;
     // min-height: 1000px;
 }

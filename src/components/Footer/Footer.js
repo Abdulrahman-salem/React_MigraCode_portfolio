@@ -9,6 +9,8 @@ import meetup from "../../assets/images/meetup-svgrepo-com (1).svg";
 import linkedIn from "../../assets/images/linkedin-rounded-border-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 
+
+
 const Footer = () => {
   return (
     <footer className="footer-allpages">

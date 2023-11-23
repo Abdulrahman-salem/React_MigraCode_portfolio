@@ -158,7 +158,7 @@ function Home() {
             } catch (error) {
               console.error(error.message);
             } finally {
-              if (student?.imageUrl?.length === 0) {
+              if (student?.imageUrl.length === 0) {
                 student.imageUrl =
                   require("../../assets/images/default_person_img.svg").default;
               }

@@ -14,10 +14,9 @@
 .home {
   background-image: url("https://img.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg");
   color: variables.$white;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   height: auto;
   overflow-y: auto;
-  object-fit: cover;
 
   .main_title {
     margin-top: 30px;
@@ -81,20 +80,13 @@
       .description_text {
         display: flex;
         flex-direction: row;
-        // background-color: black;
+        background-color: black;
         border-radius: 20px;
-        padding: 30px 30px 30px;
-        margin-top: 40px;
-        border: 1px solid;
-        justify-content: center;
-        align-items: center;
-        box-shadow: rgb(255 255 255) 0px 1px 0px 0px inset, rgb(255 255 255) 0px 0px 10px 0px inset;
+        padding: 30px 20px 30px 20px;
+        margin-top: 20px;
 
           .text {
             margin-right: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
           }
 
         img {
@@ -104,7 +96,6 @@
           margin-left: auto;
           margin-right: auto;
           max-width: 100%;
-          border-radius: 12px;
           // margin-bottom: 50px;
         }
 
@@ -114,33 +105,18 @@
           @include mixins.jura;
           text-align: center;
         }
-        .home-description-button {
+
+        button {
+          display: block;
+          margin: 0 auto;
+          background-color: variables.$red;
+          border: 1px solid white;
           color: variables.$white;
-          background-color: transparent;
-          justify-content: center;
-          padding: 9px 40px;
-          display: inline-block;
+          border-radius: 15px;
+          padding: 10px;
           font-size: 15px;
-          cursor: pointer;
-          box-shadow: inset 0 0 0 0 #ffffff;
-          transition: ease-out 0.4s;
-          letter-spacing: 2px;
-          border-radius: 20px;
-          border: 1px solid rgb(255, 255, 255);
-          text-decoration: none;
-          // margin: 20px 0px 0px;
-          width: 210px;
-          font-family: "Jura";
-          font-weight: 700;
-          margin: auto;
-      }
-      .slide-right2:hover {
-          box-shadow: inset 400px 0 0 0 #ffffff;
+          @include mixins.jura-medium;
         }
-      .home-description-button:hover {
-          color: rgb(0, 0, 0);
-          border: 1px solid rgb(255, 253, 253);
-      }
       }
 
       .description_image {
@@ -165,17 +141,16 @@
 
         .arrow_button {
           width: 60px;
-          background: rgba(0, 0, 0, 0);
+          background: black;
           cursor: pointer;
           border-radius: 50%;
-          border: 1px solid rgba(0, 0, 0, 0);
+          border: 1px solid black;
           // box-shadow: 0px 0px 25px 8px black, 0 0 10px 0px #f50000,
 
           img {
             width: 60px;
             border-radius: 50%;
-            // background: black;
-            height: 45px;
+            background: black;
           }
         }
       }
