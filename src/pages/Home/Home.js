@@ -136,40 +136,102 @@ function Home() {
     const { url, queryFilterData = ``, actionType = `` } = fetchRequirement;
     // fetchingStudents starting fetching students // loader
     dispatch(fetchingStudents({}));
-    try {
-      const data = await getData(url);
 
-      if (data) {
-        console.log(data, "students");
-        data.items.forEach((student) => {
-          if (student.imageUrl.length === 0) {
-            student.imageUrl =
-              require("../../assets/images/default_person_img.svg").default;
-          }
-        });
-        if (actionType === `FIRST_FETCH_DATA`) {
+    let data;
+
+    try {
+      data = await getData(url);
+      // data = await getData('https://jsonplaceholder.typicode.com/photos/' + 25500);
+  } catch (error) {
+      console.log(error.message);
+  }
+
+  if (data?.items?.length > 0) {
+      await Promise.all(
+          data.items.map(async (student) => {
+              if (student?.imageUrl.length === 0) {
+                  try {
+                      // 1) fetch image link
+                      const githubResponse = await getData(
+                          `https://api.github.com/users/${student.gitHub}`
+                      );
+
+                      // set image
+                      student.imageUrl = githubResponse.avatar_url;
+                  } catch (error) {
+                      console.error(error.message);
+                  } finally {
+                      if (student?.imageUrl.length === 0) {
+                          student.imageUrl =
+                              require("../../assets/images/default_person_img.svg").default;
+                      }
+                  }
+              }
+          })
+      );
+
+      // console.log(data);
+
+      if (actionType === `FIRST_FETCH_DATA`) {
           // firstFetchedStudents to set first fetched students (need help on the data structure)
           dispatch(
-            firstFetchedStudents({
-              students: [...data.items],
-              offset: data.offset ? data.offset.toString() : "",
-            })
+              firstFetchedStudents({
+                  students: [...data.items],
+                  offset: data.offset ? data.offset.toString() : "",
+                  queryFilterData,
+              })
           );
-        } else if (actionType === `FETCH_MORE_DATA`) {
+      } else if (actionType === `FETCH_MORE_DATA`) {
           // fetchMoreStudents to set more fetched students
           dispatch(
-            fetchMoreStudents({
-              students: [...data.items],
-              offset: data.offset ? data.offset.toString() : "",
-            })
+              fetchMoreStudents({
+                  students: [...data.items],
+                  offset: data.offset ? data.offset.toString() : "",
+              })
           );
-        } else {
-          throw new Error(`The actionType ${actionType} is not supported`);
-        }
+      } else {
+          throw new Error(
+              `The actionType ${actionType} is not supported`
+          );
       }
-    } catch (error) {
-      console.log(error.message);
-    }
+  }
+
+    // try {
+    //   data = await getData(url);
+
+
+
+    //   if (data) {
+    //     console.log(data, "students");
+    //     data.items.forEach((student) => {
+    //       if (student.imageUrl.length === 0) {
+    //         student.imageUrl =
+    //           require("../../assets/images/default_person_img.svg").default;
+    //       }
+    //     });
+    //     if (actionType === `FIRST_FETCH_DATA`) {
+    //       // firstFetchedStudents to set first fetched students (need help on the data structure)
+    //       dispatch(
+    //         firstFetchedStudents({
+    //           students: [...data.items],
+    //           offset: data.offset ? data.offset.toString() : "",
+    //         })
+    //       );
+    //     } else if (actionType === `FETCH_MORE_DATA`) {
+    //       // fetchMoreStudents to set more fetched students
+    //       dispatch(
+    //         fetchMoreStudents({
+    //           students: [...data.items],
+    //           offset: data.offset ? data.offset.toString() : "",
+    //         })
+    //       );
+    //     } else {
+    //       throw new Error(`The actionType ${actionType} is not supported`);
+    //     }
+    //   }
+    // } catch (error) {
+    //   console.log(error.message);
+    // }
     // endFoFetchingStudents end of fetching students // loader
     dispatch(endFoFetchingStudents());
   }

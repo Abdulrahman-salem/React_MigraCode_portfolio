@@ -1,10 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import "./index.scss";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LINK_OFFICIAL_MIGRACODE_WEBSITE } from "../../helpers/constants/endpoints";
-import { URL_PORTFOLIO } from "../../helpers/constants/endpoints";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {
+    LINK_OFFICIAL_MIGRACODE_WEBSITE,
+    URL_POST_CONTACT,
+    URL_PORTFOLIO
+} from "../../helpers/constants/endpoints";
+import { postData } from "../../adapters/fetch";
 
 function Student() {
   const contactSection = useRef();
@@ -71,22 +76,58 @@ function Student() {
     };
 
     fetchStudentData();
+    window.scrollTo(0, 0);
   }, []);
 
   const handleNavigateToContact = () => {
     contactSection.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(
-      "Form submitted:",
-      "name: " + e.target.elements.name.value,
-      "email: " + e.target.elements.email.value,
-      "message: " + e.target.elements.message.value
-    );
-  };
-  return (
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        let RecruiterName = e.target.elements.name.value.trim();
+        let RecruiterEmail = e.target.elements.email.value.trim();
+        let RecruiterMessage = e.target.elements.message.value.trim();
+        if (!RecruiterName || !RecruiterEmail || !RecruiterMessage) {
+            return alert("Please complete the form");
+        }
+
+        try {
+            const headers = {
+                "Content-Type": "application/json",
+            };
+            const bodyData = {
+                Student: email,
+                Recruiter: RecruiterEmail,
+                Name: RecruiterName,
+                Message: RecruiterMessage,
+            };
+            const data = await postData(URL_POST_CONTACT, headers, bodyData);
+
+            if (data) {
+                // console.log(data);
+                alert(data.message);
+            }
+        } catch (error) {
+            console.log(error);
+            alert(error.message);
+        }
+        e.target.elements.name.value = "";
+        e.target.elements.email.value = "";
+        e.target.elements.message.value = "";
+        
+        setTimeout(() => {
+          window.scrollBy({
+              behavior: "smooth",
+              left: 0,
+              top: 0,
+          });
+        }, 0);
+        
+        return;
+    };
+    
+    return (
     <div className="student">
       <div className="background-img">
         <header>

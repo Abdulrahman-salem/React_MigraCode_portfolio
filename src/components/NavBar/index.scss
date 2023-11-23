@@ -1,4 +1,3 @@
-
 @use "/src/assets/styles/scss/variables" as variables;
 @use "/src/assets/styles/scss/mixins" as mixins;
 
@@ -8,9 +7,11 @@
   align-items: center;
   background-color: variables.$black;
   border-bottom: 2px solid variables.$red;
-  height: 60px;
+  min-height: 60px;
+  position: relative;
 
   .logo-name {
+    margin: 10px 20px;
     a {
       display: flex;
       justify-content: space-between;
@@ -32,6 +33,9 @@
   }
 
   .nav {
+    position: absolute;
+    right: 2rem;
+
     .nav-link {
       color: variables.$tiffany;
       @include mixins.jura-bold;
@@ -70,7 +74,7 @@
     .burger-icon {
       display: block; 
       cursor: pointer;
-
+      padding: 0 20px;
 
       .bar {
         width: 25px;
@@ -128,7 +132,7 @@
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: all 0.5s;
-  background-image: url("./Login--background.jpg");
+  // background-image: url("./Login--background.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -168,5 +172,3 @@
   font-size: 20px;
   @include mixins.jura-medium;
 }
-
-

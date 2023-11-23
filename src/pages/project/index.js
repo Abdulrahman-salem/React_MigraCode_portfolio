@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
-import { getData } from "../../adapters/fetch";
+import { deleteData, getData } from "../../adapters/fetch";
 import { URL_FILTER_STUDENT_BY_NAME } from "../../helpers/constants/endpoints";
 import { URL_PROJECTS } from "../../helpers/constants/endpoints";
 import { resetProjectsState } from "../../redux/projects";
 import "./index.scss";
 import { useDispatch } from "react-redux";
+import { JwtContext } from "../../components/JwtContext";
 
 function Project() {
   const dispatch = useDispatch();
-  const [teamMemberRoles, setTeamMemberRoles] = useState({
-    teamLeader: [],
-    fullstackDevelopers: [],
-    frontendDevelopers: [],
-    backendDevelopers: [],
-    designers: [],
-  });
+  const { currentUserJwt } = useContext(JwtContext);
+
 
   const handleResetData = () => {
     dispatch(resetProjectsState());
@@ -79,71 +75,45 @@ function Project() {
   ]);
 
   const handleDeleteProject = async (projectId) => {
-    try {
-      const response = await fetch(`${URL_PROJECTS}/${projectId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error deleting project:", errorData.error);
-        return;
+    let token = "";
+    const cookies = document.cookie.split(";");
+    
+    for (const cookie of cookies) {
+      const [name, value] = cookie.split("=");
+      if (name.trim() === "login") {
+          if (value.trim()) {
+              token = value;
+          }
       }
+    }      
 
-      alert(`Project with ID ${projectId} deleted successfully!`);
-      handleResetData();
-      navigate("/projects");
-    } catch (error) {
-      console.error("Error deleting project:", error);
-    }
+  if (!token) {
+      return alert(
+          "you don't have access to add new project. Please login first!"
+      );
+  }
+  
+  try {
+      const headers = {
+          'Content-Type': 'application/json',
+          token: token,
+      };
+      const data = await deleteData(`${URL_PROJECTS}/${projectId}`, headers);
+
+      if (data.ok) {
+
+          alert(`Project with ID ${projectId} deleted successfully!`);
+          handleResetData();
+          navigate("/projects");
+      }
+  } catch (error) {
+    console.error('Error deleting project:', error);
+  }
   };
 
-  // useEffect(() => {
-  //     // get roles members and to set it to state
-  //     const updatedRoles = {
-  //         teamLeader: [],
-  //         fullstackDevelopers: [],
-  //         frontendDevelopers: [],
-  //         backendDevelopers: [],
-  //         designers: [],
-  //     };
-
-  //     team_member_roles.forEach((role) => {
-  //         const name = role.split(":").pop().trim();
-  //         if (
-  //             role.includes("Team leader") &&
-  //             !updatedRoles.teamLeader.includes(name)
-  //         ) {
-  //             updatedRoles.teamLeader.push(name);
-  //         } else if (
-  //             role.includes("Frontend developer") &&
-  //             !updatedRoles.frontendDevelopers.includes(name)
-  //         ) {
-  //             updatedRoles.frontendDevelopers.push(name);
-  //         } else if (
-  //             role.includes("Backend developer") &&
-  //             !updatedRoles.backendDevelopers.includes(name)
-  //         ) {
-  //             updatedRoles.backendDevelopers.push(name);
-  //         } else if (
-  //             role.includes("Fullstack developer") &&
-  //             !updatedRoles.fullstackDevelopers.includes(name)
-  //         ) {
-  //             updatedRoles.fullstackDevelopers.push(name);
-  //         } else if (
-  //             role.includes("Designer") &&
-  //             !updatedRoles.designers.includes(name)
-  //         ) {
-  //             updatedRoles.designers.push(name);
-  //         }
-  //     });
-
-  //     setTeamMemberRoles(updatedRoles);
-  //     window.scrollTo(0, 0);
-  // }, [team_member_roles]);
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  }, []);
 
   const handleGoToStudentProfile = async (e) => {
     if (!isFetching) {
@@ -234,14 +204,14 @@ function Project() {
           ) : null}
         </nav>
       </header>
-      <section className="delete">
+      {currentUserJwt?.length > 0 && <section className="delete">
         <button
           className="delete_button"
           onClick={() => handleDeleteProject(id)}
         >
           Delete project
         </button>
-      </section>
+      </section>}
       <main>
         <section className="img-description-section1">
           {/* <Link to={"/projects"}>

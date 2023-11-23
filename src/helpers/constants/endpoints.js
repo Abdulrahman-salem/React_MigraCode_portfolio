@@ -23,3 +23,8 @@ export const URL_NEW_PROJECT = "http://localhost:3001/projects";
 // Official MigraCode website
 export const LINK_OFFICIAL_MIGRACODE_WEBSITE =
   "https://migracode.openculturalcenter.org/";
+
+// contact
+export const URL_POST_CONTACT =
+  "http://localhost:3001/contact";
+  

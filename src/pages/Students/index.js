@@ -91,7 +91,7 @@
 
 // export default Students;
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getData } from "../../adapters/fetch";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
@@ -105,10 +105,9 @@ import {
     QUERY_FILTER_STUDENTS,
     QUERY_FILTER_STUDENTS_BY_A_TO_Z,
     QUERY_FILTER_STUDENTS_BY_Z_TO_A,
-    URL_FILTER_STUDENT_BY_NAME,
 } from "../../helpers/constants/endpoints";
 import { useDispatch, useSelector } from "react-redux";
-import students, {
+import {
     firstFetchedStudents,
     fetchMoreStudents,
     fetchingStudents,
@@ -117,6 +116,8 @@ import students, {
 import Loader from "../../components/Loader";
 
 function Students() {
+    const [statusScrollY, setStatusScrollY] = useState(0);
+
     // to read redux students state
     const { studentsState } = useSelector((store) => store);
 
@@ -129,43 +130,68 @@ function Students() {
         const { url, queryFilterData = ``, actionType = `` } = fetchRequirement;
         // fetchingStudents starting fetching students // loader
         dispatch(fetchingStudents({}));
-        try {
-            const data = await getData(url);
 
-            if (data) {
-                console.log(data);
-                data.items.forEach((student) => {
-                    if (student.imageUrl.length === 0) {
-                        student.imageUrl =
-                            require("../../assets/images/default_person_img.svg").default;
-                    }
-                });
-                if (actionType === `FIRST_FETCH_DATA`) {
-                    // firstFetchedStudents to set first fetched students (need help on the data structure)
-                    dispatch(
-                        firstFetchedStudents({
-                            students: [...data.items],
-                            offset: data.offset ? data.offset.toString() : "",
-                            queryFilterData,
-                        })
-                    );
-                } else if (actionType === `FETCH_MORE_DATA`) {
-                    // fetchMoreStudents to set more fetched students
-                    dispatch(
-                        fetchMoreStudents({
-                            students: [...data.items],
-                            offset: data.offset ? data.offset.toString() : "",
-                        })
-                    );
-                } else {
-                    throw new Error(
-                        `The actionType ${actionType} is not supported`
-                    );
-                }
-            }
+        let data;
+
+        try {
+            data = await getData(url);
+            // data = await getData('https://jsonplaceholder.typicode.com/photos/' + 25500);
         } catch (error) {
             console.log(error.message);
         }
+
+        if (data?.items?.length > 0) {
+            // console.log(data);
+            await Promise.all(
+                data.items.map(async (student) => {
+                    if (student?.imageUrl.length === 0) {
+                        try {
+                            // 1) fetch image link
+                            const githubResponse = await getData(
+                                `https://api.github.com/users/${student.gitHub}`
+                            );
+
+                            // set image
+                            student.imageUrl = githubResponse.avatar_url;
+                        } catch (error) {
+                            console.error(error.message);
+                        } finally {
+                            // console.log(student);
+                            if ( student && student?.imageUrl?.length === 0) {
+                                student.imageUrl =
+                                    require("../../assets/images/default_person_img.svg").default;
+                            }
+                        }
+                    }
+                })
+            );
+
+            // console.log(data);
+
+            if (actionType === `FIRST_FETCH_DATA`) {
+                // firstFetchedStudents to set first fetched students (need help on the data structure)
+                dispatch(
+                    firstFetchedStudents({
+                        students: [...data.items],
+                        offset: data.offset ? data.offset.toString() : "",
+                        queryFilterData,
+                    })
+                );
+            } else if (actionType === `FETCH_MORE_DATA`) {
+                // fetchMoreStudents to set more fetched students
+                dispatch(
+                    fetchMoreStudents({
+                        students: [...data.items],
+                        offset: data.offset ? data.offset.toString() : "",
+                    })
+                );
+            } else {
+                throw new Error(
+                    `The actionType ${actionType} is not supported`
+                );
+            }
+        }
+
         // endFoFetchingStudents end of fetching students // loader
         dispatch(endFoFetchingStudents());
     }
@@ -177,11 +203,27 @@ function Students() {
         }
     }, [studentsState.students]);
 
+    useEffect(() => {
+        // console.log(statusScrollY);
+        setTimeout(() => {
+            window.scrollBy({
+                behavior: "smooth",
+                left: 0,
+                top: statusScrollY,
+            });
+        }, 0);
+    }, [statusScrollY, studentsState.students]);
+
+
     // on click load more btn
     const handleOnLoadMoreStudents = async (e) => {
+        e.preventDefault();
+
         if (studentsState.offset.length === 0) {
             return;
         }
+
+        setStatusScrollY(document.body.scrollTop || window.scrollY);
 
         await fetchData({
             url: `${URL_STUDENTS}?${
@@ -218,18 +260,6 @@ function Students() {
                 });
                 break;
 
-            // case 3
-            case "name":
-                await fetchData({
-                    url: `${URL_STUDENTS}?${QUERY_FILTER_STUDENTS}=${URL_FILTER_STUDENT_BY_NAME}`,
-                    queryFilterData:
-                        QUERY_FILTER_STUDENTS +
-                        "=" +
-                        URL_FILTER_STUDENT_BY_NAME,
-                    actionType: "FIRST_FETCH_DATA",
-                });
-                break;
-
             default:
                 break;
         }
@@ -237,29 +267,33 @@ function Students() {
     };
 
     return (
-      <div className="students">
-        <header>
-          <NavBar />
-        </header>
-        <main>
-          {!studentsState.isFetching && studentsState.students?.length > 0 && (
-            <>
-              <Filter>
-                <button value={"a-z"} onClick={handleOnClickFilterOption}>
-                  A - Z
-                </button>
-                <button value={"z-a"} onClick={handleOnClickFilterOption}>
-                  Z - A
-                </button>
-                <button value={"name"} onClick={handleOnClickFilterOption}>
-                  Name
-                </button>
-              </Filter>
+        <div className="students">
+            <header>
+                <NavBar />
+            </header>
+            <main>
+                {!studentsState.isFetching &&
+                    studentsState.students?.length > 0 && (
+                        <>
+                            <Filter>
+                                <button
+                                    value={"a-z"}
+                                    onClick={handleOnClickFilterOption}
+                                >
+                                    A - Z
+                                </button>
+                                <button
+                                    value={"z-a"}
+                                    onClick={handleOnClickFilterOption}
+                                >
+                                    Z - A
+                                </button>
+                            </Filter>
 
-              <Cards
-                allData={studentsState.students}
-                onClickGoTo={`/student/`}
-              />
+                            <Cards
+                                allData={studentsState.students}
+                                onClickGoTo={`/student/`}
+                            />
 
                             <LoadMoreButton
                                 showLoadMore={studentsState.offset}
