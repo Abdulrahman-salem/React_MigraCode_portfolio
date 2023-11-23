@@ -5,10 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: variables.$black;
-  border-bottom: 2px solid variables.$red;
-  min-height: 60px;
-  position: relative;
+  padding: 57px 60px;
 
   .logo-name {
     margin: 10px 20px;
@@ -28,7 +25,7 @@
 
     img {
       margin: 0;
-      height: 50px;
+      height: 60px;
     }
   }
 
@@ -37,14 +34,14 @@
     right: 2rem;
 
     .nav-link {
-      color: variables.$tiffany;
+      color: variables.$white;
       @include mixins.jura-bold;
       font-size: 20px;
       margin-right: 20px;
       text-decoration: none;
 
       &:hover {
-        color: variables.$white;
+        color: variables.$tiffany;
       }
     }
   }
@@ -52,20 +49,46 @@
   .login {
     margin-right: 20px;
 
-    .btn--show-modal{
-      display: block;
-      margin: 0 auto;
-      background-color: variables.$red;
-      border: 1px solid variables.$white;
-      color: variables.$white;
-      border-radius: 15px;
-      padding: 10px;
-      font-size: 15px;
-      @include mixins.jura-medium;
-    }
+    // .btn--show-modal{
+    //   display: block;
+    //   margin: 0 auto;
+    //   // background-color: variables.$red;
+    //   // border: 1px solid variables.$white;
+    //   color: variables.$background-black;
+    //   border-radius: 10px;
+    //   padding: 10px;
+    //   font-size: 19px;
+    //   @include mixins.jura-medium;
+    // }
 
-    &:hover {
+    // &:hover {
+    //   color: variables.$white;
+    // }
+
+    .btn--show-modal {
+      color: #000000;
+      background-color: #ffffff;
+      justify-content: center;
+      padding: 9px 0px;
+      display: inline-block;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 0 #1f1f1f;
+      transition: ease-out 0.4s;
+      border-radius: 9px;
+      border: 1px solid rgb(255, 255, 255);
+      text-decoration: none;
+      width: 110px;
+      font-family: "Jura";
+      font-weight: 700;
+    }
+    .slide-right2:hover {
+      box-shadow: inset 400px 0 0 0 #1f1f1f;
+    }
+    .btn--show-modal:hover {
       color: variables.$white;
+      border: 1px solid rgb(255, 255, 255);
+      // background-color: rgb(84, 84, 84);
     }
 
   }
@@ -115,7 +138,7 @@
     }
   }
 
-  }
+}
 
 
 

@@ -4,7 +4,7 @@ import Cards from "../../components/Cards";
 import Footer from "../../components/Footer/Footer";
 import "./Home.scss";
 import group_photo from "../../assets/images/Screenshot_6.png";
-import lessthan from "../../assets/images/lessthan.svg"
+import lessthan from "../../assets/images/lessthan.svg";
 import greaterthan from "../../assets/images/greaterthan.svg";
 // import photo from "../../assets/images/group_photo.jpg";
 import {
@@ -14,7 +14,7 @@ import {
 } from "../../helpers/constants/endpoints";
 import {
   URL_STUDENTS,
-  QUERY_TO_FETCH_NEXT_PAGE_STUDENTS
+  QUERY_TO_FETCH_NEXT_PAGE_STUDENTS,
 } from "../../helpers/constants/endpoints";
 import { getData } from "../../adapters/fetch";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,7 +35,6 @@ import { resetProjectsState } from "../../redux/projects";
 import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 
-
 function Home() {
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
@@ -43,7 +42,7 @@ function Home() {
   const handleResetData = () => {
     dispatch(resetProjectsState());
   };
-  
+
   // to set redux state
   const dispatch = useDispatch();
 
@@ -51,7 +50,7 @@ function Home() {
   const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
 
   async function fetchData(fetchRequirement) {
-    console.log("fetchData")
+    console.log("fetchData");
     // queryFilterData to load more filtered data
     const { url, actionType = `` } = fetchRequirement;
     // fetchingProjects starting fetching projects // loader
@@ -112,18 +111,16 @@ function Home() {
     if (nextIndex < projectsState.projects.length) {
       setCurrentIndex(nextIndex);
     } else if (projectsState.nextPage) {
-        await fetchData({
-          url: `${URL_PROJECTS}?${
-            QUERY_TO_FETCH_NEXT_PAGE_PROJECTS + projectsState.nextPage
-          }`,
-          actionType: "FETCH_MORE_DATA",
-        });
-        
-      setCurrentIndex(nextIndex);
-      }
-    
-  };
+      await fetchData({
+        url: `${URL_PROJECTS}?${
+          QUERY_TO_FETCH_NEXT_PAGE_PROJECTS + projectsState.nextPage
+        }`,
+        actionType: "FETCH_MORE_DATA",
+      });
 
+      setCurrentIndex(nextIndex);
+    }
+  };
 
   const handleShowPreviousProjects = async (e) => {
     setCurrentIndex(currentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
@@ -142,64 +139,60 @@ function Home() {
     try {
       data = await getData(url);
       // data = await getData('https://jsonplaceholder.typicode.com/photos/' + 25500);
-  } catch (error) {
+    } catch (error) {
       console.log(error.message);
-  }
+    }
 
-  if (data?.items?.length > 0) {
+    if (data?.items?.length > 0) {
       await Promise.all(
-          data.items.map(async (student) => {
-              if (student?.imageUrl.length === 0) {
-                  try {
-                      // 1) fetch image link
-                      const githubResponse = await getData(
-                          `https://api.github.com/users/${student.gitHub}`
-                      );
+        data.items.map(async (student) => {
+          if (student?.imageUrl.length === 0) {
+            try {
+              // 1) fetch image link
+              const githubResponse = await getData(
+                `https://api.github.com/users/${student.gitHub}`
+              );
 
-                      // set image
-                      student.imageUrl = githubResponse.avatar_url;
-                  } catch (error) {
-                      console.error(error.message);
-                  } finally {
-                      if (student?.imageUrl.length === 0) {
-                          student.imageUrl =
-                              require("../../assets/images/default_person_img.svg").default;
-                      }
-                  }
+              // set image
+              student.imageUrl = githubResponse.avatar_url;
+            } catch (error) {
+              console.error(error.message);
+            } finally {
+              if (student?.imageUrl?.length === 0) {
+                student.imageUrl =
+                  require("../../assets/images/default_person_img.svg").default;
               }
-          })
+            }
+          }
+        })
       );
 
       // console.log(data);
 
       if (actionType === `FIRST_FETCH_DATA`) {
-          // firstFetchedStudents to set first fetched students (need help on the data structure)
-          dispatch(
-              firstFetchedStudents({
-                  students: [...data.items],
-                  offset: data.offset ? data.offset.toString() : "",
-                  queryFilterData,
-              })
-          );
+        // firstFetchedStudents to set first fetched students (need help on the data structure)
+        dispatch(
+          firstFetchedStudents({
+            students: [...data.items],
+            offset: data.offset ? data.offset.toString() : "",
+            queryFilterData,
+          })
+        );
       } else if (actionType === `FETCH_MORE_DATA`) {
-          // fetchMoreStudents to set more fetched students
-          dispatch(
-              fetchMoreStudents({
-                  students: [...data.items],
-                  offset: data.offset ? data.offset.toString() : "",
-              })
-          );
+        // fetchMoreStudents to set more fetched students
+        dispatch(
+          fetchMoreStudents({
+            students: [...data.items],
+            offset: data.offset ? data.offset.toString() : "",
+          })
+        );
       } else {
-          throw new Error(
-              `The actionType ${actionType} is not supported`
-          );
+        throw new Error(`The actionType ${actionType} is not supported`);
       }
-  }
+    }
 
     // try {
     //   data = await getData(url);
-
-
 
     //   if (data) {
     //     console.log(data, "students");
@@ -244,9 +237,8 @@ function Home() {
   }, [studentsState.students]);
 
   const handleShowNextStudents = async (e) => {
-    
-      console.log(studentsState, "click");
-    
+    console.log(studentsState, "click");
+
     let nextIndex = currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED;
     // check if data already exists for next page and display it
     if (nextIndex < studentsState.students.length) {
@@ -262,14 +254,9 @@ function Home() {
       setCurrentStudentIndex(nextIndex);
     }
   };
-    const handleShowPreviousStudents = async (e) => {
-      setCurrentStudentIndex(
-        currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED
-      );
-    };
-
-
-
+  const handleShowPreviousStudents = async (e) => {
+    setCurrentStudentIndex(currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
+  };
 
   return (
     <div className="home">

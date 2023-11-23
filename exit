@@ -1,0 +1,519 @@
+[33mcommit 90a6fbd7c3375ae26644107967875e5add80793d[m[33m ([m[1;36mHEAD -> [m[1;32mameer[m[33m)[m
+Merge: 9d6bf07 2aa08b8
+Author: Ameer khateeb <120672563+Ameerkha21@users.noreply.github.com>
+Date:   Tue Nov 21 00:51:55 2023 +0100
+
+    Merge branch 'master' of https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode into ameer
+
+[33mcommit 9d6bf0750a733104bfe8a0370699754c0031808a[m
+Author: Ameer khateeb <120672563+Ameerkha21@users.noreply.github.com>
+Date:   Tue Nov 21 00:48:17 2023 +0100
+
+    Add new images
+
+[33mcommit 2aa08b8a93ac88d083d5c570a067d5ad0a40bb17[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: b1c31ef 083d3f5
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Mon Nov 20 19:57:35 2023 +0100
+
+    Merge pull request #38 from Abdulrahman-salem/IrynaSyvashchenko
+    
+    Added project to portfolio
+
+[33mcommit 083d3f5330cff74b57d10b265c486c3411e7782b[m[33m ([m[1;31morigin/IrynaSyvashchenko[m[33m)[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Mon Nov 20 19:55:25 2023 +0100
+
+    Added
+
+[33mcommit 9ef28ffbf74e528f3dc6eaf0d8969f10ea17903c[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Mon Nov 20 19:53:43 2023 +0100
+
+    Added project to portfolio
+
+[33mcommit b1c31ef7ac85ee4b31813af704d18b44dad4ec78[m
+Merge: a173d97 b978775
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Sun Nov 19 22:47:28 2023 +0100
+
+    Merge pull request #37 from Abdulrahman-salem/IrynaSyvashchenko
+    
+    Changed home
+
+[33mcommit b97877503c8b3a7dfa941d26d60af88f3e658d32[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 19 22:45:42 2023 +0100
+
+    Changed home
+
+[33mcommit 7a7b6e79377639d7ea57a913719ca733af39a753[m
+Merge: 5fce41d a173d97
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 19 22:43:48 2023 +0100
+
+    Changed homepage
+
+[33mcommit 5fce41d0cea62d557788ff70ac978bdbb4df9851[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sat Nov 18 08:59:04 2023 +0100
+
+    Student page
+
+[33mcommit a173d97639e8f177fa1a5c1632a2c968a7c02551[m
+Merge: cd56972 5afb467
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Sat Nov 18 02:08:52 2023 +0100
+
+    Merge pull request #36 from Abdulrahman-salem/abdoo
+    
+    1) component form new project style ...
+
+[33mcommit 5afb467635fbfd1c5e147b1425320a00ed416337[m[33m ([m[1;31morigin/abdoo[m[33m)[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Sat Nov 18 02:06:56 2023 +0100
+
+    1) component form new project style
+    2) fix on updating state in FormNewProject component
+    4) change team_member_roles to  team_leader, fullstack_developers, frontend_developers, backend_developers, designers in project page
+
+[33mcommit cd569725a039544c6e732192a388c1af589699cc[m
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Sat Nov 18 00:23:06 2023 +0100
+
+    Update index.js
+
+[33mcommit d55489b9360416b194d916fdf0f7de449e7e5ec1[m
+Merge: c505771 601cb7a
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Fri Nov 17 19:21:44 2023 +0100
+
+    Merge pull request #35 from Abdulrahman-salem/IrynaSyvashchenko
+    
+    Students page changes, project doesnt work for me
+
+[33mcommit 601cb7a9c1dcc29e5b3723a8da7d1b6c580ef7a5[m
+Merge: d5753ef c505771
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Fri Nov 17 18:59:55 2023 +0100
+
+    Merge branch 'master' into IrynaSyvashchenko
+
+[33mcommit d5753efea434d6bece746ad833142ae43f176e72[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Fri Nov 17 18:57:44 2023 +0100
+
+    students page changes from Keith
+
+[33mcommit c50577124d99f993ddb0eaf4489dc1c75fb0043b[m
+Merge: 7c97f08 a3c8dd5
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Fri Nov 17 18:22:53 2023 +0100
+
+    Merge pull request #34 from Abdulrahman-salem/login-momo
+    
+    fix login code issues ameer reported
+
+[33mcommit 9a7f63fc115bf8b29125231c9aba92c318b06baf[m
+Merge: 479ad16 7c97f08
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Fri Nov 17 16:15:13 2023 +0100
+
+    Merge branch 'master' into IrynaSyvashchenko
+
+[33mcommit 479ad16dad686da8dc2a7660bdf3e3faa6de0d46[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Fri Nov 17 16:13:23 2023 +0100
+
+    Merge
+
+[33mcommit 7c97f0854fe4ea4f3201624ef85eead4c0965d27[m
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Fri Nov 17 16:05:48 2023 +0100
+
+    Add files via upload
+
+[33mcommit a3c8dd53a27cf07d0f2b4666b6e3e57d92823766[m
+Merge: 7d6a199 1db81b2
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Thu Nov 16 23:09:44 2023 +0100
+
+    Merge branch 'login-momo' of https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode into login-momo
+
+[33mcommit 7d6a199aff5b18f25031f2d06dea49dcd5ef273d[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Thu Nov 16 23:09:38 2023 +0100
+
+    change css to scss and delete body and *,
+    change jsx file to js file,
+    make login button unclickable after logged in
+
+[33mcommit 8173da8dc171ad0f379e76775ac5a9165f75ae18[m
+Merge: 7ef7815 f6d8d78
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 16 07:00:05 2023 +0100
+
+    Merge pull request #33 from Abdulrahman-salem/abdoo
+    
+    New packages version
+
+[33mcommit f6d8d78c81bba60423b17f0b46f3e85aceefe466[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 16 06:54:42 2023 +0100
+
+    New packages version
+
+[33mcommit 7ef7815cff68ebaf4a09a350f1273325345219ad[m
+Merge: bdff63d a030cbd
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 16 05:34:51 2023 +0100
+
+    Merge pull request #32 from Abdulrahman-salem/abdoo
+    
+    Fix click on student on the project page
+
+[33mcommit a030cbd8110a240e41dd8a14b1cb926223c1f204[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 16 05:33:59 2023 +0100
+
+    Fix click on student on the project page
+
+[33mcommit bdff63d6eebab4185a293438f0f3b6e8d3befd8d[m
+Merge: 24cc23c e32357f
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 16 04:42:29 2023 +0100
+
+    Merge pull request #31 from Abdulrahman-salem/abdoo
+    
+    Styling new project form.
+
+[33mcommit e32357f47e05c5c1e6326fe8d759e10bd4c690de[m
+Merge: c11fb9d 24cc23c
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 16 04:42:20 2023 +0100
+
+    Merge branch 'master' into abdoo
+
+[33mcommit c11fb9dc1331cb25cd44447f2c569a01a20ee0cd[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 16 04:31:59 2023 +0100
+
+    Styling new project form.
+
+[33mcommit 24cc23c251ed3862cf4ed9e93710963c08475b76[m[33m ([m[1;32mmaster[m[33m)[m
+Merge: 7a533e1 aef8c55
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 16 01:43:44 2023 +0100
+
+    Merge pull request #30 from Abdulrahman-salem/ameer
+    
+    student page
+
+[33mcommit aef8c55fb603853022b5f4306a8ffef370bc82e1[m
+Author: Ameer khateeb <120672563+Ameerkha21@users.noreply.github.com>
+Date:   Thu Nov 16 01:42:45 2023 +0100
+
+    student page
+
+[33mcommit 7a533e11d669a8861dc4c6f3620cb502a83a6d34[m
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Thu Nov 16 00:17:27 2023 +0100
+
+    Update endpoints.js
+
+[33mcommit 92b02c663027ae872be4d945380f5bf16d27b7d4[m
+Merge: 4de598a 71f05a6
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Thu Nov 16 00:16:23 2023 +0100
+
+    Merge pull request #29 from Abdulrahman-salem/IrynaSyvashchenko
+    
+    Responsive Navbar, footer, homepage
+
+[33mcommit 71f05a6425cafac13225c5c7fce3ff33128a19e1[m
+Merge: ec997e1 4de598a
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Thu Nov 16 00:14:39 2023 +0100
+
+    Merge_log_in_button
+
+[33mcommit ec997e11be52625f16917813c64cb5d785e65678[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Wed Nov 15 23:31:19 2023 +0100
+
+    Responsive navbar foter, home page
+
+[33mcommit 4de598a68f350b1eb44fe2532344982f5887bf0a[m
+Merge: 7dde695 1db81b2
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Wed Nov 15 18:21:56 2023 +0100
+
+    Merge pull request #27 from Abdulrahman-salem/login-momo
+    
+    Login
+
+[33mcommit 1db81b2f789a7c2e76d60dce1ea0d2cb22dcd7ff[m
+Merge: 489dc96 7dde695
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Wed Nov 15 18:21:41 2023 +0100
+
+    Merge branch 'master' into login-momo
+
+[33mcommit 489dc96b8f790e2d5db39953a1b99d4a41b0dd64[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Wed Nov 15 17:32:11 2023 +0100
+
+    delete username for loginsave jwt in cookies after login
+
+[33mcommit 7dde69573ce8137ea35839a206a5a2b16edc531d[m
+Merge: 022ad6e cb090f0
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Tue Nov 14 16:29:20 2023 +0100
+
+    Merge pull request #26 from Abdulrahman-salem/abdoo
+    
+    Form for adding new project card
+
+[33mcommit cb090f065ea9f6ab85a2729b03a4283218d96dec[m
+Merge: cbe4f9e 022ad6e
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Tue Nov 14 16:29:06 2023 +0100
+
+    Merge branch 'master' into abdoo
+
+[33mcommit cbe4f9e5faac731f7ef0a94a87d6bdfb8003fb70[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Tue Nov 14 16:25:53 2023 +0100
+
+    Form for adding new project card without styling, and its not connected to the backend and database.
+
+[33mcommit 022ad6e6bae3245dc28e2bb4d591414f261fa85b[m
+Merge: 71a937f b026904
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Sun Nov 12 22:12:36 2023 +0100
+
+    Merge pull request #25 from Abdulrahman-salem/IrynaSyvashchenko
+    
+    Added students to home page
+
+[33mcommit b0269044dba2ca01a1c9e84b9a7974ab22aa1955[m
+Merge: 35deeac 71a937f
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 12 22:10:36 2023 +0100
+
+    Added students
+
+[33mcommit 35deeacf5891092fed2f6304108d8dca29e9018e[m
+Merge: 0240048 91594fc
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 12 22:01:41 2023 +0100
+
+    Added students at home
+
+[33mcommit 71a937fcbaed054c38eff921b87ae0fa21857dcd[m
+Merge: 91594fc 4248e25
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Sun Nov 12 16:08:53 2023 +0100
+
+    Merge pull request #24 from Abdulrahman-salem/IrynaSyvashchenko
+    
+    Iryna syvashchenko
+
+[33mcommit 4248e25eb8f734555c2358f63cabbe049ae6b275[m
+Merge: 0240048 91594fc
+Author: Iryna Syvashchenko <byyylafka@ukr.net>
+Date:   Sun Nov 12 01:01:43 2023 +0100
+
+    Merge branch 'master' into IrynaSyvashchenko
+
+[33mcommit 0240048142936207c009fd591165f777182c1699[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 12 00:52:37 2023 +0100
+
+    Add projects at the home page
+
+[33mcommit ce6d3e5a57a9c7049298061d6ac9c09821277cab[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Fri Nov 10 20:47:47 2023 +0100
+
+    send button calls correct function
+
+[33mcommit 91594fc8b32308146ec068b604bab2a6074f5080[m
+Merge: ab02ed9 f2cf59c
+Author: momoyangcode <120645204+momoyangcode@users.noreply.github.com>
+Date:   Fri Nov 10 20:38:59 2023 +0100
+
+    Merge pull request #23 from Abdulrahman-salem/admin-dashboard-momo
+    
+    Admin dashboard momo
+
+[33mcommit f2cf59c97ad54baeab3d244a8c29a0b9d5ce4d5c[m[33m ([m[1;31morigin/admin-dashboard-momo[m[33m)[m
+Merge: 240bcb4 ab02ed9
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Fri Nov 10 20:37:17 2023 +0100
+
+    Merge branch 'master' into admin-dashboard-momo
+
+[33mcommit 206edbf9fe67bf933fe10e12c73bbeda9b5bd343[m[33m ([m[1;31morigin/momo[m[33m)[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Fri Nov 10 20:17:58 2023 +0100
+
+    Login Validation
+
+[33mcommit 69510da9b5a7bc62f387b76bfb3deaf69a5b338a[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Fri Nov 10 19:31:30 2023 +0100
+
+    login UI
+
+[33mcommit ab02ed90e26876593a27743380ee664c2586d654[m
+Author: Bonnie Mo <knockri-am-9@Bonnies-MacBook-Air.local>
+Date:   Fri Nov 10 09:31:18 2023 -0500
+
+    more update on Students
+
+[33mcommit 26c3cb7e471d55853d749d25446d559916f4b946[m
+Author: Bonnie Mo <knockri-am-9@Bonnies-MacBook-Air.local>
+Date:   Fri Nov 10 09:08:31 2023 -0500
+
+    students updated
+
+[33mcommit 9fd7a276057d19d307f11f75cf61483b56c1ac7e[m
+Merge: 5d81a7f 0c48d29
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 9 21:06:52 2023 +0100
+
+    Merge pull request #22 from Abdulrahman-salem/abdoo
+    
+    Students Redux
+
+[33mcommit 0c48d2915cfe2d8d08963a935b84604de7067df9[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 9 21:05:52 2023 +0100
+
+    Students Redux
+
+[33mcommit 5d81a7f9c2f46a313784d5a3567881ee95ef71a0[m
+Merge: 49b7bd3 46e1475
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 9 17:22:03 2023 +0100
+
+    Merge pull request #21 from Abdulrahman-salem/abdoo
+    
+    1) Loader component. 2) Implementing Loader to projects page.
+
+[33mcommit 46e147577b5ea23033830b35adde16cb646d3ac6[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 9 17:21:28 2023 +0100
+
+    1) Loader component. 2) Implementing Loader to projects page.
+
+[33mcommit 05393188213627193cfe34f558546661503eb002[m
+Merge: 9017cdd 49b7bd3
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Thu Nov 9 15:32:18 2023 +0100
+
+    Merge
+
+[33mcommit 9017cddcf87c6f3a259edfcf61612e72727748f8[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Thu Nov 9 15:16:02 2023 +0100
+
+    Change Home page
+
+[33mcommit 49b7bd3dc5ec8697198c15bb5a59a305b1dc056e[m
+Merge: f51a0fd 45fa734
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 9 14:09:15 2023 +0100
+
+    Merge pull request #20 from Abdulrahman-salem/abdoo
+    
+    Change project page style
+
+[33mcommit 45fa7345a2dfdc3dff38b2b9536c73e88beabafc[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 9 14:08:40 2023 +0100
+
+    Change project page style
+
+[33mcommit f51a0fd84b06a7b1db5516879ba386c4533d2485[m
+Merge: 239bbee 22609e9
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Thu Nov 9 02:38:45 2023 +0100
+
+    Merge pull request #19 from Abdulrahman-salem/abdoo
+    
+    Redux for projects and students
+
+[33mcommit 22609e961fbd589e9bb75763ac8b67436e077667[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Thu Nov 9 02:37:17 2023 +0100
+
+    1) Implementing React Redux for projects instead of using state. 2) Creating Redux storage for students.
+
+[33mcommit 239bbeeb2010b664ea260f4995d121ce766a64c7[m
+Merge: 47a091f 7948d1e
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Tue Nov 7 19:26:48 2023 +0100
+
+    Merge pull request #18 from Abdulrahman-salem/abdoo
+    
+    Update projects page - filter by oldest - newset and newest - oldest
+
+[33mcommit 7948d1ef737b719f30c98bb2983582f52df13cdc[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Tue Nov 7 19:25:27 2023 +0100
+
+    Update projects page - filter by oldest - newset and newest - oldest
+
+[33mcommit 47a091f3196d48faf72ec3f62029e21e36cdbdb9[m
+Merge: 9ee832f 2a6f7a7
+Author: Abdulrahman-salem <109165947+Abdulrahman-salem@users.noreply.github.com>
+Date:   Tue Nov 7 06:14:51 2023 +0100
+
+    Merge pull request #17 from Abdulrahman-salem/abdoo
+    
+    project page
+
+[33mcommit 2a6f7a79772699af0ae2556546cf2dd1f7aafd89[m
+Author: Abdulrahman-salem <abdalrhman2000salem@gmail.com>
+Date:   Tue Nov 7 06:14:02 2023 +0100
+
+    project page
+
+[33mcommit b7c5b23438580fbf9d34da0b9bb62df0f2ad27d6[m
+Merge: f6166b2 9ee832f
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 5 23:30:28 2023 +0100
+
+    Merge branch 'master' into IrynaSyvashchenko
+
+[33mcommit f6166b2f0de4f8d0dbc4f70274ea06bca26bce5a[m
+Author: Iryna S <byyylafka@ukr.net>
+Date:   Sun Nov 5 23:16:35 2023 +0100
+
+    useContext
+
+[33mcommit 240bcb46dc0e075549c24c97b96e6c19964a88ed[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Sun Nov 5 18:37:49 2023 +0100
+
+    move admin page into pages
+
+[33mcommit 7233ab1e2af416d3c5a3b4a60a4ab6c195b17806[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Sun Nov 5 18:34:38 2023 +0100
+
+    add CreateAccount component
+
+[33mcommit 61f1076369bb37854776653966a516de6ce6993b[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Sun Nov 5 18:29:12 2023 +0100
+
+    fix admin page routes
+
+[33mcommit 70d064d1643e478af2b3ba4b002a32b8973bf0f5[m
+Author: Momo Yang <momo.yang666@gmail.com>
+Date:   Sun Nov 5 18:17:07 2023 +0100
+
+    add admin page from other repo

@@ -4,31 +4,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: variables.$black;
+    background: linear-gradient(118deg, rgb(0 0 0) 0%, rgb(0, 0, 0) 50%, rgb(31 31 31) 100%);
     overflow: hidden;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: rgb(173 173 173) 20px -3px 22px -29px inset, rgba(0, 0, 0, 0.3) 0px 0px 1px 0px inset;
     border-radius: 20px;
-    width: clamp(180px, 690vw, 60vw);
+    width: clamp(180px, 27vw, 60vw);
     transition: all 0.5s;
     justify-content: space-between;
+
+    // flex-direction: row;
+    // background-image: url(https://img5.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg);
+    // background-image: url(../../assets/images/greyBackground.jpg);
+    background-size: 100% 100%;
+    height: 100%;
+
     & .base-img {
-        max-width: 370px;
-        border-radius: 20px;
+        // max-width: 370px;
+        // border-radius: 20px;
         object-fit: cover;
         aspect-ratio: 1/1;
         height: clamp(200px, 12vw, 40vw);
     }
     & .student-image {
-        margin-left: auto;
-        margin-right: auto;
-        height: 200px;
-        border-radius: 100px;
-    margin-top: 20px;
+        // margin-left: auto;
+        // margin-right: auto;
+        height: 100%;
+        width: 100%;
+        filter: contrast(1.1) brightness(1);
+        // border-radius: 100px;
+    // margin-top: 20px;
     }
     & .card-image {
         width: 100%;
-        aspect-ratio: 3/4;
-        height: 200px;
+        aspect-ratio: 5/2;
+        height: 240px;
     }
     & .default-img {
         aspect-ratio: 1/1;
@@ -36,7 +45,7 @@
     & .card-content {
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding:30px 10px;
         align-items: center;
         justify-content: space-around;
         flex-grow: 1;
@@ -55,6 +64,8 @@
                 padding-bottom: 12px;
                 inline-size: fit-content;
                 flex: 1 1 0;
+
+                font-size: 25px;
             }
             // & .card-title:hover {
             //     cursor: pointer;
@@ -70,33 +81,72 @@
             overflow: hidden;
             text-overflow: ellipsis;
             text-align: center;
+            padding-bottom: 20px;
         }
         // & .card-description:hover {
         //     cursor: default;
         // }
+        .card-description-button {
+            color: variables.$white;
+            justify-content: center;
+            padding: 9px 40px;
+            display: inline-block;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: inset 0 0 0 0 #000000;
+            transition: ease-out 0.4s;
+            letter-spacing: 2px;
+            border-radius: 20px;
+            border: 1px solid rgb(255 255 255);
+            text-decoration: none;
+            // margin: 20px 0px 0px;
+            width: 210px;
+            font-family: "Jura";
+            font-weight: 700;
+        }
+        .slide-right2:hover {
+            box-shadow: inset 400px 0 0 0 #ffffff;
+          }
+        .card-description-button:hover {
+            color: rgb(0, 0, 0);
+            border: 1px solid rgb(255, 255, 255);
+        }
     }
 }
 .card:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
-@media (min-width: 585px) {
-    .card {
-        width: clamp(180px, 40vw, 60vw);
-    }
-}
-@media (min-width: 700px) {
-    .card {
-        width: clamp(180px, 25vw, 60vw);
-    }
-}
-@media (min-width: 1480px) {
-    .card {
-        padding: 30px;
-    }
-}
+// @media (min-width: 585px) {
+//     .card {
+//         width: clamp(180px, 40vw, 60vw);
+//     }
+// }
+// @media (min-width: 700px) {
+//     .card {
+//         width: clamp(180px, 25vw, 60vw);
+//     }
+// }
+// @media (min-width: 1480px) {
+//     .card {
+//         padding: 30px;
+//     }
+// }
 
-
+@media only screen and (min-width: 1000px) and (max-width: 1300px) {
+    .card {
+        height: 300px;
+        width: clamp(180px, 45vw, 44vw);
+    }
+    .card .card-content {
+        width: 10vh;
+    }
+}
+// @media only screen and (min-width: 768px) and (max-width: 1135px) {
+//     .card {
+//         flex-direction: column;
+//     }
+// }
 
 
 // @use "/src/assets/styles/scss/mixins" as mixins;
