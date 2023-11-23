@@ -91,7 +91,7 @@
 
 // export default Students;
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getData } from "../../adapters/fetch";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
@@ -105,10 +105,9 @@ import {
     QUERY_FILTER_STUDENTS,
     QUERY_FILTER_STUDENTS_BY_A_TO_Z,
     QUERY_FILTER_STUDENTS_BY_Z_TO_A,
-    URL_FILTER_STUDENT_BY_NAME,
 } from "../../helpers/constants/endpoints";
 import { useDispatch, useSelector } from "react-redux";
-import students, {
+import {
     firstFetchedStudents,
     fetchMoreStudents,
     fetchingStudents,
@@ -117,6 +116,8 @@ import students, {
 import Loader from "../../components/Loader";
 
 function Students() {
+    const [statusScrollY, setStatusScrollY] = useState(0);
+
     // to read redux students state
     const { studentsState } = useSelector((store) => store);
 
@@ -140,6 +141,7 @@ function Students() {
         }
 
         if (data?.items?.length > 0) {
+            // console.log(data);
             await Promise.all(
                 data.items.map(async (student) => {
                     if (student?.imageUrl.length === 0) {
@@ -154,7 +156,8 @@ function Students() {
                         } catch (error) {
                             console.error(error.message);
                         } finally {
-                            if (student?.imageUrl.length === 0) {
+                            // console.log(student);
+                            if ( student && student?.imageUrl?.length === 0) {
                                 student.imageUrl =
                                     require("../../assets/images/default_person_img.svg").default;
                             }
@@ -200,11 +203,27 @@ function Students() {
         }
     }, [studentsState.students]);
 
+    useEffect(() => {
+        // console.log(statusScrollY);
+        setTimeout(() => {
+            window.scrollBy({
+                behavior: "smooth",
+                left: 0,
+                top: statusScrollY,
+            });
+        }, 0);
+    }, [statusScrollY, studentsState.students]);
+
+
     // on click load more btn
     const handleOnLoadMoreStudents = async (e) => {
+        e.preventDefault();
+
         if (studentsState.offset.length === 0) {
             return;
         }
+
+        setStatusScrollY(document.body.scrollTop || window.scrollY);
 
         await fetchData({
             url: `${URL_STUDENTS}?${

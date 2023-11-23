@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import "./index.scss";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
     LINK_OFFICIAL_MIGRACODE_WEBSITE,
     URL_POST_CONTACT,
@@ -57,6 +58,7 @@ function Student() {
     };
 
     fetchStudentData();
+    window.scrollTo(0, 0);
   }, []);
 
   const handleNavigateToContact = () => {
@@ -95,9 +97,18 @@ function Student() {
         e.target.elements.name.value = "";
         e.target.elements.email.value = "";
         e.target.elements.message.value = "";
-        // document.body.scrollBy({ behavior: "smooth", top: 0, left: 0 });
+        
+        setTimeout(() => {
+          window.scrollBy({
+              behavior: "smooth",
+              left: 0,
+              top: 0,
+          });
+        }, 0);
+        
         return;
     };
+    
     return (
     <div className="student">
       <div className="background-img">
