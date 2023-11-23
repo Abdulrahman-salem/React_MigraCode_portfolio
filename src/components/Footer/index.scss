@@ -5,15 +5,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: variables.$black;
-  border-top: 2px solid variables.$red;
-  height: 60px;
+  // background-color: variables.$black;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 37%, rgb(27 27 27) 100%);
+  // border-top: 2px solid variables.$red;
+  // height: 60px;
+  padding: 50px 50px;
 
   .logo_name {
     display: flex;
-    justify-content: flex-start;
+    // justify-content: flex-start;
     align-items: center;
-    margin-right: 30px;
+    // margin-right: 30px;
+    flex-direction: column;
+    gap: 20px;
 
     .name {
       @include mixins.jura-bold;
@@ -25,7 +29,7 @@
 
     .logo {
       margin: 0;
-      height: 50px;
+      height: 70px;
     }
   }
 
@@ -34,19 +38,19 @@ display: flex;
 justify-content: center;
 
       img {
-      height: 20px;
+      height: 25px;
       margin-right: 5px;
       }
 
     .link {
-      color: variables.$tiffany;
+      color: variables.$white;
       @include mixins.jura-bold;
       font-size: 16px;
       margin-right: 30px;
       text-decoration: none;
       display: flex;
-justify-content: flex-start;
-align-items: center;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     .nav .nav_link:hover {
