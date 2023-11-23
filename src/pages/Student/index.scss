@@ -103,7 +103,8 @@ body {
         flex-direction: column;
         gap: 20vh;
         align-items: center;
-        background-color: #000000f0;
+        // background-color: #000000f0;
+        background: linear-gradient(180deg, rgb(13 13 13) 0%, rgb(27, 27, 27) 100%);
 
         .skills {
             display: grid;

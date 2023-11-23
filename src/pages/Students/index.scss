@@ -9,9 +9,12 @@
 
     main {
         display: flex;
-        margin: 20px;
+        // margin: 20px;
         flex-direction: column;
         align-items: center;
+
+        background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(27 27 27) 100%);
+        padding: 0px 117px 39px;
         position: relative;
         flex-grow: 1;
     }

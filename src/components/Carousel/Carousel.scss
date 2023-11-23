@@ -1,0 +1,105 @@
+.description {
+    width: auto;
+    margin-right: 20px;
+
+  .dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 8px;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: #717171;
+  }
+
+  .arrow {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 24px;
+    margin: 0 10px;
+  }
+
+    .description_text {
+      display: flex;
+      flex-direction: row;
+      // background-color: black;
+      border-radius: 20px;
+      padding: 30px 30px 30px;
+      margin-top: 40px;
+      border: 1px solid;
+      justify-content: center;
+      align-items: center;
+      box-shadow: rgb(255 255 255) 0px 1px 0px 0px inset, rgb(255 255 255) 0px 0px 10px 0px inset;
+
+        .text {
+          margin-right: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+      img {
+        margin-left: 30px;
+        width: 30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        border-radius: 12px;
+        // margin-bottom: 50px;
+      }
+
+      p {
+        margin-bottom: 10px;
+        font-size: 24px;
+        @include mixins.jura;
+        text-align: center;
+      }
+      .home-description-button {
+        color: variables.$white;
+        background-color: transparent;
+        justify-content: center;
+        padding: 9px 40px;
+        display: inline-block;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 0 #ffffff;
+        transition: ease-out 0.4s;
+        letter-spacing: 2px;
+        border-radius: 20px;
+        border: 1px solid rgb(255, 255, 255);
+        text-decoration: none;
+        // margin: 20px 0px 0px;
+        width: 210px;
+        font-family: "Jura";
+        font-weight: 700;
+        margin: auto;
+    }
+    .slide-right2:hover {
+        box-shadow: inset 400px 0 0 0 #ffffff;
+      }
+    .home-description-button:hover {
+        color: rgb(0, 0, 0);
+        border: 1px solid rgb(255, 253, 253);
+    }
+    }
+
+    .description_image {
+
+      img {
+        margin-left: 30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
