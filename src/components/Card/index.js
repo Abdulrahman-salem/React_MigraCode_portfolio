@@ -36,14 +36,17 @@ function Card({ cardData }) {
           <h2 className="card-title">{fullName ? fullName : name}</h2>
         </button>
         <p className="card-description">
-          {group ? `Group: ${group}` : description}
-        </p>
-        <p className="card-description">
+          {/* {group ? `Group: ${group}` : description} */}
           {Languages ? `Languages: ${Languages}` : null}
         </p>
         <p className="card-description">
-          {skills ? `Skills: ${skills}` : null}
+          {/* {Languages ? `Languages: ${Languages}` : null} */}
+          {/* {skills ? `Skills: ${skills}` : null} */}
         </p>
+        <button className="card-description-button slide-right2">
+          {/* {skills ? `Skills: ${skills}` : null} */}
+          See More
+        </button>
         {/* <p className="card-description">
             {gitHub ? `GitHub:https://github.com/${gitHub}/` : null}
           </p> */}

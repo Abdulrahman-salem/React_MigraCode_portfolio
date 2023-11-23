@@ -4,7 +4,7 @@ import Cards from "../../components/Cards";
 import Footer from "../../components/Footer/Footer";
 import "./Home.scss";
 import group_photo from "../../assets/images/Screenshot_6.png";
-import lessthan from "../../assets/images/lessthan.svg"
+import lessthan from "../../assets/images/lessthan.svg";
 import greaterthan from "../../assets/images/greaterthan.svg";
 // import photo from "../../assets/images/group_photo.jpg";
 import {
@@ -14,7 +14,7 @@ import {
 } from "../../helpers/constants/endpoints";
 import {
   URL_STUDENTS,
-  QUERY_TO_FETCH_NEXT_PAGE_STUDENTS
+  QUERY_TO_FETCH_NEXT_PAGE_STUDENTS,
 } from "../../helpers/constants/endpoints";
 import { getData } from "../../adapters/fetch";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,8 +33,6 @@ import {
 import Loader from "../../components/Loader";
 import { resetProjectsState } from "../../redux/projects";
 import { Link } from "react-router-dom";
-
-
 
 function Home() {
   // to read redux projects state
@@ -57,9 +55,9 @@ function Home() {
     setShowDescription(true);
   };
 
-    const handleResetData = () => {
-      dispatch(resetProjectsState());
-    };
+  const handleResetData = () => {
+    dispatch(resetProjectsState());
+  };
 
   // to set redux state
   const dispatch = useDispatch();
@@ -128,18 +126,16 @@ function Home() {
     if (nextIndex < projectsState.projects.length) {
       setCurrentIndex(nextIndex);
     } else if (projectsState.nextPage) {
-        await fetchData({
-          url: `${URL_PROJECTS}?${
-            QUERY_TO_FETCH_NEXT_PAGE_PROJECTS + projectsState.nextPage
-          }`,
-          actionType: "FETCH_MORE_DATA",
-        });
-        
-      setCurrentIndex(nextIndex);
-      }
-    
-  };
+      await fetchData({
+        url: `${URL_PROJECTS}?${
+          QUERY_TO_FETCH_NEXT_PAGE_PROJECTS + projectsState.nextPage
+        }`,
+        actionType: "FETCH_MORE_DATA",
+      });
 
+      setCurrentIndex(nextIndex);
+    }
+  };
 
   const handleShowPreviousProjects = async (e) => {
     setCurrentIndex(currentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
@@ -198,9 +194,8 @@ function Home() {
   }, []);
 
   const handleShowNextStudents = async (e) => {
-    
-      console.log(studentsState, "click");
-    
+    console.log(studentsState, "click");
+
     let nextIndex = currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED;
     // check if data already exists for next page and display it
     if (nextIndex < studentsState.students.length) {
@@ -216,21 +211,16 @@ function Home() {
       setCurrentStudentIndex(nextIndex);
     }
   };
-    const handleShowPreviousStudents = async (e) => {
-      setCurrentStudentIndex(
-        currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED
-      );
-    };
-
-
-
+  const handleShowPreviousStudents = async (e) => {
+    setCurrentStudentIndex(currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
+  };
 
   return (
     <div className="home">
       <NavBar />
-      <h1 className="main_title">MigraCode Portfolio</h1>
       <div className="main">
         <div className="description">
+          <h1 className="main_title">MigraCode Portfolio</h1>
           <div>
             {showDescription ? (
               <div className="description_text">
@@ -245,7 +235,9 @@ function Home() {
                     students to foster both labor integration as well as social
                     inclusion.
                   </p>
-                  <button className="button">See more</button>
+                  <button className="home-description-button slide-right2">
+                    See more
+                  </button>
                 </div>
                 <img src={group_photo} alt="group_photo" />
               </div>
@@ -262,7 +254,9 @@ function Home() {
                     portfolio. Below you can find some project examples made by
                     MigraCode students.
                   </p>
-                  <button className="button">See more</button>
+                  <button className="home-description-button slide-right2">
+                    See more
+                  </button>
                 </div>
                 <img src={group_photo} alt="group_photo" />
               </div>
