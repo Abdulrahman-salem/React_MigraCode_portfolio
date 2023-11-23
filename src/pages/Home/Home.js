@@ -33,27 +33,11 @@ import {
 import Loader from "../../components/Loader";
 import { resetProjectsState } from "../../redux/projects";
 import { Link } from "react-router-dom";
+import Carousel from "../../components/Carousel/Carousel";
 
 function Home() {
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
-  const [showDescription, setShowDescription] = useState(true);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setShowDescription((prev) => !prev);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleNextSlide = () => {
-    setShowDescription(false);
-  };
-
-  const handlePrevSlide = () => {
-    setShowDescription(true);
-  };
 
   const handleResetData = () => {
     dispatch(resetProjectsState());
@@ -66,6 +50,7 @@ function Home() {
   const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
 
   async function fetchData(fetchRequirement) {
+    console.log("fetchData");
     // queryFilterData to load more filtered data
     const { url, actionType = `` } = fetchRequirement;
     // fetchingProjects starting fetching projects // loader
@@ -154,64 +139,60 @@ function Home() {
     try {
       data = await getData(url);
       // data = await getData('https://jsonplaceholder.typicode.com/photos/' + 25500);
-  } catch (error) {
+    } catch (error) {
       console.log(error.message);
-  }
+    }
 
-  if (data?.items?.length > 0) {
+    if (data?.items?.length > 0) {
       await Promise.all(
-          data.items.map(async (student) => {
-              if (student?.imageUrl.length === 0) {
-                  try {
-                      // 1) fetch image link
-                      const githubResponse = await getData(
-                          `https://api.github.com/users/${student.gitHub}`
-                      );
+        data.items.map(async (student) => {
+          if (student?.imageUrl.length === 0) {
+            try {
+              // 1) fetch image link
+              const githubResponse = await getData(
+                `https://api.github.com/users/${student.gitHub}`
+              );
 
-                      // set image
-                      student.imageUrl = githubResponse.avatar_url;
-                  } catch (error) {
-                      console.error(error.message);
-                  } finally {
-                      if (student?.imageUrl.length === 0) {
-                          student.imageUrl =
-                              require("../../assets/images/default_person_img.svg").default;
-                      }
-                  }
+              // set image
+              student.imageUrl = githubResponse.avatar_url;
+            } catch (error) {
+              console.error(error.message);
+            } finally {
+              if (student?.imageUrl?.length === 0) {
+                student.imageUrl =
+                  require("../../assets/images/default_person_img.svg").default;
               }
-          })
+            }
+          }
+        })
       );
 
       // console.log(data);
 
       if (actionType === `FIRST_FETCH_DATA`) {
-          // firstFetchedStudents to set first fetched students (need help on the data structure)
-          dispatch(
-              firstFetchedStudents({
-                  students: [...data.items],
-                  offset: data.offset ? data.offset.toString() : "",
-                  queryFilterData,
-              })
-          );
+        // firstFetchedStudents to set first fetched students (need help on the data structure)
+        dispatch(
+          firstFetchedStudents({
+            students: [...data.items],
+            offset: data.offset ? data.offset.toString() : "",
+            queryFilterData,
+          })
+        );
       } else if (actionType === `FETCH_MORE_DATA`) {
-          // fetchMoreStudents to set more fetched students
-          dispatch(
-              fetchMoreStudents({
-                  students: [...data.items],
-                  offset: data.offset ? data.offset.toString() : "",
-              })
-          );
+        // fetchMoreStudents to set more fetched students
+        dispatch(
+          fetchMoreStudents({
+            students: [...data.items],
+            offset: data.offset ? data.offset.toString() : "",
+          })
+        );
       } else {
-          throw new Error(
-              `The actionType ${actionType} is not supported`
-          );
+        throw new Error(`The actionType ${actionType} is not supported`);
       }
-  }
+    }
 
     // try {
     //   data = await getData(url);
-
-
 
     //   if (data) {
     //     console.log(data, "students");
@@ -280,74 +261,11 @@ function Home() {
   return (
     <div className="home">
       <NavBar />
+      <h1 className="main_title">MigraCode Portfolio</h1>
       <div className="main">
-        <div className="description">
-          <h1 className="main_title">MigraCode Portfolio</h1>
-          <div>
-            {showDescription ? (
-              <div className="description_text">
-                <div className="text">
-                  <h1 className="title">Our mission</h1>
-                  <p>
-                    Migracode acts as a bridge between the demand for skilled
-                    people in the tech sector and people with a migration
-                    background who are eager to work in the tech industry.
-                    Founded in 2019, we are cooperating with other code schools
-                    in Europe to build a large community of companies and
-                    students to foster both labor integration as well as social
-                    inclusion.
-                  </p>
-                  <button className="home-description-button slide-right2">
-                    See more
-                  </button>
-                </div>
-                <img src={group_photo} alt="group_photo" />
-              </div>
-            ) : (
-              <div className="description_text">
-                <div className="text">
-                  <h1 className="title">About us</h1>
-                  <p>
-                    In the last 2 months of every MigraCode course, students
-                    work in groups on a final project in which they combine all
-                    the knowledge they have gained during the first 6 months of
-                    learning through our program. Besides that, we often also
-                    offer side-projects to gain experience and build their
-                    portfolio. Below you can find some project examples made by
-                    MigraCode students.
-                  </p>
-                  <button className="home-description-button slide-right2">
-                    See more
-                  </button>
-                </div>
-                <img src={group_photo} alt="group_photo" />
-              </div>
-            )}
-
-            <div className="dots">
-              <span
-                className={`dot ${showDescription ? "active" : ""}`}
-                onClick={handlePrevSlide}
-              ></span>
-              <span
-                className={`dot ${!showDescription ? "active" : ""}`}
-                onClick={handleNextSlide}
-              ></span>
-            </div>
-
-            <div className="arrows">
-              <span className="arrow" onClick={handlePrevSlide}>
-                &#8249;
-              </span>
-              <span className="arrow" onClick={handleNextSlide}>
-                &#8250;
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {console.log(projectsState)}
+        <Carousel />
         <div className="project_student">
+          {/* {console.log(projectsState)} */}
           {projectsState.projects?.length > 0 && (
             <div className="projects_home">
               <Link className="title" to="/projects" onClick={handleResetData}>
