@@ -2,6 +2,9 @@ import React, { useState, useContext } from "react";
 import { JwtContext } from "../JwtContext";
 import LoginAccount from "../LoginAccount/LoginAccount";
 import "./index.scss";
+import { URL_LOGIN } from "../../helpers/constants/endpoints";
+
+
 
 const LoginButton = ({ onLogin = undefined }) => {
   const [clicked, setClicked] = useState(false);
@@ -15,7 +18,7 @@ const LoginButton = ({ onLogin = undefined }) => {
     handleButtonClicked(false);
     try {
       // Make a request to the login API
-      const response = await fetch("http://localhost:3001/login", {
+      const response = await fetch(URL_LOGIN, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
