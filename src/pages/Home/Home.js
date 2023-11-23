@@ -146,7 +146,9 @@ function Home() {
     if (data?.items?.length > 0) {
       await Promise.all(
         data.items.map(async (student) => {
-          if (student?.imageUrl?.length === 0) {
+          if (student &&
+            (student?.imageUrl?.length === 0 ||
+                student?.imageUrl === undefined)) {
             try {
               // 1) fetch image link
               const githubResponse = await getData(
@@ -158,7 +160,9 @@ function Home() {
             } catch (error) {
               console.error(error.message);
             } finally {
-              if (student?.imageUrl.length === 0) {
+              if (student &&
+                (student?.imageUrl?.length === 0 ||
+                    student?.imageUrl === undefined)) {
                 student.imageUrl =
                   require("../../assets/images/default_person_img.svg").default;
               }

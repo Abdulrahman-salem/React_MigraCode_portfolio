@@ -144,7 +144,11 @@ function Students() {
             // console.log(data);
             await Promise.all(
                 data.items.map(async (student) => {
-                    if (student?.imageUrl.length === 0) {
+                    if (
+                        student &&
+                        (student?.imageUrl?.length === 0 ||
+                            student?.imageUrl === undefined)
+                    ) {
                         try {
                             // 1) fetch image link
                             const githubResponse = await getData(
@@ -157,7 +161,11 @@ function Students() {
                             console.error(error.message);
                         } finally {
                             // console.log(student);
-                            if ( student && student?.imageUrl?.length === 0) {
+                            if (
+                                student &&
+                                (student?.imageUrl?.length === 0 ||
+                                    student?.imageUrl === undefined)
+                            ) {
                                 student.imageUrl =
                                     require("../../assets/images/default_person_img.svg").default;
                             }
@@ -213,7 +221,6 @@ function Students() {
             });
         }, 0);
     }, [statusScrollY, studentsState.students]);
-
 
     // on click load more btn
     const handleOnLoadMoreStudents = async (e) => {
