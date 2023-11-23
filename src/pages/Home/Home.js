@@ -146,7 +146,7 @@ function Home() {
     if (data?.items?.length > 0) {
       await Promise.all(
         data.items.map(async (student) => {
-          if (student?.imageUrl.length === 0) {
+          if (student?.imageUrl?.length === 0) {
             try {
               // 1) fetch image link
               const githubResponse = await getData(
