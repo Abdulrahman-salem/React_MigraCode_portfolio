@@ -248,8 +248,8 @@ function Home() {
     // } catch (error) {
     //   console.log(error.message);
     // }
-    // // endFoFetchingStudents end of fetching students // loader
-    // dispatch(endFoFetchingStudents());
+    // endFoFetchingStudents end of fetching students // loader
+    dispatch(endFoFetchingStudents());
   }
 
   // first load fetch
