@@ -1,17 +1,24 @@
-import React, {useState} from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/images/MigraCode-16.png";
 import "./index.scss";
 import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
 import { resetProjectsState } from "../../redux/projects";
 import { useDispatch } from "react-redux";
-
+import { resetStudentsState } from "../../redux/students";
+import { JwtContext } from "../JwtContext";
 
 const Navbar = () => {
+  const { currentUserJwt } = useContext(JwtContext);
+
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleResetData = () => {
+  const handleResetStudentsData = () => {
+    dispatch(resetStudentsState());
+  };
+
+  const handleResetProjectsData = () => {
     dispatch(resetProjectsState());
   };
 
@@ -39,13 +46,17 @@ const Navbar = () => {
           to="/projects"
           className="nav-link"
           onClick={() => {
-            handleResetData();
+            handleResetProjectsData();
             toggleMobileMenu();
           }}
         >
           Projects
         </Link>
-        <Link to="/students" className="nav-link" onClick={handleResetData}>
+        <Link
+          to="/students"
+          className="nav-link"
+          onClick={handleResetStudentsData}
+        >
           Students & Graduates
         </Link>
         <a
@@ -66,10 +77,9 @@ const Navbar = () => {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-        <LoginButton />
+      {/* <LoginButton /> */}
     </nav>
   );
 };
 
 export default Navbar;
-

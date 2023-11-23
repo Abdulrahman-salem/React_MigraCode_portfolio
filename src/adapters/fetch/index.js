@@ -2,6 +2,9 @@ const urlAndOptionsToFetchData = async (url, options) => {
     try {
         const response = await fetch(url, options);
         if (response.ok) {
+            if (options.method === "DELETE") {
+                return response;
+            }
             return await response.json();
         }
         return response;
@@ -14,9 +17,10 @@ export const getData = async (url) => {
     return urlAndOptionsToFetchData(url, { method: "GET" });
 };
 
-export const deleteData = async (url) => {
+export const deleteData = async (url, headers) => {
     return urlAndOptionsToFetchData(url, {
         method: "DELETE",
+        headers,
     });
 };
 
@@ -30,12 +34,10 @@ export const updateData = async (url, bodyData) => {
     });
 };
 
-export const postData = async (url, bodyData) => {
+export const postData = async (url, headers, bodyData) => {
     return urlAndOptionsToFetchData(url, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify(bodyData),
     });
 };

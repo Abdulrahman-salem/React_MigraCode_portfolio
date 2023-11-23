@@ -41,22 +41,6 @@ function LoginAccount(props) {
 
   return (
     <div className="signup--infomation modal__form">
-      {/* <div className="mb-3">
-        <label htmlFor="inputUserName" className="form-label">
-          User's Name*
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="inputUserName"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        {errors.username && (
-          <div style={{ color: "red" }}>{errors.username}</div>
-        )}
-      </div> */}
-
       <div className="mb-3">
         <label htmlFor="inputEmail" className="form-label">
           Email address*
@@ -70,9 +54,6 @@ function LoginAccount(props) {
           onChange={(e) => setEmail(e.target.value)}
         />
         {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
-        <div id="emailHelp" className="form-text">
-          We'll never share your email with anyone else.
-        </div>
       </div>
       <div className="mb-3" id="password">
         <label htmlFor="inputPassword" className="form-label">

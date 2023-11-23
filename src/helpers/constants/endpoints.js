@@ -1,3 +1,6 @@
+//portfolio
+export const URL_PORTFOLIO = "http://localhost:3001/student";
+
 // students
 export const URL_STUDENTS = "http://localhost:3001/students";
 export const QUERY_TO_FETCH_NEXT_PAGE_STUDENTS = `offset=`;
@@ -15,7 +18,11 @@ export const QUERY_FILTER_PROJECTS_BY_A_TO_Z = `a-z`;
 export const QUERY_FILTER_PROJECTS_BY_Z_TO_A = `z-a`;
 export const QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST = `date-a-z`;
 export const QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST = `date-z-a`;
+export const URL_NEW_PROJECT = "http://localhost:3001/projects";
 
 // Official MigraCode website
 export const LINK_OFFICIAL_MIGRACODE_WEBSITE =
   "https://migracode.openculturalcenter.org/";
+
+// contact
+export const URL_POST_CONTACT = "http://localhost:3001/contact";

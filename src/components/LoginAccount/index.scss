@@ -73,9 +73,15 @@ code {
 }
 
 .btn-send {
-  padding: 1rem;
+  padding: 0.5rem;
   width: 8rem;
   align-self: center;
   font-size: 1.6rem;
   border-radius: 10px;
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-send:hover {
+  filter: brightness(80%);
 }
