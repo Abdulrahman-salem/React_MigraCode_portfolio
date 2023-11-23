@@ -1,14 +1,30 @@
+@use "/src/assets/styles/scss/mixins" as mixins;
+@use "/src/assets/styles/scss/variables" as variables;
+
 .students {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    overflow: auto;
 
     main {
         display: flex;
         margin: 20px;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        flex-grow: 1;
+    }
+    .onDataMessage {
+        display: grid;
+        width: 25%;
+        min-height: 15vh;
+        place-items: center;
+        align-self: center;
+        @include mixins.jura-bold;
+        border-radius: 10px;
+        box-shadow: inset 0 0 20px red, 0 0 20px 5px black;
+        color: black;
     }
 }
 

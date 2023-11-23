@@ -306,7 +306,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 import React, { useEffect, useRef, useState } from "react";
-import { getData } from "../../adapters/fetch";
+import { getData, postData } from "../../adapters/fetch";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
 import Cards from "../../components/Cards";
@@ -320,6 +320,7 @@ import {
     QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST,
     QUERY_FILTER_PROJECTS_BY_Z_TO_A,
     QUERY_TO_FETCH_NEXT_PAGE_PROJECTS,
+    URL_NEW_PROJECT,
     URL_PROJECTS,
 } from "../../helpers/constants/endpoints";
 
@@ -338,6 +339,8 @@ import FormNewProject from "../../components/FormNewProject";
 function Projects() {
     const addMoreCardBtnRef = useRef(null);
     const [openAddMoreCardButton, setOpenAddMoreCardButton] = useState(false);
+    const [statusScrollY, setStatusScrollY] = useState(0);
+
 
     // to read redux projects state
     const { projectsState } = useSelector((store) => store);
@@ -403,23 +406,29 @@ function Projects() {
         }
     }, [projectsState.projects]);
 
+    useEffect(() => {
+        console.log(statusScrollY);
+        setTimeout(() => {
+            window.scrollTo(0, statusScrollY);
+        }, 500);
+    }, [statusScrollY]);
+
     // on click load more btn
     const handleOnLoadMoreProjects = async (e) => {
-
-        const scroll = window.scrollY;
-
-        console.log("click", projectsState);
+        e.preventDefault();
+        // console.log("click", projectsState);
 
         if (projectsState.nextPage.length === 0) {
             return;
         }
+        setStatusScrollY(document.body.scrollTop || window.scrollY);
+
         await fetchData({
             url: `${URL_PROJECTS}?${
                 QUERY_TO_FETCH_NEXT_PAGE_PROJECTS + projectsState.nextPage
             }&${projectsState.queryFilterData}`,
             actionType: "FETCH_MORE_DATA",
         });
-        window.scrollTo({ behavior: "auto" }, scroll);
     };
 
     // on click one of the filter options btn
@@ -483,85 +492,85 @@ function Projects() {
         setOpenAddMoreCardButton(!openAddMoreCardButton);
     };
 
-    const onSubmitForm = (submittingOptions) => {
-        const { isSubmitted } = submittingOptions;
+    const onSubmitForm = async (submittingOptions) => {
+        const { isSubmitted, formData } = submittingOptions;
+
         setOpenAddMoreCardButton(!isSubmitted);
+
+        try {
+            const data = await postData(URL_NEW_PROJECT, formData);
+
+            if (data) {
+                console.log(data);
+
+                alert(data.message);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        // console.log(formData);
         return;
     };
     return (
-        <div className="projects">
-            <header>
-                <NavBar />
-            </header>
-            <main>
-                <section className="AddCardContainer" ref={addMoreCardBtnRef}>
-                    <AddMoreCardButton onClick={handleClickAddMoreCard} />
+      <div className="projects">
+        <header>
+          <NavBar />
+        </header>
+        <main>
+          {console.log(projectsState)}
+          <section className="AddCardContainer" ref={addMoreCardBtnRef}>
+            <AddMoreCardButton onClick={handleClickAddMoreCard} />
 
-                    {openAddMoreCardButton && (
-                        <ContainerFormAddMoreCard>
-                            <button
-                                className="closeFormNewProject"
-                                onClick={() => {
-                                    setOpenAddMoreCardButton(
-                                        !openAddMoreCardButton
-                                    );
-                                }}
-                            >
-                                X
-                            </button>
-                            <FormNewProject onSubmitForm={onSubmitForm} />
-                        </ContainerFormAddMoreCard>
-                    )}
-                </section>
+            {openAddMoreCardButton && (
+              <ContainerFormAddMoreCard>
+                <button
+                  className="closeFormNewProject"
+                  onClick={() => {
+                    setOpenAddMoreCardButton(!openAddMoreCardButton);
+                  }}
+                >
+                  X
+                </button>
+                <FormNewProject onSubmitForm={onSubmitForm} />
+              </ContainerFormAddMoreCard>
+            )}
+          </section>
 
-                {!projectsState.isFetching &&
-                    projectsState.projects?.length > 0 && (
-                        <>
-                            <Filter>
-                                <button
-                                    value={"a-z"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    A - Z
-                                </button>
-                                <button
-                                    value={"z-a"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Z - A
-                                </button>
-                                <button
-                                    value={"date-a-z"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Oldest - Newest
-                                </button>
-                                <button
-                                    value={"date-z-a"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Newest - Oldest
-                                </button>
-                            </Filter>
+          {!projectsState.isFetching && projectsState.projects?.length > 0 && (
+            <>
+              <Filter>
+                <button value={"a-z"} onClick={handleOnClickFilterOption}>
+                  A - Z
+                </button>
+                <button value={"z-a"} onClick={handleOnClickFilterOption}>
+                  Z - A
+                </button>
+                <button value={"date-a-z"} onClick={handleOnClickFilterOption}>
+                  Oldest - Newest
+                </button>
+                <button value={"date-z-a"} onClick={handleOnClickFilterOption}>
+                  Newest - Oldest
+                </button>
+              </Filter>
 
-                            <Cards
-                                allData={projectsState.projects}
-                                onClickGoTo={"/project"}
-                            />
-                            <LoadMoreButton
-                                showLoadMore={projectsState.nextPage}
-                                onClick={handleOnLoadMoreProjects}
-                            />
-                        </>
-                    )}
-            {!projectsState.isFetching &&
-                projectsState.projects?.length === 0 && (
-                    <p className="onDataMessage">There is no Projects</p>
-                )}
-            </main>
-            {projectsState.isFetching && <Loader />}
-            <Footer />
-        </div>
+              <Cards
+                allData={projectsState.projects}
+                onClickGoTo={"/project"}
+              />
+              <LoadMoreButton
+                showLoadMore={projectsState.nextPage}
+                onClick={handleOnLoadMoreProjects}
+              />
+            </>
+          )}
+          {!projectsState.isFetching &&
+            projectsState.projects?.length === 0 && (
+              <p className="onDataMessage">There is no Projects</p>
+            )}
+        </main>
+        {projectsState.isFetching && <Loader />}
+        <Footer />
+      </div>
     );
 }
 export default Projects;
