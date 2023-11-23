@@ -1,27 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { JwtContext } from "../JwtContext";
 import LoginAccount from "../LoginAccount/LoginAccount";
 import "./index.scss";
 
-const LoginButton = () => {
+const LoginButton = ({ onLogin = undefined }) => {
   const [clicked, setClicked] = useState(false);
   const handleButtonClicked = (value = true) => {
     setClicked(value);
   };
 
-  const cookie = document.cookie
-    .split(";")
-    .find((cookie) => cookie.trim().startsWith("login=")); // replace with logic for checking login cookie
-  const initialJwt = cookie ? "replace me with cookie value" : null;
-
-  const [jwt, setJwt] = useState(initialJwt);
-
-  // get cookie
+  const { currentUserJwt, setCurrentUserJwt } = useContext(JwtContext);
 
   const handleLogin = async (email, password) => {
     handleButtonClicked(false);
     try {
       // Make a request to the login API
-      const response = await fetch("http://localhost:3150/login", {
+      const response = await fetch("http://localhost:3001/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,16 +26,18 @@ const LoginButton = () => {
         throw new Error("Login failed");
       }
 
-      // Assuming the API returns a JSON object with a 'jwt' field
+      // Assuming the API returns a JSON object with a 'currentUserJwt' field
       const data = await response.json();
-      const jwt = data.token;
+      const currentUserJwt = data.token;
 
       // Save the JWT to a cookie (You can use a library like js-cookie)
       // Also, consider adding additional security measures for storing tokens.
-      document.cookie = `login=${jwt}; path=/`;
+      document.cookie = `login=${currentUserJwt}; path=/`;
 
       // Update the state to trigger a re-render or use the token as needed
-      setJwt(jwt);
+      setCurrentUserJwt(currentUserJwt);
+
+      onLogin();
 
       // Optionally, close the modal or perform other actions
     } catch (error) {
@@ -50,17 +46,21 @@ const LoginButton = () => {
     }
   };
 
-  const modalClass = clicked ? "modal" : "modal hidden";
+  const handleLogout = async () => {
+    setCurrentUserJwt(null);
+    document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  };
 
+  const modalClass = clicked ? "modal" : "modal hidden";
   const overlayClass = clicked ? "overlay" : "'overlay hidden";
 
   return (
     <div className="login">
       <button
         className="btn--show-modal"
-        onClick={jwt ? undefined : handleButtonClicked}
+        onClick={currentUserJwt ? handleLogout : handleButtonClicked}
       >
-        {jwt ? "Logged in" : "Log in"}
+        {currentUserJwt ? "Logout" : "Log in"}
       </button>
 
       <div className={modalClass}>

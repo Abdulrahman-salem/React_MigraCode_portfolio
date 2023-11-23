@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { getData, postData } from "../../adapters/fetch";
 import NavBar from "../../components/NavBar/NavBar";
 import "./index.scss";
@@ -6,23 +6,24 @@ import Cards from "../../components/Cards";
 import Filter from "../../components/Filter";
 import LoadMoreButton from "../../components/LoadMoreButton";
 import Footer from "../../components/Footer/Footer";
+import { JwtContext } from "../../components/JwtContext";
 import {
-    QUERY_FILTER_PROJECTS,
-    QUERY_FILTER_PROJECTS_BY_A_TO_Z,
-    QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST,
-    QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST,
-    QUERY_FILTER_PROJECTS_BY_Z_TO_A,
-    QUERY_TO_FETCH_NEXT_PAGE_PROJECTS,
-    URL_NEW_PROJECT,
-    URL_PROJECTS,
+  QUERY_FILTER_PROJECTS,
+  QUERY_FILTER_PROJECTS_BY_A_TO_Z,
+  QUERY_FILTER_PROJECTS_BY_NEWEST_TO_OLDEST,
+  QUERY_FILTER_PROJECTS_BY_OLDEST_TO_NEWEST,
+  QUERY_FILTER_PROJECTS_BY_Z_TO_A,
+  QUERY_TO_FETCH_NEXT_PAGE_PROJECTS,
+  URL_NEW_PROJECT,
+  URL_PROJECTS,
 } from "../../helpers/constants/endpoints";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
-    firstFetchedProjects,
-    fetchMoreProjects,
-    fetchingProjects,
-    endFoFetchingProjects,
+  firstFetchedProjects,
+  fetchMoreProjects,
+  fetchingProjects,
+  endFoFetchingProjects,
 } from "../../redux/projects";
 import Loader from "../../components/Loader";
 import AddMoreCardButton from "../../components/AddMoreCardButton";
@@ -30,22 +31,25 @@ import ContainerFormAddMoreCard from "../../components/ContainerFormAddMoreCard"
 import FormNewProject from "../../components/FormNewProject";
 
 function Projects() {
-    const addMoreCardBtnRef = useRef(null);
-    const [openAddMoreCardButton, setOpenAddMoreCardButton] = useState(false);
-    const [statusScrollY, setStatusScrollY] = useState(0);
+  const addMoreCardBtnRef = useRef(null);
+  const [openAddMoreCardButton, setOpenAddMoreCardButton] = useState(false);
+  const [statusScrollY, setStatusScrollY] = useState(0);
 
-    // const { logInState } = useSelector((store) => store);
+  // const { logInState } = useSelector((store) => store);
 
-    // useEffect(() => {
-    //     console.log(logInState.isLoggedIn);
-    // }, [logInState.isLoggedIn]);
+  // useEffect(() => {
+  //     console.log(logInState.isLoggedIn);
+  // }, [logInState.isLoggedIn]);
 
-    // to read redux projects state
-    const { projectsState } = useSelector((store) => store);
+  // to read redux projects state
+  const { projectsState } = useSelector((store) => store);
 
-    // to set redux state
-    const dispatch = useDispatch();
-    // console.log(projectsState);
+  // to set redux state
+  const dispatch = useDispatch();
+  // console.log(projectsState);
+
+  const { currentUserJwt } = useContext(JwtContext);
+  console.log(`Hi I am projects page and jwt is ${currentUserJwt}`);
 
     async function fetchData(fetchRequirement) {
         // queryFilterData to load more filtered data
@@ -312,3 +316,4 @@ function Projects() {
     );
 }
 export default Projects;
+
