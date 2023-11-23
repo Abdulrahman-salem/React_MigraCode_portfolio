@@ -27,8 +27,26 @@ function Student() {
     countryOfBirth,
     // id,
     skills = [],
+    selectedCourse,
+    gender,
+    Languages,
   } = state;
 
+  //  id: record.id,
+  //               createdTime: record.createdTime,
+  //               fullName: record.fields["Full name"],
+  //               countryOfBirth: record.fields["Country of Birth"],
+  //               email: record.fields["Email address"],
+  //               Languages: record.fields["Language(s)"],
+  //               gender: record.fields.Gender,
+  //               gitHub: record.fields["GitHub handle"],
+  //               imageUrl: ``,
+  //               group: record.fields.Group,
+  //               LinkedIn: record.fields.LinkedIn ? record.fields.LinkedIn : "",
+  //               skills: record.fields.Skills,
+  //               selectedCourse: record.fields["Selected course"],
+  //               comment: record.fields.Comment,
+  //               courseCertificate: record.fields["Course certificate"],
   // const projects = [
   //   {
   //     project_image_link:
@@ -167,7 +185,13 @@ function Student() {
                 I'm <span>{fullName}</span>.
               </p>
               <p className="second-p">
-                Based in {countryOfBirth}
+                Gender: {gender}
+                <br />
+                Country of birth: {countryOfBirth}
+                <br />
+                Email: {email}
+                <br />
+                Language: {Languages}
                 <br />
                 Migracode comment: {comment}
               </p>

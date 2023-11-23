@@ -260,54 +260,41 @@ function Projects() {
                 </section>
                 )}
 
-                {!projectsState.isFetching &&
-                    projectsState.projects?.length > 0 && (
-                        <>
-                            <Filter>
-                                <button
-                                    value={"a-z"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    A - Z
-                                </button>
-                                <button
-                                    value={"z-a"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Z - A
-                                </button>
-                                <button
-                                    value={"date-a-z"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Oldest - Newest
-                                </button>
-                                <button
-                                    value={"date-z-a"}
-                                    onClick={handleOnClickFilterOption}
-                                >
-                                    Newest - Oldest
-                                </button>
-                            </Filter>
+          {!projectsState.isFetching && projectsState.projects?.length > 0 && (
+            <>
+              <Filter>
+                <button value={"a-z"} onClick={handleOnClickFilterOption}>
+                  A - Z
+                </button>
+                <button value={"z-a"} onClick={handleOnClickFilterOption}>
+                  Z - A
+                </button>
+                <button value={"date-a-z"} onClick={handleOnClickFilterOption}>
+                  Oldest - Newest
+                </button>
+                <button value={"date-z-a"} onClick={handleOnClickFilterOption}>
+                  Newest - Oldest
+                </button>
+              </Filter>
 
-                            <Cards
-                                allData={projectsState.projects}
-                                onClickGoTo={"/project"}
-                            />
-                            <LoadMoreButton
-                                showLoadMore={projectsState.nextPage}
-                                onClick={handleOnLoadMoreProjects}
-                            />
-                        </>
-                    )}
-                {!projectsState.isFetching &&
-                    projectsState.projects?.length === 0 && (
-                        <p className="onDataMessage">There is no Projects</p>
-                    )}
-            </main>
-            {projectsState.isFetching && <Loader />}
-            <Footer />
-        </div>
+              <Cards
+                allData={projectsState.projects}
+                onClickGoTo={"/project"}
+              />
+              <LoadMoreButton
+                showLoadMore={projectsState.nextPage}
+                onClick={handleOnLoadMoreProjects}
+              />
+            </>
+          )}
+          {!projectsState.isFetching &&
+            projectsState.projects?.length === 0 && (
+              <p className="onDataMessage">There is no Projects</p>
+            )}
+        </main>
+        {projectsState.isFetching && <Loader />}
+        <Footer />
+      </div>
     );
 }
 export default Projects;
