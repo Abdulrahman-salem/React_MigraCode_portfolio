@@ -31,6 +31,8 @@
 
   .nav {
     position: absolute;
+    display: flex;
+    align-items: centers;
     right: 2rem;
 
     .nav-link {
@@ -39,6 +41,7 @@
       font-size: 20px;
       margin-right: 20px;
       text-decoration: none;
+      padding: 0.4rem;
 
       &:hover {
         color: variables.$tiffany;
@@ -120,6 +123,12 @@
       }
     }
   }
+}
+
+.btn-logout {
+  font-size: 1rem;
+  padding: 0.4rem;
+  border-radius: 15px;
 }
 
 //Modal
