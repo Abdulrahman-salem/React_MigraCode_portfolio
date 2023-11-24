@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import group_photo from "../../assets/images/Screenshot_6.png";
+import group_photo from "../../assets/images/Screenshot_31.png";
 import group_photo1 from "../../assets/images/Screenshot_11.png";
+import group_photo2 from "../../assets/images/IMG-20231123-WA0006.jpg";
 
 const Carousel = () => {
   const [showDescription, setShowDescription] = useState(true);
