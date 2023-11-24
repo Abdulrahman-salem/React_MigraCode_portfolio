@@ -40,12 +40,18 @@ function Card({ cardData }) {
           {/* {group ? `Group: ${group}` : description} */}
           {Languages ? `Languages: ${Languages}` : null}
         </p>
-        <p className="card-description">
-          {/* {Languages ? `Languages: ${Languages}` : null} */}
-          {skills ? `Skills: ${skills}` : null}
-        </p>
+        {skills?.length > 0 ? (
+                    <p className="card-description">
+                        Skills:
+                        {skills.map((skill, index) => (
+                            <span key={index}>
+                                {index === 0 ? " " + skill : ", " + skill}
+                            </span>
+                        ))}
+                    </p>
+                ) : null}
+
         <button className="card-description-button slide-right2">
-          {/* {skills ? `Skills: ${skills}` : null} */}
           See More
         </button>
         {/* <p className="card-description">

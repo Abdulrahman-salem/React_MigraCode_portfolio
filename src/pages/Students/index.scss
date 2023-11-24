@@ -20,16 +20,19 @@
   }
   .onDataMessage {
     display: grid;
-    width: 25%;
+    min-width: 25%;
     min-height: 15vh;
     place-items: center;
     align-self: center;
     @include mixins.jura-bold;
     border-radius: 10px;
-    box-shadow:
-      inset 0 0 20px red,
-      0 0 20px 5px black;
-    color: black;
+    box-shadow: inset 0 0 13px red, 0 0 20px 5px black;
+    color: white;
+    font-size: clamp(18px, 3vw, 50px);
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0 60px;
+    background: black;
   }
 }
 
