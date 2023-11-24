@@ -14,7 +14,7 @@
     align-items: center;
 
     background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(27 27 27) 100%);
-    padding: 0px 117px 39px;
+    padding: 0px 70px 39px;
     position: relative;
     flex-grow: 1;
   }
@@ -31,4 +31,17 @@
       0 0 20px 5px black;
     color: black;
   }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1170px) {
+    .students main {
+        padding: 0px 0px 39px;
+    }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 768px) {
+    .students main {
+        padding: 0px 0px 39px;
+    }
 }

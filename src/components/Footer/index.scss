@@ -36,17 +36,16 @@
   .follow {
 display: flex;
 justify-content: center;
+gap: 17px;
 
       img {
       height: 25px;
-      margin-right: 5px;
       }
 
     .link {
       color: variables.$white;
       @include mixins.jura-bold;
       font-size: 16px;
-      margin-right: 30px;
       text-decoration: none;
       display: flex;
       justify-content: flex-start;
@@ -94,7 +93,7 @@ justify-content: center;
 }
 .follow{
           .link {
-    margin-right: 10px;
+    // margin-right: 10px;
 
     .text_link{
       display: none;
@@ -118,7 +117,7 @@ justify-content: center;
 
 .follow{
           .link {
-    margin-right: 10px;
+    // margin-right: 10px;
 
     .text_link{
       display: none;
