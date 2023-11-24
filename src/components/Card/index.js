@@ -41,7 +41,7 @@ function Card({ cardData }) {
         </p>
         <p className="card-description">
           {/* {Languages ? `Languages: ${Languages}` : null} */}
-          {/* {skills ? `Skills: ${skills}` : null} */}
+          {skills ? `Skills: ${skills}` : null}
         </p>
         <button className="card-description-button slide-right2">
           {/* {skills ? `Skills: ${skills}` : null} */}

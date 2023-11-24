@@ -65,7 +65,7 @@
                 inline-size: fit-content;
                 flex: 1 1 0;
 
-                font-size: 25px;
+                font-size: 20px;
             }
             // & .card-title:hover {
             //     cursor: pointer;
@@ -82,6 +82,7 @@
             text-overflow: ellipsis;
             text-align: center;
             padding-bottom: 20px;
+            font-size: 17px;
         }
         // & .card-description:hover {
         //     cursor: default;
@@ -117,136 +118,107 @@
     cursor: pointer;
     transform: scale(1.05);
 }
-// @media (min-width: 585px) {
-//     .card {
-//         width: clamp(180px, 40vw, 60vw);
-//     }
-// }
-// @media (min-width: 700px) {
-//     .card {
-//         width: clamp(180px, 25vw, 60vw);
-//     }
-// }
-// @media (min-width: 1480px) {
-//     .card {
-//         padding: 30px;
-//     }
-// }
 
-@media only screen and (min-width: 1000px) and (max-width: 1300px) {
+
+@media only screen and (min-width: 768px) and (max-width: 1170px) {
     .card {
-        height: 300px;
-        width: clamp(180px, 45vw, 44vw);
+        width: clamp(180px, 30vw, 60vw);
     }
     .card .card-content {
-        width: 10vh;
+        
+    }
+    .card .card-content button .card-title {
+        font-size: 18px;
+    }
+    .card .card-content .card-description {
+        font-size: 14px;
+    }
+    .card .card-content .card-description-button {
+        padding: 9px 10px;
+        font-size: 13px;
+        width: 151px;
+        letter-spacing: 0px;
+    }
+    .navbar {
+        padding: 58px 30px;
+    }
+    .footer-allpages .follow {
+        gap: 10px;
+    }
+    .LoadMoreButton:hover button p {
+        font-size: 18px;
+    }
+    .filter {
+        padding-right: 35px;
     }
 }
-// @media only screen and (min-width: 768px) and (max-width: 1135px) {
-//     .card {
-//         flex-direction: column;
-//     }
-// }
 
 
-// @use "/src/assets/styles/scss/mixins" as mixins;
-// @use "/src/assets/styles/scss/variables" as variables;
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    .card {
+        width: clamp(195px, 41vw, 45vw);
+    }
+    .navbar {
+        padding: 41px 10px;
+    }
+    .card .card-content button .card-title {
+        font-size: 16px;
+    }
+    .card .card-content .card-description {
+        font-size: 13px;
+    }
+    .card .card-content .card-description-button {
+        font-size: 13px;
+        letter-spacing: 0px;
+        width: 145px;
+    }
+    .footer-allpages {
+        padding: 50px 10px;
+    }
+    .filter {
+        padding-right: 35px;
+    }
+    .footer-allpages {
+        padding: 50px 0px;
+        flex-direction: column;
+        gap: 45px;
+    }
+    .footer-allpages .logo_name .logo {
+        height: 50px;
+    }
+    .footer-allpages .follow .link {
+        margin-right: 0px;
+    }
+    .footer-allpages .follow img {
+        margin-right: 0px;
+    }
+}
 
-// .card {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     background: variables.$black;
-//     overflow: hidden;
-//     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-//     border-radius: 20px;
-//     width: clamp(180px, 690vw, 60vw);
-//     transition: all 0.5s;
-//     justify-content: space-between;
-
-//     & .base-img {
-//         max-width: 370px;
-//         border-radius: 20px;
-//         object-fit: cover;
-//         aspect-ratio: 1/1;
-//         height: clamp(200px, 12vw, 40vw);
-//     }
-
-//     & .card-image {
-//         width: 100%;
-//         aspect-ratio: 3/4;
-//         height: 200px;
-//     }
-
-//     & .default-img {
-//         aspect-ratio: 1/1;
-//     }
-
-//     & .card-content {
-//         display: flex;
-//         flex-direction: column;
-//         padding: 20px;
-//         align-items: center;
-//         justify-content: space-around;
-//         flex-grow: 1;
-
-//         & button {
-//             background: transparent;
-//             width: 100%;
-//             border: none;
-//             display: flex;
-//             flex: 1 1 0;
-//             cursor: pointer;
-
-//             & .card-title {
-//                 color: variables.$tiffany;
-//                 @include mixins.jura-bold;
-//                 transition: all 0.5s;
-//                 width: max-content;
-//                 padding-bottom: 12px;
-//                 inline-size: fit-content;
-//                 flex: 1 1 0;
-//             }
-
-//             // & .card-title:hover {
-//             //     cursor: pointer;
-//             //     transform: scale(1.2);
-//             // }
-//         }
-
-//         & .card-description {
-//             color: variables.$white;
-//             @include mixins.jura;
-
-//             display: -webkit-box;
-//             -webkit-line-clamp: 4;
-//             -webkit-box-orient: vertical;
-//             overflow: hidden;
-//             text-overflow: ellipsis;
-//             text-align: center;
-//         }
-
-//         // & .card-description:hover {
-//         //     cursor: default;
-//         // }
-//     }
-// }
-// .card:hover {
-//     cursor: pointer;
-//     transform: scale(1.05);
-// }
-// @media (min-width: 585px) {
-//     .card {
-//         width: clamp(180px, 40vw, 60vw);
-//     }
-// }
-// @media (min-width: 700px) {
-//     .card {
-//         width: clamp(180px, 25vw, 60vw);
-//     }
-// }
-// @media (min-width: 1480px) {
-//     .card {
-//         padding: 30px;
-//     }
-// }
+@media only screen and (min-width: 280px) and (max-width: 426px) {
+    .card {
+        width: clamp(265px, 80vw, 80vw);
+    }
+    .navbar {
+        padding: 35px 0px;
+    }
+    .footer-allpages {
+        padding: 50px 0px;
+        flex-direction: column;
+        gap: 45px;
+    }
+    .footer-allpages .logo_name .logo {
+        height: 50px;
+    }
+    .footer-allpages .follow .link {
+        margin-right: 0px;
+    }
+    .footer-allpages .follow img {
+        margin-right: 0px;
+    }
+    .card .card-content .card-description-button {
+        width: 170px;
+    }
+    .filter {
+        padding-right: 35px;
+    }
+}
