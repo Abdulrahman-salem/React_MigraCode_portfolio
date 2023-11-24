@@ -63,6 +63,8 @@ body {
                         font-size: 21px;
                         padding: 40px 0px;
                         font-family: 'Oswald', sans-serif;
+                        text-align: left;
+                        line-height: 2;
                     }
                     .contact-me-btn {
                         padding: 15px;
@@ -173,6 +175,7 @@ body {
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        min-height: 100dvh;
         .contact {
             display: flex;
             justify-content: space-between;

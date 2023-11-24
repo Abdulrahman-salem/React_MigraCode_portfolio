@@ -44,12 +44,10 @@ function Student() {
       try {
         // Make a fetch request to your API endpoint for projects data
         const projectsResponse = await fetch(`${URL_PORTFOLIO}/${fullName}`);
-        console.log(fullName);
         const projectsData = await projectsResponse.json();
 
         // Update the state with the fetched projects data
         setProjects(projectsData.projects);
-        console.log(projectsData.projects);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -173,39 +171,30 @@ function Student() {
                   Nice To Meet You! <br />
                   I'm <span>{fullName}</span>.
                 </p>
-                <p className="second-p">
-                  {gender?.length > 0 && <>Gender: {gender}</>}
+                <section className="second-p">
+                  {gender?.length > 0 && <p>Gender: {gender}</p>}
                   {countryOfBirth?.length > 0 && (
-                      <>
-                          <br />
+                      <p>
                           Country of birth: {countryOfBirth}
-                      </>
+                      </p>
                   )}
                   {currentLocation?.length > 0 && (
-                      <>
-                          <br />
+                      <p>
                           Current location: {currentLocation}
-                      </>
-                  )}
-                  {email?.length > 0 && (
-                      <>
-                          <br />
-                          Email: {email}
-                      </>
+                      </p>
                   )}
                   {Languages?.length > 0 && (
-                      <>
-                          <br />
+                    <p>
                           Language: {Languages}
-                      </>
+                      </p>
                   )}
-                  {comment?.length > 0 && (
-                      <>
-                          <br />
-                          Migracode comment: {comment}
-                      </>
+                  {email?.length > 0 && (
+                      <p>
+                          Email: {email}
+                      </p>
                   )}
-                </p>
+                  
+                </section>
                 <button
                   className="contact-me-btn"
                   onClick={handleNavigateToContact}
@@ -220,6 +209,12 @@ function Student() {
         </div>
 
         <main>
+        {comment?.length > 0 && (
+                      <section className="migracode_comment">
+                          {/* <br /> */}
+                          <h3>Migracode comment:</h3> <p>{comment}</p>
+                      </section>
+                  )}
           {skills?.length > 0 &&
           <section>
             <h3>Hard skills</h3> 
