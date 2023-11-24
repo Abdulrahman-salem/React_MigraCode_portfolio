@@ -4,9 +4,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(118deg, rgb(0 0 0) 0%, rgb(0, 0, 0) 50%, rgb(31 31 31) 100%);
+    background: linear-gradient(
+        118deg,
+        rgb(0 0 0) 0%,
+        rgb(0, 0, 0) 50%,
+        rgb(31 31 31) 100%
+    );
     overflow: hidden;
-    box-shadow: rgb(173 173 173) 20px -3px 22px -29px inset, rgba(0, 0, 0, 0.3) 0px 0px 1px 0px inset;
+    box-shadow:
+        rgb(173 173 173) 20px -3px 22px -29px inset,
+        rgba(0, 0, 0, 0.3) 0px 0px 1px 0px inset;
     border-radius: 20px;
     width: clamp(180px, 27vw, 60vw);
     transition: all 0.5s;
@@ -17,35 +24,45 @@
     // background-image: url(../../assets/images/greyBackground.jpg);
     background-size: 100% 100%;
     height: 100%;
-
-    & .base-img {
-        // max-width: 370px;
-        // border-radius: 20px;
+    
+    .image-container {
         object-fit: cover;
-        aspect-ratio: 1/1;
-        height: clamp(200px, 12vw, 40vw);
-    }
-    & .student-image {
-        // margin-left: auto;
-        // margin-right: auto;
         height: 100%;
         width: 100%;
-        filter: contrast(1.1) brightness(1);
-        // border-radius: 100px;
-    // margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .base-img {
+            // max-width: 370px;
+            // border-radius: 20px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            height: clamp(200px, 12vw, 40vw);
+        }
+        & .student-image {
+            // margin-left: auto;
+            // margin-right: auto;
+            height: 100%;
+            width: 100%;
+            filter: contrast(1.1) brightness(1);
+            // border-radius: 100px;
+            // margin-top: 20px;
+        }
+        & .card-image {
+            width: 100%;
+            aspect-ratio: 5/2;
+            height: 240px;
+        }
+        & .default-img {
+            aspect-ratio: 1/1;
+        }
     }
-    & .card-image {
-        width: 100%;
-        aspect-ratio: 5/2;
-        height: 240px;
-    }
-    & .default-img {
-        aspect-ratio: 1/1;
-    }
+
     & .card-content {
         display: flex;
         flex-direction: column;
-        padding:30px 10px;
+        padding: 30px 10px;
         align-items: center;
         justify-content: space-around;
         flex-grow: 1;
@@ -107,7 +124,7 @@
         }
         .slide-right2:hover {
             box-shadow: inset 400px 0 0 0 #ffffff;
-          }
+        }
         .card-description-button:hover {
             color: rgb(0, 0, 0);
             border: 1px solid rgb(255, 255, 255);
@@ -119,13 +136,11 @@
     transform: scale(1.05);
 }
 
-
 @media only screen and (min-width: 768px) and (max-width: 1170px) {
     .card {
         width: clamp(180px, 30vw, 60vw);
     }
     .card .card-content {
-        
     }
     .card .card-content button .card-title {
         font-size: 18px;
@@ -152,7 +167,6 @@
         padding-right: 35px;
     }
 }
-
 
 @media only screen and (min-width: 426px) and (max-width: 768px) {
     .card {
