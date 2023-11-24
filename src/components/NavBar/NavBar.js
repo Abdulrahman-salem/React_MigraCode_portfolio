@@ -9,7 +9,7 @@ import { resetStudentsState } from "../../redux/students";
 import { JwtContext } from "../JwtContext";
 
 const Navbar = () => {
-  const { currentUserJwt } = useContext(JwtContext);
+  const { currentUserJwt, setCurrentUserJwt } = useContext(JwtContext);
 
   const dispatch = useDispatch();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,6 +24,11 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = async () => {
+    setCurrentUserJwt(null);
+    document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
 
   return (
@@ -67,8 +72,12 @@ const Navbar = () => {
         >
           Official website
         </a>
-        {currentUserJwt?.length > 0 && <button> Logout </button>}
-        {/* currentUserJwt?.length > 0 && <LogoutButton /> */}
+        {currentUserJwt?.length > 0 && (
+          <button className="btn-logout" onClick={handleLogout}>
+            {" "}
+            Logout{" "}
+          </button>
+        )}
       </div>
 
       <div className="burger-icon" onClick={toggleMobileMenu}>
@@ -76,7 +85,6 @@ const Navbar = () => {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-      {/* <LoginButton /> */}
     </nav>
   );
 };
