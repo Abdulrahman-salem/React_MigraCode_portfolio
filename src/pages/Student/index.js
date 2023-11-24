@@ -33,10 +33,7 @@ function Student() {
     courseCertificate,
     gender,
     Languages,
-    courseCertificate,
     graduationDate,
-    topSkills,
-    currentLocation
   } = state;
 
   const [projects, setProjects] = useState([]);

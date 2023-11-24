@@ -69,14 +69,14 @@ const Carousel = () => {
           ></span>
         </div>
 
-        <div className="arrows">
+        {/* <div className="arrows">
           <span className="arrow" onClick={handlePrevSlide}>
             &#8249;
           </span>
           <span className="arrow" onClick={handleNextSlide}>
             &#8250;
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
