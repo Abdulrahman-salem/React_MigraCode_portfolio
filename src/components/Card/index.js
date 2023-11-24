@@ -1,4 +1,3 @@
-import { emptyTypeAnnotation } from "@babel/types";
 import "./index.scss";
 import { Link } from "react-router-dom";
 function Card({ cardData }) {
