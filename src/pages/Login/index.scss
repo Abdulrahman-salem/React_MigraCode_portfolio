@@ -3,9 +3,18 @@
 
 //Modal
 
+// body {
+.login-page {
+  background-color: white;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+// }
+
 .modal {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 60rem;
