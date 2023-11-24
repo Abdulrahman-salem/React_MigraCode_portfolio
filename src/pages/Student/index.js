@@ -16,7 +16,7 @@ function Student() {
 
   const { state } = useLocation();
   console.log(state);
-  // Languages, courseCertificate, gender, group, selectedCourse
+
   const {
     LinkedIn,
     gitHub,
@@ -25,36 +25,15 @@ function Student() {
     imageUrl,
     comment,
     countryOfBirth,
+    currentLocation,
     // id,
     skills = [],
+    topSkills = [],
     selectedCourse,
+    courseCertificate,
     gender,
     Languages,
   } = state;
-
-  //  id: record.id,
-  //               createdTime: record.createdTime,
-  //               fullName: record.fields["Full name"],
-  //               countryOfBirth: record.fields["Country of Birth"],
-  //               email: record.fields["Email address"],
-  //               Languages: record.fields["Language(s)"],
-  //               gender: record.fields.Gender,
-  //               gitHub: record.fields["GitHub handle"],
-  //               imageUrl: ``,
-  //               group: record.fields.Group,
-  //               LinkedIn: record.fields.LinkedIn ? record.fields.LinkedIn : "",
-  //               skills: record.fields.Skills,
-  //               selectedCourse: record.fields["Selected course"],
-  //               comment: record.fields.Comment,
-  //               courseCertificate: record.fields["Course certificate"],
-  // const projects = [
-  //   {
-  //     project_image_link:
-  //       "https://github.com/Abdulrahman-salem/React-app-Portfolio-MigraCode/blob/master/src/assets/images/Portfolio.png?raw=true",
-  //     name: "Migracode",
-  //     technologies_used: ["html", "js", "scss", "react"],
-  //   },
-  // ];
 
   const [projects, setProjects] = useState([]);
 
@@ -194,15 +173,37 @@ function Student() {
                   I'm <span>{fullName}</span>.
                 </p>
                 <p className="second-p">
-                  Gender: {gender}
-                  <br />
-                  Country of birth: {countryOfBirth}
-                  <br />
-                  Email: {email}
-                  <br />
-                  Language: {Languages}
-                  <br />
-                  Migracode comment: {comment}
+                  {gender?.length > 0 && <>Gender: {gender}</>}
+                  {countryOfBirth?.length > 0 && (
+                      <>
+                          <br />
+                          Country of birth: {countryOfBirth}
+                      </>
+                  )}
+                  {currentLocation?.length > 0 && (
+                      <>
+                          <br />
+                          Current location: {currentLocation}
+                      </>
+                  )}
+                  {email?.length > 0 && (
+                      <>
+                          <br />
+                          Email: {email}
+                      </>
+                  )}
+                  {Languages?.length > 0 && (
+                      <>
+                          <br />
+                          Language: {Languages}
+                      </>
+                  )}
+                  {comment?.length > 0 && (
+                      <>
+                          <br />
+                          Migracode comment: {comment}
+                      </>
+                  )}
                 </p>
                 <button
                   className="contact-me-btn"
@@ -218,16 +219,53 @@ function Student() {
         </div>
 
         <main>
-          <div className="skills">
-            {skills.map((skill, index) => (
-              <p className="languages" key={index}>
-                {skill}
-              </p>
-            ))}
-          </div>
+          {skills?.length > 0 &&
+          <section>
+            <h3>Hard skills</h3> 
+              <div className="skills">
+                {skills.map((skill, index) => (
+                  <p className="languages" key={index}>
+                    {skill}
+                  </p>
+                ))}
+              </div>
+          </section>
+          }
+
+          {topSkills?.length > 0 &&
+          <section>
+            <h3>soft skills</h3> 
+              <div className="skills">
+                {topSkills.map((skill, index) => (
+                  <p className="languages" key={index}>
+                    {skill}
+                  </p>
+                ))}
+              </div>
+          </section>
+          }
+
+          {courseCertificate &&
+            courseCertificate.map((certificate, index) => {
+                if (certificate?.thumbnails?.large?.url) {
+                    return (
+                        <section className="certificate-container">
+                            <img
+                                title="Certificate"
+                                src={
+                                    certificate?.thumbnails?.large?.url
+                                }
+                                alt=""
+                                key={index}
+                            ></img>
+                        </section>
+                    );
+                }
+                return null;
+            })}
 
           {projects && projects.length > 0 && (
-            <div className="projects">
+            <section className="projects">
               <p className="project-header">Projects</p>
               {projects.map((project, index) => (
                 <div className="project-main" key={index}>
@@ -252,7 +290,7 @@ function Student() {
                   )}
                 </div>
               ))}
-            </div>
+            </section>
           )}
         </main>
         <footer className="profile-footer">
