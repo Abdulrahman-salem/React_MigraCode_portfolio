@@ -30,6 +30,10 @@ function Student() {
     selectedCourse,
     gender,
     Languages,
+    courseCertificate,
+    graduationDate,
+    topSkills,
+    currentLocation
   } = state;
 
   //  id: record.id,
@@ -200,7 +204,11 @@ function Student() {
                   <br />
                   Email: {email}
                   <br />
-                  Language: {Languages}
+                  Language(s): {Languages}
+                  <br />
+                  Current location: {currentLocation}
+                  <br />
+                  Graduation Date: {graduationDate}
                   <br />
                   Migracode comment: {comment}
                 </p>
@@ -218,6 +226,7 @@ function Student() {
         </div>
 
         <main>
+          <h1>My skills</h1>
           <div className="skills">
             {skills.map((skill, index) => (
               <p className="languages" key={index}>
@@ -243,6 +252,7 @@ function Student() {
                   <Link>{project.repository_link}</Link>
                   {project.technologies_used && (
                     <div className="project-languages-container">
+                      {/* <p>Technologies used</p> */}
                       {project.technologies_used.map((technology, index) => (
                         <p className="project-languages" key={index}>
                           {technology}
@@ -254,6 +264,7 @@ function Student() {
               ))}
             </div>
           )}
+          {/* certificate: {courseCertificate.url} */}
         </main>
         <footer className="profile-footer">
           <div className="contact" ref={contactSection}>
