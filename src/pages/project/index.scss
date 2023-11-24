@@ -76,6 +76,8 @@
       flex: 1 1 0px;
       img {
         width: 100%;
+        aspect-ratio: 5/3;
+        object-fit: contain;
       }
       .completed-date {
         margin-top: 20px;
@@ -187,7 +189,7 @@
     transform: translateY(-100dvh);
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .project {
     main {
       flex-direction: column;

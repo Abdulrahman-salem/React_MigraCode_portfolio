@@ -81,10 +81,11 @@
       .description_text {
         display: flex;
         flex-direction: row;
-        // background-color: black;
         border-radius: 20px;
         padding: 30px 20px 30px 20px;
         margin-top: 20px;
+        border: 1px solid white;
+        box-shadow: rgb(255 255 255) 13px 17px 24px -26px inset, rgb(255 255 255 / 30%) 0px 18px 36px -18px inset;
 
         .text {
           margin-right: 50px;
@@ -110,7 +111,7 @@
           @include mixins.jura;
           text-align: center;
         }
-        .home-description-button {
+        .button {
           color: variables.$white;
           background-color: transparent;
           justify-content: center;
@@ -133,7 +134,7 @@
         .slide-right2:hover {
           box-shadow: inset 400px 0 0 0 #ffffff;
         }
-        .home-description-button:hover {
+        .button:hover {
           color: rgb(0, 0, 0);
           border: 1px solid rgb(255, 253, 253);
         }
@@ -183,7 +184,6 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 20px;
         }
       }
 
@@ -196,7 +196,6 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 20px;
         }
       }
     }
@@ -232,7 +231,7 @@
         margin: 10px;
 
         .card_buttons {
-          gap: 20px;
+          // gap: 20px;
 
           .cards {
             flex-wrap: wrap !important;
@@ -244,13 +243,13 @@
             .arrow_button {
               width: 40px;
               img {
-                width: 40px;
+                width: 30px;
               }
             }
           }
 
           .card {
-            width: clamp(180px, 60vw, 60vw);
+            width: clamp(253px, 88vw, 75vw);
           }
         }
       }
@@ -308,5 +307,49 @@
         }
       }
     }
+  }
+}
+@media only screen and (min-width: 426px) and (max-width: 1200px) {
+  .home .main .project_student .students_home {
+    gap: 10px;
+  }
+  .home .main .project_student .card_buttons {
+    gap: 10px;
+  }
+}
+
+
+
+@media only screen and (min-width: 280px) and (max-width: 1200px) {
+  .home .main .description .description_text .text {
+    margin-right: 0px;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .home .main .description .description_text p {
+    font-size: 19px;
+  }
+  .home .main_title {
+    margin-bottom: 0px;
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 426px) {
+  .home .main .description .description_text p {
+    font-size: 14px;
+  }
+  .home .main_title {
+    font-size: 23px;
+  }
+  .home .main .title {
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  .home .main .description .description_text .button {
+    font-size: 14px;
+    letter-spacing: 0px;
+    width: 172px;
   }
 }
