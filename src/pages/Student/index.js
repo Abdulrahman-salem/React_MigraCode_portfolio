@@ -33,6 +33,7 @@ function Student() {
     courseCertificate,
     gender,
     Languages,
+    graduationDate,
   } = state;
 
   const [projects, setProjects] = useState([]);
@@ -281,6 +282,7 @@ function Student() {
                   <Link>{project.repository_link}</Link>
                   {project.technologies_used && (
                     <div className="project-languages-container">
+                      {/* <p>Technologies used</p> */}
                       {project.technologies_used.map((technology, index) => (
                         <p className="project-languages" key={index}>
                           {technology}
@@ -292,6 +294,7 @@ function Student() {
               ))}
             </section>
           )}
+          {/* certificate: {courseCertificate.url} */}
         </main>
         <footer className="profile-footer">
           <div className="contact" ref={contactSection}>
