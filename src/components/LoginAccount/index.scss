@@ -85,3 +85,12 @@ code {
 .btn-send:hover {
   filter: brightness(80%);
 }
+
+@media only screen and (max-width: 1304px) {
+  .form-check {
+    margin: auto;
+  }
+  .btn-send {
+    margin-top: 2rem;
+  }
+}

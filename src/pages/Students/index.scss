@@ -2,29 +2,46 @@
 @use "/src/assets/styles/scss/variables" as variables;
 
 .students {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 
-    main {
-        display: flex;
-        margin: 20px;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        flex-grow: 1;
-    }
-    .onDataMessage {
-        display: grid;
-        width: 25%;
-        min-height: 15vh;
-        place-items: center;
-        align-self: center;
-        @include mixins.jura-bold;
-        border-radius: 10px;
-        box-shadow: inset 0 0 20px red, 0 0 20px 5px black;
-        color: black;
+  main {
+    display: flex;
+    // margin: 20px;
+    flex-direction: column;
+    align-items: center;
+
+    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(27 27 27) 100%);
+    padding: 0px 70px 39px;
+    position: relative;
+    flex-grow: 1;
+  }
+  .onDataMessage {
+    display: grid;
+    width: 25%;
+    min-height: 15vh;
+    place-items: center;
+    align-self: center;
+    @include mixins.jura-bold;
+    border-radius: 10px;
+    box-shadow:
+      inset 0 0 20px red,
+      0 0 20px 5px black;
+    color: black;
+  }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1170px) {
+    .students main {
+        padding: 0px 0px 39px;
     }
 }
 
+@media only screen and (min-width: 280px) and (max-width: 768px) {
+    .students main {
+        padding: 0px 0px 39px;
+    }
+}

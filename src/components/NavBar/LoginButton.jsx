@@ -4,8 +4,6 @@ import LoginAccount from "../LoginAccount/LoginAccount";
 import "./index.scss";
 import { URL_LOGIN } from "../../helpers/constants/endpoints";
 
-
-
 const LoginButton = ({ onLogin = undefined }) => {
   const [clicked, setClicked] = useState(false);
   const handleButtonClicked = (value = true) => {
@@ -60,7 +58,7 @@ const LoginButton = ({ onLogin = undefined }) => {
   return (
     <div className="login">
       <button
-        className="btn--show-modal"
+        className="btn--show-modal slide-right2"
         onClick={currentUserJwt ? handleLogout : handleButtonClicked}
       >
         {currentUserJwt ? "Logout" : "Log in"}

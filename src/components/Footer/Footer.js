@@ -9,8 +9,6 @@ import meetup from "../../assets/images/meetup-svgrepo-com (1).svg";
 import linkedIn from "../../assets/images/linkedin-rounded-border-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 
-
-
 const Footer = () => {
   return (
     <footer className="footer-allpages">
@@ -25,7 +23,7 @@ const Footer = () => {
             src="https://www.gitbook.com/cdn-cgi/image/width=256,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F666230843-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MRebciU3NcuLgsX3ijf%252Favatar-rectangle-1612180869136.png%3Fgeneration%3D1612180869680419%26alt%3Dmedia"
             alt="MigraCode Logo"
           />
-          <h1 className="name">2023 MigraCode, Inc.</h1>
+          {/* <h1 className="name">2023 MigraCode, Inc.</h1> */}
         </div>
       </Link>
 

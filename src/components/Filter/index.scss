@@ -13,20 +13,20 @@
         padding: 5px 20px;
         flex-direction: row;
         border: 1px solid black;
-        border-radius: 50px;
-        width: clamp(50px, 10rem, 50vw);
+        border-radius: 10px;
+        width: clamp(23px, 8.5rem, 50vw);
         cursor: pointer;
 
         & p {
             padding: 0 15px 0 0;
-            font-size: clamp(14px, 1.8vw, 40px);
+            font-size: clamp(23px, 1.8vw, 40px);
             @include mixins.jura-medium;
         }
 
         & img {
             width: 30px;
             border-radius: 50px;
-            background: black;
+            // background: black;
         }
     }
     & .filter-option {

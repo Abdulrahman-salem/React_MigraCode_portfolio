@@ -119,34 +119,57 @@ function Project() {
     if (!isFetching) {
       // setIsFetching to true to disable clicking on buttons until the fetch complete
       setIsFetching(true);
-      await getData(URL_FILTER_STUDENT_BY_NAME + e.target.textContent).then(
-        (data) => {
-          console.log(data);
-          // able to click on buttons
-          setIsFetching(false);
-          if (data.items.length > 0) {
-            data.items.forEach((student) => {
-              if (student.imageUrl.length === 0) {
-                student.imageUrl =
-                  require("../../assets/images/default_person_img.svg").default;
+      const data = await getData(URL_FILTER_STUDENT_BY_NAME + e.target.textContent)
+
+      if (data) {
+        console.log(data);
+        // able to click on buttons
+        setIsFetching(false);
+        if (data.items.length > 0) {
+          console.log(data.items);
+
+          // fetch image
+            if (
+              data.items[0] &&
+              (data.items[0]?.imageUrl?.length === 0 ||
+                data.items[0]?.imageUrl === undefined)
+          ) {
+            try {
+              // 1) fetch image link
+              const githubResponse = await getData(
+                  `https://api.github.com/users/${data.items[0]?.gitHub}`
+              );
+              // set image
+              data.items[0].imageUrl = githubResponse.avatar_url;
+            } catch (error) {
+              console.error(error.message);
+            } finally {
+              if (
+                data.items[0] &&
+                  (data.items[0]?.imageUrl?.length === 0 ||
+                    data.items[0]?.imageUrl === undefined)
+              ) {
+                data.items[0].imageUrl =
+                      require("../../assets/images/default_person_img.svg").default;
               }
-            });
-            navigate("/student", { state: data.items[0] });
-          } else {
-            //showing error for some seconds
+            }
+          }
+
+          navigate("/student", { state: data.items[0] });
+        } else {
+          //showing error for some seconds
+          setErrorMessage((prevState) => ({
+            ...prevState,
+            message: "The student is not found!",
+          }));
+          setTimeout(() => {
             setErrorMessage((prevState) => ({
               ...prevState,
-              message: "The student is not found!",
+              message: "",
             }));
-            setTimeout(() => {
-              setErrorMessage((prevState) => ({
-                ...prevState,
-                message: "",
-              }));
-            }, errorMessage.seconds);
-          }
+          }, errorMessage.seconds);
         }
-      );
+        }
     }
   };
 

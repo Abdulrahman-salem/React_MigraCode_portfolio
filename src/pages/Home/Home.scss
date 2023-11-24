@@ -14,9 +14,10 @@
 .home {
   background-image: url("https://img.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg");
   color: variables.$white;
-  background-size: 100% auto;
+  background-size: 100% 100%;
   height: auto;
   overflow-y: auto;
+  object-fit: cover;
 
   .main_title {
     margin-top: 30px;
@@ -51,43 +52,47 @@
       width: auto;
       margin-right: 20px;
 
-    .dots {
-      text-align: center;
-      margin-top: 10px;
-    }
+      .dots {
+        text-align: center;
+        margin-top: 10px;
+      }
 
-    .dot {
-      height: 15px;
-      width: 15px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 8px;
-      cursor: pointer;
-    }
+      .dot {
+        height: 15px;
+        width: 15px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 8px;
+        cursor: pointer;
+      }
 
-    .dot.active {
-      background-color: #717171;
-    }
+      .dot.active {
+        background-color: #717171;
+      }
 
-    .arrow {
-      cursor: pointer;
-      display: inline-block;
-      font-size: 24px;
-      margin: 0 10px;
-    }
+      .arrow {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 24px;
+        margin: 0 10px;
+      }
 
       .description_text {
         display: flex;
         flex-direction: row;
-        background-color: black;
         border-radius: 20px;
         padding: 30px 20px 30px 20px;
         margin-top: 20px;
+        border: 1px solid white;
+        box-shadow: rgb(255 255 255) 13px 17px 24px -26px inset, rgb(255 255 255 / 30%) 0px 18px 36px -18px inset;
 
-          .text {
-            margin-right: 50px;
-          }
+        .text {
+          margin-right: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
 
         img {
           margin-left: 30px;
@@ -96,6 +101,7 @@
           margin-left: auto;
           margin-right: auto;
           max-width: 100%;
+          border-radius: 12px;
           // margin-bottom: 50px;
         }
 
@@ -105,22 +111,36 @@
           @include mixins.jura;
           text-align: center;
         }
-
-        button {
-          display: block;
-          margin: 0 auto;
-          background-color: variables.$red;
-          border: 1px solid white;
+        .button {
           color: variables.$white;
-          border-radius: 15px;
-          padding: 10px;
+          background-color: transparent;
+          justify-content: center;
+          padding: 9px 40px;
+          display: inline-block;
           font-size: 15px;
-          @include mixins.jura-medium;
+          cursor: pointer;
+          box-shadow: inset 0 0 0 0 #ffffff;
+          transition: ease-out 0.4s;
+          letter-spacing: 2px;
+          border-radius: 20px;
+          border: 1px solid rgb(255, 255, 255);
+          text-decoration: none;
+          // margin: 20px 0px 0px;
+          width: 210px;
+          font-family: "Jura";
+          font-weight: 700;
+          margin: auto;
+        }
+        .slide-right2:hover {
+          box-shadow: inset 400px 0 0 0 #ffffff;
+        }
+        .button:hover {
+          color: rgb(0, 0, 0);
+          border: 1px solid rgb(255, 253, 253);
         }
       }
 
       .description_image {
-
         img {
           margin-left: 30px;
           display: block;
@@ -131,7 +151,6 @@
     }
 
     .project_student {
-
       .cards {
         flex-wrap: nowrap;
       }
@@ -141,16 +160,17 @@
 
         .arrow_button {
           width: 60px;
-          background: black;
+          background: rgba(0, 0, 0, 0);
           cursor: pointer;
           border-radius: 50%;
-          border: 1px solid black;
+          border: 1px solid rgba(0, 0, 0, 0);
           // box-shadow: 0px 0px 25px 8px black, 0 0 10px 0px #f50000,
 
           img {
             width: 60px;
             border-radius: 50%;
-            background: black;
+            // background: black;
+            height: 45px;
           }
         }
       }
@@ -159,12 +179,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-       
+
         .card_buttons {
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 20px;
         }
       }
 
@@ -177,118 +196,160 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 20px;
         }
       }
     }
   }
 
   @media only screen and (max-width: 700px) {
-    .main_title{
+    .main_title {
       font-size: 36px;
       margin-bottom: 0px;
     }
 
-  .main {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-
-    .title {
-      font-size: 24px;
-    }
-    .description {
+    .main {
+      display: flex;
       flex-direction: column;
-      text-align: center;
-      margin-left: 20px;
-      margin-right: 20px;
-      width: auto !important;
+      margin: 0;
 
-      .description_text img {
-        display: none;
+      .title {
+        font-size: 24px;
       }
-    }
+      .description {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto !important;
 
-    .project_student {
-      margin: 10px;
-
-      .card_buttons {
-        gap: 20px;
-
-        .cards {
-          flex-wrap: wrap !important;
+        .description_text img {
+          display: none;
         }
+      }
 
-        .navigation_button {
-          height: 40px;
-          width: 40px;
-          .arrow_button {
+      .project_student {
+        margin: 10px;
+
+        .card_buttons {
+          // gap: 20px;
+
+          .cards {
+            flex-wrap: wrap !important;
+          }
+
+          .navigation_button {
+            height: 40px;
             width: 40px;
-            img {
+            .arrow_button {
               width: 40px;
+              img {
+                width: 30px;
+              }
             }
           }
-        }
 
-        .card {
-          width: clamp(180px, 60vw, 60vw);
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: 701px) and (max-width: 1200px) {
-  .main_title {
-    margin-bottom: 0px;
-    font-size: 40px;
-  }
-
-  .main {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-
-    .title {
-      font-size: 30px;
-    }
-    .description {
-      flex-direction: column;
-      text-align: center;
-      margin-left: 20px;
-      margin-right: 20px;
-      width: auto !important;
-
-      .description_text img {
-        display: none;
-      }
-    }
-
-    .project_student {
-      margin: 10px;
-
-      .card_buttons {
-        gap: 0px;
-
-        .navigation_button {
-          height: 40px;
-          width: 40px;
-          .arrow_button {
-            width: 40px;
-            img {
-              width: 40px;
-            }
-          }
-        }
-        .cards {
-          flex-wrap: nowrap;
           .card {
-            width: clamp(180px, 40vw, 60vw);
+            width: clamp(253px, 88vw, 75vw);
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 701px) and (max-width: 1200px) {
+    .main_title {
+      margin-bottom: 0px;
+      font-size: 40px;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+
+      .title {
+        font-size: 30px;
+      }
+      .description {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto !important;
+
+        .description_text img {
+          display: none;
+        }
+      }
+
+      .project_student {
+        margin: 10px;
+
+        .card_buttons {
+          gap: 0px;
+
+          .navigation_button {
+            height: 40px;
+            width: 40px;
+            .arrow_button {
+              width: 40px;
+              img {
+                width: 40px;
+              }
+            }
+          }
+          .cards {
+            flex-wrap: nowrap;
+            .card {
+              width: clamp(180px, 40vw, 60vw);
+            }
           }
         }
       }
     }
   }
 }
+@media only screen and (min-width: 426px) and (max-width: 1200px) {
+  .home .main .project_student .students_home {
+    gap: 10px;
+  }
+  .home .main .project_student .card_buttons {
+    gap: 10px;
+  }
 }
 
+
+
+@media only screen and (min-width: 280px) and (max-width: 1200px) {
+  .home .main .description .description_text .text {
+    margin-right: 0px;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .home .main .description .description_text p {
+    font-size: 19px;
+  }
+  .home .main_title {
+    margin-bottom: 0px;
+    font-size: 35px;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 426px) {
+  .home .main .description .description_text p {
+    font-size: 14px;
+  }
+  .home .main_title {
+    font-size: 23px;
+  }
+  .home .main .title {
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  .home .main .description .description_text .button {
+    font-size: 14px;
+    letter-spacing: 0px;
+    width: 172px;
+  }
+}

@@ -12,8 +12,10 @@ export const QUERY_TO_FETCH_NEXT_PAGE_STUDENTS = `offset=`;
 export const QUERY_FILTER_STUDENTS = `filterBy`;
 export const QUERY_FILTER_STUDENTS_BY_A_TO_Z = `a-z`;
 export const QUERY_FILTER_STUDENTS_BY_Z_TO_A = `z-a`;
+// export const QUERY_FILTER_STUDENTS_BY_NEW_TO_OLD_GRADUATION_DATE = `newToOldGraduationDate`;
+// export const QUERY_FILTER_STUDENTS_BY_OLD_TO_NEW_GRADUATION_DATE = `oldToNewGraduationDate`;
 export const URL_FILTER_STUDENT_BY_NAME = `${URL_STUDENTS}?studentFullName=`;
-export const NUMBER_OF_PROJECTS_DISPLAYED = 3;
+export const NUMBER_OF_PROJECTS_DISPLAYED = 2;
 
 // projects
 export const URL_PROJECTS =
