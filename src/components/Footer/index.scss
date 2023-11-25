@@ -5,17 +5,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // background-color: variables.$black;
   background: linear-gradient(180deg, rgb(0, 0, 0) 37%, rgb(27 27 27) 100%);
-  // border-top: 2px solid variables.$red;
-  // height: 60px;
   padding: 50px 50px;
 
   .logo_name {
     display: flex;
-    // justify-content: flex-start;
     align-items: center;
-    // margin-right: 30px;
     flex-direction: column;
     gap: 20px;
 
@@ -91,7 +86,6 @@ gap: 17px;
 
 .follow{
           .link {
-    // margin-right: 10px;
 
     .text_link{
       display: none;
@@ -115,7 +109,6 @@ gap: 17px;
 
 .follow{
           .link {
-    // margin-right: 10px;
 
     .text_link{
       display: none;

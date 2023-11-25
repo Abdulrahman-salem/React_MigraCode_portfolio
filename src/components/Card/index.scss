@@ -1,5 +1,6 @@
 @use "/src/assets/styles/scss/mixins" as mixins;
 @use "/src/assets/styles/scss/variables" as variables;
+
 .card {
     display: flex;
     flex-direction: column;
@@ -18,13 +19,9 @@
     width: clamp(180px, 27vw, 60vw);
     transition: all 0.5s;
     justify-content: space-between;
-
-    // flex-direction: row;
-    // background-image: url(https://img5.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg);
-    // background-image: url(../../assets/images/greyBackground.jpg);
     background-size: 100% 100%;
     height: 100%;
-    
+
     .image-container {
         object-fit: cover;
         height: 100%;
@@ -34,20 +31,14 @@
         align-items: center;
 
         & .base-img {
-            // max-width: 370px;
-            // border-radius: 20px;
             object-fit: cover;
             aspect-ratio: 1/1;
             height: clamp(200px, 12vw, 40vw);
         }
         & .student-image {
-            // margin-left: auto;
-            // margin-right: auto;
             height: 100%;
             width: 100%;
             filter: contrast(1.1) brightness(1);
-            // border-radius: 100px;
-            // margin-top: 20px;
         }
         & .card-image {
             width: 100%;
@@ -84,10 +75,6 @@
 
                 font-size: 20px;
             }
-            // & .card-title:hover {
-            //     cursor: pointer;
-            //     transform: scale(1.2);
-            // }
         }
         & .card-description {
             color: variables.$white;
@@ -101,9 +88,6 @@
             padding-bottom: 20px;
             font-size: 17px;
         }
-        // & .card-description:hover {
-        //     cursor: default;
-        // }
         .card-description-button {
             color: variables.$white;
             justify-content: center;
@@ -117,7 +101,6 @@
             border-radius: 20px;
             border: 1px solid rgb(255 255 255);
             text-decoration: none;
-            // margin: 20px 0px 0px;
             width: 210px;
             font-family: "Jura";
             font-weight: 700;
@@ -139,8 +122,6 @@
 @media only screen and (min-width: 768px) and (max-width: 1170px) {
     .card {
         width: clamp(180px, 30vw, 60vw);
-    }
-    .card .card-content {
     }
     .card .card-content button .card-title {
         font-size: 18px;
