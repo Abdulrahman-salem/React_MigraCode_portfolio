@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import group_photo from "../../assets/images/Screenshot_31.png";
 import group_photo1 from "../../assets/images/Screenshot_11.png";
-import "./Carousel.scss"
+import "./Carousel.scss";
 
 const Carousel = ({ onClickSeeMore = () => {} }) => {
     const [showDescription, setShowDescription] = useState(true);
@@ -41,8 +41,8 @@ const Carousel = ({ onClickSeeMore = () => {} }) => {
                             <button
                                 className="button slide-right2"
                                 onClick={(e) => {
-                                  e.preventDefault();
-                                  onClickSeeMore(e);
+                                    e.preventDefault();
+                                    onClickSeeMore(e);
                                 }}
                             >
                                 See more
@@ -67,9 +67,9 @@ const Carousel = ({ onClickSeeMore = () => {} }) => {
                             <button
                                 className="button slide-right2"
                                 onClick={(e) => {
-                                  e.preventDefault();
-                                  onClickSeeMore(e);
-                              }}
+                                    e.preventDefault();
+                                    onClickSeeMore(e);
+                                }}
                             >
                                 See more
                             </button>
@@ -88,15 +88,6 @@ const Carousel = ({ onClickSeeMore = () => {} }) => {
                         onClick={handleNextSlide}
                     ></span>
                 </div>
-
-                {/* <div className="arrows">
-          <span className="arrow" onClick={handlePrevSlide}>
-            &#8249;
-          </span>
-          <span className="arrow" onClick={handleNextSlide}>
-            &#8250;
-          </span>
-        </div> */}
             </div>
         </div>
     );

@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
-import logo from "../../assets/images/MigraCode-16.png";
 import "./index.scss";
-import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
 import { resetProjectsState } from "../../redux/projects";
 import { useDispatch } from "react-redux";
@@ -39,7 +37,6 @@ const Navbar = () => {
             src="https://www.gitbook.com/cdn-cgi/image/width=256,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F666230843-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MRebciU3NcuLgsX3ijf%252Favatar-rectangle-1612180869136.png%3Fgeneration%3D1612180869680419%26alt%3Dmedia"
             alt="Logo"
           />
-          {/* <div className="header-name">MigraCode Portfolio</div> */}
         </Link>
       </div>
 

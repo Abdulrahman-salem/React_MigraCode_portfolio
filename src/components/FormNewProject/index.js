@@ -373,7 +373,7 @@ function FormNewProject({ onSubmitForm }) {
         };
         if (formState.projectImageLink) {
             console.log(formState.projectImageLink);
-            // checkImageValidity();
+            checkImageValidity();
             
             if (!isImgValid) {
                 return alert("Image is not valid");

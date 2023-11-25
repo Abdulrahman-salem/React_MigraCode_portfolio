@@ -43,7 +43,6 @@
         }
 
         p {
-            // padding: 3px 0;
             color: variables.$white;
             font-size: clamp(14px, 1.8vw, 40px);
             @include mixins.jura-bold;

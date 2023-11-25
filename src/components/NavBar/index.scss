@@ -75,7 +75,6 @@
     .btn--show-modal:hover {
       color: variables.$white;
       border: 1px solid rgb(255, 255, 255);
-      // background-color: rgb(84, 84, 84);
     }
   }
 
@@ -150,12 +149,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 60rem;
-  // background-color: #f3f3f3;
   padding: 2rem;
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: all 0.5s;
-  // background-image: url("./Login--background.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -168,12 +165,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 60rem;
-  // background-color: #f3f3f3;
   padding: 2rem;
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
   transition: all 0.5s;
-  // background-image: url("./Login--background.jpg");
   background-position: center;
   background-size: cover;
 }
