@@ -3,7 +3,6 @@ import "./index.scss";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import { useEffect } from "react";
-import { getData } from "../../adapters/fetch";
 
 function FormNewProject({ onSubmitForm }) {
     const animatedOptionsComponents = makeAnimated();
@@ -11,11 +10,6 @@ function FormNewProject({ onSubmitForm }) {
 
     // check img validation on submit
     const [isImgValid, setIsImgValid] = useState(false);
-
-    const [errorMessages, setErrorMessages] = useState({
-        projectImage: "",
-        product_presentation: "",
-    });
 
     const [inputsTeamNames, setInputsTeamNames] = useState([
         {
@@ -166,7 +160,6 @@ function FormNewProject({ onSubmitForm }) {
         inputsTeamNames,
         formState,
         inputsInstructorsNames,
-        errorMessages,
         inputsRepositoriesLinks,
         isImgValid,
     ]);

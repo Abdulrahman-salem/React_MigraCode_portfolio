@@ -1,8 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-
-// import { useDispatch, useSelector } from "react-redux";
 import "./index.scss";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
 import {
   LINK_OFFICIAL_MIGRACODE_WEBSITE,
@@ -260,7 +257,6 @@ function Student() {
                 <Link>{project.repository_link}</Link>
                 {project.technologies_used && (
                   <div className="project-languages-container">
-                    {/* <p>Technologies used</p> */}
                     {project.technologies_used.map((technology, index) => (
                       <p className="project-languages" key={index}>
                         {technology}
@@ -272,7 +268,6 @@ function Student() {
             ))}
           </section>
         )}
-        {/* certificate: {courseCertificate.url} */}
       </main>
       <footer className="profile-footer">
         <div className="contact" ref={contactSection}>
@@ -364,9 +359,3 @@ function Student() {
 }
 
 export default Student;
-
-// useEffect(() => {
-//     setAllData({
-//         students:
-//     });
-// }, []);

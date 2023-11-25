@@ -237,9 +237,6 @@ function Project() {
       </section>}
       <main>
         <section className="img-description-section1">
-          {/* <Link to={"/projects"}>
-                    <button>return back</button>
-                </Link> */}
                     {project_image_link && project_image_link?.length > 0 ? (
                         <img
                             className="project-image"
