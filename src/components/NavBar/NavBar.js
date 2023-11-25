@@ -73,7 +73,7 @@ const Navbar = () => {
           Official website
         </a>
         {currentUserJwt?.length > 0 && (
-          <button className="btn-logout" onClick={handleLogout}>
+          <button className="btn-logout slide-right2" onClick={handleLogout}>
             {" "}
             Logout{" "}
           </button>
