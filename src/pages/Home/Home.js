@@ -3,7 +3,6 @@ import NavBar from "../../components/NavBar/NavBar";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer/Footer";
 import "./Home.scss";
-import group_photo from "../../assets/images/Screenshot_6.png";
 import lessthan from "../../assets/images/lessthan.svg";
 import greaterthan from "../../assets/images/greaterthan.svg";
 // import photo from "../../assets/images/group_photo.jpg";

@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/images/MigraCode-16.png";
 import "./index.scss";
 import facebook from "../../assets/images/facebook-svgrepo-com.svg";
 import email from "../../assets/images/email-1-svgrepo-com.svg";

@@ -37,14 +37,12 @@ function Projects() {
 
   // token
   const { currentUserJwt } = useContext(JwtContext);
-//   console.log(`Hi I am projects page and jwt is ${currentUserJwt}`);
 
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
 
   // to set redux state
   const dispatch = useDispatch();
-  // console.log(projectsState);
 
     async function fetchData(fetchRequirement) {
         // queryFilterData to load more filtered data
@@ -117,7 +115,6 @@ function Projects() {
     // on click load more btn
     const handleOnLoadMoreProjects = async (e) => {
         e.preventDefault();
-        // console.log("click", projectsState);
 
         if (projectsState.nextPage.length === 0) {
             return;
@@ -230,7 +227,6 @@ function Projects() {
         } catch (error) {
             console.log(error);
         }
-        // console.log(formData);
         return;
     };
     return (

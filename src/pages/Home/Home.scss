@@ -5,12 +5,6 @@
   display: none;
 }
 
-// body,
-// html {
-//   height: 100%;
-//   overflow-y: auto;
-// }
-
 .home {
   background-image: url("https://img.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg");
   color: variables.$white;
@@ -26,7 +20,6 @@
     font-family: "Jura";
     font-weight: 700;
     text-align: center;
-    // margin-bottom: 20px;
     font-size: 40px;
     text-decoration: none;
   }
@@ -103,7 +96,6 @@
           margin-right: auto;
           max-width: 100%;
           border-radius: 12px;
-          // margin-bottom: 50px;
         }
 
         p {
@@ -126,7 +118,6 @@
           border-radius: 20px;
           border: 1px solid rgb(255, 255, 255);
           text-decoration: none;
-          // margin: 20px 0px 0px;
           width: 210px;
           font-family: "Jura";
           font-weight: 700;
@@ -165,12 +156,10 @@
           cursor: pointer;
           border-radius: 50%;
           border: 1px solid rgba(0, 0, 0, 0);
-          // box-shadow: 0px 0px 25px 8px black, 0 0 10px 0px #f50000,
 
           img {
             width: 60px;
             border-radius: 50%;
-            // background: black;
             height: 45px;
           }
         }
@@ -232,8 +221,6 @@
         margin: 10px;
 
         .card_buttons {
-          // gap: 20px;
-
           .cards {
             flex-wrap: wrap !important;
           }
