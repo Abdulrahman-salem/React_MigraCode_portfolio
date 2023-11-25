@@ -201,6 +201,7 @@ function Students() {
             default:
                 break;
         }
+        setStatusScrollY(0)
         return;
     };
 
