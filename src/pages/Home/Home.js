@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer/Footer";
@@ -36,6 +36,8 @@ import { Link } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 
 function Home() {
+  const RefScrollToProjects = useRef();
+
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
 
@@ -229,16 +231,21 @@ function Home() {
     setCurrentStudentIndex(currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
   };
 
+  const handleOnClickSeeMore =  (e) => {
+    e.preventDefault();
+    RefScrollToProjects.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="home">
       <NavBar />
       <h1 className="main_title">MigraCode Portfolio</h1>
       <div className="main">
-        <Carousel />
+        <Carousel onClickSeeMore={handleOnClickSeeMore}/>
         <div className="project_student">
           {/* {console.log(projectsState)} */}
           {projectsState.projects?.length > 0 && (
-            <div className="projects_home">
+            <div className="projects_home" ref={RefScrollToProjects} >
               <Link className="title" to="/projects" onClick={handleResetData}>
                 Projects made with love
               </Link>

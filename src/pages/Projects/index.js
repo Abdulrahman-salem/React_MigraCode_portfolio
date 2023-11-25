@@ -186,6 +186,7 @@ function Projects() {
             default:
                 break;
         }
+        setStatusScrollY(0)
         return;
     };
 
