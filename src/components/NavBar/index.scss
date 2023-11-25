@@ -129,10 +129,17 @@
   font-size: 1rem;
   padding: 0.4rem;
   border-radius: 15px;
+  box-shadow: inset 0 0 0 0 #15d4be;
+  transition: ease-out 0.4s;
+  cursor: pointer;
 }
 
 .btn-logout:hover {
-  background-color: #15d4be;
+  color: black;
+}
+
+.slide-right2:hover {
+  box-shadow: inset 400px 0 0 0 #15d4be;
 }
 
 //Modal

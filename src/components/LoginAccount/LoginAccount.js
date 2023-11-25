@@ -52,6 +52,11 @@ function LoginAccount(props) {
           aria-describedby="emailHelp"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              return handleSubmit(event);
+            }
+          }}
         />
         {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
       </div>
@@ -65,6 +70,11 @@ function LoginAccount(props) {
           id="inputPassword1"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              return handleSubmit(event);
+            }
+          }}
         />
         {errors.password && (
           <div style={{ color: "red" }}>{errors.password}</div>

@@ -5,7 +5,7 @@ body {
     .background-img {
         display: flex;
         flex-direction: column;
-        padding: 3rem 8rem 11rem;
+        padding: 3rem 8rem 7rem;
         background-image: url(https://img5.goodfon.com/wallpaper/nbig/9/7d/ios-13-grey-dark-background.jpg);
         background-size: 100% 100%;
         gap: 3em;
@@ -49,7 +49,7 @@ body {
                 .section2 {
                     padding: 100px 25px 0px;
                     .main-p {
-                        font-size: 70px;
+                        font-size: 50px;
                         line-height: 1;
                         letter-spacing: 2px;
                         color: white;
@@ -60,11 +60,11 @@ body {
                         }
                     }
                     .second-p {
-                        font-size: 21px;
+                        font-size: 20px;
                         padding: 40px 0px;
                         font-family: 'Oswald', sans-serif;
                         text-align: left;
-                        line-height: 2;
+                        line-height: 1.2;
                     }
                     .contact-me-btn {
                         padding: 15px;
@@ -108,6 +108,18 @@ body {
         // background-color: #000000f0;
         background: linear-gradient(180deg, rgb(13 13 13) 0%, rgb(27, 27, 27) 100%);
 
+        .migracode_comment {
+            text-align: center;
+            font-size: 20px;
+        }
+        .hard-soft-skills-p {
+            font-size: 30px;
+            padding-bottom: 35px;
+            display: flex;
+            justify-content: center;
+            font-family: "Oswald", sans-serif;
+        }
+
         .skills {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -118,10 +130,21 @@ body {
             row-gap: 40px;
             border-top: 4px solid #02f1d1;
             border-bottom: 4px solid #02f1d1;
-            gap: 100px;
+            row-gap: 40px;
+            column-gap: 100px;
             .languages {
                 font-size: 45px;
             }
+        }
+        .certificate-container {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+        }
+        .certificate {
+            object-fit: cover;
+            width: 550px;
+            border-radius: 25px;
         }
         .projects {
             display: grid;
@@ -143,7 +166,7 @@ body {
                     gap: 20px;
                 }
                 .project-img {
-                    width: 90%;
+                    width: 100%;
                     /* height: 65%; */
                 }
                 .project-name {
@@ -258,13 +281,13 @@ body {
 
 @media only screen and (min-width: 1045px) and (max-width: 1333px) {
     .student .background-img header .main-header .section2 .main-p {
-        font-size: 54px;
+        font-size: 40px;
     }
     .student .background-img {
-        padding: 3rem 6rem 11rem;
+        padding: 3rem 6rem 7rem;
     }
     .student .background-img header .main-header .section2 .second-p {
-        font-size: 18px;
+        font-size: 17spx;
     }
 
     .student .profile-footer {
@@ -291,6 +314,7 @@ body {
     }
     .student .background-img header .main-header .section2 .second-p {
         padding: 60px 0px 40px;
+        text-align: center;
     }
 
     .student main {
@@ -300,7 +324,7 @@ body {
         padding: 80px 0px;
     }
     .student .background-img header .main-header .section2 .main-p {
-        font-size: 60px;
+        font-size: 40px;
     }
     .student .background-img header .main-header .profile-img {
         width: 43%;
@@ -327,13 +351,16 @@ body {
 
 @media only screen and (min-width: 200px) and (max-width: 910px) {
     .student .background-img header .main-header .section2 .main-p {
-        font-size: 50px;
+        font-size: 35px;
+    }
+    .student .background-img header .main-header .profile-img {
+        width: 38%;
     }
     .student .background-img header .main-header .section2 .second-p {
         font-size: 16px;
     }
     .student .background-img {
-        padding: 3rem 2rem 11rem;
+        padding: 3rem 2rem 7rem;
     }
     .student .background-img header .main-header {
         flex-direction: column-reverse;
@@ -379,28 +406,34 @@ body {
     .student .profile-footer .contact .container .contact-box form .send-btn {
         margin-left: 160px;
     }
+    .student .background-img header .main-header .section2 .second-p {
+        text-align: center;
+    }
 }
 
 // -----------------------------------------------------
 
-@media only screen and (min-width: 425px) and (max-width: 768px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
     .student .background-img header .main-header .profile-img {
-        width: 55%;
+        width: 50%;
     }
     .student .background-img header .section1 {
         padding: 12px 15px 50px;
     }
     .student .background-img {
-        padding: 3rem 0rem 11rem;
+        padding: 3rem 0rem 7rem;
     }
     .student .background-img header .main-header .section2 .main-p {
-        font-size: 38px;
+        font-size: 30px;
+    }
+    .student main .projects .project-header {
+        padding-left: 10px;
     }
 }
 
 // ---------------------------------------------------------
 
-@media only screen and (min-width: 200px) and (max-width: 425px) {
+@media only screen and (min-width: 200px) and (max-width: 426px) {
     .student .background-img header .section1 {
         flex-direction: column;
         align-items: center;
@@ -410,7 +443,7 @@ body {
         width: 70%;
     }
     .student .background-img {
-        padding: 3rem 0rem 11rem;
+        padding: 3rem 0rem 7rem;
     }
     .student .background-img header .main-header .section2 .main-p {
         font-size: 26px;
@@ -444,6 +477,15 @@ body {
         align-items: center;
         gap: 20px;
     }
+    .projects-description {
+        font-size: 13px;
+    }
+    .student main .projects .project-main {
+        padding: 0px;
+    }
+    .student main {
+        padding: 130px 10px 20px;
+    }
 }
 
 // -----------------------------------------------------
@@ -452,6 +494,24 @@ body {
         grid-template-columns: 1fr;
         gap: 40px;
         padding: 40px 90px;
+    }
+    .student main .certificate {
+        width: 393px;
+    }
+    .student main .certificate-container {
+        height: 276px;
+    }
+    .projects-description {
+        font-size: 14px;
+    }
+    .student main .projects .project-main .project-languages {
+        font-size: 15px;
+    }
+    .student main .projects .project-main .project-name {
+        font-size: 40px;
+    }
+    .student main .projects .project-main .project-img {
+        width: 100%;
     }
 }
 @media only screen and (min-width: 200px) and (max-width: 358px) {
@@ -462,5 +522,65 @@ body {
 @media only screen and (min-width: 200px) and (max-width: 550px) {
     .student main .projects {
         grid-template-columns: 1fr;
+    }
+}
+@media only screen and (min-width: 200px) and (max-width: 417px) {
+    .student main .certificate {
+        width: 283px;
+    }
+    .student main .certificate-container {
+        height: 200px;
+    }
+    .student main .projects .project-main .project-img {
+        width: 98%;
+    }
+    .student main .projects .project-main .project-name {
+        font-size: 31px;
+    }
+    .projects-description {
+        font-size: 11px;
+        width: 300px;
+    }
+    .student main .projects .project-main .project-languages {
+        font-size: 12px;
+    }
+    .student main .projects .project-main .project-languages-container {
+        gap: 7px;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 280px) and (max-width: 319px) {
+    .student main .projects .project-header {
+        font-size: 35px;
+        padding-left: 15px;
+    }
+    .student main .projects .project-main .project-img {
+        width: 92%;
+        padding-left: 15px;
+    }
+    .student main .projects .project-main .project-name {
+        font-size: 27px;
+        padding-left: 15px;
+    }
+    .projects-description {
+        font-size: 10px;
+        width: 285px;
+        padding-left: 15px;
+    }
+    .student main .projects .project-main .project-languages {
+        font-size: 10px;
+        padding-left: 4px;
+    }
+    .student main .projects .project-main .project-languages-container {
+        gap: 5px;
+    }
+    .student .profile-footer .contact .contact-info .contact-header {
+        font-size: 73px;
+    }
+    .student main .certificate-container {
+        height: 186px;
+    }
+    .student main .certificate {
+        width: 273px;
     }
 }

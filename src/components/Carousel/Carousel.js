@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import group_photo from "../../assets/images/Screenshot_6.png";
+import group_photo from "../../assets/images/Screenshot_31.png";
 import group_photo1 from "../../assets/images/Screenshot_11.png";
 import "./Carousel.scss"
 

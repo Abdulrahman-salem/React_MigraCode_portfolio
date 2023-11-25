@@ -18,6 +18,8 @@
   height: auto;
   overflow-y: auto;
   object-fit: cover;
+  background-attachment: fixed;
+  background-size: cover;
 
   .main_title {
     margin-top: 30px;
@@ -50,7 +52,6 @@
 
     .description {
       width: auto;
-      margin-right: 20px;
 
       .dots {
         text-align: center;
@@ -339,6 +340,7 @@
 @media only screen and (min-width: 280px) and (max-width: 426px) {
   .home .main .description .description_text p {
     font-size: 14px;
+    text-shadow: 4px 4px 4px black;
   }
   .home .main_title {
     font-size: 23px;
