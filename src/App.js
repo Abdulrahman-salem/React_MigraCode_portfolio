@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { JwtContext } from "./components/JwtContext";
 import Home from "./pages/Home/Home";
-// import { AdminPage } from "./pages/Admin";
 import Projects from "./pages/Projects";
 import Project from "./pages/project";
 import Students from "./pages/Students";
@@ -27,8 +26,6 @@ function App() {
         <Route path="/students" element={<Students />} />
         <Route path="/student" element={<Student />} />
         <Route path="/login" element={<Login />} />
-
-        {/* <Route path="/admin/*" element={<AdminPage />} /> */}
       </Routes>
     </JwtContext.Provider>
   );
