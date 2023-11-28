@@ -5,6 +5,13 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+
+    header{
+        h1{
+            display: none;
+        }
+    }
+
     main {
         display: flex;
         flex-direction: column;

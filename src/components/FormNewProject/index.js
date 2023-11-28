@@ -819,7 +819,13 @@ function FormNewProject({ onSubmitForm }) {
                     <h2>Image : </h2>
                     {formState.projectImageLink && (
                         <div className="preview-image">
-                            <img src={formState.projectImageLink} alt="Preview" />
+                            <img
+                                src={formState.projectImageLink}
+                                alt="Preview"
+                                width="auto"
+                                height="auto"
+                                loading="eager"
+                            />
                         </div>
                     )}
                     <label htmlFor="image">

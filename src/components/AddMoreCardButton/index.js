@@ -8,7 +8,13 @@ function AddMoreCardButton({ onClick }) {
             onClick={onClick}
             title="Add Card"
         >
-            <img src={require("../../assets/images/add.svg").default} alt="" />
+            <img
+                src={require("../../assets/images/add.svg").default}
+                alt="button for add more card"
+                width="auto"
+                height="auto"
+                loading="eager"
+            />
         </button>
     );
 }

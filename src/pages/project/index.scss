@@ -16,11 +16,11 @@
     align-items: center;
     justify-content: space-between;
     padding: clamp(15px, 2vw, 25px) clamp(10px, 2vw, 25px);
-    & p,
+    & h1,
     & nav {
       padding: 0 clamp(0px, 1.5vw, 20px);
     }
-    p {
+    h1 {
       @include mixins.jura-bold;
       font-size: clamp(15px, 2.5vw, 40vw);
     }

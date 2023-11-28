@@ -233,6 +233,7 @@ function Projects() {
         <div className="projects">
             <header>
                 <NavBar />
+                <h1> Migracode portfolio projects</h1>
             </header>
             <main>
                 {currentUserJwt?.length > 0 && (

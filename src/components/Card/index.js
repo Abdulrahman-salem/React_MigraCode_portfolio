@@ -20,6 +20,9 @@ function Card({ cardData }) {
             }
             src={imageUrl}
             alt="Card img"
+            width="auto" 
+            height="auto" 
+            loading="eager"
           />
         ) : null}
         {project_image_link ? (
@@ -31,6 +34,9 @@ function Card({ cardData }) {
             }
             src={project_image_link}
             alt="Card img"
+            width="auto" 
+            height="auto" 
+            loading="eager"
           />
         ) : null}
      </div>
