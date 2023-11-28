@@ -249,16 +249,7 @@ function Home() {
                 Projects made with love
               </Link>
               <div className="card_buttons">
-                <div className="navigation_button">
-                  {currentIndex > 0 && (
-                    <button
-                      className="arrow_button"
-                      onClick={handleShowPreviousProjects}
-                    >
-                      <img src={lessthan} alt="pointer" />
-                    </button>
-                  )}
-                </div>
+              
                 <Cards
                   allData={projectsState.projects.slice(
                     currentIndex,
@@ -267,18 +258,42 @@ function Home() {
                   onClickGoTo="/project"
                 />
                 {/* <div className="buttons"> */}
-                <div className="navigation_button">
-                  {(projectsState.nextPage ||
-                    currentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
-                      projectsState.projects.length) && (
-                    <button
-                      className="arrow_button"
-                      onClick={handleShowNextProjects}
-                    >
-                      <img src={greaterthan} alt="pointer" />
-                    </button>
-                  )}
-                </div>
+                <section className="home_buttons_listing_cards_container">
+                    {currentIndex > 0 && (
+                  <div className="navigation_button">
+                      <button
+                        className="arrow_button"
+                        onClick={handleShowPreviousProjects}
+                      >
+                        <img src={lessthan} 
+                          alt="pointer"
+                          width="auto"
+                          height="auto"
+                          loading="eager"
+                          title="Previous projects"
+                        />
+                      </button>
+                  </div>
+                    )}
+                    {(projectsState.nextPage ||
+                      currentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
+                        projectsState.projects.length) && (
+                  <div className="navigation_button">
+                      <button
+                        className="arrow_button"
+                        onClick={handleShowNextProjects}
+                      >
+                        <img src={greaterthan} 
+                          alt="pointer" 
+                          width="auto"
+                          height="auto"
+                          loading="eager"
+                          title="Next projects"
+                        />
+                      </button>
+                  </div>
+                    )}
+                </section>
               </div>
             </div>
           )}
@@ -288,16 +303,6 @@ function Home() {
                 Our talented students
               </Link>
               <div className="card_buttons">
-                <div className="navigation_button">
-                  {currentStudentIndex > 0 && (
-                    <button
-                      className="arrow_button"
-                      onClick={handleShowPreviousStudents}
-                    >
-                      <img src={lessthan} alt="pointer" />
-                    </button>
-                  )}
-                </div>
                 <Cards
                   allData={studentsState.students.slice(
                     currentStudentIndex,
@@ -305,19 +310,44 @@ function Home() {
                   )}
                   onClickGoTo="/student"
                 />
-                <div className="buttons">
+                <section className="home_buttons_listing_cards_container">
+                    {currentStudentIndex > 0 && (
                   <div className="navigation_button">
+                      <button
+                        className="arrow_button"
+                        onClick={handleShowPreviousStudents}
+                      >
+                        <img src={lessthan}
+                          alt="pointer"
+                          width="auto"
+                          height="auto"
+                          loading="eager"
+                          title="Previous students"
+                        />
+                      </button>
+                  </div>
+                    )}
                     {(studentsState.offset ||
                       currentStudentIndex + NUMBER_OF_PROJECTS_DISPLAYED <
                         studentsState.students.length) && (
+                  <div className="navigation_button">
                       <button
                         className="arrow_button"
                         onClick={handleShowNextStudents}
                       >
-                        <img src={greaterthan} alt="pointer" />
+                        <img src={greaterthan}
+                          alt="pointer"
+                          width="auto"
+                          height="auto"
+                          loading="eager"
+                          title="Next students"
+                        />
                       </button>
-                    )}
                   </div>
+                    )}
+                </section>
+                <div className="buttons">
+                  
                 </div>
               </div>
             </div>

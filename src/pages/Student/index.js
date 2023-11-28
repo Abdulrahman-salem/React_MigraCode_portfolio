@@ -112,7 +112,11 @@ function Student() {
                 <img
                   className="web-name"
                   src="https://www.gitbook.com/cdn-cgi/image/width=256,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F1785193790-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MRVzxrxQhk2sxc6UAyx%252Favatar-rectangle-1613405272523.png%3Fgeneration%3D1613405273168456%26alt%3Dmedia"
-                  alt=""
+                  alt="Migracode official website"
+                  width="auto" 
+                  height="auto" 
+                  loading="eager" 
+                  title="Migracode"
                 />
               </Link>
             </div>
@@ -128,7 +132,10 @@ function Student() {
                     src={
                       require("../../assets/images/github-profile.svg").default
                     }
-                    alt=""
+                    alt="GitHub link"
+                    width="auto" 
+                    height="auto" 
+                    loading="eager"
                   />
                 </Link>
               )}
@@ -140,7 +147,10 @@ function Student() {
                       require("../../assets/images/linkedin-profile.svg")
                         .default
                     }
-                    alt=""
+                    alt="Linkedin link"
+                    width="auto" 
+                    height="auto" 
+                    loading="eager"
                   />
                 </Link>
               )}
@@ -155,7 +165,10 @@ function Student() {
                     src={
                       require("../../assets/images/email-profile.svg").default
                     }
-                    alt=""
+                    alt="email link"
+                    width="auto" 
+                    height="auto" 
+                    loading="eager"
                   />
                 </a>
               )}
@@ -163,10 +176,10 @@ function Student() {
           </div>
           <div className="main-header">
             <div className="section2">
-              <p className="main-p">
+              <h1 className="main-p">
                 Nice To Meet You! <br />
                 I'm <span>{fullName + "."}</span>
-              </p>
+              </h1>
               <section className="second-p">
                 {gender?.length > 0 && <p>Gender: {gender}</p>}
                 {countryOfBirth?.length > 0 && (
@@ -186,7 +199,13 @@ function Student() {
               </button>
             </div>
 
-            <img className="profile-img" alt="" src={imageUrl} />
+            <img className="profile-img" 
+              src={imageUrl} 
+              alt="Student img" 
+              width="auto" 
+              height="auto" 
+              loading="eager"
+            />
           </div>
         </header>
       </div>
@@ -195,12 +214,12 @@ function Student() {
         {comment?.length > 0 && (
           <section className="migracode_comment">
             {/* <br /> */}
-            <h3>Migracode comment:</h3> <p>{comment}</p>
+            <h2>Migracode comment:</h2> <p>{comment}</p>
           </section>
         )}
         {skills?.length > 0 && (
           <section>
-            <h3 className="hard-soft-skills-p">Hard skills</h3>
+            <h2 className="hard-soft-skills-p">Hard skills</h2>
             <div className="skills">
               {skills.map((skill, index) => (
                 <p className="languages" key={index}>
@@ -216,11 +235,14 @@ function Student() {
             {courseCertificate.map((certificate, index) =>
               certificate?.thumbnails?.large?.url ? (
                 <img
+                  key={index}
                   className="certificate"
                   title="Certificate"
                   src={certificate?.thumbnails?.large?.url}
-                  alt=""
-                  key={index}
+                  alt="Certificate img"
+                  width="auto" 
+                  height="auto" 
+                  loading="eager"
                 ></img>
               ) : null
             )}
@@ -229,7 +251,7 @@ function Student() {
 
         {topSkills?.length > 0 && (
           <section>
-            <h3 className="hard-soft-skills-p">soft skills</h3>
+            <h2 className="hard-soft-skills-p">soft skills</h2>
             <div className="skills">
               {topSkills.map((skill, index) => (
                 <p className="languages" key={index}>
@@ -249,7 +271,10 @@ function Student() {
                   <img
                     className="project-img"
                     src={project.project_image_link}
-                    alt=""
+                    alt="project img"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
                   />
                 )}
                 <p className="project-name">{project.name}</p>
@@ -316,7 +341,11 @@ function Student() {
             <img
               className="web-name"
               src="https://www.gitbook.com/cdn-cgi/image/width=256,dpr=2,height=40,fit=contain,format=auto/https%3A%2F%2F1785193790-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MRVzxrxQhk2sxc6UAyx%252Favatar-rectangle-1613405272523.png%3Fgeneration%3D1613405273168456%26alt%3Dmedia"
-              alt=""
+              alt="Migracode official website"
+              width="auto" 
+              height="auto" 
+              loading="eager" 
+              title="Migracode"
             />
           </div>
           <div className="social-media">
@@ -327,7 +356,10 @@ function Student() {
                   src={
                     require("../../assets/images/github-profile.svg").default
                   }
-                  alt=""
+                  alt="GitHub link"
+                  width="auto"
+                  height="auto"
+                  loading="eager"
                 />
               </Link>
             )}
@@ -338,18 +370,28 @@ function Student() {
                   src={
                     require("../../assets/images/linkedin-profile.svg").default
                   }
-                  alt=""
+                  alt="Linkedin link"
+                  width="auto"
+                  height="auto"
+                  loading="eager"
                 />
               </Link>
             )}
             {email && (
-              <Link to={email}>
-                <img
-                  className="social-footer"
-                  src={require("../../assets/images/email-profile.svg").default}
-                  alt=""
-                />
-              </Link>
+                <a
+                  href={`mailto:${email}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <img
+                    className="social-footer"
+                    src={require("../../assets/images/email-profile.svg").default}
+                    alt="email link"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
+                  />
+                </a>
             )}
           </div>
         </div>

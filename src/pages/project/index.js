@@ -176,7 +176,7 @@ function Project() {
   return (
     <article className="project">
       <header>
-        <p className="name">{name}</p>
+        <h1 className="name">{name}</h1>
         <nav>
           {repository_link && repository_link[0]?.length > 0 ? (
             <>
@@ -189,7 +189,9 @@ function Project() {
                     }
                     title="repository link"
                     alt="repository link"
-                    width={40}
+                    width="auto"
+                    height="auto"
+                    loading="eager"
                   />
                 </Link>
               ))}
@@ -201,7 +203,9 @@ function Project() {
                 src={require("../../assets/images/trello.svg").default}
                 title="trello link"
                 alt="trello link"
-                width={40}
+                width="auto"
+                height="auto"
+                loading="eager"
               />
             </Link>
           ) : null}
@@ -211,7 +215,9 @@ function Project() {
                 src={require("../../assets/images/live-web-demo.svg").default}
                 title="live demo link"
                 alt="live demo link"
-                width={40}
+                width="auto"
+                height="auto"
+                loading="eager"
               />
             </Link>
           ) : null}
@@ -221,7 +227,9 @@ function Project() {
                 src={require("../../assets/images/presentation.png")}
                 title="product presentation link"
                 alt="product presentation link"
-                width={40}
+                width="auto"
+                height="auto"
+                loading="eager"
               />
             </Link>
           ) : null}
@@ -242,7 +250,9 @@ function Project() {
                             className="project-image"
                             src={project_image_link}
                             alt="screenshot for first page of project"
-                            width={40}
+                            width="auto"
+                            height="auto"
+                            loading="eager"
                         />
                     ) : null}
                     <article>

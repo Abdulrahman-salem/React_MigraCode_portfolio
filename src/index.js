@@ -6,6 +6,7 @@ import "./assets/styles/scss/_typography.scss";
 import "./assets/styles/scss/_global.scss";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+// import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

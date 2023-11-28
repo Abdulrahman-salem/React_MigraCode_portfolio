@@ -6,12 +6,17 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  
+  header{
+    h1{
+      display: none;
+    }
+  }
 
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(27 27 27) 100%);
     padding: 0px 70px 39px;
     position: relative;

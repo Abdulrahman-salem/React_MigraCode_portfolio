@@ -201,14 +201,14 @@ function Students() {
             default:
                 break;
         }
-        setStatusScrollY(0)
-        return;
+        return setStatusScrollY(0);
     };
 
     return (
         <div className="students">
             <header>
                 <NavBar />
+                <h1> Migracode portfolio students</h1>
             </header>
             {/* {console.log(studentsState.students)} */}
             <main>

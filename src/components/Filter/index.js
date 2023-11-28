@@ -24,7 +24,7 @@ function Filter({ children }) {
         // toggle opening and closing filter
         return setIsOpen(!isOpen);
     };
-    
+
     useEffect(() => {
         // close the filter-option
         window.addEventListener("click", (e) => {
@@ -39,7 +39,13 @@ function Filter({ children }) {
         <section className="filter">
             <button onClick={handleOpenFilterOption} ref={filterRef}>
                 <p>Filter</p>
-                <img src={pointerImageUrl} alt="pointer" />
+                <img
+                    src={pointerImageUrl}
+                    alt="pointer"
+                    width="auto"
+                    height="auto"
+                    loading="eager"
+                />
             </button>
             {isOpen && <div className="filter-option">{children}</div>}
         </section>

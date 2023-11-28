@@ -27,7 +27,7 @@ const Carousel = ({ onClickSeeMore = () => {} }) => {
                 {showDescription ? (
                     <div className="description_text">
                         <div className="text">
-                            <h1 className="title">Our mission</h1>
+                            <h2 className="title">Our mission</h2>
                             <p>
                                 Migracode acts as a bridge between the demand
                                 for skilled people in the tech sector and people
@@ -48,12 +48,19 @@ const Carousel = ({ onClickSeeMore = () => {} }) => {
                                 See more
                             </button>
                         </div>
-                        <img src={group_photo} alt="group_photo" />
+                        <img
+                            src={group_photo}
+                            alt="group_photo"
+                            width="auto"
+                            height="auto"
+                            loading="eager"
+                            title="group photo"
+                        />
                     </div>
                 ) : (
                     <div className="description_text">
                         <div className="text">
-                            <h1 className="title">About us</h1>
+                            <h2 className="title">About us</h2>
                             <p>
                                 In the last 2 months of every MigraCode course,
                                 students work in groups on a final project in
@@ -74,7 +81,14 @@ const Carousel = ({ onClickSeeMore = () => {} }) => {
                                 See more
                             </button>
                         </div>
-                        <img src={group_photo1} alt="group_photo" />
+                        <img
+                            src={group_photo1}
+                            alt="group_photo"
+                            width="auto"
+                            height="auto"
+                            loading="eager"
+                            title="group photo"
+                        />
                     </div>
                 )}
 
