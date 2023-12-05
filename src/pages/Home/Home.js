@@ -36,6 +36,7 @@ import Carousel from "../../components/Carousel/Carousel";
 
 function Home() {
   const RefScrollToProjects = useRef();
+  const RefScrollToStudents = useRef();
 
   // to read redux projects state
   const { projectsState } = useSelector((store) => store);
@@ -121,10 +122,12 @@ function Home() {
 
       setCurrentIndex(nextIndex);
     }
+    RefScrollToProjects.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleShowPreviousProjects = async (e) => {
     setCurrentIndex(currentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
+    RefScrollToProjects.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const { studentsState } = useSelector((store) => store);
@@ -225,9 +228,11 @@ function Home() {
 
       setCurrentStudentIndex(nextIndex);
     }
+    RefScrollToStudents.current?.scrollIntoView({ behavior: "smooth" });
   };
   const handleShowPreviousStudents = async (e) => {
     setCurrentStudentIndex(currentStudentIndex - NUMBER_OF_PROJECTS_DISPLAYED);
+    RefScrollToStudents.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleOnClickSeeMore =  (e) => {
@@ -298,7 +303,7 @@ function Home() {
             </div>
           )}
           {studentsState.students?.length > 0 && (
-            <div className="students_home">
+            <div className="students_home" ref={RefScrollToStudents}>
               <Link className="title" to="/students" onClick={handleResetData}>
                 Our talented students
               </Link>
