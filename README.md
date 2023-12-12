@@ -14,11 +14,11 @@ Here is a working demo : https://portfolio.migracode.org/
 
 ### Frontend:
 - [React](https://react.dev/)
-- [Sass] (https://sass-lang.com/)
-- [Redux.js] (https://redux.js.org/)
-- [React Router] (https://reactrouter.com)
-- [React Select] (https://react-select.com/home)
-- [Axios] (https://axios-http.com/docs/intro)
+- [Sass](https://sass-lang.com/)
+- [Redux.js](https://redux.js.org/)
+- [React Router](https://reactrouter.com)
+- [React Select](https://react-select.com/home)
+- [Axios](https://axios-http.com/docs/intro)
 
 ### Backend:
 - [Node](https://nodejs.org/)
@@ -27,7 +27,8 @@ Here is a working demo : https://portfolio.migracode.org/
 ### Database:
 - [PostgreSQL](https://www.postgresql.org/)
 - [Airtable](https://www.airtable.com/)
-- [GitHub] (https://github.com/)
+- [GitHub](https://github.com/)
+
 
 ## React/Node Project
 
@@ -37,7 +38,7 @@ Here is a working demo : https://portfolio.migracode.org/
 
 2. Run `npm start` in the client folder to start the application in development mode.
 
-## Server Configuration
+### Server Configuration
 
 Clone this folder for the server folder https://github.com/IrynaSyvashchenko/node_MigraCode_portfolio
 
@@ -57,12 +58,12 @@ Ready! Now, you should have both the client and server up and running.
 
 Meet the talented individuals who have contributed to the development of MigraCode Portfolio :
 
-[Iryna Syvashchenko] (https://github.com/IrynaSyvashchenko)
-[Abdulrahman Salem] (https://github.com/Abdulrahman-salem)
-[Ameer Khateeb] (https://github.com/Ameerkha21)
-[Keith Tou] (https://github.com/keithtou)
-[Momo Yang] (https://github.com/momoyangcode)
-[Hammad Haidershah] (https://github.com/hammadhaidershah)
+- [Iryna Syvashchenko] (https://github.com/IrynaSyvashchenko)
+- [Abdulrahman Salem] (https://github.com/Abdulrahman-salem)
+- [Ameer Khateeb] (https://github.com/Ameerkha21)
+- [Keith Tou] (https://github.com/keithtou)
+- [Momo Yang] (https://github.com/momoyangcode)
+- [Hammad Haidershah] (https://github.com/hammadhaidershah)
 
 
 
