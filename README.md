@@ -6,13 +6,9 @@ Create a sleek, modern, dark-themed website that mirrors MigraCode's distinctive
 ## Description
 MigraCode Portfolio is an online platform spotlighting exceptional projects by MigraCode students. It offers a space for web developers to showcase their skills and accomplishments. The primary goal is to exhibit the diversity and innovation of MigraCode projects, serving as a source of inspiration and information for potential employers, HR professionals, and aspiring students.
 
-### Demo
+## Demo
 
 Here is a working demo : https://portfolio.migracode.org/
-
-## Features
-
-
 
 ## Technologies Used
 
