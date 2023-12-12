@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# MigraCode Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Goal
+Create a sleek, modern, dark-themed website that mirrors MigraCode's distinctive style. The aim is to showcase MigraCode students' outstanding projects in an engaging and visually appealing manner, providing an immersive experience for visitors.
 
-## Available Scripts
+## Description
+MigraCode Portfolio is an online platform spotlighting exceptional projects by MigraCode students. It offers a space for web developers to showcase their skills and accomplishments. The primary goal is to exhibit the diversity and innovation of MigraCode projects, serving as a source of inspiration and information for potential employers, HR professionals, and aspiring students.
 
-In the project directory, you can run:
+### Demo
 
-### `npm start`
+Here is a working demo : https://portfolio.migracode.org/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+### Frontend:
+- [React](https://react.dev/)
+- [Sass] (https://sass-lang.com/)
+- [Redux.js] (https://redux.js.org/)
+- [React Router] (https://reactrouter.com)
+- [React Select] (https://react-select.com/home)
+- [Axios] (https://axios-http.com/docs/intro)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend:
+- [Node](https://nodejs.org/)
+- [Express](http://expressjs.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Database:
+- [PostgreSQL](https://www.postgresql.org/)
+- [Airtable](https://www.airtable.com/)
+- [GitHub] (https://github.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# React/Node Project
 
-### `npm run eject`
+This repository contains a React/Node project with a folder structure separated for the client and the server.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Client Configuration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Run `npm install` in the client folder to install the dependencies.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Create a `.env` file in the client folder for Firebase configuration. You will need to create a project in Firebase (storage) to obtain the credentials and the appropriate settings (https://firebase.google.com/). Make sure to include the necessary variables in your `.env` file. Here is an example:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```env
+        VITE_FIREBASE_API_KEY="your-api-key"
+        VITE_FIREBASE_AUTH_DOMAIN="your-auth-domain"
+        VITE_FIREBASE_PROJECT_ID="your-project-id"
+        VITE_FIREBASE_STORAGE_BUCKET="your-storage-bucket"
+        VITE_FIREBASE_MESSAGING_SENDER_ID="your-messaging-sender-id"
+        VITE_FIREBASE_APP_ID="your-app-id"
+3. Run `npm run dev` in the client folder to start the application in development mode.
 
-## Learn More
+## Server Configuration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Run `npm install` in the server folder to install the dependencies.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Use the table creation script to set up the database (this is the file -> dbModel.sql ). Ensure that you have a configured database and adjust the script as needed.
+3. Update the `.env` file in the server folder with your database information and other configurations. Here is an example:
 
-### Code Splitting
+   ```env
+   TOKEN_SECRET = "your-Secret-token"
+   PGUSER="your-pg-port"
+   PGHOST="your-pg-host"
+   PGPASSWORD="your-pg-password"
+   PGDATABASE="your-pg-database"
+   PGPORT="your-server-port"
+4. Run `npm run dev` in the server folder to start the application in development mode.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ready! Now, you should have both the client and server up and running.
 
-### Analyzing the Bundle Size
+## Meet the Team
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Meet the talented individuals who have contributed to the development of Migramix:
 
-### Making a Progressive Web App
+| [![Damian Rodriguez](https://avatars.githubusercontent.com/u/128808245?v=4)]([https://github.com/GamaG27](https://github.com/IrynaSyvashchenko)) | [![Iryna Syvashchenko](https://avatars.githubusercontent.com/u/94227693?v=3)](https://github.com/MiguelCagnate) | [![Dante](https://avatars.githubusercontent.com/u/127965845?v=3)](https://github.com/Ante2023) | [![Angelyn Bonaldy](https://avatars.githubusercontent.com/u/117824958?v=3)](https://github.com/anggifit) | [![Leonardo](https://avatars.githubusercontent.com/u/129212312?v=3)](https://github.com/LeonardoBabuin) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
